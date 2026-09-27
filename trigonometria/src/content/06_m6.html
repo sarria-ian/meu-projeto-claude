@@ -1,0 +1,100 @@
+<section class="page mod" id="m6" data-num="6" data-part="Parte III · Ciclo trigonométrico" data-short="Ciclo e arcos côngruos" data-title="O ciclo trigonométrico e os arcos côngruos" data-icon="circle" data-desc="Circunferência de raio 1, função de Euler, sentido positivo, quadrantes, arcos côngruos e como achar a 1ª determinação e o quadrante.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>descrever o ciclo trigonométrico: centro na origem, raio 1, origem dos arcos em \(A(1,0)\) e sentido positivo anti-horário;</li>
+    <li>usar a função de Euler \(E(t)\) para associar cada número real a um ponto do ciclo;</li>
+    <li>reconhecer arcos côngruos (\(\alpha+2k\pi\)) e achar a 1ª determinação de qualquer arco;</li>
+    <li>dizer em que quadrante fica um arco como \(\frac{81\pi}{4}\) ou 2100°.</li></ul></div>
+
+  <h2 class="sec"><span class="n">6.1</span> A circunferência trigonométrica</h2>
+  <div class="prose">
+    <p>Uma circunferência de centro \((x_0,y_0)\) e raio \(R\) tem equação</p>
+    <div>\[(x-x_0)^2+(y-y_0)^2=R^2\]</div>
+    <div class="box def"><div class="bl">Ciclo trigonométrico</div><p>É a circunferência de <b>centro na origem</b> \((0,0)\) e <b>raio 1</b>:</p><div>\[x^2+y^2=1\]</div><p>com três combinados: os arcos começam em \(A(1,0)\); o sentido <b>anti-horário é positivo</b>; o horário é negativo. Os eixos dividem o ciclo em quatro <b>quadrantes</b>.</p></div>
+    <figure class="fig" data-f="cicloBase"><figcaption>Quadrantes numerados no sentido anti-horário a partir de \(A\). Pontos sobre os eixos (0°, 90°, 180°, 270°) não pertencem a nenhum quadrante.</figcaption></figure>
+    <div class="box tip"><div class="bl">Por que raio 1?</div><p>Com \(R=1\), o comprimento de um arco é igual à sua medida em radianos (\(\ell=\alpha\cdot1\)). E, no Módulo 7, as coordenadas do ponto viram diretamente o cosseno e o seno.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">6.2</span> A função de Euler</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>A <b>função de Euler</b> \(E\) associa cada número real \(t\) a um ponto \(E(t)=(x,y)\) do ciclo: partindo de \(A(1,0)\), percorremos um arco de comprimento \(|t|\) no sentido anti-horário se \(t\gt0\) ou horário se \(t\lt0\).</p><div>\[E(0)=(1,0)\quad\text{(início do círculo)}\]</div></div>
+    <p>Exemplos do caderno: \(E\!\left(\frac\pi3\right)\) é o ponto a \(\frac\pi3\) rad (60°) de \(A\) no sentido positivo; \(E\!\left(-\frac\pi2\right)\) é o ponto \((0,-1)\), o mesmo de \(E\!\left(\frac{3\pi}2\right)\).</p>
+    <p>É como enrolar a reta real no ciclo: o 0 cola em \(A\), os positivos vão no sentido anti-horário e os negativos no horário.</p>
+  </div>
+  <div class="lab" data-w="cicloLab" data-o='{"id":"m6","t":60,"show":[]}'><div class="lt">Laboratório: percorrendo o ciclo</div><p class="ld">Arraste o controle (ou o ponto) além de 360° ou abaixo de 0°. A espiral mostra as voltas dadas; o ponto final é sempre o da 1ª determinação.</p></div>
+
+  <h2 class="sec"><span class="n">6.3</span> Arcos côngruos</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>Dois arcos são <b>côngruos</b> quando terminam no mesmo ponto do ciclo. Isso acontece quando diferem por um número inteiro de voltas:</p><div>\[\alpha\equiv\alpha+2k\pi,\quad k\in\mathbb Z\qquad\qquad\beta\equiv\beta+k\cdot360^\circ\]</div></div>
+    <p>Exemplos do caderno:</p>
+    <ul><li>\(\frac{5\pi}2=\frac{4\pi+\pi}{2}=2\pi+\frac\pi2\): \(\frac{5\pi}{2}\) é côngruo de \(\frac\pi2\).</li><li>\(\frac\pi6+2\pi=\frac{13\pi}6\): \(\frac\pi6\) é côngruo de \(\frac{13\pi}6\).</li><li>\(\frac\pi4+2\cdot2\pi=\frac\pi4+4\pi=\frac{17\pi}4\) (com \(k=2\)).</li><li>Em graus: \(30^\circ+3\cdot360^\circ=1110^\circ\).</li></ul>
+    <p>O único representante entre 0 e \(2\pi\) (ou entre 0° e 360°) chama-se <b>1ª determinação</b> (ou menor determinação positiva).</p>
+  </div>
+
+  <h2 class="sec"><span class="n">6.4</span> Método para achar a 1ª determinação</h2>
+  <div class="prose">
+    <div class="two">
+      <div class="box obs"><div class="bl">Em graus</div><p>Divida por 360. O resto é a 1ª determinação.</p><div>\[1270=3\cdot360+190\ \Rightarrow\ 1270^\circ\equiv190^\circ\]</div></div>
+      <div class="box obs"><div class="bl">Em radianos (\(\frac{a\pi}{b}\))</div><p><b>1º passo:</b> uma volta é \(2\pi=\frac{2b\,\pi}{b}\). <b>2º passo:</b> o maior múltiplo de \(2b\) que não passa de \(a\). <b>3º passo:</b> o que sobra fica no numerador.</p><div>\[\frac{31\pi}6:\ 2b=12,\ 31=24+7\Rightarrow\frac{31\pi}{6}=2\cdot2\pi+\frac{7\pi}6\]</div></div>
+    </div>
+    <div class="box warn"><div class="bl">Erro comum</div><p>Dividir o numerador só pelo denominador. Em \(\frac{25\pi}3\), a volta é \(\frac{6\pi}{3}\): \(25=24+1\), então \(\frac{25\pi}3=4\cdot2\pi+\frac\pi3\equiv\frac\pi3\).</p></div>
+  </div>
+  <div class="lab" data-w="congLab"><div class="lt">Laboratório: calculadora de arcos côngruos</div><p class="ld">Digite um arco em graus (2100) ou em radianos (41π/3). Aparecem a divisão, a 1ª determinação, o número de voltas e o quadrante.</p></div>
+
+  <h2 class="sec"><span class="n">6.5</span> Localizar o quadrante</h2>
+  <div class="prose">
+    <p>Depois de achar a 1ª determinação \(\beta\), compare com os eixos:</p>
+    <div class="tbl"><table><thead><tr><th>1º Q</th><th>2º Q</th><th>3º Q</th><th>4º Q</th></tr></thead><tbody><tr><td>\(0\lt\beta\lt\frac\pi2\)</td><td>\(\frac\pi2\lt\beta\lt\pi\)</td><td>\(\pi\lt\beta\lt\frac{3\pi}2\)</td><td>\(\frac{3\pi}2\lt\beta\lt2\pi\)</td></tr><tr><td>0° a 90°</td><td>90° a 180°</td><td>180° a 270°</td><td>270° a 360°</td></tr></tbody></table></div>
+    <p>Exemplos do caderno: \(\frac{81\pi}4=10\cdot2\pi+\frac\pi4\) → 1º Q; \(\frac{41\pi}{3}=6\cdot2\pi+\frac{5\pi}{3}\) (300°) → 4º Q; \(2100^\circ=5\cdot360^\circ+300^\circ\) → 4º Q.</p>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Onde para a cabine da roda-gigante?</h3>
+    <p>Uma roda-gigante começa com a cabine no ponto mais à direita (como \(A\)) e gira no sentido anti-horário. O motor registra que ela girou 1000°. Em que quadrante a cabine parou, e quantas voltas completas deu?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · dividir por 360</span><div class="m">\[1000=2\cdot360+280\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · interpretar</span><p>2 voltas completas e mais 280°. Como \(270^\circ\lt280^\circ\lt360^\circ\), a cabine está no <b>4º quadrante</b>: abaixo do centro, do lado direito.</p></div>
+      <div class="st"><span class="pl">Passo 3 · em radianos</span><div class="m">\[1000^\circ=\frac{50\pi}{9}=2\cdot2\pi+\frac{14\pi}{9}\]</div></div>
+    </div>
+    <div class="final"><b>Resposta:</b> 2 voltas completas; a cabine para a 280° (4º quadrante), faltando 80° para voltar ao ponto de partida.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Encontre a 1ª determinação de \(\frac{25\pi}{3}\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>Uma volta: \(2\pi=\frac{6\pi}3\). Maior múltiplo de 6 que não passa de 25: 24.</p></div><div class="st"><span class="pl">Passo 2</span><div class="m">\[\frac{25\pi}3=\frac{24\pi+\pi}3=8\pi+\frac\pi3=4\cdot2\pi+\frac\pi3\equiv\frac\pi3\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Em que quadrante está \(\frac{41\pi}{3}\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\frac{41\pi}3=\frac{36\pi+5\pi}{3}=12\pi+\frac{5\pi}3=6\cdot2\pi+\frac{5\pi}3\]</div></div><div class="st"><span class="pl">Passo 2</span><p>\(\frac{5\pi}3=300^\circ\), entre 270° e 360°: <b>4º quadrante</b>.</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Qual a 1ª determinação de \(-\frac{\pi}{2}\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>Somando uma volta: \(-\frac\pi2+2\pi=\frac{3\pi}2\). É o ponto \((0,-1)\), sobre o eixo \(y\) (não pertence a quadrante).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m6v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>A equação do ciclo trigonométrico é:</p>
+      <ol class="opts"><li>\(x^2+y^2=2\pi\)</li><li>\(x^2+y^2=1\)</li><li>\(x+y=1\)</li><li>\((x-1)^2+y^2=1\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Centro \((0,0)\) e raio 1 em \((x-x_0)^2+(y-y_0)^2=R^2\): \(x^2+y^2=1\).</p></div></div><p class="rev">Revise: <a href="#m6-s1">6.1 Circunferência trigonométrica</a></p></div>
+    <div class="q" data-id="m6v2" data-ans="D"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(E\!\left(-\frac\pi2\right)\) é o ponto:</p>
+      <ol class="opts"><li>\((0,1)\)</li><li>\((-1,0)\)</li><li>\((1,0)\)</li><li>\((0,-1)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(t\lt0\): um quarto de volta no sentido horário a partir de \(A(1,0)\) leva a \((0,-1)\).</p></div></div><p class="rev">Revise: <a href="#m6-s2">6.2 Função de Euler</a></p></div>
+    <div class="q" data-id="m6v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag f">fácil</span></div><p>Qual arco é côngruo de \(\frac\pi6\)?</p>
+      <ol class="opts"><li>\(\frac{13\pi}6\)</li><li>\(\frac{7\pi}6\)</li><li>\(\frac{5\pi}6\)</li><li>\(\frac{\pi}3\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\frac\pi6+2\pi=\frac{13\pi}6\): diferem de uma volta.</p></div></div><p class="rev">Revise: <a href="#m6-s3">6.3 Arcos côngruos</a></p></div>
+    <div class="q" data-id="m6v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>A 1ª determinação de \(1270^\circ\) é:</p>
+      <ol class="opts"><li>70°</li><li>270°</li><li>190°</li><li>350°</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[1270=3\cdot360+190\]</div></div></div><p class="rev">Revise: <a href="#m6-s4">6.4 Método</a></p></div>
+    <div class="q" data-id="m6v5" data-ans="D"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>O arco de 2100° está no:</p>
+      <ol class="opts"><li>1º quadrante</li><li>2º quadrante</li><li>3º quadrante</li><li>4º quadrante</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[2100=5\cdot360+300\]</div><p>300° está entre 270° e 360°.</p></div></div><p class="rev">Revise: <a href="#m6-s5">6.5 Localizar o quadrante</a></p></div>
+    <div class="q" data-id="m6v6" data-ans="B"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>A 1ª determinação de \(\frac{31\pi}6\) é:</p>
+      <ol class="opts"><li>\(\frac{\pi}6\)</li><li>\(\frac{7\pi}6\)</li><li>\(\frac{19\pi}6\)</li><li>\(\frac{5\pi}6\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Volta \(=\frac{12\pi}6\); \(31=24+7\).</p><div class="m">\[\frac{31\pi}6=2\cdot2\pi+\frac{7\pi}6\]</div></div></div><p class="rev">Revise: <a href="#m6-s4">6.4 Método</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação visual do conteúdo deste módulo</p></div></div>
+    <div class="q dq" data-id="m6d1" data-ans="C"><p>Qual arco termina no ponto marcado?</p><figure class="fig sm" data-f="cicloPt" data-o='{"d":[135],"quad":1}'></figure><ol class="opts"><li>\(\frac\pi4\)</li><li>\(\frac{5\pi}4\)</li><li>\(\frac{3\pi}4\)</li><li>\(\frac{7\pi}4\)</li></ol><div class="why" hidden>O ponto está no 2º quadrante, a 45° do eixo negativo: \(180^\circ-45^\circ=135^\circ=\frac{3\pi}4\).</div></div>
+    <div class="q dq" data-id="m6d2" data-ans="A"><p>E este ponto?</p><figure class="fig sm" data-f="cicloPt" data-o='{"d":[300],"quad":1}'></figure><ol class="opts"><li>\(\frac{5\pi}3\)</li><li>\(\frac{4\pi}3\)</li><li>\(\frac{\pi}3\)</li><li>\(\frac{2\pi}3\)</li></ol><div class="why" hidden>4º quadrante, a 60° antes de completar a volta: \(360^\circ-60^\circ=300^\circ=\frac{5\pi}3\).</div></div>
+    <div class="q dq" data-id="m6d3" data-ans="B"><p>Os arcos \(\frac{81\pi}4\) e \(\frac\pi4\):</p><ol class="opts"><li>estão em quadrantes diferentes</li><li>são côngruos</li><li>são suplementares</li><li>são complementares</li></ol><div class="why" hidden>\(\frac{81\pi}4=10\cdot2\pi+\frac\pi4\): terminam no mesmo ponto.</div></div>
+    <div class="q dq" data-id="m6d4" data-ans="D"><p>O sentido positivo no ciclo é:</p><ol class="opts"><li>horário</li><li>para cima</li><li>para a direita</li><li>anti-horário</li></ol><div class="why" hidden>Por convenção, arcos positivos giram no sentido anti-horário a partir de \(A(1,0)\).</div></div>
+  </div>
+</div>
+</section>

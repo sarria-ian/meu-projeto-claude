@@ -1,0 +1,99 @@
+<section class="page mod" id="m9" data-num="9" data-part="Parte III · Ciclo trigonométrico" data-short="Relações fundamentais" data-title="Relações fundamentais e derivadas" data-icon="link" data-desc="sen² + cos² = 1 para qualquer arco, tg, cotg, sec e cossec, as relações derivadas e como achar todas as razões conhecendo uma e o quadrante.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>escrever as seis razões em função de seno e cosseno e dizer quando cada uma existe;</li>
+    <li>demonstrar \(\tg^2x+1=\sec^2x\), \(1+\cotg^2x=\cossec^2x\), \(\cos^2x=\frac1{1+\tg^2x}\) e \(\sen^2x=\frac{\tg^2x}{1+\tg^2x}\);</li>
+    <li>conhecendo uma razão e o quadrante, calcular todas as outras com o sinal correto;</li>
+    <li>simplificar expressões trigonométricas usando essas relações.</li></ul></div>
+
+  <h2 class="sec"><span class="n">9.1</span> As relações fundamentais</h2>
+  <div class="prose">
+    <p>Resumo da página “Relações fundamentais” do caderno (06/08/26). Valem para qualquer arco \(x\) em que os denominadores não se anulam:</p>
+    <div class="tbl"><table><thead><tr><th>relação</th><th class="l">existe quando</th></tr></thead><tbody>
+      <tr><td>\(\sen^2x+\cos^2x=1\)</td><td class="l">sempre (o ponto está em \(x^2+y^2=1\))</td></tr>
+      <tr><td>\(\tg x=\dfrac{\sen x}{\cos x}\)</td><td class="l">\(\cos x\ne0\)</td></tr>
+      <tr><td>\(\cotg x=\dfrac{\cos x}{\sen x}=\dfrac1{\tg x}\)</td><td class="l">\(\sen x\ne0\)</td></tr>
+      <tr><td>\(\sec x=\dfrac1{\cos x}\)</td><td class="l">\(\cos x\ne0\)</td></tr>
+      <tr><td>\(\cossec x=\dfrac1{\sen x}\)</td><td class="l">\(\sen x\ne0\)</td></tr></tbody></table></div>
+  </div>
+
+  <h2 class="sec"><span class="n">9.2</span> Relações derivadas</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">As quatro derivadas</div><div>\[\tg^2x+1=\sec^2x\qquad1+\cotg^2x=\cossec^2x\]\[\cos^2x=\frac1{1+\tg^2x}\qquad\sen^2x=\frac{\tg^2x}{1+\tg^2x}\]</div></div>
+    <details class="demo" open><summary>Demonstrações (como no caderno)</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">① \(\tg^2x+1=\sec^2x\)</span><div class="m">\[\tg^2x+1=\frac{\sen^2x}{\cos^2x}+1=\frac{\sen^2x+\cos^2x}{\cos^2x}=\frac1{\cos^2x}=\sec^2x\]</div><p>Condição: \(\cos x\ne0\).</p></div>
+        <div class="st"><span class="pl">② \(1+\cotg^2x=\cossec^2x\)</span><div class="m">\[1+\frac{\cos^2x}{\sen^2x}=\frac{\sen^2x+\cos^2x}{\sen^2x}=\frac1{\sen^2x}=\cossec^2x\]</div><p>Condição: \(\sen x\ne0\).</p></div>
+        <div class="st"><span class="pl">③ \(\cos^2x=\frac1{1+\tg^2x}\)</span><p>De ①: \(1+\tg^2x=\sec^2x=\frac1{\cos^2x}\). Invertendo os dois lados:</p><div class="m">\[\cos^2x=\frac1{\sec^2x}=\frac1{1+\tg^2x}\]</div></div>
+        <div class="st"><span class="pl">④ \(\sen^2x=\frac{\tg^2x}{1+\tg^2x}\)</span><p>Conferência feita no caderno: substituindo \(1+\tg^2x=\sec^2x\),</p><div class="m">\[\frac{\tg^2x}{\sec^2x}=\frac{\sen^2x/\cos^2x}{1/\cos^2x}=\frac{\sen^2x}{\cos^2x}\cdot\cos^2x=\sen^2x\]</div></div>
+      </div></div></details>
+  </div>
+
+  <h2 class="sec"><span class="n">9.3</span> Conhecendo uma razão, achar todas</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Roteiro</div><ol><li>Use a relação que liga a razão dada a seno ou cosseno (fundamental, ① ou ②).</li><li>Ao tirar a raiz, <b>escolha o sinal pelo quadrante</b> (Módulo 7).</li><li>As outras saem das definições: \(\tg=\frac{\sen}{\cos}\) e as inversas.</li></ol></div>
+    <div class="ex"><div class="et">Modelo</div><p>\(\cos x=-\frac5{13}\) e \(\pi\lt x\lt\frac{3\pi}2\). Obtenha as outras razões.</p><div class="steps">
+      <div class="st"><span class="pl">Passo 1 · seno</span><div class="m">\[\sen^2x=1-\tfrac{25}{169}=\tfrac{144}{169}\Rightarrow\sen x=\pm\tfrac{12}{13}\]</div><p>3º quadrante: seno negativo, \(\sen x=-\frac{12}{13}\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · as outras</span><div class="m">\[\tg x=\frac{-12/13}{-5/13}=\frac{12}5\quad\cotg x=\frac5{12}\quad\sec x=-\frac{13}5\quad\cossec x=-\frac{13}{12}\]</div></div>
+      <div class="st"><span class="pl">Conferência</span><p>3º Q: tangente e cotangente positivas; seno, cosseno, secante e cossecante negativas. ✓</p></div></div></div>
+    <div class="box warn"><div class="bl">Erro comum</div><p>Esquecer o \(\pm\) ao tirar a raiz. A relação fundamental dá o valor absoluto; quem decide o sinal é o quadrante.</p></div>
+  </div>
+  <div class="lab" data-w="relLab"><div class="lt">Laboratório: calculadora das seis razões</div><p class="ld">Escolha a razão conhecida, digite o valor (ex.: 4/5, −25/24, 12/5) e o quadrante. Se a combinação for impossível, o laboratório explica por quê.</p></div>
+
+  <h2 class="sec"><span class="n">9.4</span> Simplificando expressões</h2>
+  <div class="prose">
+    <p>Estratégia: escreva tudo em seno e cosseno, junte frações e use \(\sen^2+\cos^2=1\) (ou \(1-\cos^2x=\sen^2x\)).</p>
+    <div class="ex"><div class="et">Modelo (tipo da Lista 4)</div><p>Simplifique \(y=\dfrac{\tg x\cdot\cos x}{(1+\cos x)(1-\cos x)}\).</p><div class="steps">
+      <div class="st"><span class="pl">Passo 1 · produto notável</span><div class="m">\[(1+\cos x)(1-\cos x)=1-\cos^2x=\sen^2x\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · tangente em seno/cosseno</span><div class="m">\[y=\frac{\frac{\sen x}{\cos x}\cdot\cos x}{\sen^2x}=\frac{\sen x}{\sen^2x}=\frac1{\sen x}=\cossec x\]</div></div></div></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>O comprimento da tesoura de um telhado</h3>
+    <p>Na construção, a inclinação de um telhado é dada em porcentagem, que é a <b>tangente</b> do ângulo com a horizontal. Um telhado de 30% cobre um vão horizontal de 4 m (de um lado da cumeeira). Qual o comprimento da viga inclinada?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · o que sabemos</span><p>\(\tg\theta=0{,}30\). A viga é a hipotenusa; o vão de 4 m é o cateto adjacente: viga \(=\frac{4}{\cos\theta}=4\sec\theta\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · relação derivada ①</span><div class="m">\[\sec^2\theta=1+\tg^2\theta=1+0{,}09=1{,}09\Rightarrow\sec\theta=\sqrt{1{,}09}\approx1{,}044\]</div><p>Positivo: ângulo agudo.</p></div>
+      <div class="st"><span class="pl">Passo 3 · comprimento</span><div class="m">\[4\cdot1{,}044\approx4{,}18\ \text{m}\]</div></div>
+    </div>
+    <div class="final"><b>Resposta:</b> cerca de 4,18 m, sem precisar descobrir o ângulo (que seria ≈ 16,7°).</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Sabendo que \(\tg x=2\) e \(x\) no 1º quadrante, calcule \(\cos x\) e \(\sen x\).</p><div class="steps">
+    <div class="st"><span class="pl">Passo 1 · relação ③</span><div class="m">\[\cos^2x=\frac1{1+4}=\frac15\Rightarrow\cos x=\frac{1}{\sqrt5}=\frac{\sqrt5}5\]</div></div>
+    <div class="st"><span class="pl">Passo 2</span><div class="m">\[\sen x=\tg x\cdot\cos x=\frac{2\sqrt5}5\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Simplifique \((1-\cos^2x)(1+\cotg^2x)\).</p><div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\sen^2x\cdot\cossec^2x=\sen^2x\cdot\frac1{\sen^2x}=1\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Se \(\sec x=3\), quanto vale \(\tg^2x\)?</p><div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\tg^2x=\sec^2x-1=9-1=8\]</div></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m9v1" data-ans="D"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>A secante não existe quando:</p>
+      <ol class="opts"><li>\(\sen x=0\)</li><li>\(\tg x=0\)</li><li>\(x=0\)</li><li>\(\cos x=0\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\sec x=\frac1{\cos x}\): o denominador não pode ser zero.</p></div></div><p class="rev">Revise: <a href="#m9-s1">9.1 Relações fundamentais</a></p></div>
+    <div class="q" data-id="m9v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>Qual identidade está correta?</p>
+      <ol class="opts"><li>\(1+\cotg^2x=\cossec^2x\)</li><li>\(1+\tg^2x=\cossec^2x\)</li><li>\(1+\sec^2x=\tg^2x\)</li><li>\(\sen^2x-\cos^2x=1\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Dividindo \(\sen^2+\cos^2=1\) por \(\sen^2x\): \(1+\cotg^2x=\cossec^2x\).</p></div></div><p class="rev">Revise: <a href="#m9-s2">9.2 Relações derivadas</a></p></div>
+    <div class="q" data-id="m9v3" data-ans="C"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>\(\tg x=\frac34\) com \(\pi\lt x\lt\frac{3\pi}2\). Então \(\cos x\) é:</p>
+      <ol class="opts"><li>\(\frac45\)</li><li>\(-\frac35\)</li><li>\(-\frac45\)</li><li>\(\frac35\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\cos^2x=\frac1{1+\frac9{16}}=\frac{16}{25}\Rightarrow\cos x=\pm\frac45\]</div><p>3º Q: cosseno negativo.</p></div></div><p class="rev">Revise: <a href="#m9-s3">9.3 Achar todas as razões</a></p></div>
+    <div class="q" data-id="m9v4" data-ans="B"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Se \(\sen x=-\frac13\), então \(\cossec x\) vale:</p>
+      <ol class="opts"><li>3</li><li>−3</li><li>\(-\frac13\)</li><li>\(\frac{2\sqrt2}{3}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\cossec x=\frac1{\sen x}=\frac{1}{-1/3}=-3\). O inverso mantém o sinal.</p></div></div><p class="rev">Revise: <a href="#m9-s1">9.1 Relações fundamentais</a></p></div>
+    <div class="q" data-id="m9v5" data-ans="A"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>\(\sen x\cdot\cossec x\) (com \(\sen x\ne0\)) é igual a:</p>
+      <ol class="opts"><li>1</li><li>\(\sen^2x\)</li><li>0</li><li>\(\tg x\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\sen x\cdot\frac1{\sen x}=1\).</p></div></div><p class="rev">Revise: <a href="#m9-s4">9.4 Simplificando</a></p></div>
+    <div class="q" data-id="m9v6" data-ans="D"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Se \(\cossec x=2\), quanto vale \(\cotg^2x\)?</p>
+      <ol class="opts"><li>1</li><li>4</li><li>5</li><li>3</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\cotg^2x=\cossec^2x-1=4-1=3\]</div></div></div><p class="rev">Revise: <a href="#m9-s2">9.2 Relações derivadas</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação visual do conteúdo deste módulo</p></div></div>
+    <div class="q dq" data-id="m9d1" data-ans="B"><p>O ponto marcado tem \(\sen x=\frac45\). Qual o valor de \(\cos x\)?</p><figure class="fig sm" data-f="cicloPt" data-o='{"d":[126.87],"quad":1}'></figure><ol class="opts"><li>\(\frac35\)</li><li>\(-\frac35\)</li><li>\(-\frac45\)</li><li>\(\frac15\)</li></ol><div class="why" hidden>\(\cos^2x=1-\frac{16}{25}=\frac9{25}\); o ponto está no 2º Q, à esquerda: \(\cos x=-\frac35\).</div></div>
+    <div class="q dq" data-id="m9d2" data-ans="C"><p>Em que quadrante está \(x\) se \(\sec x\lt0\) e \(\cossec x\gt0\)?</p><ol class="opts"><li>1º</li><li>3º</li><li>2º</li><li>4º</li></ol><div class="why" hidden>Secante tem o sinal do cosseno (negativo) e cossecante, o do seno (positivo): 2º quadrante.</div></div>
+    <div class="q dq" data-id="m9d3" data-ans="A"><p>\(\frac{1}{\cos^2x}-\tg^2x\) vale:</p><ol class="opts"><li>1</li><li>0</li><li>\(\sec^2x\)</li><li>\(\sen^2x\)</li></ol><div class="why" hidden>\(\frac1{\cos^2x}=\sec^2x=1+\tg^2x\). Subtraindo \(\tg^2x\), sobra 1.</div></div>
+    <div class="q dq" data-id="m9d4" data-ans="D"><p>Qual combinação é impossível?</p><ol class="opts"><li>\(\sen x=0{,}6\) e \(\cos x=-0{,}8\)</li><li>\(\sen x=-1\) e \(\cos x=0\)</li><li>\(\tg x=5\) e \(x\) no 3º Q</li><li>\(\sen x=0{,}6\) e \(\cos x=0{,}6\)</li></ol><div class="why" hidden>\(0{,}36+0{,}36=0{,}72\ne1\): não satisfaz a relação fundamental.</div></div>
+  </div>
+</div>
+</section>

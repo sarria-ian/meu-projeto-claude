@@ -1,0 +1,110 @@
+<section class="page mod" id="m7" data-num="7" data-part="Parte III · Ciclo trigonométrico" data-short="Razões no ciclo" data-title="Seno, cosseno, tangente e as outras razões no ciclo" data-icon="circle" data-desc="P = (cos θ, sen θ), valores nos eixos, sinais por quadrante, eixo das tangentes e a representação geométrica das seis razões.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>explicar por que o ponto do ciclo tem coordenadas \((\cos\theta,\ \sen\theta)\), inclusive para ângulos maiores que 90°;</li>
+    <li>dar seno e cosseno de 0°, 90°, 180°, 270° e saber que ambos ficam entre −1 e 1;</li>
+    <li>determinar o sinal de seno, cosseno e tangente em cada quadrante;</li>
+    <li>localizar tangente, cotangente, secante e cossecante como segmentos no ciclo.</li></ul></div>
+
+  <h2 class="sec"><span class="n">7.1</span> O ponto do ciclo é \((\cos\theta,\ \sen\theta)\)</h2>
+  <div class="prose">
+    <details class="demo" open><summary>Demonstração (no 1º quadrante)</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>Seja \(P(a,b)\) o ponto do ciclo associado ao arco \(\theta\). Descendo a perpendicular de \(P\) ao eixo \(x\), forma-se um triângulo retângulo de hipotenusa \(\overline{OP}=1\) (o raio).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><p>O cateto horizontal é \(a\) (adjacente a \(\theta\)) e o vertical é \(b\) (oposto a \(\theta\)).</p><div class="m">\[\cos\theta=\frac a1\Rightarrow a=\cos\theta\qquad\sen\theta=\frac b1\Rightarrow b=\sen\theta\]</div></div>
+      </div>
+      <p class="concl">Logo \(P(a,b)=P(\cos\theta,\ \sen\theta)\). Para arcos fora do 1º quadrante, <b>usamos isso como definição</b>: o cosseno é a abscissa e o seno é a ordenada do ponto do ciclo. Assim o eixo \(x\) vira o <b>eixo dos cossenos</b> e o eixo \(y\), o <b>eixo dos senos</b>.</p></div></details>
+  </div>
+  <div class="lab" data-w="cicloLab" data-o='{"id":"m7a","t":150,"show":["sen","cos"],"toggles":["sen","cos"]}'><div class="lt">Laboratório: o ciclo trigonométrico</div><p class="ld">Arraste o ponto ou use os botões dos arcos notáveis. A projeção vertical (rosa) é o seno; a horizontal (azul) é o cosseno.</p></div>
+
+  <h2 class="sec"><span class="n">7.2</span> Valores nos eixos e limites</h2>
+  <div class="prose">
+    <div class="tbl"><table><thead><tr><th>arco</th><th>ponto</th><th>cos</th><th>sen</th></tr></thead><tbody>
+      <tr><td>0° = 360° (0 = 2π)</td><td>\((1,0)\)</td><td>1</td><td>0</td></tr>
+      <tr><td>90° (\(\frac\pi2\))</td><td>\((0,1)\)</td><td>0</td><td>1</td></tr>
+      <tr><td>180° (\(\pi\))</td><td>\((-1,0)\)</td><td>−1</td><td>0</td></tr>
+      <tr><td>270° (\(\frac{3\pi}2\))</td><td>\((0,-1)\)</td><td>0</td><td>−1</td></tr></tbody></table></div>
+    <div class="box def"><div class="bl">Consequência imediata</div><p>O ponto está num círculo de raio 1, então suas coordenadas nunca passam de 1 em valor absoluto:</p><div>\[-1\le\cos\alpha\le1\qquad-1\le\sen\alpha\le1\]</div><p>E como \(x^2+y^2=1\), vale \(\cos^2\alpha+\sen^2\alpha=1\) para <b>qualquer</b> arco.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">7.3</span> Sinais por quadrante</h2>
+  <div class="prose">
+    <figure class="fig" data-f="sinais"><figcaption>Seno acompanha o sinal de \(y\); cosseno, o de \(x\); tangente \(=\frac{\sen}{\cos}\) é positiva quando os dois têm o mesmo sinal.</figcaption></figure>
+    <div class="tbl"><table><thead><tr><th></th><th>1º Q</th><th>2º Q</th><th>3º Q</th><th>4º Q</th></tr></thead><tbody>
+      <tr><th>sen e cossec</th><td>+</td><td>+</td><td>−</td><td>−</td></tr><tr><th>cos e sec</th><td>+</td><td>−</td><td>−</td><td>+</td></tr><tr><th>tg e cotg</th><td>+</td><td>−</td><td>+</td><td>−</td></tr></tbody></table></div>
+    <div class="box tip"><div class="bl">Exemplo da Lista 3</div><p>\(y=\sen107^\circ+\cos107^\circ\): 107° está no 2º Q, seno positivo e cosseno negativo. Como 107° está mais perto de 90° que de 180°, \(|\sen107^\circ|\gt|\cos107^\circ|\): a soma é <b>positiva</b> (\(\approx0{,}956-0{,}292\)).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">7.4</span> A tangente no ciclo</h2>
+  <div class="prose">
+    <figure class="fig" data-f="eixoTg"><figcaption>O eixo das tangentes é a reta vertical que toca o ciclo em \(A(1,0)\). Prolongando \(\overrightarrow{OP}\) até ela, a ordenada do encontro é \(\tg\alpha\).</figcaption></figure>
+    <details class="demo"><summary>Demonstração: a ordenada do ponto T é \(\frac{\sen\alpha}{\cos\alpha}\)</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>Os triângulos \(O\,(\cos\alpha,0)\,P\) e \(O\,A\,T\) são retângulos e têm o ângulo \(\alpha\) em comum: são semelhantes.</p></div>
+        <div class="st"><span class="pl">Passo 2</span><div class="m">\[\frac{\overline{AT}}{\overline{OA}}=\frac{\sen\alpha}{\cos\alpha}\ \Rightarrow\ \frac{\overline{AT}}{1}=\tg\alpha\]</div></div>
+      </div><p class="concl">Quando \(\cos\alpha=0\) (90° e 270°) a reta \(OP\) fica paralela ao eixo das tangentes e nunca o encontra: a tangente <b>não existe</b>.</p></div></details>
+    <p>Do caderno: \(\tg\frac\pi4=\tg\frac{5\pi}4=1\) (arcos opostos pelo centro dão o mesmo ponto \(T\)) e \(\tg\frac{3\pi}4=\tg\frac{7\pi}4=-1\).</p>
+  </div>
+  <div class="lab" data-w="cicloLab" data-o='{"id":"m7b","t":45,"show":["tg"],"toggles":["sen","cos","tg"]}'><div class="lt">Laboratório: o eixo das tangentes</div><p class="ld">Leve o ponto para perto de 90°: a tangente cresce sem limite. Compare 45° com 225°.</p></div>
+
+  <h2 class="sec"><span class="n">7.5</span> Cotangente, secante e cossecante no ciclo</h2>
+  <div class="prose">
+    <figure class="fig" data-f="cicloRazoes"><figcaption>Resumo do caderno: as seis razões como segmentos (arco \(\alpha\) no 1º quadrante).</figcaption></figure>
+    <div class="tbl"><table><thead><tr><th class="l">razão</th><th class="l">onde está no ciclo</th><th>por semelhança</th></tr></thead><tbody>
+      <tr><td class="l"><b>cotangente</b></td><td class="l">abscissa do ponto onde \(\overrightarrow{OP}\) encontra a reta \(y=1\) (eixo das cotangentes)</td><td>\(\cotg\alpha=\frac{\cos\alpha}{\sen\alpha}\)</td></tr>
+      <tr><td class="l"><b>secante</b></td><td class="l">onde a reta tangente ao ciclo em \(P\) corta o eixo \(x\)</td><td>\(\cos\alpha=\frac1{\sec\alpha}\Rightarrow\sec\alpha=\frac1{\cos\alpha}\)</td></tr>
+      <tr><td class="l"><b>cossecante</b></td><td class="l">onde a reta tangente ao ciclo em \(P\) corta o eixo \(y\)</td><td>\(\sen\alpha=\frac1{\cossec\alpha}\Rightarrow\cossec\alpha=\frac1{\sen\alpha}\)</td></tr></tbody></table></div>
+    <p>Por serem inversas, têm o mesmo sinal da razão original: secante como cosseno, cossecante como seno, cotangente como tangente. E como \(|\sen|,|\cos|\le1\), temos \(|\sec\alpha|\ge1\) e \(|\cossec\alpha|\ge1\).</p>
+  </div>
+  <div class="lab" data-w="cicloLab" data-o='{"id":"m7c","t":50,"show":["sen","cos","tg","cotg","sec","cossec"],"toggles":["sen","cos","tg","cotg","sec","cossec"]}'><div class="lt">Laboratório: as seis razões juntas</div><p class="ld">Ligue e desligue cada razão. Veja onde cada uma deixa de existir.</p></div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>A altura de uma cabine de roda-gigante</h3>
+    <p>Uma roda-gigante tem raio 20 m e o centro fica a 22 m do chão. A posição da cabine é dada pelo ângulo \(\theta\) medido a partir da horizontal que passa pelo centro, no sentido anti-horário. Qual a altura da cabine para \(\theta=30^\circ\), \(150^\circ\) e \(210^\circ\)?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · modelo</span><p>Num círculo de raio 20, o ponto é \((20\cos\theta,\ 20\sen\theta)\): é o ciclo trigonométrico ampliado 20 vezes. A altura é a do centro mais a ordenada:</p><div class="m">\[h(\theta)=22+20\sen\theta\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · 30° e 150°</span><div class="m">\[h=22+20\cdot\tfrac12=32\ \text{m}\quad(\sen150^\circ=\sen30^\circ=\tfrac12)\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · 210° (3º quadrante: seno negativo)</span><div class="m">\[h=22+20\cdot\left(-\tfrac12\right)=12\ \text{m}\]</div></div>
+    </div>
+    <div class="final"><b>Resposta:</b> 32 m, 32 m e 12 m. Altura máxima: 42 m (θ = 90°); mínima: 2 m (θ = 270°), porque \(-1\le\sen\theta\le1\).</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Calcule \(\sen\frac{5\pi}{6}\) e \(\cos\frac{5\pi}6\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(\frac{5\pi}6=150^\circ\), no 2º Q, a 30° do eixo negativo. O ponto é o simétrico de \(\frac\pi6\) em relação ao eixo \(y\).</p></div><div class="st"><span class="pl">Passo 2</span><div class="m">\[\sen\tfrac{5\pi}6=\tfrac12\ (+)\qquad\cos\tfrac{5\pi}6=-\tfrac{\sqrt3}2\ (-)\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Qual o sinal de \(y=\sen225^\circ+\cos225^\circ\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>225° está no 3º Q: seno e cosseno negativos.</p><div class="m">\[y=-\tfrac{\sqrt2}2-\tfrac{\sqrt2}2=-\sqrt2\lt0\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Calcule \(\sec\frac\pi3\) e \(\cossec\frac\pi6\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\sec\tfrac\pi3=\frac1{\cos\frac\pi3}=\frac1{1/2}=2\qquad\cossec\tfrac\pi6=\frac1{1/2}=2\]</div></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m7v1" data-ans="A"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>O ponto do ciclo associado ao arco \(\theta\) tem coordenadas:</p>
+      <ol class="opts"><li>\((\cos\theta,\ \sen\theta)\)</li><li>\((\sen\theta,\ \cos\theta)\)</li><li>\((\tg\theta,\ 1)\)</li><li>\((1,\ \tg\theta)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Abscissa = cosseno (eixo \(x\)), ordenada = seno (eixo \(y\)).</p></div></div><p class="rev">Revise: <a href="#m7-s1">7.1 O ponto do ciclo</a></p></div>
+    <div class="q" data-id="m7v2" data-ans="C"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(\sen270^\circ\) vale:</p>
+      <ol class="opts"><li>0</li><li>1</li><li>−1</li><li>não existe</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>270° corresponde ao ponto \((0,-1)\); o seno é a ordenada: −1.</p></div></div><p class="rev">Revise: <a href="#m7-s2">7.2 Valores nos eixos</a></p></div>
+    <div class="q" data-id="m7v3" data-ans="B"><div class="qh"><span class="qn">Verificação 3</span><span class="tag f">fácil</span></div><p>O sinal de \(\cos200^\circ\) é:</p>
+      <ol class="opts"><li>positivo</li><li>negativo</li><li>zero</li><li>depende do raio</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>200° está no 3º Q, à esquerda do eixo \(y\): abscissa negativa.</p></div></div><p class="rev">Revise: <a href="#m7-s3">7.3 Sinais</a></p></div>
+    <div class="q" data-id="m7v4" data-ans="D"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Para qual arco a tangente não existe?</p>
+      <ol class="opts"><li>0</li><li>\(\pi\)</li><li>\(\frac\pi4\)</li><li>\(\frac\pi2\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Em \(\frac\pi2\), \(\cos=0\): a reta \(OP\) é paralela ao eixo das tangentes.</p></div></div><p class="rev">Revise: <a href="#m7-s4">7.4 Tangente no ciclo</a></p></div>
+    <div class="q" data-id="m7v5" data-ans="A"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>\(\tg\frac{5\pi}4\) vale:</p>
+      <ol class="opts"><li>1</li><li>−1</li><li>\(\frac{\sqrt2}2\)</li><li>\(-\frac{\sqrt2}2\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\frac{5\pi}4\) é oposto a \(\frac\pi4\) pelo centro; a reta \(OP\) é a mesma e encontra o eixo das tangentes no mesmo ponto: \(\tg\frac{5\pi}4=\tg\frac\pi4=1\). (3º Q: tangente positiva.)</p></div></div><p class="rev">Revise: <a href="#m7-s4">7.4 Tangente no ciclo</a></p></div>
+    <div class="q" data-id="m7v6" data-ans="C"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>\(\left(\cossec\frac\pi6+\sen\frac\pi6\right)\left(\sen\frac\pi4-\sec\frac\pi3\right)\) vale:</p>
+      <ol class="opts"><li>\(\frac{5\sqrt2}{4}\)</li><li>\(-5\)</li><li>\(\frac{5\sqrt2-20}4\)</li><li>\(\frac{5}{2}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\cossec\frac\pi6=2\), \(\sen\frac\pi6=\frac12\), \(\sen\frac\pi4=\frac{\sqrt2}2\), \(\sec\frac\pi3=2\).</p></div><div class="st"><span class="pl">Passo 2</span><div class="m">\[\left(2+\tfrac12\right)\left(\tfrac{\sqrt2}2-2\right)=\tfrac52\cdot\tfrac{\sqrt2-4}{2}=\tfrac{5\sqrt2-20}4\approx-3{,}23\]</div></div></div><p class="rev">Revise: <a href="#m7-s5">7.5 Secante e cossecante</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação visual do conteúdo deste módulo</p></div></div>
+    <div class="q dq" data-id="m7d1" data-ans="B"><p>Para o ponto marcado, quais os sinais de (cos, sen)?</p><figure class="fig sm" data-f="cicloPt" data-o='{"d":[210],"quad":1}'></figure><ol class="opts"><li>(+, +)</li><li>(−, −)</li><li>(−, +)</li><li>(+, −)</li></ol><div class="why" hidden>3º quadrante: à esquerda (x negativo) e abaixo (y negativo).</div></div>
+    <div class="q dq" data-id="m7d2" data-ans="D"><p>Em qual quadrante a tangente é positiva e o seno é negativo?</p><ol class="opts"><li>1º</li><li>2º</li><li>4º</li><li>3º</li></ol><div class="why" hidden>No 3º quadrante seno e cosseno são negativos; o quociente (tangente) é positivo.</div></div>
+    <div class="q dq" data-id="m7d3" data-ans="A"><p>Qual valor é impossível para \(\sen x\)?</p><ol class="opts"><li>1,2</li><li>−1</li><li>0</li><li>−0,99</li></ol><div class="why" hidden>O seno é uma coordenada de um ponto do círculo de raio 1: \(-1\le\sen x\le1\).</div></div>
+    <div class="q dq" data-id="m7d4" data-ans="C"><p>Quanto vale \(\cos180^\circ\)?</p><figure class="fig sm" data-f="cicloPt" data-o='{"d":[180],"lab":["180°"]}'></figure><ol class="opts"><li>0</li><li>1</li><li>−1</li><li>não existe</li></ol><div class="why" hidden>O ponto é \((-1,0)\); o cosseno é a abscissa, −1.</div></div>
+  </div>
+</div>
+</section>

@@ -1,23 +1,28 @@
 APOSTILA DE TRIGONOMETRIA - COMO ABRIR
 ======================================
 
-1. Descompacte o arquivo ZIP (clique com o botao direito > "Extrair tudo").
-2. Abra o arquivo "apostila-trigonometria.html" com dois cliques.
-   Ele abre no navegador (Chrome, Edge, Firefox ou Safari, versoes atuais).
-3. Nao precisa de internet: formulas, figuras e animacoes estao dentro do arquivo.
+1. Descompacte o arquivo ZIP (botao direito > "Extrair tudo").
+2. Abra "apostila-trigonometria.html" com dois cliques. Ele abre no navegador
+   (Chrome, Edge, Firefox ou Safari atuais). Funciona sem internet
+   (com internet, so a fonte do texto fica mais bonita).
 
-No celular: salve o .html no aparelho e abra com o navegador
-(por exemplo, pelo app "Arquivos" > abrir com Chrome/Safari).
+No celular: salve o .html no aparelho e abra com o navegador.
 
-Dicas de uso
-- "Sumario" (botao no topo) volta para o indice dos modulos.
-- "Proximo passo" revela a resolucao uma etapa por vez.
-- Nos laboratorios, arraste os controles deslizantes; as animacoes
-  tem botoes Iniciar/Pausar e Reiniciar.
-- "Tema" alterna entre modo claro e escuro.
-- Para imprimir ou gerar PDF: Ctrl+P (as resolucoes saem completas).
+Como usar
+- Modulos: leia em ordem (1 a 11). Cada modulo tem objetivos, teoria,
+  laboratorios interativos, estudo de caso, exemplos resolvidos,
+  questoes de verificacao (valem XP) e a "Hora do desafio".
+- Listas: as Listas 1 a 6 com resposta e resolucao passo a passo.
+  Marque "Acertei" ou "Errei, vou revisar".
+- Jogar: 3 jogos rapidos (Ciclo Relampago, Sinal Certo, Conversor Turbo).
+- Simulado: 10 questoes sorteadas de todos os modulos.
+- Formulario: resumo de todas as formulas e dos erros comuns.
+- Perfil: seu nome, nivel, estatisticas e conquistas.
+
+O progresso (XP, estrelas, conquistas) fica salvo so neste navegador,
+neste aparelho. Limpar os dados do navegador apaga o progresso.
 
 Conteudo da pasta
 - apostila-trigonometria.html  -> a apostila completa (arquivo unico)
 - LEIA-ME.txt                  -> este arquivo
-- licencas/KaTeX-LICENSE.txt   -> licenca do KaTeX (renderizador de formulas, MIT)
+- licencas/KaTeX-LICENSE.txt   -> licenca do KaTeX (formulas, MIT)

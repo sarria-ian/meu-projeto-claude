@@ -6,6 +6,7 @@ import base64, glob, os, re, zipfile, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from figs import FIGS
+import listas
 
 def rd(p):
     with open(os.path.join(HERE, p), encoding="utf-8") as f:
@@ -25,12 +26,11 @@ def katex_css():
 def content():
     parts = [rd(os.path.relpath(p, HERE)) for p in sorted(glob.glob(os.path.join(HERE, "content", "*.html")))]
     html = "\n".join(parts)
-    def fig(m):
-        return FIGS[m.group(1)]()
-    html, n = re.subn(r"\{\{FIG:([a-z0-9_]+)\}\}", fig, html)
+    html = re.sub(r"\{\{FIG:([a-z0-9_]+)\}\}", lambda m: FIGS[m.group(1)](), html)
     return html
 
 def build():
+    listas.build()
     t = rd("template.html")
     reps = {
         "/*KATEX_CSS*/": katex_css(),
@@ -38,6 +38,7 @@ def build():
         "<!--CONTENT-->": content(),
         "/*KATEX_JS*/": rd("vendor/katex/katex.min.js"),
         "/*AUTORENDER_JS*/": rd("vendor/katex/auto-render.min.js"),
+        "/*WIDGETS_JS*/": rd("widgets.js"),
         "/*APP_JS*/": rd("app.js"),
     }
     for k, v in reps.items():

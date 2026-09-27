@@ -1,0 +1,85 @@
+<section class="page mod" id="m11" data-num="11" data-part="Parte IV · Funções trigonométricas" data-short="Função tangente" data-title="A função tangente" data-icon="tan" data-desc="Domínio sem os pontos π/2 + kπ, imagem ℝ, período π, função ímpar, assíntotas e f(x) = a + b·tg(cx + d).">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>dar domínio, imagem, período e paridade de \(f(x)=\tg x\) e justificar cada um;</li>
+    <li>esboçar o gráfico da tangente e escrever as equações das assíntotas;</li>
+    <li>calcular período \(\frac{\pi}{|c|}\), domínio e assíntotas de \(f(x)=a+b\,\tg(cx+d)\).</li></ul></div>
+
+  <h2 class="sec"><span class="n">11.1</span> A função tangente</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">f(x) = tg x</div><div>\[f(x)=\tg x=\frac{\sen x}{\cos x}\quad\Rightarrow\quad\cos x\ne0\]</div>
+      <ul><li>Domínio: \(D=\left\{x\in\mathbb R\ \middle|\ x\ne\frac\pi2+k\pi,\ k\in\mathbb Z\right\}\) (onde o cosseno se anula)</li><li>Imagem: \(Im=\mathbb R\) (no eixo das tangentes, o ponto \(T\) sobe e desce sem limite)</li><li>Período: \(\pi\)</li><li>Paridade: <b>ímpar</b></li></ul></div>
+    <details class="demo" open><summary>Demonstrações: período π e função ímpar</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Período π</span><p>\(x+\pi\) é o ponto oposto a \(x\) pelo centro: \(\sen(x+\pi)=-\sen x\) e \(\cos(x+\pi)=-\cos x\).</p><div class="m">\[\tg(x+\pi)=\frac{-\sen x}{-\cos x}=\tg x\]</div><p>E nenhum \(P\) entre 0 e \(\pi\) funciona (a tangente cresce em todo o intervalo \(\left(-\frac\pi2,\frac\pi2\right)\)).</p></div>
+        <div class="st"><span class="pl">Ímpar (do caderno)</span><div class="m">\[\tg(-x)=\frac{\sen(-x)}{\cos(-x)}=\frac{-\sen x}{\cos x}=-\tg x\]</div></div>
+      </div></div></details>
+  </div>
+
+  <h2 class="sec"><span class="n">11.2</span> Gráfico e assíntotas</h2>
+  <div class="prose">
+    <p>Perto de \(x=\frac\pi2\), o cosseno se aproxima de 0 e a tangente “explode”: o gráfico sobe sem fim à esquerda da reta \(x=\frac\pi2\) e vem de baixo à direita. Essas retas verticais, das quais o gráfico se aproxima sem tocar, são as <b>assíntotas</b>:</p>
+    <div class="box def"><div class="bl">Equação das assíntotas</div><div>\[x=\frac\pi2+k\pi,\quad k\in\mathbb Z\]</div></div>
+  </div>
+  <div class="lab" data-w="tgLab"><div class="lt">Laboratório: do eixo das tangentes ao gráfico</div><p class="ld">O ponto verde no eixo das tangentes (à esquerda) é o mesmo valor do ponto verde no gráfico (à direita). Leve \(x\) até perto de 90°.</p></div>
+
+  <h2 class="sec" data-toc="a + b·tg(cx + d)"><span class="n">11.3</span> \(f(x)=a+b\,\tg(cx+d)\)</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Receita</div><ul><li>Período: \(P=\dfrac{\pi}{|c|}\) (do caderno: para \(a+b\tg(cx+d)\) com \(c=1\), \(P=\pi\))</li><li>Domínio e assíntotas: o que está dentro da tangente não pode valer \(\frac\pi2+k\pi\): \(cx+d\ne\frac\pi2+k\pi\)</li><li>Imagem: \(\mathbb R\) (se \(b\ne0\)); \(a\) e \(b\) não mudam domínio nem período</li></ul></div>
+    <div class="ex"><div class="et">Exemplo do caderno</div><p>\(f(x)=\tg\left(x-\frac\pi4\right)\).</p><div class="steps">
+      <div class="st"><span class="pl">Passo 1 · período</span><p>\(c=1\): \(P=\pi\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · domínio</span><div class="m">\[x-\frac\pi4\ne\frac\pi2+k\pi\ \Rightarrow\ x\ne\frac{3\pi}4+k\pi\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · assíntotas</span><div class="m">\[x=\frac{3\pi}4+k\pi,\ k\in\mathbb Z\]</div><p>O gráfico é o de \(\tg x\) deslocado \(\frac\pi4\) para a direita.</p></div></div></div>
+  </div>
+  <div class="lab" data-w="plot" data-o='{"id":"m11","f":"tg","presets":[{"t":"f(x)=\\tg(x-\\tfrac{\\pi}{4})","f":"tg","a":0,"b":1,"c":1,"d":-0.785398,"note":"(exemplo do caderno)"},{"t":"f(x)=\\tg(2x+\\tfrac{\\pi}{2})","f":"tg","a":0,"b":1,"c":2,"d":1.570796},{"t":"f(x)=3\\tg(\\tfrac{x}{5}-\\tfrac{\\pi}{4})","f":"tg","a":0,"b":3,"c":0.2,"d":-0.785398},{"t":"f(x)=1+\\tg\\tfrac{x}{2}","f":"tg","a":1,"b":1,"c":0.5,"d":0},{"t":"f(x)=\\tfrac13\\tg2x","f":"tg","a":0,"b":0.333333,"c":2,"d":0}]}'><div class="lt">Laboratório: a + b·tg(cx + d)</div><p class="ld">As linhas vermelhas tracejadas são as assíntotas. Os botões carregam as funções da Lista 6 (questões 2 e 3).</p></div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>O feixe de um farol na costa</h3>
+    <p>Um farol fica a 2 km de uma costa reta. O feixe de luz gira; \(\theta\) é o ângulo entre o feixe e a perpendicular do farol até a costa. A que distância do ponto mais próximo \(O\) da costa o feixe ilumina, para \(\theta=30^\circ\), \(45^\circ\), \(60^\circ\)? O que acontece perto de 90°?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · modelo</span><p>O triângulo farol–\(O\)–ponto iluminado é retângulo em \(O\). A distância \(y\) é oposta a \(\theta\) e os 2 km são adjacentes:</p><div class="m">\[y(\theta)=2\,\tg\theta\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · valores</span><div class="m">\[y(30^\circ)=\tfrac{2\sqrt3}{3}\approx1{,}15\ \text{km}\quad y(45^\circ)=2\ \text{km}\quad y(60^\circ)=2\sqrt3\approx3{,}46\ \text{km}\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · perto de 90°</span><p>Com \(\theta=89^\circ\), \(y\approx114{,}6\) km. Em 90° o feixe fica paralelo à costa e não a encontra: é a assíntota de \(\tg\theta\) em \(\frac\pi2\).</p></div>
+    </div>
+    <div class="final"><b>Resposta:</b> 1,15 km, 2 km e 3,46 km. Pequenos giros perto de 90° fazem o ponto iluminado correr quilômetros.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1 · Lista 6, 2(g)</div><p>\(f(x)=\tg\left(2x+\frac\pi2\right)\): período, domínio, imagem e assíntotas.</p><div class="steps">
+    <div class="st"><span class="pl">Passo 1</span><p>\(P=\frac\pi2\).</p></div>
+    <div class="st"><span class="pl">Passo 2</span><div class="m">\[2x+\frac\pi2\ne\frac\pi2+k\pi\Rightarrow2x\ne k\pi\Rightarrow x\ne\frac{k\pi}2\]</div></div>
+    <div class="st"><span class="pl">Passo 3</span><p>\(D=\{x\in\mathbb R\mid x\ne\frac{k\pi}2\}\), \(Im=\mathbb R\), assíntotas \(x=\frac{k\pi}2,\ k\in\mathbb Z\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Período e assíntotas de \(f(x)=\tg\frac x3\).</p><div class="steps">
+    <div class="st"><span class="pl">Passo 1</span><div class="m">\[P=\frac{\pi}{1/3}=3\pi\qquad\frac x3\ne\frac\pi2+k\pi\Rightarrow x\ne\frac{3\pi}2+3k\pi\]</div></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m11v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>O período de \(f(x)=\tg x\) é:</p>
+      <ol class="opts"><li>\(2\pi\)</li><li>\(\pi\)</li><li>\(\frac\pi2\)</li><li>não tem</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\tg(x+\pi)=\frac{-\sen x}{-\cos x}=\tg x\).</p></div></div><p class="rev">Revise: <a href="#m11-s1">11.1 A função tangente</a></p></div>
+    <div class="q" data-id="m11v2" data-ans="D"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>Qual ponto <b>não</b> está no domínio de \(\tg x\)?</p>
+      <ol class="opts"><li>\(0\)</li><li>\(\pi\)</li><li>\(\frac\pi4\)</li><li>\(\frac{3\pi}2\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\cos\frac{3\pi}2=0\), e \(\frac{3\pi}{2}=\frac\pi2+1\cdot\pi\).</p></div></div><p class="rev">Revise: <a href="#m11-s1">11.1 Domínio</a></p></div>
+    <div class="q" data-id="m11v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag f">fácil</span></div><p>A imagem de \(\tg x\) é:</p>
+      <ol class="opts"><li>\(\mathbb R\)</li><li>\([-1,\ 1]\)</li><li>\([0,\ +\infty)\)</li><li>\(\mathbb R\setminus\{0\}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>No eixo das tangentes, o ponto \(T\) atinge qualquer altura.</p></div></div><p class="rev">Revise: <a href="#m11-s1">11.1 Imagem</a></p></div>
+    <div class="q" data-id="m11v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>O período de \(f(x)=3\tg4x\) é:</p>
+      <ol class="opts"><li>\(\frac\pi2\)</li><li>\(4\pi\)</li><li>\(\frac\pi4\)</li><li>\(\frac{3\pi}4\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(P=\frac{\pi}{|c|}=\frac\pi4\). O 3 não interfere.</p></div></div><p class="rev">Revise: <a href="#m11-s3">11.3 a + b·tg(cx + d)</a></p></div>
+    <div class="q" data-id="m11v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>As assíntotas de \(f(x)=\tg\left(x-\frac\pi4\right)\) são:</p>
+      <ol class="opts"><li>\(x=\frac\pi4+k\pi\)</li><li>\(x=\frac{3\pi}4+k\pi\)</li><li>\(x=\frac\pi2+k\pi\)</li><li>\(x=-\frac\pi4+k\pi\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(x-\frac\pi4=\frac\pi2+k\pi\Rightarrow x=\frac{3\pi}4+k\pi\).</p></div></div><p class="rev">Revise: <a href="#m11-s3">11.3 Assíntotas</a></p></div>
+    <div class="q" data-id="m11v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Se \(\tg a=5\), então \(\tg(-a)+\tg(a+\pi)\) vale:</p>
+      <ol class="opts"><li>0</li><li>10</li><li>−10</li><li>5</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Ímpar: \(\tg(-a)=-5\). Período \(\pi\): \(\tg(a+\pi)=5\). Soma: 0.</p></div></div><p class="rev">Revise: <a href="#m11-s1">11.1 Período e paridade</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação visual do conteúdo deste módulo</p></div></div>
+    <div class="q dq" data-id="m11d1" data-ans="C"><p>Qual é o comportamento de \(\tg x\) quando \(x\) se aproxima de 90° por valores menores?</p><ol class="opts"><li>tende a 0</li><li>tende a 1</li><li>cresce sem limite</li><li>tende a −1</li></ol><div class="why" hidden>O cosseno se aproxima de 0 com seno perto de 1: o quociente cresce sem limite.</div></div>
+    <div class="q dq" data-id="m11d2" data-ans="A"><p>Quantas assíntotas de \(\tg x\) existem entre 0 e 2π?</p><ol class="opts"><li>2</li><li>1</li><li>4</li><li>nenhuma</li></ol><div class="why" hidden>\(x=\frac\pi2\) e \(x=\frac{3\pi}2\).</div></div>
+    <div class="q dq" data-id="m11d3" data-ans="D"><p>O gráfico de \(\tg x\) é simétrico em relação a:</p><ol class="opts"><li>o eixo y</li><li>o eixo x</li><li>a reta y = x</li><li>a origem</li></ol><div class="why" hidden>Função ímpar: \(\tg(-x)=-\tg x\).</div></div>
+    <div class="q dq" data-id="m11d4" data-ans="B"><p>Qual o período de \(1+\tg\frac x2\)?</p><ol class="opts"><li>\(\pi\)</li><li>\(2\pi\)</li><li>\(\frac\pi2\)</li><li>\(4\pi\)</li></ol><div class="why" hidden>\(P=\frac{\pi}{1/2}=2\pi\). O “1 +” só sobe o gráfico.</div></div>
+  </div>
+</div>
+</section>

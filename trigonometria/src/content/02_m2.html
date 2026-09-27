@@ -1,0 +1,104 @@
+<section class="page mod" id="m2" data-num="2" data-part="Parte I · Ângulos e arcos" data-short="Radianos e comprimento de arco" data-title="Radianos, comprimento de arco e conversão de medidas" data-icon="ruler" data-desc="Arco de circunferência, medida angular e linear, o radiano, ℓ = α·R e a conversão entre graus e radianos.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>explicar o que é um arco e diferenciar sua medida angular da medida linear (comprimento);</li>
+    <li>definir o radiano e entender por que uma volta mede \(2\pi\) rad;</li>
+    <li>calcular comprimento de arco com \(\ell=\alpha\cdot R\) e o ângulo central com \(\alpha=\frac{\ell}{R}\);</li>
+    <li>converter qualquer ângulo de graus para radianos e vice-versa.</li></ul></div>
+
+  <h2 class="sec"><span class="n">2.1</span> Arco de circunferência: medida angular e medida linear</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>Dois pontos distintos \(A\) e \(B\) de uma circunferência a dividem em duas partes: cada parte é um <b>arco de circunferência</b> \(\overset{\frown}{AB}\).</p></div>
+    <p>Um arco tem duas medidas diferentes:</p>
+    <div class="two">
+      <div class="box obs"><div class="bl">Medida angular</div><p>É o ângulo central \(A\hat OB\) que “enxerga” o arco. Medida em graus ou em radianos.</p></div>
+      <div class="box obs"><div class="bl">Medida linear</div><p>É o <b>comprimento</b> do arco, como se você o esticasse: em cm, m, km…</p></div>
+    </div>
+    <div class="box note"><div class="bl">Observação do caderno</div><p>A medida angular <b>não depende do raio</b>. Um arco de 60° é 60° numa moeda ou numa roda-gigante; o que muda é o comprimento.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">2.2</span> O radiano (sistema circular)</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p><b>1 radiano</b> (1 rad) é a medida do ângulo central cujo arco tem <b>comprimento igual ao raio</b>.</p><div>\[A\hat OB=\frac{\text{comprimento do arco }AB}{\text{raio}}\ \text{rad}\]</div></div>
+    <figure class="fig" data-f="radiano"><figcaption>Estique o raio \(R\) sobre a circunferência: o ângulo central correspondente mede 1 rad (≈ 57,3°).</figcaption></figure>
+    <details class="demo"><summary>Demonstração: por que uma volta mede 2π rad</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>O comprimento da circunferência inteira é \(2\pi R\).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><p>A medida em radianos é o comprimento do arco dividido pelo raio:</p><div class="m">\[\alpha=\frac{2\pi R}{R}=2\pi\ \text{rad}\]</div></div>
+        <div class="st"><span class="pl">Passo 3</span><p>O \(R\) cancelou: a volta mede \(2\pi\) rad em qualquer circunferência. Como a volta também mede 360°, temos \(2\pi\ \text{rad}=360^\circ\), ou seja, \(\pi\ \text{rad}=180^\circ\).</p></div>
+      </div></div></details>
+  </div>
+  <div class="lab" data-w="radLab"><div class="lt">Laboratório: quantos raios cabem no arco?</div><p class="ld">As marquinhas 1, 2, 3… mostram cada pedaço do arco com o comprimento de um raio. Mude \(\alpha\) e \(R\) e confira \(\ell=\alpha\cdot R\).</p></div>
+
+  <h2 class="sec"><span class="n">2.3</span> Comprimento de um arco</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Fórmula</div><div>\[\alpha=\frac{\ell}{R}\qquad\Longleftrightarrow\qquad \ell=\alpha\cdot R\]</div><p><b>Condição:</b> \(\alpha\) precisa estar em <b>radianos</b>. Se estiver em graus, converta antes.</p></div>
+    <p>Exemplo do caderno: um arco de 10 cm numa circunferência de raio 5 cm tem \(\alpha=\frac{10}{5}=2\) rad.</p>
+    <div class="box warn"><div class="bl">Erro comum</div><p>Usar \(\ell=60\cdot R\) para um ângulo de 60°. Correto: \(60^\circ=\frac{\pi}{3}\) rad, logo \(\ell=\frac{\pi}{3}R\).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">2.4</span> Conversão de medidas</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Regra básica</div><div>\[\pi\ \text{rad}=180^\circ\qquad 1\ \text{rad}=\left(\frac{180}{\pi}\right)^\circ\approx57{,}3^\circ\qquad 1^\circ=\frac{\pi}{180}\ \text{rad}\]</div></div>
+    <div class="two">
+      <div class="box obs"><div class="bl">Graus → radianos</div><div>\[\text{rad}=\text{graus}\cdot\frac{\pi}{180}\]</div><p>\(210^\circ=210\cdot\frac{\pi}{180}=\frac{7\pi}{6}\)</p></div>
+      <div class="box obs"><div class="bl">Radianos → graus</div><div>\[\text{graus}=\text{rad}\cdot\frac{180}{\pi}\]</div><p>Atalho: troque \(\pi\) por 180°. \(\frac{5\pi}{6}=\frac{5\cdot180^\circ}{6}=150^\circ\)</p></div>
+    </div>
+    <div class="tbl"><table><thead><tr><th>graus</th><th>0°</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th><th>180°</th><th>270°</th><th>360°</th></tr></thead><tbody><tr><th>rad</th><td>0</td><td>\(\frac\pi6\)</td><td>\(\frac\pi4\)</td><td>\(\frac\pi3\)</td><td>\(\frac\pi2\)</td><td>\(\pi\)</td><td>\(\frac{3\pi}2\)</td><td>\(2\pi\)</td></tr></tbody></table></div>
+  </div>
+  <div class="lab" data-w="convLab"><div class="lt">Laboratório: conversor</div><p class="ld">Digite em graus (ex.: 315) ou em radianos (ex.: 3π/4, também aceita “pi”).</p></div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Quanto anda uma bicicleta, e que ângulo faz um corredor na curva?</h3>
+    <p><b>Situação A.</b> A roda de uma bicicleta tem raio 0,35 m e dá 10 voltas. Quantos metros a bicicleta anda?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · ângulo total em radianos</span><div class="m">\[\alpha=10\cdot2\pi=20\pi\ \text{rad}\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · comprimento</span><div class="m">\[\ell=\alpha R=20\pi\cdot0{,}35=7\pi\approx21{,}99\ \text{m}\]</div><p>Cada ponto da borda da roda percorre esse arco e a roda rola sem escorregar, então a bicicleta anda o mesmo.</p></div>
+    </div>
+    <p><b>Situação B.</b> Numa pista circular de raio 50 m, um corredor percorre 80 m. Qual o ângulo central da curva?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1</span><div class="m">\[\alpha=\frac{\ell}{R}=\frac{80}{50}=1{,}6\ \text{rad}\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · em graus</span><div class="m">\[1{,}6\cdot\frac{180^\circ}{\pi}\approx91{,}7^\circ\]</div></div>
+    </div>
+    <div class="final"><b>Respostas:</b> A) cerca de 22 m; B) 1,6 rad ≈ 91,7° (pouco mais de um quarto de volta).</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Exprima 315° em radianos.</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[315\cdot\frac{\pi}{180}=\frac{315\pi}{180}\]</div></div><div class="st"><span class="pl">Passo 2 · simplificar (÷45)</span><div class="m">\[\frac{315\pi}{180}=\frac{7\pi}{4}\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Exprima \(\frac{2\pi}{3}\) rad em graus.</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1 · trocar π por 180°</span><div class="m">\[\frac{2\cdot180^\circ}{3}=\frac{360^\circ}{3}=120^\circ\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Numa circunferência de raio \(r\), um arco mede \(\frac{2\pi r}{3}\). Qual o ângulo central?</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\alpha=\frac{\ell}{r}=\frac{2\pi r/3}{r}=\frac{2\pi}{3}\ \text{rad}=120^\circ\]</div><p>O \(r\) cancela: o ângulo não depende do tamanho da circunferência.</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m2v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>1 radiano é o ângulo central cujo arco tem comprimento igual:</p>
+      <ol class="opts"><li>ao diâmetro</li><li>ao raio</li><li>a 1 cm</li><li>a \(\pi\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Por definição, 1 rad corresponde a um arco de comprimento igual ao raio.</p></div></div><p class="rev">Revise: <a href="#m2-s2">2.2 O radiano</a></p></div>
+    <div class="q" data-id="m2v2" data-ans="C"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>240° em radianos é:</p>
+      <ol class="opts"><li>\(\frac{2\pi}{3}\)</li><li>\(\frac{5\pi}{4}\)</li><li>\(\frac{4\pi}{3}\)</li><li>\(\frac{3\pi}{2}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[240\cdot\frac{\pi}{180}=\frac{240\pi}{180}=\frac{4\pi}{3}\]</div></div></div><p class="rev">Revise: <a href="#m2-s4">2.4 Conversão</a></p></div>
+    <div class="q" data-id="m2v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag f">fácil</span></div><p>\(\frac{3\pi}{4}\) rad em graus é:</p>
+      <ol class="opts"><li>135°</li><li>120°</li><li>225°</li><li>150°</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\frac{3\cdot180^\circ}{4}=135^\circ\]</div></div></div><p class="rev">Revise: <a href="#m2-s4">2.4 Conversão</a></p></div>
+    <div class="q" data-id="m2v4" data-ans="D"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>O comprimento do arco definido por um ângulo central de 4,5 rad numa circunferência de raio 7 cm é:</p>
+      <ol class="opts"><li>11,5 cm</li><li>2,5 cm</li><li>45 cm</li><li>31,5 cm</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\ell=\alpha R=4{,}5\cdot7=31{,}5\ \text{cm}\]</div></div></div><p class="rev">Revise: <a href="#m2-s3">2.3 Comprimento de arco</a></p></div>
+    <div class="q" data-id="m2v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>Um arco de 12 cm numa circunferência de raio 4 cm corresponde a um ângulo central de:</p>
+      <ol class="opts"><li>48 rad</li><li>3 rad</li><li>\(\frac13\) rad</li><li>3°</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\alpha=\frac{\ell}{R}=\frac{12}{4}=3\ \text{rad}\ (\approx171{,}9^\circ)\]</div></div></div><p class="rev">Revise: <a href="#m2-s3">2.3 Comprimento de arco</a></p></div>
+    <div class="q" data-id="m2v6" data-ans="C"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Se dobrarmos o raio de uma circunferência e mantivermos o ângulo central, o que acontece?</p>
+      <ol class="opts"><li>O ângulo dobra e o arco fica igual</li><li>Os dois dobram</li><li>O ângulo fica igual e o arco dobra</li><li>Nada muda</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>A medida angular não depende do raio. Em \(\ell=\alpha R\), com \(\alpha\) fixo, dobrar \(R\) dobra \(\ell\).</p></div></div><p class="rev">Revise: <a href="#m2-s1">2.1 Medida angular e linear</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação visual do conteúdo deste módulo</p></div></div>
+    <div class="q dq" data-id="m2d1" data-ans="B"><p>Aproximadamente quantos graus mede 1 radiano?</p><ol class="opts"><li>1°</li><li>57°</li><li>90°</li><li>180°</li></ol><div class="why" hidden>\(1\ \text{rad}=\frac{180^\circ}{\pi}\approx57{,}3^\circ\).</div></div>
+    <div class="q dq" data-id="m2d2" data-ans="A"><p>Quantos radianos tem meia volta?</p><ol class="opts"><li>\(\pi\)</li><li>\(2\pi\)</li><li>\(\frac\pi2\)</li><li>180</li></ol><div class="why" hidden>Meia volta = 180° = \(\pi\) rad.</div></div>
+    <div class="q dq" data-id="m2d3" data-ans="D"><p>Numa circunferência de raio 1, o arco de uma volta inteira mede:</p><ol class="opts"><li>1</li><li>\(\pi\)</li><li>360</li><li>\(2\pi\)</li></ol><div class="why" hidden>\(\ell=2\pi R=2\pi\cdot1=2\pi\). Por isso, no ciclo trigonométrico, arco em radianos e comprimento coincidem.</div></div>
+    <div class="q dq" data-id="m2d4" data-ans="C"><p>Qual é o erro em “\(\ell=45\cdot R\) para um ângulo de 45°”?</p><ol class="opts"><li>Nenhum</li><li>Faltou dividir por 2</li><li>O ângulo deveria estar em radianos: \(\frac\pi4\)</li><li>O raio deveria estar em graus</li></ol><div class="why" hidden>A fórmula \(\ell=\alpha R\) só vale com \(\alpha\) em radianos: \(\ell=\frac{\pi}{4}R\).</div></div>
+  </div>
+</div>
+</section>

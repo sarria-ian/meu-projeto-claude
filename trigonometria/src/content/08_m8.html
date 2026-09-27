@@ -1,0 +1,102 @@
+<section class="page mod" id="m8" data-num="8" data-part="Parte III · Ciclo trigonométrico" data-short="Simetrias e redução" data-title="Simetrias e redução ao 1º quadrante" data-icon="mirror" data-desc="Os arcos π − α, π + α e 2π − α, funções pares e ímpares, a regra de redução ao 1º quadrante e as fórmulas com 90° ± x e 270° ± x.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>localizar no ciclo os arcos \(\pi-\alpha\), \(\pi+\alpha\) e \(2\pi-\alpha\) a partir de \(\alpha\);</li>
+    <li>usar a simetria para calcular seno, cosseno e tangente de arcos de qualquer quadrante;</li>
+    <li>reconhecer quais razões são pares e quais são ímpares (\(\sen(-\alpha)=-\sen\alpha\), \(\cos(-\alpha)=\cos\alpha\));</li>
+    <li>reduzir qualquer razão ao 1º quadrante, com o sinal correto.</li></ul></div>
+
+  <h2 class="sec"><span class="n">8.1</span> Os quatro arcos simétricos</h2>
+  <div class="prose">
+    <p>Tome \(\alpha\) no 1º quadrante. As retas horizontal e vertical por \(P(\alpha)\) cortam o ciclo em mais três pontos:</p>
+    <figure class="fig" data-f="simetria" data-o='{"rad":1}'><figcaption>Esquema do caderno com \(\alpha=\frac\pi6\): \(\frac{5\pi}6=\pi-\alpha\), \(\frac{7\pi}6=\pi+\alpha\), \(\frac{11\pi}6=2\pi-\alpha\).</figcaption></figure>
+    <div class="tbl"><table><thead><tr><th>arco</th><th>quadrante</th><th>simétrico de α em relação</th><th>ponto</th><th>sen</th><th>cos</th><th>tg</th></tr></thead><tbody>
+      <tr><td>\(\alpha\)</td><td>1º</td><td>—</td><td>\((\cos\alpha,\ \sen\alpha)\)</td><td>\(\sen\alpha\)</td><td>\(\cos\alpha\)</td><td>\(\tg\alpha\)</td></tr>
+      <tr><td>\(\pi-\alpha\)</td><td>2º</td><td>ao eixo \(y\)</td><td>\((-\cos\alpha,\ \sen\alpha)\)</td><td>\(\sen\alpha\)</td><td>\(-\cos\alpha\)</td><td>\(-\tg\alpha\)</td></tr>
+      <tr><td>\(\pi+\alpha\)</td><td>3º</td><td>à origem</td><td>\((-\cos\alpha,\ -\sen\alpha)\)</td><td>\(-\sen\alpha\)</td><td>\(-\cos\alpha\)</td><td>\(\tg\alpha\)</td></tr>
+      <tr><td>\(2\pi-\alpha\)</td><td>4º</td><td>ao eixo \(x\)</td><td>\((\cos\alpha,\ -\sen\alpha)\)</td><td>\(-\sen\alpha\)</td><td>\(\cos\alpha\)</td><td>\(-\tg\alpha\)</td></tr></tbody></table></div>
+    <p>Do caderno: \(\sen\alpha=\sen(\pi-\alpha)\gt0\) e \(\sen(\pi+\alpha)=\sen(2\pi-\alpha)\lt0\).</p>
+  </div>
+  <div class="lab" data-w="simLab"><div class="lt">Laboratório: os quatro simétricos</div><p class="ld">Mude \(\alpha\) e escolha a razão. A tabela mostra que os quatro valores são iguais em módulo; só o sinal muda.</p></div>
+
+  <h2 class="sec"><span class="n">8.2</span> Propriedades de simetria: funções pares e ímpares</h2>
+  <div class="prose">
+    <p>O arco \(-\alpha\) é o simétrico de \(\alpha\) em relação ao eixo \(x\) (mesmo caminho, sentido contrário). Então \(P(-\alpha)=(\cos\alpha,\ -\sen\alpha)\):</p>
+    <div class="two">
+      <div class="box def"><div class="bl">Ímpar: opostos têm imagens opostas</div><div>\[\sen(-\alpha)=-\sen\alpha\]\[\tg(-\alpha)=\frac{\sen(-\alpha)}{\cos(-\alpha)}=-\tg\alpha\]\[\cossec(-\alpha)=-\cossec\alpha\qquad\cotg(-\alpha)=-\cotg\alpha\]</div></div>
+      <div class="box def"><div class="bl">Par: opostos têm a mesma imagem</div><div>\[\cos(-\alpha)=\cos\alpha\]\[\sec(-\alpha)=\frac1{\cos(-\alpha)}=\sec\alpha\]</div><p>Vale para todo \(\alpha\) real.</p></div>
+    </div>
+  </div>
+
+  <h2 class="sec"><span class="n">8.3</span> Redução ao 1º quadrante</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Regra em 3 passos</div><ol><li><b>Quadrante:</b> onde está o arco (se passar de 360°, ache antes a 1ª determinação).</li><li><b>Ângulo de referência</b> \(r\) (no 1º quadrante): 2º Q: \(r=180^\circ-x\); 3º Q: \(r=x-180^\circ\); 4º Q: \(r=360^\circ-x\).</li><li><b>Sinal:</b> o da razão <b>no quadrante original</b>. A razão continua a mesma: \(\sen\to\sen\), \(\cos\to\cos\)…</li></ol></div>
+    <div class="ex"><div class="et">Exemplo do caderno</div><p>\(\sen330^\circ\) e \(\cos330^\circ\).</p><div class="steps"><div class="st"><span class="pl">Passo 1</span><p>330° está no 4º Q; \(r=360^\circ-330^\circ=30^\circ\).</p></div><div class="st"><span class="pl">Passo 2</span><p>No 4º Q o seno é negativo e o cosseno positivo:</p><div class="m">\[\sen330^\circ=-\sen30^\circ=-\tfrac12\qquad\cos330^\circ=\cos30^\circ=\tfrac{\sqrt3}2\]</div></div></div></div>
+    <div class="box warn"><div class="bl">Erro comum</div><p>Usar o sinal do 1º quadrante (sempre +). O sinal vem do quadrante <b>onde o arco está</b>.</p></div>
+  </div>
+  <div class="lab" data-w="reduLab"><div class="lt">Laboratório: redutor</div><p class="ld">Escolha o ângulo e a razão. O ponto laranja é o ângulo de referência no 1º quadrante.</p></div>
+
+  <h2 class="sec"><span class="n">8.4</span> Arcos com 90° ± x e 270° ± x</h2>
+  <div class="prose">
+    <p>Quando o arco é escrito a partir de 90° ou 270°, a razão <b>troca</b> (seno ↔ cosseno), porque aparece um complemento.</p>
+    <figure class="fig" data-f="cicloPt" data-o='{"d":[25,65,115,155,205,245,295,335],"lab":["x","90°−x","90°+x","180°−x","180°+x","270°−x","270°+x","360°−x"]}'><figcaption>Os oito arcos do caderno para um \(x\) agudo.</figcaption></figure>
+    <details class="demo" open><summary>Demonstração (como no caderno)</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · 90° − x</span><p>\(x\) e \(90^\circ-x\) são complementares: \(\sen(90^\circ-x)=\cos x\) e \(\cos(90^\circ-x)=\sen x\) (triângulo retângulo, Módulo 3).</p></div>
+        <div class="st"><span class="pl">Passo 2 · 90° + x</span><p>\(90^\circ+x\) e \(90^\circ-x\) são suplementares (somam 180°), então têm o mesmo seno e cossenos opostos:</p><div class="m">\[\sen(90^\circ+x)=\sen(90^\circ-x)=\cos x\qquad\cos(90^\circ+x)=-\cos(90^\circ-x)=-\sen x\]</div></div>
+        <div class="st"><span class="pl">Passo 3 · 270° − x</span><p>\(270^\circ-x=180^\circ+(90^\circ-x)\) (3º Q):</p><div class="m">\[\sen(270^\circ-x)=-\sen(90^\circ-x)=-\cos x\qquad\cos(270^\circ-x)=-\sen x\]</div></div>
+        <div class="st"><span class="pl">Passo 4 · 180° + x</span><div class="m">\[\cos(180^\circ+x)=-\cos x\qquad\sen(180^\circ+x)=-\sen x\]</div></div>
+      </div></div></details>
+    <div class="box note"><div class="bl">Sobre a foto do caderno</div><p>Na folha da redução, a linha “\(\cos(90+x)=-\cos(90^\circ-x)=\sen(x)\)” perdeu o sinal no final: o correto é \(-\sen x\). Confira com \(x=30^\circ\): \(\cos120^\circ=-\frac12=-\sen30^\circ\).</p></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>A garra de um braço robótico</h3>
+    <p>Um braço robótico de 50 cm gira em torno de um eixo fixo na origem. A garra fica em \((50\cos\theta,\ 50\sen\theta)\). O programa manda a garra para \(\theta=150^\circ\), \(210^\circ\) e \(330^\circ\). Quais as coordenadas, sem calculadora?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · reduzir</span><p>Os três têm ângulo de referência 30°: \(180-150=30\), \(210-180=30\), \(360-330=30\). Só mudam os sinais.</p></div>
+      <div class="st"><span class="pl">Passo 2 · 150° (2º Q: cos −, sen +)</span><div class="m">\[(50\cdot(-\tfrac{\sqrt3}2),\ 50\cdot\tfrac12)=(-25\sqrt3,\ 25)\approx(-43{,}3;\ 25)\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · 210° (3º Q: −, −) e 330° (4º Q: +, −)</span><div class="m">\[(-25\sqrt3,\ -25)\qquad(25\sqrt3,\ -25)\]</div></div>
+    </div>
+    <div class="final"><b>Resposta:</b> as três posições são reflexões umas das outras, exatamente os simétricos de 8.1 com \(\alpha=30^\circ\).</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Reduza \(\cos178^\circ\) ao 1º quadrante.</p><div class="steps"><div class="st"><span class="pl">Passo 1</span><p>2º Q; \(r=180^\circ-178^\circ=2^\circ\); cosseno negativo no 2º Q.</p><div class="m">\[\cos178^\circ=-\cos2^\circ\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Calcule \(\sen\frac{7\pi}6\), \(\cos\frac{4\pi}3\) e \(\tg\frac{5\pi}{3}\).</p><div class="steps">
+    <div class="st"><span class="pl">Passo 1</span><p>\(\frac{7\pi}6=\pi+\frac\pi6\) (3º Q): \(\sen\frac{7\pi}6=-\sen\frac\pi6=-\frac12\).</p></div>
+    <div class="st"><span class="pl">Passo 2</span><p>\(\frac{4\pi}3=\pi+\frac\pi3\) (3º Q): \(\cos\frac{4\pi}3=-\cos\frac\pi3=-\frac12\).</p></div>
+    <div class="st"><span class="pl">Passo 3</span><p>\(\frac{5\pi}3=2\pi-\frac\pi3\) (4º Q): \(\tg\frac{5\pi}3=-\tg\frac\pi3=-\sqrt3\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Calcule \(\sen(-45^\circ)\) e \(\cos(-60^\circ)\).</p><div class="steps"><div class="st"><span class="pl">Passo 1</span><p>Seno é ímpar, cosseno é par:</p><div class="m">\[\sen(-45^\circ)=-\tfrac{\sqrt2}2\qquad\cos(-60^\circ)=\cos60^\circ=\tfrac12\]</div></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m8v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Sabendo que \(\sen\frac\pi6=\frac12\), \(\sen\frac{11\pi}6\) vale:</p>
+      <ol class="opts"><li>\(\frac12\)</li><li>\(-\frac12\)</li><li>\(\frac{\sqrt3}2\)</li><li>\(-\frac{\sqrt3}2\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\frac{11\pi}6=2\pi-\frac\pi6\), simétrico em relação ao eixo \(x\): o seno troca de sinal.</p></div></div><p class="rev">Revise: <a href="#m8-s1">8.1 Arcos simétricos</a></p></div>
+    <div class="q" data-id="m8v2" data-ans="C"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(\cos\frac{2\pi}3\) vale:</p>
+      <ol class="opts"><li>\(\frac12\)</li><li>\(\frac{\sqrt3}2\)</li><li>\(-\frac12\)</li><li>\(-\frac{\sqrt3}2\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\frac{2\pi}3=\pi-\frac\pi3\) (2º Q): \(\cos\frac{2\pi}3=-\cos\frac\pi3=-\frac12\).</p></div></div><p class="rev">Revise: <a href="#m8-s1">8.1 Arcos simétricos</a></p></div>
+    <div class="q" data-id="m8v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag f">fácil</span></div><p>Qual afirmação é verdadeira para todo \(\alpha\)?</p>
+      <ol class="opts"><li>\(\cos(-\alpha)=\cos\alpha\)</li><li>\(\sen(-\alpha)=\sen\alpha\)</li><li>\(\tg(-\alpha)=\tg\alpha\)</li><li>\(\sec(-\alpha)=-\sec\alpha\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(P(-\alpha)=(\cos\alpha,-\sen\alpha)\): a abscissa não muda, então o cosseno (e a secante) são pares.</p></div></div><p class="rev">Revise: <a href="#m8-s2">8.2 Pares e ímpares</a></p></div>
+    <div class="q" data-id="m8v4" data-ans="D"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Reduzindo \(\sen251^\circ\) ao 1º quadrante:</p>
+      <ol class="opts"><li>\(\sen71^\circ\)</li><li>\(-\cos71^\circ\)</li><li>\(\sen19^\circ\)</li><li>\(-\sen71^\circ\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>3º Q; \(r=251^\circ-180^\circ=71^\circ\); seno negativo no 3º Q.</p></div></div><p class="rev">Revise: <a href="#m8-s3">8.3 Redução</a></p></div>
+    <div class="q" data-id="m8v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>\(\tg225^\circ\) vale:</p>
+      <ol class="opts"><li>−1</li><li>1</li><li>\(\sqrt3\)</li><li>não existe</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>225° = 180° + 45° (3º Q, tangente positiva): \(\tg225^\circ=\tg45^\circ=1\).</p></div></div><p class="rev">Revise: <a href="#m8-s3">8.3 Redução</a></p></div>
+    <div class="q" data-id="m8v6" data-ans="C"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Para \(x\) agudo, \(\cos(90^\circ+x)\) é igual a:</p>
+      <ol class="opts"><li>\(\cos x\)</li><li>\(\sen x\)</li><li>\(-\sen x\)</li><li>\(-\cos x\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(90^\circ+x\) está no 2º Q (cosseno negativo) e é suplementar de \(90^\circ-x\): \(\cos(90^\circ+x)=-\cos(90^\circ-x)=-\sen x\).</p></div></div><p class="rev">Revise: <a href="#m8-s4">8.4 Arcos com 90° ± x</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação visual do conteúdo deste módulo</p></div></div>
+    <div class="q dq" data-id="m8d1" data-ans="C"><p>Os dois pontos marcados são simétricos em relação a quê?</p><figure class="fig sm" data-f="cicloPt" data-o='{"d":[40,140]}'></figure><ol class="opts"><li>ao eixo x</li><li>à origem</li><li>ao eixo y</li><li>não são simétricos</li></ol><div class="why" hidden>\(40^\circ\) e \(140^\circ=180^\circ-40^\circ\): mesma altura (mesmo seno), lados opostos do eixo \(y\).</div></div>
+    <div class="q dq" data-id="m8d2" data-ans="A"><p>E estes dois?</p><figure class="fig sm" data-f="cicloPt" data-o='{"d":[40,220]}'></figure><ol class="opts"><li>à origem</li><li>ao eixo y</li><li>ao eixo x</li><li>à reta y = x</li></ol><div class="why" hidden>\(220^\circ=180^\circ+40^\circ\): o ponto oposto pelo centro. Seno e cosseno trocam de sinal; a tangente é igual.</div></div>
+    <div class="q dq" data-id="m8d3" data-ans="D"><p>\(\cotg\frac{7\pi}6\) reduzido ao 1º quadrante é:</p><ol class="opts"><li>\(-\cotg\frac\pi6\)</li><li>\(\tg\frac\pi6\)</li><li>\(-\sqrt3\)</li><li>\(\cotg\frac\pi6=\sqrt3\)</li></ol><div class="why" hidden>3º Q: cotangente positiva (como a tangente). \(\cotg\frac{7\pi}6=\cotg\frac\pi6=\sqrt3\).</div></div>
+    <div class="q dq" data-id="m8d4" data-ans="B"><p>Qual das razões é uma função <b>par</b>?</p><ol class="opts"><li>seno</li><li>secante</li><li>tangente</li><li>cotangente</li></ol><div class="why" hidden>Secante é \(\frac1{\cos}\), e o cosseno é par: \(\sec(-\alpha)=\sec\alpha\).</div></div>
+  </div>
+</div>
+</section>

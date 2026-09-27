@@ -1,0 +1,102 @@
+<section class="page mod" id="m5" data-num="5" data-part="Parte II · Triângulo retângulo" data-short="Alturas, distâncias e áreas" data-title="Aplicações: alturas, distâncias inacessíveis e áreas" data-icon="area" data-desc="Qual razão usar, ângulos de elevação e depressão, dois triângulos com lado comum, área de um triângulo qualquer e de um polígono regular.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>escolher seno, cosseno ou tangente a partir dos lados envolvidos;</li>
+    <li>calcular alturas e distâncias que não dá para medir diretamente (ângulos de elevação e depressão);</li>
+    <li>resolver problemas com dois triângulos que têm um lado em comum;</li>
+    <li>calcular a área de um triângulo qualquer por \(\frac{b\,c\,\sen\alpha}{2}\) e a de um polígono regular por \(\frac{n\,R^2\sen(2\pi/n)}{2}\).</li></ul></div>
+
+  <h2 class="sec"><span class="n">5.1</span> Qual razão usar?</h2>
+  <div class="prose">
+    <ol><li><b>Desenhe</b> e marque o ângulo conhecido.</li><li><b>Classifique</b> o lado dado e o lado pedido em relação a esse ângulo: oposto, adjacente ou hipotenusa.</li><li><b>Escolha</b> a razão que junta exatamente esses dois lados.</li><li><b>Isole, substitua, calcule e confira</b> (a hipotenusa é o maior lado?).</li></ol>
+    <div class="tbl"><table><thead><tr><th class="l">Lados envolvidos</th><th>Razão</th></tr></thead><tbody>
+      <tr><td class="l">oposto e hipotenusa</td><td><span class="cs">seno</span></td></tr><tr><td class="l">adjacente e hipotenusa</td><td><span class="cc">cosseno</span></td></tr><tr><td class="l">oposto e adjacente</td><td><span class="ct">tangente</span></td></tr><tr><td class="l">dois lados, sem ângulo</td><td>Pitágoras</td></tr></tbody></table></div>
+    <div class="box warn"><div class="bl">Calculadora</div><p>Para ângulos que não são notáveis (35°, 20°…), use a calculadora no modo <b>DEG</b> (graus). Em RAD ela dá valores sem sentido, como \(\sin 35=-0{,}43\).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">5.2</span> Elevação, depressão e distâncias inacessíveis</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p><b>Ângulo de elevação:</b> entre a horizontal e a linha de visada para cima. <b>Ângulo de depressão:</b> entre a horizontal e a linha de visada para baixo. Os dois são medidos a partir da <b>horizontal</b>.</p></div>
+    <figure class="fig">{{FIG:elevacao}}<figcaption>Com terreno plano e prédio vertical, o triângulo é retângulo: \(\tg\theta=\frac{H}{d}\), logo \(H=d\,\tg\theta\).</figcaption></figure>
+    <p><b>Quando um triângulo só não basta:</b> se não dá para medir a distância até a base (há um rio no meio, por exemplo), faça duas observações de lugares diferentes. Cada uma gera um triângulo retângulo; os dois têm a altura \(H\) em comum. Escreva uma equação de tangente para cada e resolva o sistema.</p>
+    <div class="box tip"><div class="bl">Hipótese</div><p>Se o enunciado não dá a altura dos olhos do observador, desprezamos. Se der (um teodolito de 1,5 m, por exemplo), some no final.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">5.3</span> Área de um triângulo qualquer</h2>
+  <div class="prose">
+    <figure class="fig" data-f="areaTri"><figcaption>Dois lados \(b\) e \(c\) e o ângulo \(\alpha\) entre eles.</figcaption></figure>
+    <details class="demo" open><summary>Demonstração: \([ABC]=\dfrac{b\,c\,\sen\alpha}{2}\)</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>A área de qualquer triângulo é base × altura ÷ 2: \([ABC]=\frac{b\cdot h}{2}\).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><p>A altura \(h\) forma um triângulo retângulo de hipotenusa \(c\) em que \(h\) é oposto a \(\alpha\):</p><div class="m">\[\sen\alpha=\frac hc\ \Rightarrow\ h=c\,\sen\alpha\]</div></div>
+        <div class="st"><span class="pl">Passo 3</span><div class="m">\[[ABC]=\frac{b\cdot c\,\sen\alpha}{2}\]</div></div>
+      </div>
+      <p class="concl"><b>Condição:</b> \(\alpha\) é o ângulo <b>entre</b> os dois lados usados. Serve também para \(\alpha\) obtuso (a altura cai fora, e \(\sen(180^\circ-\alpha)=\sen\alpha\)).</p></div></details>
+  </div>
+  <div class="lab" data-w="areaLab"><div class="lt">Laboratório: área com dois lados e o ângulo</div><p class="ld">Repare que a área é máxima quando \(\alpha=90^\circ\) (\(\sen90^\circ=1\)).</p></div>
+
+  <h2 class="sec"><span class="n">5.4</span> Área de um polígono regular (n lados)</h2>
+  <div class="prose">
+    <figure class="fig" data-f="poligono" data-o='{"n":6}'><figcaption>Polígono regular inscrito numa circunferência de raio \(R\): \(n\) triângulos iguais com ângulo central \(\frac{2\pi}{n}\) (\(=\frac{360^\circ}{n}\)).</figcaption></figure>
+    <details class="demo" open><summary>Demonstração: \(A=\dfrac{n\,R^2\,\sen(2\pi/n)}{2}\)</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>Ligando o centro aos vértices, o polígono se divide em \(n\) triângulos iguais, cada um com dois lados \(R\) e ângulo central \(\frac{2\pi}{n}\).</p></div>
+        <div class="st"><span class="pl">Passo 2 · área de um triângulo (5.3)</span><div class="m">\[\frac{R\cdot R\cdot\sen\left(\frac{2\pi}{n}\right)}{2}\]</div></div>
+        <div class="st"><span class="pl">Passo 3 · vezes n</span><div class="m">\[A=\frac{n\,R^2\,\sen(2\pi/n)}{2}\]</div></div>
+      </div></div></details>
+  </div>
+  <div class="lab" data-w="polyLab"><div class="lt">Laboratório: do triângulo ao círculo</div><p class="ld">Aumente \(n\): a área do polígono se aproxima de \(\pi R^2\).</p></div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>A altura de uma torre do outro lado do rio (e a largura do rio)</h3>
+    <p>Um topógrafo quer a altura de uma torre na outra margem de um rio, sem atravessá-lo. Com um teodolito de 1,5 m de altura, ele vê o topo da torre sob 60°. Afasta-se 40 m em linha reta (afastando-se do rio) e passa a ver o topo sob 30°.</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · incógnitas</span><p>\(H\) = altura da torre acima do teodolito; \(d\) = distância horizontal do primeiro ponto até a torre (≈ largura do rio).</p></div>
+      <div class="st"><span class="pl">Passo 2 · triângulo perto (60°)</span><p>\(H\) é oposto e \(d\) é adjacente: tangente.</p><div class="m">\[\tg60^\circ=\frac Hd\ \Rightarrow\ H=d\sqrt3\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · triângulo longe (30°)</span><div class="m">\[\tg30^\circ=\frac{H}{d+40}\ \Rightarrow\ H=\frac{\sqrt3}{3}(d+40)\]</div></div>
+      <div class="st"><span class="pl">Passo 4 · igualar</span><div class="m">\[d\sqrt3=\frac{\sqrt3}3(d+40)\ \Rightarrow\ 3d=d+40\ \Rightarrow\ d=20\ \text{m}\]</div></div>
+      <div class="st"><span class="pl">Passo 5 · altura</span><div class="m">\[H=20\sqrt3\approx34{,}64\ \text{m}\qquad\text{altura total}\approx34{,}64+1{,}5=36{,}14\ \text{m}\]</div></div>
+    </div>
+    <div class="final"><b>Resposta:</b> a torre tem cerca de 36,1 m e o rio, cerca de 20 m de largura, sem que ninguém tenha atravessado.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>De um farol de 50 m de altura, um barco é visto sob ângulo de depressão de 30°. A que distância horizontal está o barco?</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>O ângulo de depressão é igual ao ângulo de elevação visto do barco (retas paralelas). No triângulo, 50 m é o oposto a 30° e \(d\) é o adjacente.</p><div class="m">\[\tg30^\circ=\frac{50}{d}\Rightarrow d=\frac{50}{\sqrt3/3}=\frac{150}{\sqrt3}=50\sqrt3\approx86{,}6\ \text{m}\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Calcule a área do triângulo com lados 8 e 6 formando 30°.</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[[ABC]=\frac{8\cdot6\cdot\sen30^\circ}{2}=\frac{48\cdot\frac12}{2}=12\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Calcule a área de um hexágono regular inscrito numa circunferência de raio 2.</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(n=6\): \(\frac{2\pi}{6}=\frac\pi3=60^\circ\).</p><div class="m">\[A=\frac{6\cdot2^2\cdot\sen60^\circ}{2}=12\cdot\frac{\sqrt3}{2}=6\sqrt3\approx10{,}39\]</div></div></div></div>
+  <p class="small">Mais problemas deste tipo (prédio, chaminé, escada, altura relativa à hipotenusa) estão resolvidos na <a href="#lista1">Lista 1</a>.</p>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m5v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Conheço um ângulo agudo e a hipotenusa. Quero o cateto adjacente. Uso:</p>
+      <ol class="opts"><li>seno</li><li>cosseno</li><li>tangente</li><li>Pitágoras</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Adjacente e hipotenusa aparecem juntos no cosseno: adjacente \(=\) hipotenusa \(\cdot\cos\).</p></div></div><p class="rev">Revise: <a href="#m5-s1">5.1 Qual razão usar</a></p></div>
+    <div class="q" data-id="m5v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>A 30 m da base de um prédio, vê-se o topo sob 45°. A altura do prédio é:</p>
+      <ol class="opts"><li>30 m</li><li>\(30\sqrt2\) m</li><li>15 m</li><li>\(30\sqrt3\) m</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[H=d\,\tg45^\circ=30\cdot1=30\ \text{m}\]</div></div></div><p class="rev">Revise: <a href="#m5-s2">5.2 Elevação</a></p></div>
+    <div class="q" data-id="m5v3" data-ans="C"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>Uma escada de 4 m faz 60° com o chão. A que altura da parede ela chega?</p>
+      <ol class="opts"><li>2 m</li><li>\(4\sqrt3\) m</li><li>\(2\sqrt3\) m</li><li>\(\frac{4\sqrt3}{3}\) m</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>A escada é a hipotenusa; a altura é oposta ao ângulo com o chão.</p><div class="m">\[4\sen60^\circ=4\cdot\tfrac{\sqrt3}2=2\sqrt3\approx3{,}46\ \text{m}\]</div></div></div><p class="rev">Revise: <a href="#m5-s1">5.1 Qual razão usar</a></p></div>
+    <div class="q" data-id="m5v4" data-ans="D"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>A área do triângulo com lados 10 e 4 formando 150° é:</p>
+      <ol class="opts"><li>20</li><li>\(10\sqrt3\)</li><li>40</li><li>10</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\sen150^\circ=\sen30^\circ=\frac12\).</p><div class="m">\[\frac{10\cdot4\cdot\frac12}{2}=10\]</div></div></div><p class="rev">Revise: <a href="#m5-s3">5.3 Área de triângulo</a></p></div>
+    <div class="q" data-id="m5v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>A área de um quadrado inscrito numa circunferência de raio \(R\) (fórmula do polígono com \(n=4\)) é:</p>
+      <ol class="opts"><li>\(R^2\)</li><li>\(2R^2\)</li><li>\(4R^2\)</li><li>\(\pi R^2\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[A=\frac{4R^2\sen(\pi/2)}{2}=\frac{4R^2\cdot1}{2}=2R^2\]</div><p>Confere: a diagonal do quadrado é \(2R\), então o lado é \(R\sqrt2\) e a área, \(2R^2\).</p></div></div><p class="rev">Revise: <a href="#m5-s4">5.4 Polígono regular</a></p></div>
+    <div class="q" data-id="m5v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Vê-se o topo de uma torre sob 45°; aproximando-se 10 m, sob 60°. Qual equação vem do triângulo de 45°?</p>
+      <ol class="opts"><li>\(H=d+10\), com \(d\) a distância final</li><li>\(H=10\)</li><li>\(H=d\sqrt3\), com \(d\) a distância inicial</li><li>\(H=\frac{d}{10}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Chamando de \(d\) a distância final (perto, 60°), a inicial é \(d+10\). No triângulo de 45°: \(\tg45^\circ=\frac{H}{d+10}\Rightarrow H=d+10\).</p></div><div class="st"><span class="pl">Passo 2 · até o fim</span><p>Com \(H=d\sqrt3\): \(d(\sqrt3-1)=10\Rightarrow d=5(\sqrt3+1)\) e \(H=5(3+\sqrt3)\approx23{,}66\) m.</p></div></div><p class="rev">Revise: <a href="#m5-s2">5.2 Distâncias inacessíveis</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação visual do conteúdo deste módulo</p></div></div>
+    <div class="q dq" data-id="m5d1" data-ans="C"><p>Para achar \(x\), qual razão usar?</p><figure class="fig sm" data-f="triQ" data-o='{"b":"20 m","c":"x","ang":"35°"}'></figure><ol class="opts"><li>seno</li><li>cosseno</li><li>tangente</li><li>Pitágoras</li></ol><div class="why" hidden>\(x\) é oposto a 35° e 20 m é adjacente: tangente. \(x=20\tg35^\circ\approx14\) m.</div></div>
+    <div class="q dq" data-id="m5d2" data-ans="B"><p>E aqui, para achar \(y\)?</p><figure class="fig sm" data-f="triQ" data-o='{"a":"12","b":"y","ang":"50°"}'></figure><ol class="opts"><li>seno</li><li>cosseno</li><li>tangente</li><li>Pitágoras</li></ol><div class="why" hidden>\(y\) é adjacente a 50° e 12 é a hipotenusa: cosseno. \(y=12\cos50^\circ\approx7{,}7\).</div></div>
+    <div class="q dq" data-id="m5d3" data-ans="A"><p>O ângulo de depressão é medido a partir:</p><ol class="opts"><li>da horizontal, para baixo</li><li>da vertical, para baixo</li><li>do chão, para cima</li><li>da linha de visada</li></ol><div class="why" hidden>Elevação e depressão são sempre medidos a partir da horizontal.</div></div>
+    <div class="q dq" data-id="m5d4" data-ans="D"><p>Com os mesmos dois lados, qual ângulo entre eles dá a maior área?</p><ol class="opts"><li>30°</li><li>60°</li><li>150°</li><li>90°</li></ol><div class="why" hidden>Área \(=\frac{bc\,\sen\alpha}2\), e \(\sen\alpha\) é máximo (1) em 90°.</div></div>
+  </div>
+</div>
+</section>

@@ -1,0 +1,105 @@
+<section class="page mod" id="m10" data-num="10" data-part="Parte IV · Funções trigonométricas" data-short="Funções seno e cosseno" data-title="Funções seno e cosseno" data-icon="wave" data-desc="Função periódica, domínio, imagem, período e paridade de sen x e cos x, os gráficos e o efeito de a, b, c e d em f(x) = a + b·sen(cx + d).">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>explicar o que é uma função periódica e o que é o período;</li>
+    <li>dar domínio, imagem, período e paridade de \(\sen x\) e \(\cos x\) e esboçar seus gráficos;</li>
+    <li>ler o papel de \(a\), \(b\), \(c\) e \(d\) em \(f(x)=a+b\,\sen(cx+d)\) e \(f(x)=a+b\cos(cx+d)\);</li>
+    <li>calcular período \(\frac{2\pi}{|c|}\) e imagem \([a-|b|,\ a+|b|]\) de funções como as da Lista 6.</li></ul></div>
+
+  <h2 class="sec"><span class="n">10.1</span> Funções periódicas</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>Uma função \(f\) é <b>periódica</b> se existe \(P\gt0\) tal que \(f(x+P)=f(x)\) para todo \(x\) do domínio. O <b>menor</b> \(P\) com essa propriedade é o <b>período</b>.</p></div>
+    <p>No ciclo, somar \(2\pi\) a um arco dá uma volta completa e cai no mesmo ponto (arcos côngruos, Módulo 6). Logo \(\sen(x+2\pi)=\sen x\) e \(\cos(x+2\pi)=\cos x\).</p>
+  </div>
+  <div class="lab" data-w="unwrap" data-o='{"f":"sen"}'><div class="lt">Animação: desenrolando o ciclo em seno</div><p class="ld">Enquanto o ponto dá uma volta, a altura dele (o seno) é desenhada no gráfico. Pause em qualquer momento.</p></div>
+
+  <h2 class="sec"><span class="n">10.2</span> A função seno</h2>
+  <div class="prose">
+    <div class="two">
+      <div class="box def"><div class="bl">f(x) = sen x</div><ul><li>Domínio: \(D=\mathbb R\)</li><li>Imagem: \(Im=[-1,\ 1]\)</li><li>Período: \(2\pi\)</li><li>Paridade: <b>ímpar</b>, \(\sen(-x)=-\sen x\) (gráfico simétrico em relação à origem)</li></ul></div>
+      <div class="box obs"><div class="bl">Pontos-chave de um período</div><div class="tbl"><table><thead><tr><th>x</th><th>0</th><th>\(\frac\pi2\)</th><th>\(\pi\)</th><th>\(\frac{3\pi}2\)</th><th>\(2\pi\)</th></tr></thead><tbody><tr><th>sen x</th><td>0</td><td>1</td><td>0</td><td>−1</td><td>0</td></tr></tbody></table></div><p class="small">Máximo 1 em \(x=\frac\pi2+2k\pi\); zeros em \(x=k\pi\).</p></div>
+    </div>
+  </div>
+
+  <h2 class="sec"><span class="n">10.3</span> A função cosseno</h2>
+  <div class="prose">
+    <div class="two">
+      <div class="box def"><div class="bl">f(x) = cos x</div><ul><li>Domínio: \(D=\mathbb R\)</li><li>Imagem: \(Im=[-1,\ 1]\)</li><li>Período: \(2\pi\)</li><li>Paridade: <b>par</b>, \(\cos(-x)=\cos x\) (gráfico simétrico em relação ao eixo \(y\))</li></ul></div>
+      <div class="box obs"><div class="bl">Pontos-chave de um período</div><div class="tbl"><table><thead><tr><th>x</th><th>0</th><th>\(\frac\pi2\)</th><th>\(\pi\)</th><th>\(\frac{3\pi}2\)</th><th>\(2\pi\)</th></tr></thead><tbody><tr><th>cos x</th><td>1</td><td>0</td><td>−1</td><td>0</td><td>1</td></tr></tbody></table></div><p class="small">É a senoide deslocada: \(\cos x=\sen\left(x+\frac\pi2\right)\).</p></div>
+    </div>
+  </div>
+  <div class="lab" data-w="unwrap" data-o='{"f":"cos"}'><div class="lt">Animação: desenrolando o ciclo em cosseno</div><p class="ld">Agora o gráfico registra a abscissa do ponto (o cosseno). Começa em 1, porque \(\cos0=1\).</p></div>
+
+  <h2 class="sec" data-toc="Transformações a, b, c, d"><span class="n">10.4</span> Transformações: \(f(x)=a+b\,\sen(cx+d)\)</h2>
+  <div class="prose">
+    <p>Forma geral do caderno (vale igual com cosseno):</p>
+    <div class="tbl"><table><thead><tr><th>parâmetro</th><th class="l">efeito no gráfico</th><th class="l">consequência</th></tr></thead><tbody>
+      <tr><td>\(a\)</td><td class="l">desloca para cima (\(a\gt0\)) ou para baixo</td><td class="l">muda a imagem</td></tr>
+      <tr><td>\(b\)</td><td class="l">estica verticalmente; \(|b|\) é a <b>amplitude</b>; se \(b\lt0\), reflete</td><td class="l">\(Im=[a-|b|,\ a+|b|]\)</td></tr>
+      <tr><td>\(c\)</td><td class="l">comprime ou alonga horizontalmente</td><td class="l">\(P=\dfrac{2\pi}{|c|}\)</td></tr>
+      <tr><td>\(d\)</td><td class="l">desloca na horizontal (em \(-\frac dc\))</td><td class="l">não muda período nem imagem</td></tr></tbody></table></div>
+    <details class="demo" open><summary>Demonstração: por que o período é \(\frac{2\pi}{|c|}\)</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>Queremos o menor \(P\gt0\) com \(\sen(c(x+P)+d)=\sen(cx+d)\) para todo \(x\).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><p>\(\sen(cx+d+cP)=\sen(cx+d)\). O seno se repete a cada \(2\pi\) (e não antes), então precisamos \(|c|P=2\pi\).</p><div class="m">\[P=\frac{2\pi}{|c|}\]</div></div>
+      </div><p class="concl">Os parâmetros \(a\) e \(b\) mexem só na vertical, por isso não aparecem no período.</p></div></details>
+    <details class="demo" open><summary>Demonstração: por que a imagem é \([a-|b|,\ a+|b|]\)</summary><div>
+      <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>Para qualquer \(x\), \(-1\le\sen(cx+d)\le1\).</p></div><div class="st"><span class="pl">Passo 2</span><p>Multiplicando por \(|b|\) e somando \(a\): \(a-|b|\le a+b\,\sen(cx+d)\le a+|b|\), e os extremos são atingidos.</p></div></div></div></details>
+    <div class="box warn"><div class="bl">Erro comum</div><p>Achar que o período de \(\sen3x\) é \(3\cdot2\pi\). É o contrário: \(c=3\) faz a onda se repetir 3 vezes mais rápido, \(P=\frac{2\pi}3\).</p></div>
+  </div>
+  <div class="lab" data-w="plot" data-o='{"id":"m10","f":"sen","presets":[{"t":"f(x)=2+\\sen(x-\\tfrac{\\pi}{2})","f":"sen","a":2,"b":1,"c":1,"d":-1.5708},{"t":"f(x)=-3\\sen(\\pi-5x)","f":"sen","a":0,"b":-3,"c":5,"d":0,"note":"(sen(π − 5x) = sen 5x)"},{"t":"f(x)=2-3\\sen\\tfrac{\\pi}{2}","f":"sen","a":-1,"b":0,"c":1,"d":0,"note":"(sen(π/2) = 1: f(x) = −1, constante)"},{"t":"f(x)=\\cos\\tfrac{2x}{3}-4","f":"cos","a":-4,"b":1,"c":0.666667,"d":0},{"t":"f(x)=3\\cos(\\tfrac{7\\pi}{6}-2x)","f":"cos","a":0,"b":3,"c":2,"d":2.617994,"note":"(cos é par: = 3cos(2x − 7π/6) = 3cos(2x + 5π/6))"},{"t":"f(x)=-5-\\cos(x+\\tfrac{2\\pi}{3})","f":"cos","a":-5,"b":-1,"c":1,"d":2.094395},{"t":"f(x)=1+\\sen2x","f":"sen","a":1,"b":1,"c":2,"d":0},{"t":"f(x)=2\\sen(\\tfrac{\\pi}{4}-\\tfrac{x}{2})","f":"sen","a":0,"b":-2,"c":0.5,"d":-0.785398,"note":"(= −2 sen(x/2 − π/4), pois seno é ímpar)"},{"t":"f(x)=|1+2\\cos x|-2","f":"cos","abs":true,"a":0,"b":1,"c":1,"d":0},{"t":"f(x)=-2\\cos(\\tfrac{3x}{2}-2)","f":"cos","a":0,"b":-2,"c":1.5,"d":-2}]}'><div class="lt">Laboratório: o gráfico de a + b·F(cx + d)</div><p class="ld">Mexa em \(a\), \(b\), \(c\) e \(d\) e veja período e imagem mudarem. Os botões carregam as funções da Lista 6 (questões 1 e 3).</p></div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>A altura de uma cabine ao longo do tempo</h3>
+    <p>A roda-gigante do Módulo 7 (raio 20 m, centro a 22 m do chão) dá uma volta a cada 30 minutos. A cabine começa no ponto mais baixo. Escreva a altura \(h(t)\) em função do tempo \(t\) (em minutos) e calcule \(h(10)\).</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · período e c</span><p>Uma volta em 30 min: \(P=30\Rightarrow|c|=\frac{2\pi}{30}=\frac{\pi}{15}\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · a e b</span><p>O centro fica a 22 m (\(a=22\)) e o raio é 20 (amplitude \(|b|=20\)). Começando embaixo, a altura inicial é mínima; o cosseno começa no máximo, então usamos \(-\cos\):</p><div class="m">\[h(t)=22-20\cos\left(\frac{\pi t}{15}\right)\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · conferir</span><p>\(h(0)=22-20=2\) m (embaixo); \(h(15)=22-20\cos\pi=42\) m (em cima). Imagem: \([2,\ 42]\). ✓</p></div>
+      <div class="st"><span class="pl">Passo 4 · t = 10 min</span><div class="m">\[h(10)=22-20\cos\frac{2\pi}{3}=22-20\cdot\left(-\tfrac12\right)=32\ \text{m}\]</div></div>
+    </div>
+    <div class="final"><b>Resposta:</b> \(h(t)=22-20\cos\frac{\pi t}{15}\); depois de 10 minutos a cabine está a 32 m.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Período, domínio e imagem de \(f(x)=2+3\sen2x\).</p><div class="steps">
+    <div class="st"><span class="pl">Passo 1</span><p>\(a=2\), \(b=3\), \(c=2\), \(d=0\).</p></div>
+    <div class="st"><span class="pl">Passo 2</span><div class="m">\[P=\frac{2\pi}2=\pi\qquad D=\mathbb R\qquad Im=[2-3,\ 2+3]=[-1,\ 5]\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2 · Lista 6, 1(b)</div><p>\(f(x)=-3\sen(\pi-5x)\).</p><div class="steps">
+    <div class="st"><span class="pl">Passo 1 · simplificar</span><p>\(\sen(\pi-u)=\sen u\) (suplementares), então \(f(x)=-3\sen5x\).</p></div>
+    <div class="st"><span class="pl">Passo 2</span><div class="m">\[P=\frac{2\pi}{5}\qquad D=\mathbb R\qquad Im=[-3,\ 3]\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3 · esboçar \(f(x)=1+\sen2x\)</div><div class="steps">
+    <div class="st"><span class="pl">Passo 1 · período e imagem</span><p>\(P=\pi\) e \(Im=[0,\ 2]\).</p></div>
+    <div class="st"><span class="pl">Passo 2 · pontos-chave</span><p>Divida o período em 4: \(x=0,\frac\pi4,\frac\pi2,\frac{3\pi}4,\pi\) → \(f=1,\ 2,\ 1,\ 0,\ 1\). Ligue com a forma de onda. Confira no laboratório.</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m10v1" data-ans="C"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>O período de \(f(x)=\sen3x\) é:</p>
+      <ol class="opts"><li>\(6\pi\)</li><li>\(3\pi\)</li><li>\(\frac{2\pi}3\)</li><li>\(2\pi\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(P=\frac{2\pi}{|c|}=\frac{2\pi}3\).</p></div></div><p class="rev">Revise: <a href="#m10-s4">10.4 Transformações</a></p></div>
+    <div class="q" data-id="m10v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>A imagem de \(f(x)=2-3\sen x\) é:</p>
+      <ol class="opts"><li>\([-1,\ 5]\)</li><li>\([-3,\ 3]\)</li><li>\([2,\ 5]\)</li><li>\([-5,\ 1]\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(a=2\), \(|b|=3\): \([2-3,\ 2+3]=[-1,\ 5]\). O sinal de \(b\) não altera a imagem.</p></div></div><p class="rev">Revise: <a href="#m10-s4">10.4 Imagem</a></p></div>
+    <div class="q" data-id="m10v3" data-ans="B"><div class="qh"><span class="qn">Verificação 3</span><span class="tag f">fácil</span></div><p>Qual função é par?</p>
+      <ol class="opts"><li>\(\sen x\)</li><li>\(\cos x\)</li><li>\(\tg x\)</li><li>\(1+\sen x\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\cos(-x)=\cos x\): gráfico simétrico em relação ao eixo \(y\).</p></div></div><p class="rev">Revise: <a href="#m10-s3">10.3 Cosseno</a></p></div>
+    <div class="q" data-id="m10v4" data-ans="D"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>O período de \(f(x)=\cos\frac{2x}{3}-4\) é:</p>
+      <ol class="opts"><li>\(\frac{4\pi}3\)</li><li>\(\frac{2\pi}3\)</li><li>\(2\pi\)</li><li>\(3\pi\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[P=\frac{2\pi}{2/3}=2\pi\cdot\frac32=3\pi\]</div></div></div><p class="rev">Revise: <a href="#m10-s4">10.4 Período</a></p></div>
+    <div class="q" data-id="m10v5" data-ans="C"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>O valor máximo de \(f(x)=4+2\cos x\) é:</p>
+      <ol class="opts"><li>4</li><li>2</li><li>6</li><li>8</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Máximo quando \(\cos x=1\): \(4+2=6\).</p></div></div><p class="rev">Revise: <a href="#m10-s4">10.4 Imagem</a></p></div>
+    <div class="q" data-id="m10v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Os zeros de \(f(x)=\sen x\) são:</p>
+      <ol class="opts"><li>\(x=k\pi,\ k\in\mathbb Z\)</li><li>\(x=\frac\pi2+k\pi\)</li><li>\(x=2k\pi\)</li><li>\(x=\frac\pi2+2k\pi\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\sen x=0\) quando o ponto do ciclo está no eixo \(x\): em \(0,\pi,2\pi,\dots\), ou seja, múltiplos de \(\pi\).</p></div></div><p class="rev">Revise: <a href="#m10-s2">10.2 Seno</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação visual do conteúdo deste módulo</p></div></div>
+    <div class="q dq" data-id="m10d1" data-ans="B"><p>Qual função tem este gráfico (de 0 a 2π)?</p><figure class="fig sm" data-f="grafQ" data-o='{"f":"sen","a":1,"b":1,"c":1}'></figure><ol class="opts"><li>\(\sen x\)</li><li>\(1+\sen x\)</li><li>\(1+\cos x\)</li><li>\(2\sen x\)</li></ol><div class="why" hidden>Começa em 1, sobe até 2 em \(\frac\pi2\) e desce até 0: é a senoide deslocada 1 para cima.</div></div>
+    <div class="q dq" data-id="m10d2" data-ans="C"><p>E este?</p><figure class="fig sm" data-f="grafQ" data-o='{"f":"sen","a":0,"b":2,"c":2}'></figure><ol class="opts"><li>\(2\sen x\)</li><li>\(\sen2x\)</li><li>\(2\sen2x\)</li><li>\(2+\sen2x\)</li></ol><div class="why" hidden>Amplitude 2 e duas ondas completas em \(2\pi\) (período \(\pi\)): \(2\sen2x\).</div></div>
+    <div class="q dq" data-id="m10d3" data-ans="A"><p>E este?</p><figure class="fig sm" data-f="grafQ" data-o='{"f":"cos","a":0,"b":-1,"c":1}'></figure><ol class="opts"><li>\(-\cos x\)</li><li>\(\cos x\)</li><li>\(-\sen x\)</li><li>\(\cos2x\)</li></ol><div class="why" hidden>Começa em −1 (mínimo) e volta a −1 em \(2\pi\): é o cosseno refletido.</div></div>
+    <div class="q dq" data-id="m10d4" data-ans="D"><p>Qual das funções tem imagem \([-2,\ 1]\)?</p><ol class="opts"><li>\(1+2\cos x\)</li><li>\(-2+\cos x\)</li><li>\(2\sen x-1\)</li><li>\(|1+2\cos x|-2\)</li></ol><div class="why" hidden>\(1+2\cos x\in[-1,3]\); o módulo leva a \([0,3]\); menos 2 dá \([-2,1]\). (Lista 6, 3(c).)</div></div>
+  </div>
+</div>
+</section>
