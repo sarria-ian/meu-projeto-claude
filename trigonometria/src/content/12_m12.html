@@ -1,0 +1,126 @@
+<section class="page mod" id="m12" data-num="12" data-part="Parte V · Complementos das provas" data-short="Adição de arcos e inversas" data-title="Adição de arcos, arco duplo, arco metade e funções inversas" data-icon="sigma" data-desc="cos(a − b) e as outras fórmulas de adição, sen 15°, tg 15°, sen π/8, arcsen, arccos, arctg e o estudo de (1 + tg x)/(1 − tg x).">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>demonstrar \(\cos(a-b)\) e usar as fórmulas de seno, cosseno e tangente da soma e da diferença;</li>
+    <li>usar arco duplo e arco metade para achar \(\sen15^\circ\), \(\tg15^\circ\), \(\sen\frac\pi8\) e parecidos (Lista de Revisão, questão 20);</li>
+    <li>calcular arcsen, arccos e arctg respeitando os intervalos de resposta (Avaliação 2, questão 5);</li>
+    <li>estudar funções como \(\frac{1+\tg x}{1-\tg x}\) (Avaliação 2, questão 6).</li></ul></div>
+
+  <h2 class="sec"><span class="n">12.1</span> Cosseno da diferença</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Fórmula-mãe</div><div>\[\cos(a-b)=\cos a\cos b+\sen a\sen b\]</div><p>Vale para quaisquer arcos \(a\) e \(b\). Todas as outras fórmulas deste módulo saem dela.</p></div>
+    <details class="demo" open><summary>Demonstração (pela distância no ciclo)</summary><div><div class="steps">
+      <div class="st"><span class="pl">Passo 1</span><p>No ciclo, \(P=(\cos a,\sen a)\) e \(Q=(\cos b,\sen b)\). O arco entre eles mede \(a-b\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · distância PQ</span><div class="m">\[PQ^2=(\cos a-\cos b)^2+(\sen a-\sen b)^2=2-2(\cos a\cos b+\sen a\sen b)\]</div><p>Expandindo e usando \(\cos^2+\sen^2=1\) duas vezes.</p></div>
+      <div class="st"><span class="pl">Passo 3 · girar a figura</span><p>Girando o ciclo até \(Q\) cair em \(A(1,0)\), \(P\) vai para \((\cos(a-b),\sen(a-b))\). Girar não muda distâncias:</p><div class="m">\[PQ^2=(\cos(a-b)-1)^2+\sen^2(a-b)=2-2\cos(a-b)\]</div></div>
+      <div class="st"><span class="pl">Passo 4 · igualar</span><div class="m">\[2-2\cos(a-b)=2-2(\cos a\cos b+\sen a\sen b)\Rightarrow\cos(a-b)=\cos a\cos b+\sen a\sen b\]</div></div></div></div></details>
+  </div>
+
+  <h2 class="sec"><span class="n">12.2</span> As fórmulas de adição e subtração</h2>
+  <div class="prose">
+    <div class="tbl"><table><thead><tr><th class="l">fórmula</th><th class="l">de onde vem</th></tr></thead><tbody>
+      <tr><td class="l">\(\cos(a-b)=\cos a\cos b+\sen a\sen b\)</td><td class="l">demonstração 12.1</td></tr>
+      <tr><td class="l">\(\cos(a+b)=\cos a\cos b-\sen a\sen b\)</td><td class="l">troque \(b\) por \(-b\) (cos é par, sen é ímpar)</td></tr>
+      <tr><td class="l">\(\sen(a+b)=\sen a\cos b+\cos a\sen b\)</td><td class="l">\(\sen x=\cos(90^\circ-x)\) com \(x=a+b\)</td></tr>
+      <tr><td class="l">\(\sen(a-b)=\sen a\cos b-\cos a\sen b\)</td><td class="l">troque \(b\) por \(-b\)</td></tr>
+      <tr><td class="l">\(\tg(a+b)=\dfrac{\tg a+\tg b}{1-\tg a\tg b}\)</td><td class="l">\(\frac{\sen(a+b)}{\cos(a+b)}\), dividindo em cima e embaixo por \(\cos a\cos b\)</td></tr>
+      <tr><td class="l">\(\tg(a-b)=\dfrac{\tg a-\tg b}{1+\tg a\tg b}\)</td><td class="l">troque \(b\) por \(-b\) (tg é ímpar)</td></tr></tbody></table></div>
+    <div class="box tip"><div class="bl">Para memorizar</div><p><b>Seno</b> mistura (sen·cos + cos·sen) e mantém o sinal. <b>Cosseno</b> junta iguais (cos·cos, sen·sen) e <b>troca</b> o sinal.</p></div>
+    <div class="box warn"><div class="bl">Erro comum</div><p>\(\sen(a+b)\ne\sen a+\sen b\). Teste: \(\sen(30^\circ+60^\circ)=1\), mas \(\sen30^\circ+\sen60^\circ\approx1{,}37\).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">12.3</span> Arco duplo e arco metade</h2>
+  <div class="prose">
+    <div class="two">
+      <div class="box def"><div class="bl">Arco duplo (faça \(b=a\))</div><div>\[\sen2a=2\sen a\cos a\]\[\cos2a=\cos^2a-\sen^2a=1-2\sen^2a=2\cos^2a-1\]\[\tg2a=\frac{2\tg a}{1-\tg^2a}\]</div></div>
+      <div class="box def"><div class="bl">Arco metade (isole em cos 2a)</div><div>\[\sen^2\frac x2=\frac{1-\cos x}{2}\qquad\cos^2\frac x2=\frac{1+\cos x}{2}\]\[\tg\frac x2=\frac{1-\cos x}{\sen x}\]</div><p class="small">O sinal da raiz vem do quadrante de \(\frac x2\).</p></div>
+    </div>
+  </div>
+
+  <h2 class="sec"><span class="n">12.4</span> sen 15°, tg 15° e sen π/8 (Lista de Revisão, questão 20)</h2>
+  <div class="prose">
+    <div class="ex"><div class="et">Modelo · 15° = 45° − 30°</div><div class="steps">
+      <div class="st"><span class="pl">sen 15°</span><div class="m">\[\sen(45^\circ-30^\circ)=\frac{\sqrt2}2\cdot\frac{\sqrt3}2-\frac{\sqrt2}2\cdot\frac12=\frac{\sqrt6-\sqrt2}{4}\approx0{,}259\]</div></div>
+      <div class="st"><span class="pl">cos 15°</span><div class="m">\[\cos(45^\circ-30^\circ)=\frac{\sqrt2}2\cdot\frac{\sqrt3}2+\frac{\sqrt2}2\cdot\frac12=\frac{\sqrt6+\sqrt2}{4}\approx0{,}966\]</div></div>
+      <div class="st"><span class="pl">tg 15°</span><div class="m">\[\tg(45^\circ-30^\circ)=\frac{1-\frac{\sqrt3}3}{1+\frac{\sqrt3}3}=\frac{3-\sqrt3}{3+\sqrt3}\cdot\frac{3-\sqrt3}{3-\sqrt3}=\frac{12-6\sqrt3}{6}=2-\sqrt3\]</div><p>Racionalizamos com o conjugado \(3-\sqrt3\).</p></div></div></div>
+    <div class="ex"><div class="et">Modelo · π/8 = metade de π/4</div><div class="steps">
+      <div class="st"><span class="pl">sen π/8</span><div class="m">\[\sen^2\frac\pi8=\frac{1-\cos\frac\pi4}{2}=\frac{1-\frac{\sqrt2}2}{2}=\frac{2-\sqrt2}{4}\Rightarrow\sen\frac\pi8=\frac{\sqrt{2-\sqrt2}}{2}\approx0{,}383\]</div><p>Raiz positiva: \(\frac\pi8\) está no 1º quadrante.</p></div>
+      <div class="st"><span class="pl">cos π/8</span><div class="m">\[\cos^2\frac\pi8=\frac{1+\frac{\sqrt2}2}{2}\Rightarrow\cos\frac\pi8=\frac{\sqrt{2+\sqrt2}}{2}\approx0{,}924\]</div></div>
+      <div class="st"><span class="pl">tg π/8</span><div class="m">\[\tg\frac\pi8=\frac{1-\cos\frac\pi4}{\sen\frac\pi4}=\frac{1-\frac{\sqrt2}2}{\frac{\sqrt2}2}=\frac{2-\sqrt2}{\sqrt2}=\sqrt2-1\approx0{,}414\]</div></div></div></div>
+    <div class="box obs"><div class="bl">Tabela ampliada</div><div class="tbl"><table><thead><tr><th></th><th>15°</th><th>22,5° = π/8</th><th>75°</th></tr></thead><tbody>
+      <tr><th>sen</th><td>\(\frac{\sqrt6-\sqrt2}4\)</td><td>\(\frac{\sqrt{2-\sqrt2}}2\)</td><td>\(\frac{\sqrt6+\sqrt2}4\)</td></tr>
+      <tr><th>cos</th><td>\(\frac{\sqrt6+\sqrt2}4\)</td><td>\(\frac{\sqrt{2+\sqrt2}}2\)</td><td>\(\frac{\sqrt6-\sqrt2}4\)</td></tr>
+      <tr><th>tg</th><td>\(2-\sqrt3\)</td><td>\(\sqrt2-1\)</td><td>\(2+\sqrt3\)</td></tr></tbody></table></div><p class="small">75° é complemento de 15°: seno e cosseno trocam, e \(\tg75^\circ=\frac1{\tg15^\circ}=2+\sqrt3\).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">12.5</span> Funções inversas: arcsen, arccos, arctg</h2>
+  <div class="prose">
+    <p>“\(\arcsen y\)” lê-se “o arco cujo seno é \(y\)”. Como vários arcos têm o mesmo seno, escolhemos <b>um único intervalo</b> de resposta:</p>
+    <div class="tbl"><table><thead><tr><th>função</th><th>aceita \(y\) em</th><th>responde um arco em</th><th class="l">exemplo</th></tr></thead><tbody>
+      <tr><td>\(\arcsen y\)</td><td>\([-1,\ 1]\)</td><td>\(\left[-\frac\pi2,\ \frac\pi2\right]\)</td><td class="l">\(\arcsen\frac12=\frac\pi6\)</td></tr>
+      <tr><td>\(\arccos y\)</td><td>\([-1,\ 1]\)</td><td>\([0,\ \pi]\)</td><td class="l">\(\arccos\left(-\frac12\right)=\frac{2\pi}3\)</td></tr>
+      <tr><td>\(\operatorname{arctg}y\)</td><td>\(\mathbb R\)</td><td>\(\left(-\frac\pi2,\ \frac\pi2\right)\)</td><td class="l">\(\operatorname{arctg}(-1)=-\frac\pi4\)</td></tr></tbody></table></div>
+    <div class="ex"><div class="et">Exemplo · Avaliação 2, questão 5: \(\arcsen\left(\cos\frac{11\pi}{6}\right)\)</div><div class="steps">
+      <div class="st"><span class="pl">Passo 1 · de dentro para fora</span><p>\(\frac{11\pi}6=2\pi-\frac\pi6\) (4º quadrante, cosseno positivo):</p><div class="m">\[\cos\frac{11\pi}{6}=\cos\frac\pi6=\frac{\sqrt3}2\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · o arcsen</span><p>Qual arco de \(\left[-\frac\pi2,\frac\pi2\right]\) tem seno \(\frac{\sqrt3}2\)?</p><div class="m">\[\arcsen\frac{\sqrt3}2=\frac\pi3\]</div></div></div></div>
+    <div class="box warn"><div class="bl">Erro comum</div><p>\(\arcsen(\sen\frac{5\pi}6)\) <b>não</b> é \(\frac{5\pi}6\): \(\sen\frac{5\pi}6=\frac12\) e \(\arcsen\frac12=\frac\pi6\), porque a resposta precisa estar em \(\left[-\frac\pi2,\frac\pi2\right]\).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">12.6</span> Estudo de \(f(x)=\dfrac{1+\tg x}{1-\tg x}\) (Avaliação 2, questão 6)</h2>
+  <div class="prose">
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · reconhecer a fórmula</span><p>Como \(\tg\frac\pi4=1\), a expressão é exatamente \(\tg(a+b)\) com \(b=\frac\pi4\):</p><div class="m">\[\tg\left(x+\frac\pi4\right)=\frac{\tg x+1}{1-\tg x\cdot1}=f(x)\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · domínio (duas exigências)</span><p>① \(\tg x\) precisa existir: \(x\ne\frac\pi2+k\pi\). ② O denominador não pode zerar: \(\tg x\ne1\Rightarrow x\ne\frac\pi4+k\pi\).</p><div class="m">\[D=\left\{x\in\mathbb R\mid x\ne\frac\pi4+k\pi\ \text{e}\ x\ne\frac\pi2+k\pi,\ k\in\mathbb Z\right\}\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · período, assíntotas, imagem</span><p>Período \(\pi\). Assíntotas \(x=\frac\pi4+k\pi\). Nos pontos \(x=\frac\pi2+k\pi\), \(\tg\left(x+\frac\pi4\right)\) valeria \(-1\), mas \(f\) não está definida lá: o gráfico tem “buracos” nesse valor.</p><div class="m">\[Im=\mathbb R\setminus\{-1\}\]</div></div>
+      <div class="st"><span class="pl">Passo 4 · variação</span><p>Como a tangente, \(f\) é crescente em cada intervalo entre assíntotas. O gráfico é o de \(\tg x\) deslocado \(\frac\pi4\) para a esquerda.</p></div>
+    </div>
+    <div class="box note"><div class="bl">Sobre a resolução da prova</div><p>Na folha, o domínio aparece só como \(x\ne\frac\pi4+k\pi\). Vale lembrar a exigência ①: onde \(\tg x\) não existe, a fração original também não existe.</p></div>
+  </div>
+  <div class="lab" data-w="plot" data-o='{"id":"m12","f":"tg","presets":[{"t":"f(x)=\\tg(x+\\tfrac{\\pi}{4})=\\tfrac{1+\\tg x}{1-\\tg x}","f":"tg","a":0,"b":1,"c":1,"d":0.785398,"note":"(buracos em x = π/2 + kπ, onde f vale −1 mas não existe)"}]}'><div class="lt">Laboratório: o gráfico de tg(x + π/4)</div><p class="ld">Carregue a função da Avaliação 2 e compare com \(\tg x\).</p></div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>O melhor lugar para ver um quadro no museu</h3>
+    <p>Um quadro está pendurado numa parede, com a borda de baixo 2 m acima dos olhos de um visitante e a de cima 5 m acima. O visitante está a 6 m da parede. Sob que ângulo ele vê o quadro?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · dois ângulos de elevação</span><p>Até o topo: \(\tg a=\frac56\). Até a base: \(\tg b=\frac26=\frac13\). O ângulo de visão é \(\theta=a-b\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · tangente da diferença</span><div class="m">\[\tg\theta=\frac{\frac56-\frac13}{1+\frac56\cdot\frac13}=\frac{\frac12}{\frac{23}{18}}=\frac{9}{23}\approx0{,}391\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · o ângulo</span><div class="m">\[\theta=\operatorname{arctg}\frac9{23}\approx21{,}4^\circ\]</div></div>
+    </div>
+    <div class="final"><b>Resposta:</b> cerca de 21,4°. Perto demais ou longe demais o ângulo diminui; a fórmula de tg(a − b) permite achar a distância ideal.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Calcule \(\cos75^\circ\).</p><div class="steps"><div class="st"><span class="pl">Passo 1 · 75° = 45° + 30°</span><div class="m">\[\cos45^\circ\cos30^\circ-\sen45^\circ\sen30^\circ=\frac{\sqrt6}4-\frac{\sqrt2}4=\frac{\sqrt6-\sqrt2}4\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Se \(\sen a=\frac35\) com \(a\) no 1º quadrante, calcule \(\sen2a\).</p><div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(\cos a=\frac45\) (relação fundamental).</p><div class="m">\[\sen2a=2\cdot\frac35\cdot\frac45=\frac{24}{25}\]</div></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m12v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>\(\cos(a+b)\) é igual a:</p>
+      <ol class="opts"><li>\(\cos a+\cos b\)</li><li>\(\cos a\cos b-\sen a\sen b\)</li><li>\(\cos a\cos b+\sen a\sen b\)</li><li>\(\sen a\cos b+\cos a\sen b\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Cosseno junta iguais e troca o sinal.</p></div></div><p class="rev">Revise: <a href="#m12-s2">12.2 Fórmulas</a></p></div>
+    <div class="q" data-id="m12v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag m">médio</span></div><p>\(\sen15^\circ\) vale:</p>
+      <ol class="opts"><li>\(\frac{\sqrt6-\sqrt2}4\)</li><li>\(\frac{\sqrt6+\sqrt2}4\)</li><li>\(\frac{\sqrt3-1}{2}\)</li><li>\(2-\sqrt3\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\sen(45^\circ-30^\circ)=\tfrac{\sqrt2}2\tfrac{\sqrt3}2-\tfrac{\sqrt2}2\tfrac12=\tfrac{\sqrt6-\sqrt2}4\]</div></div></div><p class="rev">Revise: <a href="#m12-s4">12.4 sen 15°</a></p></div>
+    <div class="q" data-id="m12v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>\(\tg\frac\pi8\) vale:</p>
+      <ol class="opts"><li>\(2-\sqrt3\)</li><li>\(\frac{\sqrt2}2\)</li><li>\(1\)</li><li>\(\sqrt2-1\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\tg\frac\pi8=\frac{1-\cos\frac\pi4}{\sen\frac\pi4}=\sqrt2-1\]</div></div></div><p class="rev">Revise: <a href="#m12-s4">12.4 π/8</a></p></div>
+    <div class="q" data-id="m12v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>\(\arcsen\left(\cos\frac{11\pi}6\right)\) vale:</p>
+      <ol class="opts"><li>\(\frac\pi6\)</li><li>\(\frac{11\pi}6\)</li><li>\(\frac\pi3\)</li><li>\(\frac{2\pi}3\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\cos\frac{11\pi}6=\frac{\sqrt3}2\); \(\arcsen\frac{\sqrt3}2=\frac\pi3\).</p></div></div><p class="rev">Revise: <a href="#m12-s5">12.5 Funções inversas</a></p></div>
+    <div class="q" data-id="m12v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>Se \(\tg a=\frac12\) e \(\tg b=\frac13\), então \(a+b\) (agudos) vale:</p>
+      <ol class="opts"><li>30°</li><li>45°</li><li>60°</li><li>90°</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\tg(a+b)=\frac{\frac12+\frac13}{1-\frac16}=\frac{5/6}{5/6}=1\Rightarrow a+b=45^\circ\]</div></div></div><p class="rev">Revise: <a href="#m12-s2">12.2 tg(a + b)</a></p></div>
+    <div class="q" data-id="m12v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>\(f(x)=\frac{1+\tg x}{1-\tg x}\) é igual a:</p>
+      <ol class="opts"><li>\(\tg\left(x+\frac\pi4\right)\), onde \(f\) existe</li><li>\(\tg\left(x-\frac\pi4\right)\)</li><li>\(\tg2x\)</li><li>\(1+\tg x\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\tg(x+\frac\pi4)=\frac{\tg x+1}{1-\tg x}\) porque \(\tg\frac\pi4=1\).</p></div></div><p class="rev">Revise: <a href="#m12-s6">12.6 Estudo da função</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida do conteúdo deste módulo</p></div></div>
+    <div class="q dq" data-id="m12d1" data-ans="C"><p>\(\sen2x\) é igual a:</p><ol class="opts"><li>\(2\sen x\)</li><li>\(\sen^2x\)</li><li>\(2\sen x\cos x\)</li><li>\(\sen x+\cos x\)</li></ol><div class="why" hidden>Arco duplo: \(\sen(x+x)=\sen x\cos x+\cos x\sen x=2\sen x\cos x\).</div></div>
+    <div class="q dq" data-id="m12d2" data-ans="A"><p>\(\arccos(-1)\) vale:</p><ol class="opts"><li>\(\pi\)</li><li>\(-\frac\pi2\)</li><li>\(0\)</li><li>\(2\pi\)</li></ol><div class="why" hidden>O arco de \([0,\pi]\) com cosseno −1 é \(\pi\).</div></div>
+    <div class="q dq" data-id="m12d3" data-ans="D"><p>\(\tg75^\circ\) vale:</p><ol class="opts"><li>\(2-\sqrt3\)</li><li>\(\sqrt3\)</li><li>\(\frac{\sqrt6+\sqrt2}4\)</li><li>\(2+\sqrt3\)</li></ol><div class="why" hidden>\(\tg75^\circ=\frac1{\tg15^\circ}=\frac1{2-\sqrt3}=2+\sqrt3\).</div></div>
+    <div class="q dq" data-id="m12d4" data-ans="B"><p>\(\cos^2\frac x2\) é igual a:</p><ol class="opts"><li>\(\frac{1-\cos x}2\)</li><li>\(\frac{1+\cos x}2\)</li><li>\(\cos x\)</li><li>\(2\cos^2x-1\)</li></ol><div class="why" hidden>De \(\cos x=2\cos^2\frac x2-1\).</div></div>
+  </div>
+</div>
+</section>

@@ -9,12 +9,18 @@ APOSTILA DE TRIGONOMETRIA - COMO ABRIR
 No celular: salve o .html no aparelho e abra com o navegador.
 
 Como usar
-- Modulos: leia em ordem (1 a 11). Cada modulo tem objetivos, teoria,
+- Modulos: leia em ordem (1 a 12). Cada modulo tem objetivos, teoria,
   laboratorios interativos, estudo de caso, exemplos resolvidos,
   questoes de verificacao (valem XP) e a "Hora do desafio".
-- Listas: as Listas 1 a 6 com resposta e resolucao passo a passo.
+- Listas: as Listas 1 a 6, a Lista de Revisao, a Avaliacao 1 e a
+  Avaliacao 2, com resposta e resolucao passo a passo.
   Marque "Acertei" ou "Errei, vou revisar".
-- Jogar: 3 jogos rapidos (Ciclo Relampago, Sinal Certo, Conversor Turbo).
+- Jogar: 5 jogos rapidos (Ciclo Relampago, Sinal Certo, Conversor Turbo,
+  Congruos, Minutos e segundos).
+- Dificuldade com graus/minutos/segundos? Modulo 1, secao 1.5
+  (calculadora passo a passo + treino infinito).
+- Dificuldade com arcos congruos? Modulo 6, secao 6.4 (todas as tecnicas,
+  calculadora que mostra cada tecnica + treino infinito).
 - Simulado: 10 questoes sorteadas de todos os modulos.
 - Formulario: resumo de todas as formulas e dos erros comuns.
 - Perfil: seu nome, nivel, estatisticas e conquistas.

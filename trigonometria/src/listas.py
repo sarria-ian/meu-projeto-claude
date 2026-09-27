@@ -16,11 +16,11 @@ def item(iid, num, enun, ans, steps=None, extra=""):
     if steps: h += '<div class="sol steps">' + "".join(steps) + "</div>"
     return h + "</div>"
 
-def page(n, short, title, desc, intro, items, mods):
+def page(n, short, title, desc, intro, items, mods, kicker=None):
     links = " · ".join(f'<a href="#{m}">{t}</a>' for m, t in mods)
-    return (f'<section class="page lista" id="lista{n}" data-num="{n}" data-short="{short}" data-desc="{desc}">'
+    return (f'<section class="page lista" id="lista{n}" data-num="{n}" data-short="{short}" data-desc="{desc}" data-kicker="{kicker or ("Lista " + str(n))}">'
             f'<div class="mhead"><span class="mi"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></svg></span>'
-            f'<div style="flex:1;min-width:0"><div class="eyebrow">Lista de Exercícios {n}</div><h1>{title}</h1><p class="muted small">Teoria: {links}</p></div></div>'
+            f'<div style="flex:1;min-width:0"><div class="eyebrow">{kicker or ("Lista de Exercícios " + str(n))}</div><h1>{title}</h1><p class="muted small">Teoria: {links}</p></div></div>'
             f'<div class="book"><div class="btns lprog" style="gap:12px"></div><p class="small muted">{intro}</p><div class="qs">' + "".join(items) +
             '</div><div class="mnav"><a class="btn" href="#listas">Todas as listas</a></div></div></section>')
 
@@ -230,6 +230,134 @@ for i, e, a in esb:
                    [st("Roteiro", "1) período e imagem; 2) divida um período em 4 partes iguais; 3) calcule \\(f\\) nesses pontos; 4) ligue com a forma de onda (ou ramos da tangente entre assíntotas).")]))
 out.append(page(6, "Funções trigonométricas", "Funções Trigonométricas (seno, cosseno e tangente)", "Período, domínio, imagem, assíntotas e esboço de gráficos.",
     "Numeração igual à da folha (1 a 3). Os gráficos da questão 3 podem ser vistos nos laboratórios dos módulos 10 e 11.", L6, [("m10", "Mód. 10"), ("m11", "Mód. 11")]))
+
+
+# ============================================================ LISTA DE REVISÃO (7)
+R = [
+ item("R-1", "1", r'Determine o valor \(x\) na figura.<figure class="fig sm">{{FIG:rev1}}</figure>', r"\(x=\frac{20\sqrt3}{3}\approx11{,}55\)",
+      [st("Passo 1 · altura", "O lado 40 é hipotenusa do triângulo grande, oposto ao ângulo reto. A altura é oposta ao 30°.", r"h=40\sen30^\circ=20"),
+       st("Passo 2 · triângulo da direita", "Com o ângulo de 60°: h é oposto e x é adjacente.", r"\tg60^\circ=\frac{20}{x}\Rightarrow x=\frac{20}{\sqrt3}=\frac{20\sqrt3}{3}")]),
+ item("R-2", "2", r'Na figura, \(BA\perp CA\), \(MB=MC\) e \(AB=12\) cm. Calcule a medida de \(AM\).<figure class="fig sm">{{FIG:rev2}}</figure>', r"\(AM=4\sqrt3\approx6{,}93\) cm",
+      [st("Passo 1 · lado AC", r"No triângulo retângulo em A, o ângulo em C mede 60°; AB = 12 é oposto e AC é adjacente.", r"\tg60^\circ=\frac{12}{AC}\Rightarrow AC=\frac{12}{\sqrt3}=4\sqrt3"),
+       st("Passo 2 · triângulo AMC", r"Em \(AMC\), os ângulos em \(C\) e em \(M\) medem 60°, logo o terceiro também: é equilátero. Assim \(AM=AC\)."),
+       st("Conferência", r"\(BC=\frac{12}{\sen60^\circ}=8\sqrt3\) e a mediana relativa à hipotenusa vale metade dela: \(AM=4\sqrt3\) ✓.")]),
+ item("R-3", "3", r'Um observador, no ponto O, vê um prédio segundo um ângulo de 75°. Se ele está a 12 m do prédio e a 12 m de altura do plano horizontal, calcule a altura do prédio.<figure class="fig sm">{{FIG:rev3}}</figure>', r"\(H=12+4\sqrt3\approx18{,}93\) m",
+      [st("Passo 1 · parte de baixo", r"Até a base: 12 m abaixo e 12 m de distância ⇒ \(\tg=\frac{12}{12}=1\), ângulo de 45°."),
+       st("Passo 2 · parte de cima", r"O restante do ângulo é \(75^\circ-45^\circ=30^\circ\).", r"h=12\tg30^\circ=12\cdot\frac{\sqrt3}3=4\sqrt3"),
+       st("Passo 3", "", r"H=12+4\sqrt3\approx18{,}93\ \text{m}")]),
+ item("R-4", "4", r'Sendo O o centro da circunferência de raio unitário, calcule a medida de \(BC\).<figure class="fig sm">{{FIG:rev4}}</figure>', r"\(BC=\frac12\)",
+      [st("Passo 1 · ângulo central", r"O ângulo inscrito \(B\hat AD\) (D é a outra ponta do diâmetro) mede 15°; o ângulo central correspondente \(B\hat OD\) mede o dobro: 30°."),
+       st("Passo 2 · triângulo OCB", r"Reto em C, hipotenusa \(OB=1\) (raio) e ângulo de 30° em O: \(BC\) é oposto.", r"BC=1\cdot\sen30^\circ=\frac12"),
+       st("Outro caminho", r"\(AB=2\cos15^\circ\) (triângulo inscrito no semicírculo) e \(BC=AB\sen15^\circ=2\sen15^\circ\cos15^\circ=\sen30^\circ\).")]),
+]
+conv = [("a",15,r"\frac{\pi}{12}"),("b",30,r"\frac{\pi}{6}"),("c",36,r"\frac{\pi}{5}"),("d",45,r"\frac{\pi}{4}"),("e",50,r"\frac{5\pi}{18}"),("f",60,r"\frac{\pi}{3}"),("g",75,r"\frac{5\pi}{12}"),("h",135,r"\frac{3\pi}{4}"),("i",150,r"\frac{5\pi}{6}"),("j",160,r"\frac{8\pi}{9}"),("k",225,r"\frac{5\pi}{4}"),("l",300,r"\frac{5\pi}{3}")]
+for l, d, t in conv:
+    R.append(item(f"R-5{l}", f"5 {l})", f"Converta \\({d}^\\circ\\) em radianos.", f"\\({t}\\)", [st("Passo 1", "Multiplique por π/180 e simplifique.", f"{d}\\cdot\\frac{{\\pi}}{{180}}={t}")]))
+gr = [("a",r"\frac{\pi}{15}",12),("b",r"\frac{\pi}{30}",6),("c",r"\frac{\pi}{9}",20),("d",r"\frac{5\pi}{18}",50),("e",r"\frac{4\pi}{3}",240),("f",r"\frac{11\pi}{6}",330),("g",r"\frac{8\pi}{9}",160),("h",r"\frac{7\pi}{12}",105),("i",r"\frac{7\pi}{4}",315),("j",r"\frac{16\pi}{9}",320),("k",r"\frac{10\pi}{9}",200),("l",r"\frac{5\pi}{3}",300)]
+for l, t, d in gr:
+    sub = t.replace(chr(92) + "pi", "180^" + chr(92) + "circ")
+    R.append(item(f"R-6{l}", f"6 {l})", f"Converta \\({t}\\) rad em graus.", f"\\({d}^\\circ\\)", [st("Passo 1", "Troque π por 180°.", sub + "=" + str(d) + "^" + chr(92) + "circ")]))
+R += [
+ item("R-7a", "7 a)", r"Quantos minutos possui um arco de 45°?", "2700′", [st("Passo 1", "", r"45\cdot60=2700'")]),
+ item("R-7b", "7 b)", r"Quantos minutos possui um arco de \(25^\circ18'\)?", "1518′", [st("Passo 1", "", r"25\cdot60+18=1500+18=1518'")]),
+ item("R-7c", "7 c)", r"Quantos minutos possui um arco de \(38^\circ49'\)?", "2329′", [st("Passo 1", "", r"38\cdot60+49=2280+49=2329'")]),
+ item("R-8a", "8 a)", r"Quantos segundos possui um arco de 3°?", "10800″", [st("Passo 1", "", r"3\cdot3600=10800''")]),
+ item("R-8b", "8 b)", r"Quantos segundos possui um arco de \(2^\circ7'\)?", "7620″", [st("Passo 1", "", r"2\cdot3600+7\cdot60=7200+420=7620''")]),
+ item("R-8c", "8 c)", r"Quantos segundos possui um arco de \(1^\circ58'43''\)?", "7123″", [st("Passo 1", "", r"1\cdot3600+58\cdot60+43=3600+3480+43=7123''")]),
+ item("R-9", "9", r"Calcule a medida do ângulo central \(a\hat Ob\) que determina, numa circunferência de raio \(r\), um arco de comprimento \(\frac{2\pi r}{3}\).", r"\(\frac{2\pi}{3}\) rad (120°)", [st("Passo 1", "", r"\alpha=\frac{\ell}{r}=\frac{2\pi r/3}{r}=\frac{2\pi}{3}")]),
+]
+sim = [("a", r"20^\circ", r"A=160^\circ,\ B=200^\circ,\ C=340^\circ", r"\(\alpha=20^\circ\): \(A=180^\circ-\alpha\), \(B=180^\circ+\alpha\), \(C=360^\circ-\alpha\).", [20,160,200,340], ["20°","A","B","C"]),
+       ("b", r"\frac{\pi}{9}", r"A=\frac{8\pi}{9},\ B=\frac{10\pi}{9},\ C=\frac{17\pi}{9}", r"\(\alpha=\frac\pi9\): \(\pi-\alpha,\ \pi+\alpha,\ 2\pi-\alpha\).", [20,160,200,340], ["π/9","A","B","C"]),
+       ("c", r"230^\circ", r"B=50^\circ,\ C=130^\circ,\ A=310^\circ", r"230° está no 3º Q: \(230^\circ=180^\circ+50^\circ\), logo \(\alpha=50^\circ\). B (1º Q) = 50°, C (2º Q) = 180° − 50° = 130°, A (4º Q) = 360° − 50° = 310°.", [230,50,130,310], ["230°","B","C","A"]),
+       ("d", r"\frac{9\pi}{5}", r"A=\frac{\pi}{5},\ B=\frac{4\pi}{5},\ C=\frac{6\pi}{5}", r"\(\frac{9\pi}5=2\pi-\frac\pi5\) (4º Q), então \(\alpha=\frac\pi5\): A (1º Q) = \(\frac\pi5\), B (2º Q) = \(\pi-\frac\pi5=\frac{4\pi}5\), C (3º Q) = \(\pi+\frac\pi5=\frac{6\pi}5\).", [324,36,144,216], ["9π/5","A","B","C"])]
+for l, g, ans, w, ds, labs in sim:
+    R.append(item(f"R-10{l}", f"10 ({l})", f"Calcule a medida dos arcos simétricos ao arco \\({g}\\) marcado no ciclo.", f"\\({ans}\\)",
+                  [st("Passo 1 · ângulo de referência", w), f'<figure class="fig sm" data-f="cicloPt" data-o=\'{{"d":{ds},"lab":{str(labs).replace(chr(39), chr(34))}}}\'></figure>']))
+R += [
+ item("R-11a", "11 a)", r"Qual o sinal de \(y_1=\cotg269^\circ+\sen178^\circ\)?", "Positivo.", [st("Passo 1", r"269° está no 3º Q: cotangente positiva. 178° está no 2º Q: seno positivo. Soma de positivos.")]),
+ item("R-11b", "11 b)", r"Qual o sinal de \(y_2=\cotg\frac{12\pi}{7}\cdot\left(\sen\frac{5\pi}{11}+\cos\frac{23\pi}{12}\right)\)?", "Negativo.",
+      [st("Passo 1", r"\(\frac{12\pi}7\approx308{,}6^\circ\) (4º Q): cotangente negativa."), st("Passo 2", r"\(\sen\frac{5\pi}{11}\gt0\) (1º Q) e \(\cos\frac{23\pi}{12}\gt0\) (345°, 4º Q): parêntese positivo."), st("Passo 3", "Negativo × positivo = negativo.")]),
+ item("R-12a", "12 a)", r"Qual o sinal de \(y_1=\cos91^\circ+\cossec91^\circ\)?", "Positivo.", [st("Passo 1", r"\(\cos91^\circ\approx-0{,}017\) (2º Q, perto de 90°) e \(\cossec91^\circ=\frac1{\sen91^\circ}\approx1{,}0002\). A cossecante nunca fica entre −1 e 1; aqui é maior que 1 e vence.")]),
+ item("R-12b", "12 b)", r"Qual o sinal de \(y_2=\sen107^\circ+\sec107^\circ\)?", "Negativo.", [st("Passo 1", r"\(\sen107^\circ\approx0{,}956\) e \(\sec107^\circ=\frac1{\cos107^\circ}\approx\frac1{-0{,}292}\approx-3{,}42\). \(|\sec|\ge1\gt\sen\): soma negativa.")]),
+ item("R-12c", "12 c)", r"Qual o sinal de \(y_3=\sec\frac{9\pi}{8}\cdot\left(\tg\frac{7\pi}{6}+\cotg\frac{\pi}{7}\right)\)?", "Negativo.", [st("Passo 1", r"\(\frac{9\pi}8\) está no 3º Q: secante (sinal do cosseno) negativa."), st("Passo 2", r"\(\tg\frac{7\pi}6=\frac{\sqrt3}3\gt0\) (3º Q) e \(\cotg\frac\pi7\gt0\) (1º Q): parêntese positivo. Produto negativo.")]),
+ item("R-13", "13", r"Qual é o valor de \(\left(\cossec\frac\pi6+\sen\frac\pi6\right)\left(\sen\frac\pi4-\sec\frac\pi3\right)\)?", r"\(\frac{5\sqrt2-20}{4}\approx-3{,}23\)", [st("Passo 1", "", r"\left(2+\tfrac12\right)\left(\tfrac{\sqrt2}2-2\right)=\tfrac52\cdot\tfrac{\sqrt2-4}2=\tfrac{5\sqrt2-20}4")]),
+ item("R-14a", "14 (a)", r"Calcule \(\sen2\pi+\cos2\pi+\sen\pi+\cos\pi\).", "0", [st("Passo 1", "", r"0+1+0+(-1)=0")]),
+ item("R-14b", "14 (b)", r"Calcule \(\sen\frac\pi2-\sen\frac{3\pi}2+\cos\frac\pi2-\cos\frac{3\pi}2\).", "2", [st("Passo 1", "", r"1-(-1)+0-0=2")]),
+ item("R-14c", "14 (c)", r"Calcule \(\sen\frac{2\pi}3-\sen\frac{11\pi}6+\cos\frac{5\pi}3+\cos\frac{5\pi}6\).", "1", [st("Passo 1", "", r"\frac{\sqrt3}2-\left(-\frac12\right)+\frac12+\left(-\frac{\sqrt3}2\right)=1")]),
+ item("R-14d", "14 (d)", r"Calcule \(\dfrac{\cos\frac\pi2-\cos\frac{4\pi}3}{2\sen\frac{5\pi}6}\).", r"\(\frac12\)", [st("Passo 1", "", r"\frac{0-\left(-\frac12\right)}{2\cdot\frac12}=\frac{1/2}{1}=\frac12")]),
+ item("R-14e", "14 (e)", r"Calcule \(\dfrac{\cos\frac{2\pi}3+\cos\pi}{\sen\frac\pi4}\).", r"\(-\frac{3\sqrt2}{2}\)", [st("Passo 1", "", r"\frac{-\frac12-1}{\frac{\sqrt2}2}=-\frac32\cdot\frac2{\sqrt2}=-\frac3{\sqrt2}=-\frac{3\sqrt2}2")]),
+]
+for l, expr, ans in [("a", r"\cotg\frac\pi3+\cotg\frac\pi4+\cotg\frac\pi6", r"1+\frac{4\sqrt3}3"), ("b", r"2\cotg\frac{2\pi}3-\frac12\cotg\frac{5\pi}6", r"-\frac{\sqrt3}6"),
+                     ("c", r"\sen\frac\pi3+\cos\frac\pi4-\tg\frac{2\pi}3+\cotg\frac{7\pi}6", r"\frac{5\sqrt3+\sqrt2}2"), ("d", r"\frac35\cotg\frac{5\pi}3-\frac67\cotg\frac{7\pi}6-\frac23\sen\frac{3\pi}2+\frac45\cos\frac{5\pi}4", r"\frac23-\frac{37\sqrt3}{35}-\frac{2\sqrt2}5")]:
+    R.append(item(f"R-15{l}", f"15 {l})", f"Calcule \\({expr}\\).", f"\\({ans}\\)", [st("Passo 1", 'Mesma questão da Lista 3 (questão 8): veja a resolução completa em <a href="#lista3">Lista 3</a>.')]))
+R += [
+ item("R-16", "16", r"Sendo \(\sen x=-\frac45\) e \(x\) um arco do terceiro quadrante, calcule \(\cos x\).", r"\(\cos x=-\frac35\)", [st("Passo 1", "3º quadrante: cosseno negativo.", r"\cos^2x=1-\tfrac{16}{25}=\tfrac9{25}\Rightarrow\cos x=-\tfrac35")]),
+ item("R-17", "17", r"Sendo \(\cos x=-\frac12\) e \(\frac\pi2\lt x\lt\pi\), obtenha \(\sen x\).", r"\(\sen x=\frac{\sqrt3}2\)", [st("Passo 1", "2º quadrante: seno positivo.", r"\sen^2x=1-\tfrac14=\tfrac34\Rightarrow\sen x=\tfrac{\sqrt3}2\ \left(x=\tfrac{2\pi}3\right)")]),
+ item("R-18", "18", r"Sabendo que \(\cossec x=-\frac{25}{24}\) e \(\pi\lt x\lt\frac{3\pi}2\), obtenha as demais razões de \(x\).", r"\(\sen x=-\frac{24}{25}\), \(\cos x=-\frac7{25}\), \(\tg x=\frac{24}7\), \(\cotg x=\frac7{24}\), \(\sec x=-\frac{25}7\).", [st("Passo 1", 'Mesma questão da Lista 4 (questão 2): veja em <a href="#lista4">Lista 4</a>.')]),
+ item("R-19", "19", r"Sendo \(\sen x=\frac13\) e \(0\lt x\lt\frac\pi2\), calcule \(y=\frac{1}{\cossec x+\cotg x}+\frac{1}{\cossec x-\cotg x}\).", r"\(y=6\)", [st("Passo 1", "", r"y=\frac{2\cossec x}{\cossec^2x-\cotg^2x}=\frac{2\cdot3}{1}=6")]),
+ item("R-20a", "20 a)", r"A partir dos arcos notáveis, determine \(\sen15^\circ\), \(\cos15^\circ\) e \(\tg15^\circ\).", r"\(\frac{\sqrt6-\sqrt2}4\), \(\frac{\sqrt6+\sqrt2}4\) e \(2-\sqrt3\).",
+      [st("Passo 1 · 15° = 45° − 30°", 'Use as fórmulas de subtração (<a href="#m12">Módulo 12</a>).', r"\sen15^\circ=\tfrac{\sqrt2}2\tfrac{\sqrt3}2-\tfrac{\sqrt2}2\tfrac12=\tfrac{\sqrt6-\sqrt2}4"),
+       st("Passo 2", "", r"\cos15^\circ=\tfrac{\sqrt6+\sqrt2}4\qquad\tg15^\circ=\frac{1-\frac{\sqrt3}3}{1+\frac{\sqrt3}3}=2-\sqrt3")]),
+ item("R-20b", "20 b)", r"Determine \(\sen\frac\pi8\), \(\cos\frac\pi8\) e \(\tg\frac\pi8\).", r"\(\frac{\sqrt{2-\sqrt2}}2\), \(\frac{\sqrt{2+\sqrt2}}2\) e \(\sqrt2-1\).",
+      [st("Passo 1 · π/8 é metade de π/4", 'Arco metade (<a href="#m12">Módulo 12</a>).', r"\sen^2\tfrac\pi8=\tfrac{1-\frac{\sqrt2}2}{2}=\tfrac{2-\sqrt2}{4}"),
+       st("Passo 2", "", r"\cos\tfrac\pi8=\tfrac{\sqrt{2+\sqrt2}}2\qquad\tg\tfrac\pi8=\frac{1-\cos\frac\pi4}{\sen\frac\pi4}=\sqrt2-1")]),
+]
+out.append(page(7, "Lista de Revisão", "Lista de Revisão", "Triângulos, conversões, graus-minutos-segundos, simétricos, sinais, expressões e 15° / π/8.",
+    "Numeração igual à da folha (1 a 20). Figuras redesenhadas a partir do PDF.", R, [("m1", "Mód. 1"), ("m2", "Mód. 2"), ("m5", "Mód. 5"), ("m7", "Mód. 7"), ("m8", "Mód. 8"), ("m12", "Mód. 12")], kicker="Revisão"))
+
+# ============================================================ AVALIAÇÃO 1 (8)
+A1 = [
+ item("A1-1a", "1 a)", r"V ou F: \(\cos90^\circ-\cos30^\circ=\cos60^\circ\).", "Falsa.", [st("Justificativa", "", r"0-\frac{\sqrt3}2=-\frac{\sqrt3}2\ne\frac12")]),
+ item("A1-1b", "1 b)", r"V ou F: \(\left(\sen\frac\pi3\right)^2+\left(\cos\frac\pi3\right)^2=1\).", "Verdadeira.", [st("Justificativa", "Relação fundamental; conferindo:", r"\tfrac34+\tfrac14=1")]),
+ item("A1-1c", "1 c)", r"V ou F: \(\sen100^\circ+\cos100^\circ\lt0\).", "Falsa.", [st("Justificativa", r"100° está no 2º Q: seno positivo e cosseno negativo. Como 100° está mais perto de 90°, \(\sen100^\circ\approx0{,}985\) supera \(|\cos100^\circ|\approx0{,}174\): a soma é positiva.")]),
+ item("A1-1d", "1 d)", r"V ou F: existem dois números reais no intervalo \([0,2\pi[\) cuja tangente vale 3.", "Verdadeira.", [st("Justificativa", r"A tangente tem período \(\pi\) e é positiva no 1º e no 3º quadrantes: há um arco \(x_0\) no 1º Q com \(\tg x_0=3\), e \(x_0+\pi\) (3º Q) também tem tangente 3.")]),
+ item("A1-1e", "1 e)", r"V ou F: \(\tg2\pi\) não existe.", "Falsa.", [st("Justificativa", r"\(2\pi\equiv0\): o ponto é \((1,0)\), com \(\cos=1\ne0\). \(\tg2\pi=\frac01=0\).")]),
+ item("A1-2", "2", r'Para medir a largura de um rio de margens paralelas sem atravessá-lo, um observador no ponto A visa um ponto fixo B na margem oposta (AB perpendicular às margens). De A, traça uma perpendicular a AB e marca C a 30 m de A. De C, mede \(B\hat CA=70^\circ\). Sabendo que a distância, sobre AB, de A à margem M é 3 m e que \(\tg70^\circ=2{,}75\), determine a largura do rio.<figure class="fig sm">{{FIG:p1q2}}</figure>',
+      "79,5 m",
+      [st("Passo 1", r"Triângulo \(ABC\) retângulo em A: \(AB\) é oposto a 70° e \(AC=30\) é adjacente.", r"\tg70^\circ=\frac{AB}{30}\Rightarrow AB=30\cdot2{,}75=82{,}5\ \text{m}"),
+       st("Passo 2", r"A largura é \(AB\) menos os 3 m entre A e a margem:", r"x=82{,}5-3=79{,}5\ \text{m}")]),
+ item("A1-3", "3", r"Sabendo que \(x\) é do 1º quadrante e \(\sen x=\frac45\), calcule a) \(\cos x\), b) \(\tg x\), c) \(\sec x\).", r"\(\cos x=\frac35\), \(\tg x=\frac43\), \(\sec x=\frac53\).",
+      [st("Passo 1", "1º quadrante: tudo positivo.", r"\cos^2x=1-\tfrac{16}{25}\Rightarrow\cos x=\tfrac35"), st("Passo 2", "", r"\tg x=\frac{4/5}{3/5}=\frac43\qquad\sec x=\frac1{3/5}=\frac53")]),
+ item("A1-4", "4", r"Determine o valor de \(\sen\frac\pi3+\cos\frac\pi4-\tg\frac{2\pi}3+\cotg\frac{7\pi}6\).", r"\(\frac{5\sqrt3+\sqrt2}2\)",
+      [st("Passo 1", "", r"\frac{\sqrt3}2+\frac{\sqrt2}2-(-\sqrt3)+\sqrt3=\frac{\sqrt3+\sqrt2+4\sqrt3}{2}=\frac{5\sqrt3+\sqrt2}2")]),
+ item("A1-5", "5", r"Sabendo que \(\cotg x=\frac{24}7\) e \(\pi\lt x\lt\frac{3\pi}2\), calcule \(y=\dfrac{\tg x\cdot\cos x}{(1+\cos x)(1-\cos x)}\).", r"\(y=-\frac{25}7\)",
+      [st("Passo 1 · simplificar", "", r"y=\frac{\frac{\sen x}{\cos x}\cos x}{1-\cos^2x}=\frac{\sen x}{\sen^2x}=\frac1{\sen x}=\cossec x"),
+       st("Passo 2", "3º quadrante: seno negativo.", r"\sen^2x=\frac{1}{1+\cotg^2x}=\frac{49}{625}\Rightarrow\sen x=-\frac7{25}"),
+       st("Passo 3", "", r"y=\frac{1}{-7/25}=-\frac{25}7"),
+       st("Atenção", r"Na folha, a simplificação chega a \(\frac{\sen x}{\sen^2x}\) mas termina como \(\sen x\); o certo é \(\frac1{\sen x}\). Por isso lá aparece \(-\frac7{25}\) (que é \(\sen x\)) em vez de \(-\frac{25}7\).")]),
+]
+out.append(page(8, "Avaliação 1", "Avaliação 1", "Verdadeiro ou falso, largura de rio, razões a partir do seno, expressão com notáveis e simplificação.",
+    "Numeração igual à da prova (questões 1 a 5).", A1, [("m3", "Mód. 3"), ("m5", "Mód. 5"), ("m7", "Mód. 7"), ("m9", "Mód. 9")], kicker="Avaliação"))
+
+# ============================================================ AVALIAÇÃO 2 (9)
+A2 = [
+ item("A2-1", "1", r'O lago A fica a 4 km da estação de tratamento e está ligado ao lago B por um canal retilíneo de 5 km, que forma 45° com o canal que leva a água à estação. Qual deve ser o comprimento de um canal ligando diretamente o lago B à estação?<figure class="fig sm">{{FIG:p2q1}}</figure>',
+      r"\(\sqrt{41-20\sqrt2}\approx3{,}57\) km",
+      [st("Passo 1 · lei dos cossenos", 'Dois lados e o ângulo entre eles (<a href="#m5-s5">Módulo 5.5</a>).', r"a^2=4^2+5^2-2\cdot4\cdot5\cos45^\circ=41-20\sqrt2"),
+       st("Passo 2", r"Com \(\sqrt2\approx1{,}41\): \(a^2\approx12{,}7\).", r"a\approx3{,}57\ \text{km}")]),
+ item("A2-2", "2", r"Use translações, alongamentos, compressões e reflexões para esboçar \(f(x)=1+\sen2x\) a partir do gráfico de \(\sen x\).", r"Período \(\pi\) (compressão horizontal por 2), subida de 1 unidade, imagem \([0,2]\).",
+      [st("Passo 1 · de sen x para sen 2x", r"Comprime na horizontal: o período cai de \(2\pi\) para \(\frac{2\pi}2=\pi\)."),
+       st("Passo 2 · somar 1", r"Translada 1 para cima: imagem \([-1,1]\to[0,2]\)."),
+       st("Passo 3 · pontos-chave", r"\((0,1),\ (\frac\pi4,2),\ (\frac\pi2,1),\ (\frac{3\pi}4,0),\ (\pi,1)\). Veja o gráfico no <a href=\"#m10\">laboratório do Módulo 10</a> (botão “1 + sen 2x”).")]),
+ item("A2-3", "3", r'O gráfico abaixo é de \(f(x)=a+b\sen(mx+n)\). Determine \(a\), \(b\), \(m\) e \(n\).<figure class="fig sm">{{FIG:p2q3}}</figure>', r"\(a=0\), \(b=4\), \(m=2\), \(n=0\): \(f(t)=4\sen2t\).",
+      [st("Passo 1 · a e b", r"Máximo 4 e mínimo −4: centro \(a=\frac{4+(-4)}2=0\) e amplitude \(|b|=4\). Começa subindo a partir de 0: \(b=4\)."),
+       st("Passo 2 · m", r"Uma onda completa (sobe, desce, volta) vai de 0 a \(\pi\): período \(P=\pi=\frac{2\pi}{m}\Rightarrow m=2\)."),
+       st("Passo 3 · n", r"\(f(0)=0\) e o gráfico sobe em 0: \(\sen n=0\) com derivada positiva, \(n=0\)."),
+       st("Observação", r"Também serve \(b=-4\) com \(n=\pi\), já que \(-4\sen(2t+\pi)=4\sen2t\); a forma mais simples é \(4\sen2t\).")]),
+ item("A2-4a", "4 a)", r"Período, domínio, imagem e assíntotas de \(f(x)=3-2\sen\left(\frac\pi6-2x\right)\).", r"\(P=\pi\), \(D=\mathbb R\), \(Im=[1,\ 5]\), sem assíntotas.",
+      [st("Passo 1", r"\(a=3\), \(|b|=2\), \(|c|=2\).", r"P=\frac{2\pi}{2}=\pi\qquad Im=[3-2,\ 3+2]")]),
+ item("A2-4b", "4 b)", r"Período, domínio, imagem e assíntotas de \(g(x)=6-4\cos x\).", r"\(P=2\pi\), \(D=\mathbb R\), \(Im=[2,\ 10]\), sem assíntotas.", [st("Passo 1", "", r"Im=[6-4,\ 6+4]=[2,\ 10]")]),
+ item("A2-4c", "4 c)", r"Período, domínio, imagem e assíntotas de \(h(x)=\tg\left(2x+\frac\pi2\right)\).", r"\(P=\frac\pi2\); \(D=\{x\mid x\ne\frac{k\pi}2\}\); \(Im=\mathbb R\); assíntotas \(x=\frac{k\pi}2\).",
+      [st("Passo 1", "", r"2x+\frac\pi2\ne\frac\pi2+k\pi\Rightarrow x\ne\frac{k\pi}2\qquad P=\frac{\pi}{2}")]),
+ item("A2-5", "5", r"Calcule \(\arcsen\left(\cos\frac{11\pi}6\right)\).", r"\(\frac\pi3\)",
+      [st("Passo 1", r"\(\cos\frac{11\pi}6=\cos\frac\pi6=\frac{\sqrt3}2\) (4º Q, cosseno positivo)."), st("Passo 2", r"O arco de \([-\frac\pi2,\frac\pi2]\) com seno \(\frac{\sqrt3}2\) é \(\frac\pi3\) (<a href=\"#m12-s5\">Módulo 12.5</a>).")]),
+ item("A2-6", "6", r"Estude a variação da função \(f(x)=\dfrac{1+\tg x}{1-\tg x}\).", r"\(f(x)=\tg\left(x+\frac\pi4\right)\); \(D=\{x\ne\frac\pi4+k\pi\ \text{e}\ x\ne\frac\pi2+k\pi\}\); \(P=\pi\); assíntotas \(x=\frac\pi4+k\pi\); \(Im=\mathbb R\setminus\{-1\}\); crescente em cada intervalo.",
+      [st("Passo 1", 'Fórmula de \\(\\tg(a+b)\\) com \\(\\tg\\frac\\pi4=1\\) (<a href="#m12-s6">Módulo 12.6</a>).', r"\frac{1+\tg x}{1-\tg x}=\tg\left(x+\frac\pi4\right)"),
+       st("Passo 2 · domínio", r"Exige \(\tg x\) existir (\(x\ne\frac\pi2+k\pi\)) e \(\tg x\ne1\) (\(x\ne\frac\pi4+k\pi\))."),
+       st("Passo 3", r"Nos pontos \(x=\frac\pi2+k\pi\) a expressão simplificada valeria −1, mas \(f\) não existe ali: por isso −1 fica fora da imagem.")]),
+]
+out.append(page(9, "Avaliação 2", "Avaliação 2", "Lei dos cossenos, gráficos por transformações, a + b·sen(mx + n), período e assíntotas, arcsen e tg(x + π/4).",
+    "Numeração igual à da prova (questões 1 a 6).", A2, [("m5", "Mód. 5"), ("m10", "Mód. 10"), ("m11", "Mód. 11"), ("m12", "Mód. 12")], kicker="Avaliação"))
 
 def build():
     with open(os.path.join(HERE, "content", "20_listas.html"), "w", encoding="utf-8") as f:

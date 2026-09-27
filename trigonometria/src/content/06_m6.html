@@ -3,7 +3,7 @@
   <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
     <ul><li>descrever o ciclo trigonométrico: centro na origem, raio 1, origem dos arcos em \(A(1,0)\) e sentido positivo anti-horário;</li>
     <li>usar a função de Euler \(E(t)\) para associar cada número real a um ponto do ciclo;</li>
-    <li>reconhecer arcos côngruos (\(\alpha+2k\pi\)) e achar a 1ª determinação de qualquer arco;</li>
+    <li>reconhecer arcos côngruos (\(\alpha+2k\pi\)) e achar a 1ª determinação de qualquer arco por seis técnicas: graus, graus negativos, radianos, conversão, múltiplo par de π e número real;</li>
     <li>dizer em que quadrante fica um arco como \(\frac{81\pi}{4}\) ou 2100°.</li></ul></div>
 
   <h2 class="sec"><span class="n">6.1</span> A circunferência trigonométrica</h2>
@@ -31,15 +31,56 @@
     <p>O único representante entre 0 e \(2\pi\) (ou entre 0° e 360°) chama-se <b>1ª determinação</b> (ou menor determinação positiva).</p>
   </div>
 
-  <h2 class="sec"><span class="n">6.4</span> Método para achar a 1ª determinação</h2>
+  <h2 class="sec"><span class="n">6.4</span> Técnicas para achar a 1ª determinação (guia completo)</h2>
   <div class="prose">
-    <div class="two">
-      <div class="box obs"><div class="bl">Em graus</div><p>Divida por 360. O resto é a 1ª determinação.</p><div>\[1270=3\cdot360+190\ \Rightarrow\ 1270^\circ\equiv190^\circ\]</div></div>
-      <div class="box obs"><div class="bl">Em radianos (\(\frac{a\pi}{b}\))</div><p><b>1º passo:</b> uma volta é \(2\pi=\frac{2b\,\pi}{b}\). <b>2º passo:</b> o maior múltiplo de \(2b\) que não passa de \(a\). <b>3º passo:</b> o que sobra fica no numerador.</p><div>\[\frac{31\pi}6:\ 2b=12,\ 31=24+7\Rightarrow\frac{31\pi}{6}=2\cdot2\pi+\frac{7\pi}6\]</div></div>
-    </div>
-    <div class="box warn"><div class="bl">Erro comum</div><p>Dividir o numerador só pelo denominador. Em \(\frac{25\pi}3\), a volta é \(\frac{6\pi}{3}\): \(25=24+1\), então \(\frac{25\pi}3=4\cdot2\pi+\frac\pi3\equiv\frac\pi3\).</p></div>
+    <div class="box def"><div class="bl">O que estamos procurando</div><p>A <b>1ª determinação</b> (ou menor determinação positiva) de um arco é o arco côngruo a ele que fica em \([0^\circ,\ 360^\circ)\) — ou em \([0,\ 2\pi)\) em radianos. É “onde o ponto para” no ciclo, descontadas as voltas completas.</p>
+      <div>\[\underbrace{\text{arco dado}}_{\text{qualquer}}=\underbrace{k\cdot360^\circ}_{k\text{ voltas}}+\underbrace{\beta}_{0^\circ\le\beta\lt360^\circ}\qquad\text{ou}\qquad x=k\cdot2\pi+\beta,\ 0\le\beta\lt2\pi\]</div></div>
+    <div class="tbl"><table><thead><tr><th class="l">O arco está…</th><th class="l">Use</th></tr></thead><tbody>
+      <tr><td class="l">em graus, positivo (ex.: 2100°)</td><td class="l">Técnica 1</td></tr>
+      <tr><td class="l">em graus, negativo (ex.: −1000°)</td><td class="l">Técnica 2</td></tr>
+      <tr><td class="l">em radianos com π (ex.: \(\frac{41\pi}{3}\))</td><td class="l">Técnica 3 (ou 4, ou 5)</td></tr>
+      <tr><td class="l">em radianos com π, negativo (ex.: \(-\frac{17\pi}{4}\))</td><td class="l">Técnica 3 (resto positivo) ou 5</td></tr>
+      <tr><td class="l">número real sem π (ex.: 10 rad)</td><td class="l">Técnica 6</td></tr></tbody></table></div>
+
+    <div class="ex"><div class="et">Técnica 1 · Graus positivos: dividir por 360</div>
+      <p>Faça a divisão inteira por 360. O <b>quociente</b> é o número de voltas completas; o <b>resto</b> é a 1ª determinação.</p>
+      <div class="steps"><div class="st"><span class="pl">Exemplo · 2100°</span><div class="m">\[\begin{array}{r|l}2100&360\\\hline -1800&5\\ \ \ 300&\end{array}\qquad\Rightarrow\ 2100^\circ=5\cdot360^\circ+300^\circ\]</div><p>5 voltas completas e mais 300°: \(2100^\circ\equiv300^\circ\) (4º quadrante).</p></div>
+      <div class="st"><span class="pl">Exemplo · 1270°</span><div class="m">\[1270=3\cdot360+190\ \Rightarrow\ 1270^\circ\equiv190^\circ\ (\text{3º quadrante})\]</div></div>
+      <div class="st"><span class="pl">Atalho sem conta armada</span><p>Tire de uma vez o maior múltiplo de 360 que cabe: 360, 720, 1080, 1440, 1800, 2160… Para 2100, o maior que cabe é 1800: \(2100-1800=300\).</p></div></div></div>
+
+    <div class="ex"><div class="et">Técnica 2 · Graus negativos</div>
+      <p>Arco negativo = andar no sentido horário. Há dois caminhos que dão o mesmo resultado.</p>
+      <div class="steps"><div class="st"><span class="pl">Caminho A · somar 360° até ficar entre 0° e 360°</span><div class="m">\[-1000^\circ\to-640^\circ\to-280^\circ\to80^\circ\]</div><p>Cada “+360°” é uma volta a mais; o ponto final não muda. Resultado: \(-1000^\circ\equiv80^\circ\).</p></div>
+      <div class="st"><span class="pl">Caminho B · trabalhar com o valor positivo e “voltar”</span><p>\(1000=2\cdot360+280\). Andar 280° no sentido horário é o mesmo que andar \(360^\circ-280^\circ=80^\circ\) no sentido anti-horário.</p><div class="m">\[-1000^\circ\equiv-280^\circ\equiv360^\circ-280^\circ=80^\circ\]</div></div>
+      <div class="st"><span class="pl">Cuidado</span><p>A resposta <b>não</b> é 280°: o sinal de menos inverte o sentido. Para conferir, subtraia: \(80-(-1000)=1080=3\cdot360\). A diferença é um múltiplo de 360°, então são côngruos. ✓</p></div></div></div>
+
+    <div class="ex"><div class="et">Técnica 3 · Radianos \(\frac{a\pi}{b}\): dividir o numerador por 2b</div>
+      <p>Uma volta é \(2\pi=\frac{2b\,\pi}{b}\). Então basta dividir o <b>numerador</b> \(a\) pelo <b>dobro do denominador</b> \(2b\) e ficar com o resto.</p>
+      <div class="steps"><div class="st"><span class="pl">1º passo · quanto vale uma volta nesse denominador</span><p>Em \(\frac{41\pi}3\): \(b=3\), então uma volta é \(\frac{6\pi}3\) (o “6” é \(2b\)).</p></div>
+      <div class="st"><span class="pl">2º passo · dividir o numerador por 2b</span><div class="m">\[41=6\cdot6+5\]</div><p>Maior múltiplo de 6 que não passa de 41: 36.</p></div>
+      <div class="st"><span class="pl">3º passo · o resto fica no numerador</span><div class="m">\[\frac{41\pi}{3}=\frac{36\pi}{3}+\frac{5\pi}{3}=6\cdot2\pi+\frac{5\pi}{3}\ \Rightarrow\ \frac{41\pi}3\equiv\frac{5\pi}3\]</div><p>6 voltas e mais \(\frac{5\pi}3=300^\circ\): 4º quadrante.</p></div>
+      <div class="st"><span class="pl">Outros exemplos (do caderno)</span><div class="m">\[\frac{81\pi}{4}:\ 81=8\cdot10+1\Rightarrow\frac{\pi}{4}\qquad\frac{31\pi}{6}:\ 31=12\cdot2+7\Rightarrow\frac{7\pi}{6}\qquad\frac{25\pi}{3}:\ 25=6\cdot4+1\Rightarrow\frac\pi3\]</div></div>
+      <div class="st"><span class="pl">Numerador negativo</span><p>Use a divisão com resto positivo (quociente logo abaixo): \(-17=8\cdot(-3)+7\), então \(-\frac{17\pi}{4}=-3\cdot2\pi+\frac{7\pi}4\equiv\frac{7\pi}{4}\).</p></div></div></div>
+
+    <div class="ex"><div class="et">Técnica 4 · Radianos: trocar π por 180° e usar a Técnica 1</div>
+      <p>Se você se sente mais seguro em graus, converta primeiro.</p>
+      <div class="steps"><div class="st"><span class="pl">Exemplo · \(\frac{41\pi}{3}\)</span><div class="m">\[\frac{41\cdot180^\circ}{3}=41\cdot60^\circ=2460^\circ=6\cdot360^\circ+300^\circ\]</div><p>\(300^\circ=\frac{5\pi}3\). Mesmo resultado da Técnica 3.</p></div></div></div>
+
+    <div class="ex"><div class="et">Técnica 5 · Tirar o múltiplo par de π mais próximo</div>
+      <p>Como \(2\pi,4\pi,6\pi,\dots\) são voltas inteiras, pode-se tirar o <b>número par de π</b> mais perto do arco, mesmo que passe um pouco. Se sobrar negativo, some \(2\pi\).</p>
+      <div class="steps"><div class="st"><span class="pl">Exemplo · \(\frac{41\pi}3\approx13{,}67\pi\)</span><p>O par mais próximo é 14: \(\frac{41\pi}3-14\pi=\frac{41\pi-42\pi}{3}=-\frac\pi3\).</p><div class="m">\[-\frac\pi3\equiv-\frac\pi3+2\pi=\frac{5\pi}3\]</div></div>
+      <div class="st"><span class="pl">Quando vale a pena</span><p>Quando o arco está logo abaixo de um número par de π, como \(\frac{23\pi}{12}\approx1{,}92\pi\): fica \(\frac{23\pi}{12}-2\pi=-\frac{\pi}{12}\), ou seja, “quase uma volta, faltando \(\frac\pi{12}\)”. Isso ajuda muito na redução ao 1º quadrante.</p></div></div></div>
+
+    <div class="ex"><div class="et">Técnica 6 · Número real sem π (ex.: 10 rad)</div>
+      <p>Use \(2\pi\approx6{,}2832\), \(\pi\approx3{,}1416\), \(\frac\pi2\approx1{,}5708\), \(\frac{3\pi}2\approx4{,}7124\).</p>
+      <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[10=6{,}2832\cdot1+3{,}7168\]</div></div><div class="st"><span class="pl">Passo 2</span><p>\(\pi\approx3{,}14\lt3{,}72\lt4{,}71\approx\frac{3\pi}{2}\): 3º quadrante.</p></div></div></div>
+
+    <div class="box tip"><div class="bl">Teste rápido: dois arcos são côngruos?</div><p>Subtraia um do outro. São côngruos exatamente quando a diferença é um múltiplo de 360° (ou de \(2\pi\)).</p><div>\[\frac{17\pi}4-\frac\pi4=\frac{16\pi}4=4\pi=2\cdot2\pi\ \checkmark\qquad 1110^\circ-30^\circ=1080^\circ=3\cdot360^\circ\ \checkmark\qquad 390^\circ-60^\circ=330^\circ\ \times\]</div></div>
+    <div class="box note"><div class="bl">Expressão geral (família de côngruos)</div><p>Achada a 1ª determinação \(\beta\), <b>todos</b> os arcos côngruos a ela são \(\beta+2k\pi\) (ou \(\beta+k\cdot360^\circ\)), \(k\in\mathbb Z\). Ex.: côngruos de \(\frac\pi4\): \(\dots,-\frac{7\pi}4,\ \frac\pi4,\ \frac{9\pi}4,\ \frac{17\pi}4,\dots\)</p></div>
+    <div class="box warn"><div class="bl">Erros mais comuns</div><ul><li>Dividir o numerador pelo denominador (b) em vez de pelo dobro (2b).</li><li>Em arcos negativos, responder o resto sem inverter (−280° não é 280°).</li><li>Deixar a resposta fora de \([0,2\pi)\), como \(\frac{13\pi}{6}\).</li><li>Esquecer de simplificar: \(\frac{12\pi}8=\frac{3\pi}2\).</li></ul></div>
   </div>
-  <div class="lab" data-w="congLab"><div class="lt">Laboratório: calculadora de arcos côngruos</div><p class="ld">Digite um arco em graus (2100) ou em radianos (41π/3). Aparecem a divisão, a 1ª determinação, o número de voltas e o quadrante.</p></div>
+  <div class="lab" data-w="congLab"><div class="lt">Laboratório: calculadora de arcos côngruos (com todas as técnicas)</div><p class="ld">Digite qualquer arco. A calculadora resolve pelas técnicas que se aplicam, lado a lado, e desenha as voltas.</p></div>
+  <div class="lab" data-w="congTreino"><div class="lt">Treino infinito: arcos côngruos</div><p class="ld">Arcos novos a cada clique: graus, negativos, radianos. Cada etapa certa vale 2 XP. Errou? A resolução completa aparece.</p></div>
 
   <h2 class="sec"><span class="n">6.5</span> Localizar o quadrante</h2>
   <div class="prose">
@@ -88,6 +129,15 @@
     <div class="q" data-id="m6v6" data-ans="B"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>A 1ª determinação de \(\frac{31\pi}6\) é:</p>
       <ol class="opts"><li>\(\frac{\pi}6\)</li><li>\(\frac{7\pi}6\)</li><li>\(\frac{19\pi}6\)</li><li>\(\frac{5\pi}6\)</li></ol>
       <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Volta \(=\frac{12\pi}6\); \(31=24+7\).</p><div class="m">\[\frac{31\pi}6=2\cdot2\pi+\frac{7\pi}6\]</div></div></div><p class="rev">Revise: <a href="#m6-s4">6.4 Método</a></p></div>
+    <div class="q" data-id="m6v7" data-ans="A"><div class="qh"><span class="qn">Verificação 7</span><span class="tag m">médio</span></div><p>A 1ª determinação de \(-1000^\circ\) é:</p>
+      <ol class="opts"><li>80°</li><li>280°</li><li>−280°</li><li>100°</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(-1000\to-640\to-280\to80\) (somando 360° três vezes).</p></div></div><p class="rev">Revise: <a href="#m6-s4">6.4 Técnica 2</a></p></div>
+    <div class="q" data-id="m6v8" data-ans="C"><div class="qh"><span class="qn">Verificação 8</span><span class="tag d">difícil</span></div><p>A 1ª determinação de \(-\frac{17\pi}{4}\) é:</p>
+      <ol class="opts"><li>\(\frac\pi4\)</li><li>\(\frac{3\pi}4\)</li><li>\(\frac{7\pi}4\)</li><li>\(\frac{5\pi}4\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(2b=8\); \(-17=8\cdot(-3)+7\).</p><div class="m">\[-\frac{17\pi}4=-3\cdot2\pi+\frac{7\pi}4\]</div></div></div><p class="rev">Revise: <a href="#m6-s4">6.4 Técnica 3</a></p></div>
+    <div class="q" data-id="m6v9" data-ans="B"><div class="qh"><span class="qn">Verificação 9</span><span class="tag m">médio</span></div><p>Qual par <b>não</b> é de arcos côngruos?</p>
+      <ol class="opts"><li>30° e 1110°</li><li>60° e 390°</li><li>\(\frac\pi4\) e \(\frac{17\pi}4\)</li><li>\(\frac{5\pi}2\) e \(\frac\pi2\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(390^\circ-60^\circ=330^\circ\), que não é múltiplo de 360°. Nos outros, a diferença é 1080°, \(4\pi\) e \(2\pi\).</p></div></div><p class="rev">Revise: <a href="#m6-s4">6.4 Teste rápido</a></p></div>
   </div>
 
   <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação visual do conteúdo deste módulo</p></div></div>

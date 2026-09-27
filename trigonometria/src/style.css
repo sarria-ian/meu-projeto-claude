@@ -280,3 +280,5 @@ input[type=range]{width:100%; accent-color:var(--pri); min-height:28px}
 .obj>*{min-width:0; overflow-x:auto; overflow-y:hidden}
 .obj li{display:block; position:relative; padding-left:1.5em}
 .obj li::before{position:absolute; left:0; top:0}
+
+.btn.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}

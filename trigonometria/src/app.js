@@ -145,12 +145,12 @@
     ["mfunc", "Mestre das Ondas", "3 estrelas nos módulos 10 e 11", "wave", function () { return modsWith3(["m10", "m11"]); }],
     ["desafiante", "Desafiante", "Gabarite uma Hora do desafio", "trophy", function () { return Object.keys(S.des).some(function (k) { return S.des[k].perfect; }); }],
     ["lista1", "Lista 1 Completa", "Marque todas as questões da Lista 1", "list", function () { var d = listsDone(1); return d.total && d.ok === d.total; }],
-    ["listas3", "Maratonista", "Complete 3 listas", "list", function () { var c = 0; for (var i = 1; i <= 6; i++) { var d = listsDone(i); if (d.total && d.ok === d.total) c++; } return c >= 3; }],
-    ["listas6", "Todas as Listas", "Complete as 6 listas", "trophy", function () { for (var i = 1; i <= 6; i++) { var d = listsDone(i); if (!d.total || d.ok < d.total) return false; } return true; }],
+    ["listas3", "Maratonista", "Complete 3 listas", "list", function () { var c = 0; $$("section.lista").forEach(function (l) { var d = listsDone(l.dataset.num); if (d.total && d.ok === d.total) c++; }); return c >= 3; }],
+    ["listas6", "Todas as Listas", "Complete todas as listas e avaliações", "trophy", function () { return $$("section.lista").every(function (l) { var d = listsDone(l.dataset.num); return d.total && d.ok === d.total; }); }],
     ["meta", "Meta do Dia", "Faça 60 XP em um dia", "target", function () { return Object.keys(S.dailyBonus).length > 0; }],
     ["seq3", "Sequência 3 dias", "Estude 3 dias seguidos", "flame", function () { return S.streak >= 3; }],
     ["seq7", "Sequência 7 dias", "Estude 7 dias seguidos", "flame", function () { return S.streak >= 7; }],
-    ["jogador", "Jogador", "Jogue os 3 jogos", "spark", function () { return ["ciclo", "sinal", "conv"].every(function (g) { return S.games[g] != null; }); }],
+    ["jogador", "Jogador", "Jogue os 5 jogos", "spark", function () { return ["ciclo", "sinal", "conv", "cong", "sex"].every(function (g) { return S.games[g] != null; }); }],
     ["relampago", "Relâmpago", "Faça 8 pontos ou mais em um jogo", "bolt", function () { for (var k in S.games) if (S.games[k] >= 8) return true; return false; }],
     ["simulado", "Aprovado", "Acerte 8 de 10 no simulado", "medal", function () { return S.sim >= 8; }],
     ["n5", "Nível 5", "Chegue ao nível 5", "medal", function () { return levelInfo(S.xp).n >= 5; }],
@@ -271,7 +271,7 @@
     var h = '<div class="grid g3">';
     $$("section.lista").forEach(function (l) {
       var n = l.dataset.num, d = listsDone(n);
-      h += '<div class="card mc"><div class="h"><span class="mi">' + icon("list") + '</span><span class="k">Lista ' + n + '</span><span class="tag">' + d.ok + "/" + d.total + "</span></div><h3>" + l.dataset.short + "</h3><p>" + l.dataset.desc + '</p><div class="pbar"><b style="width:' + Math.round(100 * d.ok / Math.max(1, d.total)) + '%"></b></div><div class="btns"><a class="btn p s" href="#' + l.id + '">Abrir lista</a></div></div>';
+      h += '<div class="card mc"><div class="h"><span class="mi">' + icon("list") + '</span><span class="k">' + (l.dataset.kicker || "Lista " + n) + '</span><span class="tag">' + d.ok + "/" + d.total + "</span></div><h3>" + l.dataset.short + "</h3><p>" + l.dataset.desc + '</p><div class="pbar"><b style="width:' + Math.round(100 * d.ok / Math.max(1, d.total)) + '%"></b></div><div class="btns"><a class="btn p s" href="#' + l.id + '">Abrir lista</a></div></div>';
     });
     $("#listBox").innerHTML = h + "</div>";
   }

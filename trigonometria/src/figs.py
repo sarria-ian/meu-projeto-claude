@@ -292,3 +292,92 @@ FIGS = {
     "45": fig_45, "eq": fig_eq, "q1": fig_q1, "q3": fig_q3, "q4": fig_q4,
     "q4_45": lambda: fig_q4(45), "q5": fig_q5, "q6": fig_q6, "q7": fig_q7, "elevacao": fig_elevacao,
 }
+
+# ------------------------------------------------------------ Lista de Revisão e Avaliações
+def fig_rev1():
+    P0, Q, R, T = (40, 200), (230, 200), (340, 200), (340, 30)
+    s = ['<svg viewBox="10 10 380 220" role="img" aria-label="Triângulo com ângulo de 30 graus, hipotenusa 40, ângulo externo de 60 graus e distância x">']
+    s.append(_line(P0, R)); s.append(_line(P0, T)); s.append(_line(Q, T)); s.append(_line(R, T))
+    s.append(right_mark(R, P0, T, 11))
+    s.append(arc(P0, R, T, 40, "30°", "s-ang", "f-ang"))
+    s.append(arc(Q, R, T, 26, "60°", "s-ang", "f-ang", lr=42))
+    s.append(side_label(P0, T, "40", (230, 160), "f-hip"))
+    s.append(_line((Q[0], 214), (R[0], 214), "s-thin")); s.append(_text((Q[0] + R[0]) / 2, 226, "x", "f-f", 16, weight="800"))
+    s.append("</svg>"); return "".join(s)
+def fig_rev2():
+    A, B, C = (60, 200), (360, 200), (60, 40)
+    M = ((B[0] + C[0]) / 2, (B[1] + C[1]) / 2)
+    s = ['<svg viewBox="20 20 380 210" role="img" aria-label="Triângulo retângulo em A com M ponto médio de BC">']
+    s.append(f'<path d="M{A[0]} {A[1]} L{B[0]} {B[1]} L{C[0]} {C[1]} Z" class="s-line"/>'); s.append(_line(A, M, "s-line s-hip", 'stroke-width="2.5"'))
+    s.append(right_mark(A, B, C, 11)); s.append(arc(C, A, B, 26, "60°", "s-ang", "f-ang", lr=42)); s.append(arc(M, C, A, 22, "60°", "s-ang", "f-ang", lr=36))
+    s.append(_text(A[0] - 12, A[1] + 6, "A", weight="700")); s.append(_text(B[0] + 12, B[1] + 6, "B", weight="700")); s.append(_text(C[0] - 12, C[1] - 4, "C", weight="700")); s.append(_text(M[0] + 10, M[1] - 12, "M", weight="700"))
+    s.append(_text((A[0] + B[0]) / 2, 216, "AB = 12 cm", "f-adj", 14, weight="700"))
+    s.append("</svg>"); return "".join(s)
+def fig_rev3():
+    s = ['<svg viewBox="0 10 420 250" role="img" aria-label="Prédio e observador a 12 m de distância e 12 m de altura, ângulo total de 75 graus">']
+    G = 240; X = 150; O = (X + 12 * 12, G - 12 * 12)
+    s.append(_line((10, G), (410, G), "s-ground"))
+    top = (X, G - (12 + 12 * 0.57735) * 12)
+    s.append(f'<rect x="{X-90}" y="{top[1]:.1f}" width="90" height="{G-top[1]:.1f}" class="s-fillsoft" stroke="var(--ink)" stroke-width="1.5"/>')
+    s.append(_line(O, (X, O[1]), "s-dash")); s.append(_line(O, (X, G), "s-line s-adj", 'stroke-width="2"')); s.append(_line(O, top, "s-line s-op", 'stroke-width="2"'))
+    s.append(arc(O, (X, O[1]), top, 30, "30°", "s-ang", "f-ang", lr=46)); s.append(arc(O, (X, O[1]), (X, G), 44, "45°", "s-ang", "f-ang", lr=62))
+    s.append(_text(O[0] + 10, O[1], "O", weight="800", anchor="start"))
+    s.append(_line((X + 8, O[1]), (X + 8, G), "s-thin")); s.append(_text(X + 22, (O[1] + G) / 2, "12 m", size=13, weight="700", anchor="start"))
+    s.append(_text((X + O[0]) / 2, O[1] - 12, "12 m", size=13, weight="700"))
+    s.append(_text(X - 45, top[1] - 12, "topo", "s-mut", 12))
+    s.append("</svg>"); return "".join(s)
+def fig_rev4():
+    import math
+    cx, cy, R = 200, 130, 100
+    A = (cx + R, cy); D = (cx - R, cy)
+    ang = math.radians(210)
+    B = (cx + R * math.cos(ang), cy - R * math.sin(ang)); C = (B[0], cy)
+    s = ['<svg viewBox="70 20 280 220" role="img" aria-label="Circunferência de raio 1, corda AB fazendo 15 graus com o diâmetro, BC perpendicular ao diâmetro">']
+    s.append(f'<circle cx="{cx}" cy="{cy}" r="{R}" class="s-line"/>'); s.append(_line(D, A, "s-line")); s.append(_line(A, B, "s-line s-hip", 'stroke-width="2.2"')); s.append(_line(B, C, "s-line s-op", 'stroke-width="3"'))
+    s.append(_line((cx, cy), B, "s-dash"))
+    s.append(right_mark(C, A, B, 9)); s.append(arc(A, D, B, 50, "15°", "s-ang", "f-ang", lr=66))
+    s.append(f'<circle cx="{cx}" cy="{cy}" r="3" class="s-ink"/>')
+    for P0, n, dx, dy in ((A, "A", 12, 0), (B, "B", -12, 8), (C, "C", -12, -10), ((cx, cy), "O", 0, -12)):
+        s.append(_text(P0[0] + dx, P0[1] + dy, n, weight="700"))
+    s.append("</svg>"); return "".join(s)
+def fig_p1q2():
+    s = ['<svg viewBox="0 0 420 260" role="img" aria-label="Rio de margens paralelas: A na margem próxima a 3 m da margem M, B na margem oposta, C a 30 m de A, ângulo BCA de 70 graus">']
+    A, M, B, C = (120, 235), (120, 205), (120, 30), (270, 235)
+    s.append(_line((10, 215), (410, 185), "s-thin")); s.append(_line((10, 45), (410, 15), "s-thin"))
+    s.append(f'<path d="M10 45 L410 15 L410 185 L10 215 Z" style="fill:var(--pri-soft);opacity:.5"/>')
+    s.append(_line(A, B, "s-line")); s.append(_line(A, C, "s-line")); s.append(_line(B, C, "s-dash"))
+    s.append(right_mark(A, B, C, 11)); s.append(arc(C, A, B, 34, "70°", "s-ang", "f-ang", lr=52))
+    for P0, n, dx, dy in ((A, "A", -12, 8), (M, "M", -14, -6), (B, "B", -12, -4), (C, "C", 12, 8)):
+        s.append(_text(P0[0] + dx, P0[1] + dy, n, weight="700"))
+    s.append(_text(195, 250, "30 m", size=13, weight="700")); s.append(_text(132, 222, "3 m", size=12, weight="700", anchor="start")); s.append(_text(132, 110, "x (largura)", "f-f", 13, weight="700", anchor="start"))
+    s.append(_text(300, 120, "rio", "s-mut", 14))
+    s.append("</svg>"); return "".join(s)
+def fig_p2q1():
+    import math
+    E = (100, 210); A = (100, 60); k = 37.5
+    ang = math.radians(45)
+    B = (A[0] + 5 * k * math.sin(ang), A[1] + 5 * k * math.cos(ang))
+    s = ['<svg viewBox="30 20 340 220" role="img" aria-label="Estação, lago A a 4 km e lago B a 5 km do lago A, formando 45 graus">']
+    s.append(_line(E, A, "s-line s-adj", 'stroke-width="2.5"')); s.append(_line(A, B, "s-line s-hip", 'stroke-width="2.5"')); s.append(_line(E, B, "s-dash", 'stroke="var(--bad)"'))
+    s.append(arc(A, E, B, 28, "45°", "s-ang", "f-ang", lr=44))
+    s.append(_text(E[0] - 8, E[1] + 16, "Estação", size=13, weight="700")); s.append(_text(A[0], A[1] - 14, "Lago A", size=13, weight="700")); s.append(_text(B[0] + 8, B[1] + 16, "Lago B", size=13, weight="700"))
+    s.append(_text(A[0] - 22, (A[1] + E[1]) / 2, "4 km", "f-adj", 13, weight="700")); s.append(side_label(A, B, "5 km", (130, 170), "f-hip")); s.append(_text((E[0] + B[0]) / 2, (E[1] + B[1]) / 2 + 16, "a = ?", "f-f", 14, weight="800"))
+    s.append("</svg>"); return "".join(s)
+def fig_p2q3():
+    import math
+    ox, oy, kx, ky = 40, 120, 300 / (4 * math.pi), 24
+    s = ['<svg viewBox="0 0 380 240" role="img" aria-label="Gráfico de f com máximo 4, mínimo −4 e zeros em múltiplos de π/2">']
+    for y in range(-4, 5):
+        s.append(_line((ox, oy - y * ky), (ox + 300, oy - y * ky), "s-thin", 'stroke-dasharray="3 4" stroke-opacity=".6"'))
+        if y: s.append(_text(ox - 8, oy - y * ky, str(y), "s-mut", 11, anchor="end"))
+    labs = ["π/2", "π", "3π/2", "2π", "5π/2", "3π", "7π/2", "4π"]
+    for i, l in enumerate(labs, 1):
+        X = ox + i * math.pi / 2 * kx
+        s.append(_line((X, oy - 4 * ky), (X, oy + 4 * ky), "s-thin", 'stroke-dasharray="3 4" stroke-opacity=".6"'))
+        s.append(_text(X, oy + 14, l, "s-mut", 10))
+    s.append(_line((ox, oy), (ox + 310, oy), "s-line")); s.append(_line((ox, oy - 110), (ox, oy + 110), "s-line"))
+    pts = " L".join(f"{ox + t * kx:.1f} {oy - 4 * math.sin(2 * t) * ky:.1f}" for t in [4 * math.pi * i / 400 for i in range(401)])
+    s.append(f'<path d="M{pts}" fill="none" stroke="var(--c-sen)" stroke-width="2.5"/>')
+    s.append(_text(ox - 6, 10, "f", "s-mut", 12)); s.append(_text(ox + 318, oy, "t", "s-mut", 12, anchor="start"))
+    s.append("</svg>"); return "".join(s)
+FIGS.update({"rev1": fig_rev1, "rev2": fig_rev2, "rev3": fig_rev3, "rev4": fig_rev4, "p1q2": fig_p1q2, "p2q1": fig_p2q1, "p2q3": fig_p2q3})

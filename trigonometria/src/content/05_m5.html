@@ -4,6 +4,7 @@
     <ul><li>escolher seno, cosseno ou tangente a partir dos lados envolvidos;</li>
     <li>calcular alturas e distâncias que não dá para medir diretamente (ângulos de elevação e depressão);</li>
     <li>resolver problemas com dois triângulos que têm um lado em comum;</li>
+    <li>usar a lei dos cossenos e a lei dos senos em triângulos que não são retângulos;</li>
     <li>calcular a área de um triângulo qualquer por \(\frac{b\,c\,\sen\alpha}{2}\) e a de um polígono regular por \(\frac{n\,R^2\sen(2\pi/n)}{2}\).</li></ul></div>
 
   <h2 class="sec"><span class="n">5.1</span> Qual razão usar?</h2>
@@ -46,6 +47,32 @@
       </div></div></details>
   </div>
   <div class="lab" data-w="polyLab"><div class="lt">Laboratório: do triângulo ao círculo</div><p class="ld">Aumente \(n\): a área do polígono se aproxima de \(\pi R^2\).</p></div>
+
+  <h2 class="sec"><span class="n">5.5</span> Triângulos quaisquer: lei dos cossenos <span class="tag">complemento da Prova 2</span></h2>
+  <div class="prose">
+    <p>Quando o triângulo <b>não</b> é retângulo, seno, cosseno e tangente como razões de lados não se aplicam diretamente. A lei dos cossenos generaliza Pitágoras.</p>
+    <div class="box def"><div class="bl">Lei dos cossenos</div><div>\[a^2=b^2+c^2-2\,b\,c\cos\hat A\]</div><p>Use quando conhecer <b>dois lados e o ângulo entre eles</b> (e quiser o terceiro lado), ou os <b>três lados</b> (e quiser um ângulo). Vale igual para os outros lados: \(b^2=a^2+c^2-2ac\cos\hat B\), \(c^2=a^2+b^2-2ab\cos\hat C\).</p></div>
+    <figure class="fig" data-f="leiCos"><figcaption>Baixando a altura \(h\) de \(C\), o triângulo se divide em dois triângulos retângulos.</figcaption></figure>
+    <details class="demo" open><summary>Demonstração</summary><div><div class="steps">
+      <div class="st"><span class="pl">Passo 1 · triângulo retângulo AHC</span><p>Hipotenusa \(b\), ângulo \(\hat A\): \(h=b\sen\hat A\) e \(\overline{AH}=b\cos\hat A\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · o outro pedaço da base</span><p>\(\overline{HB}=c-b\cos\hat A\).</p></div>
+      <div class="st"><span class="pl">Passo 3 · Pitágoras em CHB</span><div class="m">\[a^2=h^2+\overline{HB}^2=b^2\sen^2\hat A+c^2-2bc\cos\hat A+b^2\cos^2\hat A\]</div></div>
+      <div class="st"><span class="pl">Passo 4 · relação fundamental</span><p>\(b^2\sen^2\hat A+b^2\cos^2\hat A=b^2(\sen^2\hat A+\cos^2\hat A)=b^2\).</p><div class="m">\[a^2=b^2+c^2-2bc\cos\hat A\]</div></div></div>
+      <p class="concl">Se \(\hat A=90^\circ\), \(\cos\hat A=0\) e sobra Pitágoras. Se \(\hat A\) for obtuso, a mesma fórmula vale (o cosseno negativo aumenta \(a\)).</p></div></details>
+    <div class="ex"><div class="et">Exemplo · Avaliação 2, questão 1</div><p>O lago A fica a 4 km da estação de tratamento e está ligado ao lago B por um canal de 5 km; os dois canais formam 45°. Qual o comprimento do canal direto entre o lago B e a estação?</p>
+      <div class="steps"><div class="st"><span class="pl">Passo 1 · identificar</span><p>Dois lados (4 e 5 km) e o ângulo entre eles (45°): lei dos cossenos para o lado oposto a 45°.</p></div>
+      <div class="st"><span class="pl">Passo 2 · substituir</span><div class="m">\[a^2=4^2+5^2-2\cdot4\cdot5\cdot\cos45^\circ=41-40\cdot\frac{\sqrt2}2=41-20\sqrt2\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · calcular</span><div class="m">\[a=\sqrt{41-20\sqrt2}\approx\sqrt{12{,}72}\approx3{,}57\ \text{km}\]</div><p>Com \(\sqrt2\approx1{,}4\) (sem calculadora), \(a^2\approx13\) e \(a\approx3{,}6\) km.</p></div></div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">5.6</span> Lei dos senos</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Lei dos senos</div><div>\[\frac{a}{\sen\hat A}=\frac{b}{\sen\hat B}=\frac{c}{\sen\hat C}\]</div><p>Use quando conhecer <b>dois ângulos e um lado</b>, ou dois lados e o ângulo oposto a um deles.</p></div>
+    <details class="demo"><summary>Demonstração</summary><div><div class="steps">
+      <div class="st"><span class="pl">Passo 1</span><p>Na figura, a altura \(h\) é cateto de dois triângulos retângulos: \(h=b\sen\hat A\) (em \(AHC\)) e \(h=a\sen\hat B\) (em \(BHC\)).</p></div>
+      <div class="st"><span class="pl">Passo 2</span><div class="m">\[b\sen\hat A=a\sen\hat B\ \Rightarrow\ \frac{a}{\sen\hat A}=\frac{b}{\sen\hat B}\]</div><p>Com a altura baixada de outro vértice, obtém-se a igualdade com \(\frac{c}{\sen\hat C}\).</p></div></div></div></details>
+    <div class="ex"><div class="et">Exemplo</div><p>Num triângulo, \(a=10\), \(\hat A=30^\circ\) e \(\hat B=45^\circ\). Calcule \(b\).</p><div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\frac{10}{\sen30^\circ}=\frac{b}{\sen45^\circ}\Rightarrow b=\frac{10\cdot\frac{\sqrt2}2}{\frac12}=10\sqrt2\approx14{,}14\]</div></div></div></div>
+  </div>
 
   <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>A altura de uma torre do outro lado do rio (e a largura do rio)</h3>
     <p>Um topógrafo quer a altura de uma torre na outra margem de um rio, sem atravessá-lo. Com um teodolito de 1,5 m de altura, ele vê o topo da torre sob 60°. Afasta-se 40 m em linha reta (afastando-se do rio) e passa a ver o topo sob 30°.</p>
@@ -90,11 +117,17 @@
     <div class="q" data-id="m5v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Vê-se o topo de uma torre sob 45°; aproximando-se 10 m, sob 60°. Qual equação vem do triângulo de 45°?</p>
       <ol class="opts"><li>\(H=d+10\), com \(d\) a distância final</li><li>\(H=10\)</li><li>\(H=d\sqrt3\), com \(d\) a distância inicial</li><li>\(H=\frac{d}{10}\)</li></ol>
       <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Chamando de \(d\) a distância final (perto, 60°), a inicial é \(d+10\). No triângulo de 45°: \(\tg45^\circ=\frac{H}{d+10}\Rightarrow H=d+10\).</p></div><div class="st"><span class="pl">Passo 2 · até o fim</span><p>Com \(H=d\sqrt3\): \(d(\sqrt3-1)=10\Rightarrow d=5(\sqrt3+1)\) e \(H=5(3+\sqrt3)\approx23{,}66\) m.</p></div></div><p class="rev">Revise: <a href="#m5-s2">5.2 Distâncias inacessíveis</a></p></div>
+    <div class="q" data-id="m5v7" data-ans="B"><div class="qh"><span class="qn">Verificação 7</span><span class="tag m">médio</span></div><p>Num triângulo, \(b=3\), \(c=5\) e o ângulo entre eles mede 60°. O lado \(a\) mede:</p>
+      <ol class="opts"><li>\(\sqrt{34}\)</li><li>\(\sqrt{19}\)</li><li>4</li><li>7</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[a^2=9+25-2\cdot3\cdot5\cdot\tfrac12=34-15=19\Rightarrow a=\sqrt{19}\]</div></div></div><p class="rev">Revise: <a href="#m5-s5">5.5 Lei dos cossenos</a></p></div>
+    <div class="q" data-id="m5v8" data-ans="D"><div class="qh"><span class="qn">Verificação 8</span><span class="tag m">médio</span></div><p>Num triângulo, \(a=10\), \(\hat A=30^\circ\) e \(\hat B=45^\circ\). Então \(b\) vale:</p>
+      <ol class="opts"><li>\(5\sqrt2\)</li><li>20</li><li>\(10\)</li><li>\(10\sqrt2\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1 · lei dos senos</span><div class="m">\[b=\frac{10\sen45^\circ}{\sen30^\circ}=\frac{10\cdot\frac{\sqrt2}2}{\frac12}=10\sqrt2\]</div></div></div><p class="rev">Revise: <a href="#m5-s6">5.6 Lei dos senos</a></p></div>
   </div>
 
   <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação visual do conteúdo deste módulo</p></div></div>
-    <div class="q dq" data-id="m5d1" data-ans="C"><p>Para achar \(x\), qual razão usar?</p><figure class="fig sm" data-f="triQ" data-o='{"b":"20 m","c":"x","ang":"35°"}'></figure><ol class="opts"><li>seno</li><li>cosseno</li><li>tangente</li><li>Pitágoras</li></ol><div class="why" hidden>\(x\) é oposto a 35° e 20 m é adjacente: tangente. \(x=20\tg35^\circ\approx14\) m.</div></div>
-    <div class="q dq" data-id="m5d2" data-ans="B"><p>E aqui, para achar \(y\)?</p><figure class="fig sm" data-f="triQ" data-o='{"a":"12","b":"y","ang":"50°"}'></figure><ol class="opts"><li>seno</li><li>cosseno</li><li>tangente</li><li>Pitágoras</li></ol><div class="why" hidden>\(y\) é adjacente a 50° e 12 é a hipotenusa: cosseno. \(y=12\cos50^\circ\approx7{,}7\).</div></div>
+    <div class="q dq" data-id="m5d1" data-ans="C"><p>Para achar \(x\), qual razão usar?</p><figure class="fig sm" data-f="triQ" data-o='{"adj":"20 m","op":"x","ang":"35°"}'></figure><ol class="opts"><li>seno</li><li>cosseno</li><li>tangente</li><li>Pitágoras</li></ol><div class="why" hidden>\(x\) é oposto a 35° e 20 m é adjacente: tangente. \(x=20\tg35^\circ\approx14\) m.</div></div>
+    <div class="q dq" data-id="m5d2" data-ans="B"><p>E aqui, para achar \(y\)?</p><figure class="fig sm" data-f="triQ" data-o='{"hip":"12","adj":"y","ang":"50°"}'></figure><ol class="opts"><li>seno</li><li>cosseno</li><li>tangente</li><li>Pitágoras</li></ol><div class="why" hidden>\(y\) é adjacente a 50° e 12 é a hipotenusa: cosseno. \(y=12\cos50^\circ\approx7{,}7\).</div></div>
     <div class="q dq" data-id="m5d3" data-ans="A"><p>O ângulo de depressão é medido a partir:</p><ol class="opts"><li>da horizontal, para baixo</li><li>da vertical, para baixo</li><li>do chão, para cima</li><li>da linha de visada</li></ol><div class="why" hidden>Elevação e depressão são sempre medidos a partir da horizontal.</div></div>
     <div class="q dq" data-id="m5d4" data-ans="D"><p>Com os mesmos dois lados, qual ângulo entre eles dá a maior área?</p><ol class="opts"><li>30°</li><li>60°</li><li>150°</li><li>90°</li></ol><div class="why" hidden>Área \(=\frac{bc\,\sen\alpha}2\), e \(\sen\alpha\) é máximo (1) em 90°.</div></div>
   </div>

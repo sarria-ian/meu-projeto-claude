@@ -4,7 +4,7 @@
     <ul><li>reconhecer um ângulo, seu vértice e seus lados, e usar as notações \(A\hat OB\) e \(\angle AOB\);</li>
     <li>classificar ângulos em agudo, reto, obtuso e raso;</li>
     <li>calcular complemento, suplemento e replemento de um ângulo;</li>
-    <li>trabalhar com graus, minutos e segundos: converter, somar e subtrair.</li></ul></div>
+    <li>trabalhar com graus, minutos e segundos: converter para minutos, segundos, decimais e radianos, e somar, subtrair, multiplicar e dividir.</li></ul></div>
 
   <h2 class="sec"><span class="n">1.1</span> O que é um ângulo</h2>
   <div class="prose">
@@ -41,6 +41,72 @@
     <div class="box warn"><div class="bl">Erro comum</div><p>\(22^\circ30'\) <b>não</b> é \(22{,}30^\circ\). Trinta minutos são meio grau: \(22{,}5^\circ\).</p></div>
   </div>
   <div class="lab" data-w="dmsLab"><div class="lt">Laboratório: conversor de graus, minutos e segundos</div><p class="ld">Digite um ângulo em graus, minutos e segundos. Aparecem o valor em graus decimais e em radianos.</p></div>
+
+  <h2 class="sec"><span class="n">1.5</span> Técnicas com graus, minutos e segundos (passo a passo)</h2>
+  <div class="prose">
+    <p>Tudo aqui usa uma única ideia: <b>a base é 60</b>. Sempre que uma casa passa de 60, ela “sobe” para a casa da esquerda; sempre que falta, pegamos emprestado da esquerda. É igual a somar horas, minutos e segundos no relógio.</p>
+    <div class="tbl"><table><thead><tr><th class="l">De → para</th><th class="l">O que fazer</th><th class="l">Por quê</th></tr></thead><tbody>
+      <tr><td class="l">graus → minutos</td><td class="l">multiplicar por 60</td><td class="l">1° = 60′</td></tr>
+      <tr><td class="l">minutos → segundos</td><td class="l">multiplicar por 60</td><td class="l">1′ = 60″</td></tr>
+      <tr><td class="l">graus → segundos</td><td class="l">multiplicar por 3600</td><td class="l">1° = 60 · 60″</td></tr>
+      <tr><td class="l">minutos → graus</td><td class="l">dividir por 60</td><td class="l">60′ = 1°</td></tr>
+      <tr><td class="l">segundos → graus</td><td class="l">dividir por 3600</td><td class="l">3600″ = 1°</td></tr></tbody></table></div>
+
+    <div class="ex"><div class="et">Técnica 1 · Quantos minutos tem um arco?</div>
+      <p>Multiplique os graus por 60 e some os minutos que já existem. Exemplo: <b>25°18′</b>.</p>
+      <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[25^\circ=25\cdot60'=1500'\]</div></div><div class="st"><span class="pl">Passo 2</span><div class="m">\[1500'+18'=1518'\]</div></div></div>
+      <div class="final"><b>Resposta:</b> 25°18′ = 1518′. Do mesmo jeito: 45° = 2700′ e 38°49′ = 2280′ + 49′ = 2329′.</div></div>
+
+    <div class="ex"><div class="et">Técnica 2 · Quantos segundos tem um arco?</div>
+      <p>Graus × 3600, minutos × 60, depois some tudo. Exemplo: <b>1°58′43″</b>.</p>
+      <div class="steps"><div class="st"><span class="pl">Passo 1 · graus</span><div class="m">\[1\cdot3600=3600''\]</div></div><div class="st"><span class="pl">Passo 2 · minutos</span><div class="m">\[58\cdot60=3480''\]</div></div><div class="st"><span class="pl">Passo 3 · somar</span><div class="m">\[3600+3480+43=7123''\]</div></div></div>
+      <div class="final"><b>Resposta:</b> 7123″. Outros: 3° = 10800″; 2°7′ = 7200″ + 420″ = 7620″.</div></div>
+
+    <div class="ex"><div class="et">Técnica 3 · Voltar de segundos (ou minutos) para ° ′ ″</div>
+      <p>Divida por 60 duas vezes, guardando os restos. Exemplo: <b>7123″</b>.</p>
+      <div class="steps"><div class="st"><span class="pl">Passo 1 · segundos ÷ 60</span><div class="m">\[7123=60\cdot118+43\ \Rightarrow\ 118'\ \text{e sobram}\ 43''\]</div></div><div class="st"><span class="pl">Passo 2 · minutos ÷ 60</span><div class="m">\[118=60\cdot1+58\ \Rightarrow\ 1^\circ\ \text{e sobram}\ 58'\]</div></div><div class="st"><span class="pl">Passo 3 · ler</span><p>Quociente final e os restos, de baixo para cima: \(1^\circ58'43''\) (confere com a Técnica 2).</p></div></div></div>
+
+    <div class="ex"><div class="et">Técnica 4 · Graus, minutos e segundos → graus decimais</div>
+      <p>Minutos ÷ 60 e segundos ÷ 3600. Exemplo: <b>31°15′45″</b>.</p>
+      <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[15'=\tfrac{15}{60}=0{,}25^\circ\qquad45''=\tfrac{45}{3600}=0{,}0125^\circ\]</div></div><div class="st"><span class="pl">Passo 2</span><div class="m">\[31+0{,}25+0{,}0125=31{,}2625^\circ\]</div></div></div></div>
+
+    <div class="ex"><div class="et">Técnica 5 · Graus decimais → graus, minutos e segundos</div>
+      <p>Separe a parte inteira; a parte decimal × 60 dá os minutos; se sobrar decimal, × 60 de novo dá os segundos. Exemplo: <b>12,345°</b>.</p>
+      <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>Parte inteira: 12°. Sobra 0,345°.</p></div><div class="st"><span class="pl">Passo 2</span><div class="m">\[0{,}345\cdot60=20{,}7'\ \Rightarrow\ 20'\ \text{e sobra}\ 0{,}7'\]</div></div><div class="st"><span class="pl">Passo 3</span><div class="m">\[0{,}7\cdot60=42''\ \Rightarrow\ 12{,}345^\circ=12^\circ20'42''\]</div></div></div></div>
+
+    <div class="ex"><div class="et">Técnica 6 · Somar (com “vai um”)</div>
+      <p>Some casa por casa; depois, o que passar de 60 sobe. Exemplo: <b>25°48′50″ + 12°30′20″</b>.</p>
+      <div class="steps"><div class="st"><span class="pl">Passo 1 · casa por casa</span><div class="m">\[(25+12)^\circ\ (48+30)'\ (50+20)''=37^\circ\,78'\,70''\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · segundos passaram de 60</span><p>\(70''=1'10''\): fica 10″ e “vai 1” para os minutos → \(79'\).</p></div>
+      <div class="st"><span class="pl">Passo 3 · minutos passaram de 60</span><p>\(79'=1^\circ19'\): fica 19′ e “vai 1” para os graus → \(38^\circ\).</p></div></div>
+      <div class="final"><b>Resposta:</b> 38°19′10″.</div></div>
+
+    <div class="ex"><div class="et">Técnica 7 · Subtrair (com empréstimo)</div>
+      <p>Quando a casa de cima é menor, pegue 1 emprestado da esquerda, que vale 60 na casa da direita. Exemplo: o complemento de <b>38°49′27″</b>.</p>
+      <div class="steps"><div class="st"><span class="pl">Passo 1 · preparar o 90°</span><p>90° não tem minutos nem segundos. Empreste: \(90^\circ=89^\circ60'=89^\circ59'60''\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · subtrair casa por casa</span><div class="m">\[89^\circ59'60''-38^\circ49'27''=51^\circ10'33''\]</div></div>
+      <div class="st"><span class="pl">Conferência</span><p>\(38^\circ49'27''+51^\circ10'33''=89^\circ59'60''=90^\circ\). ✓</p></div></div></div>
+
+    <div class="ex"><div class="et">Técnica 8 · Multiplicar por um número</div>
+      <p>Multiplique cada casa e depois faça o “vai um”. Exemplo: <b>3 × 12°25′40″</b>.</p>
+      <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[36^\circ\,75'\,120''\]</div></div><div class="st"><span class="pl">Passo 2</span><p>\(120''=2'0''\) → \(77'\); \(77'=1^\circ17'\) → \(37^\circ\).</p></div></div>
+      <div class="final"><b>Resposta:</b> 37°17′0″.</div></div>
+
+    <div class="ex"><div class="et">Técnica 9 · Dividir por um número</div>
+      <p>Divida da esquerda para a direita; o resto de cada casa vira 60 vezes mais na casa seguinte. Exemplo: <b>38°49′ ÷ 3</b>.</p>
+      <div class="steps"><div class="st"><span class="pl">Passo 1 · graus</span><p>38 ÷ 3 = 12, resto 2°. Os 2° viram 120′.</p></div>
+      <div class="st"><span class="pl">Passo 2 · minutos</span><p>120′ + 49′ = 169′; 169 ÷ 3 = 56, resto 1′. O 1′ vira 60″.</p></div>
+      <div class="st"><span class="pl">Passo 3 · segundos</span><p>60″ ÷ 3 = 20″.</p></div></div>
+      <div class="final"><b>Resposta:</b> 12°56′20″. Conferência: 3 × 12°56′20″ = 36°168′60″ = 38°49′0″. ✓</div></div>
+
+    <div class="ex"><div class="et">Técnica 10 · Graus, minutos e segundos → radianos</div>
+      <p>Transforme em graus (Técnica 4) e multiplique por \(\frac{\pi}{180}\). Exemplo: <b>22°30′</b>.</p>
+      <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(22^\circ30'=22{,}5^\circ\).</p></div><div class="st"><span class="pl">Passo 2</span><div class="m">\[22{,}5\cdot\frac{\pi}{180}=\frac{22{,}5\pi}{180}=\frac{\pi}{8}\ \text{rad}\]</div><p>Dica: sem decimais, use minutos. \(22^\circ30'=1350'\) e \(180^\circ=10800'\), logo \(\frac{1350}{10800}\pi=\frac\pi8\).</p></div></div></div>
+
+    <div class="box warn"><div class="bl">Erros mais comuns</div><ul><li>Tratar minutos como decimais: \(25^\circ18'\ne25{,}18^\circ\) (é \(25{,}3^\circ\)).</li><li>Esquecer o “vai um”: \(37^\circ78'70''\) não é resposta final.</li><li>Na subtração, emprestar 10 ou 100 em vez de 60.</li><li>Multiplicar graus por 60 para achar segundos (é por 3600).</li></ul></div>
+  </div>
+  <div class="lab" data-w="sexCalc"><div class="lt">Laboratório: calculadora de graus, minutos e segundos</div><p class="ld">Escolha a operação. Cada passo do “vai um” e do empréstimo aparece escrito.</p></div>
+  <div class="lab" data-w="sexTreino"><div class="lt">Treino infinito: graus, minutos e segundos</div><p class="ld">Questões novas a cada clique (minutos, segundos, decimais, somas, subtrações, divisões). Cada acerto vale 2 XP. Para respostas em ° ′ ″, digite três números separados por espaço, como <b>38 19 10</b>.</p></div>
 
   <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>O ângulo entre os ponteiros do relógio às 2h30</h3>
     <p>Um relógio é uma circunferência de 360° dividida em 12 horas: cada hora vale \(360^\circ\div12=30^\circ\). O ponteiro dos minutos dá uma volta em 60 min (\(6^\circ\) por minuto); o das horas anda \(30^\circ\) em 60 min (\(0{,}5^\circ\) por minuto).</p>
@@ -87,6 +153,18 @@
     <div class="q" data-id="m1v6" data-ans="C"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>\(12{,}4^\circ\) em graus e minutos é:</p>
       <ol class="opts"><li>\(12^\circ4'\)</li><li>\(12^\circ40'\)</li><li>\(12^\circ24'\)</li><li>\(12^\circ14'\)</li></ol>
       <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>A parte decimal vira minutos: \(0{,}4\cdot60'=24'\). Logo \(12^\circ24'\).</p></div></div><p class="rev">Revise: <a href="#m1-s4">1.4 Sistema sexagesimal</a></p></div>
+    <div class="q" data-id="m1v7" data-ans="B"><div class="qh"><span class="qn">Verificação 7</span><span class="tag m">médio</span></div><p>Quantos minutos tem um arco de \(25^\circ18'\)?</p>
+      <ol class="opts"><li>2518′</li><li>1518′</li><li>1500′</li><li>43′</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[25\cdot60+18=1500+18=1518'\]</div></div></div><p class="rev">Revise: <a href="#m1-s5">1.5 Técnica 1</a></p></div>
+    <div class="q" data-id="m1v8" data-ans="A"><div class="qh"><span class="qn">Verificação 8</span><span class="tag m">médio</span></div><p>Quantos segundos tem \(2^\circ7'\)?</p>
+      <ol class="opts"><li>7620″</li><li>2070″</li><li>727″</li><li>7207″</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[2\cdot3600+7\cdot60=7200+420=7620''\]</div></div></div><p class="rev">Revise: <a href="#m1-s5">1.5 Técnica 2</a></p></div>
+    <div class="q" data-id="m1v9" data-ans="D"><div class="qh"><span class="qn">Verificação 9</span><span class="tag d">difícil</span></div><p>\(25^\circ48'50''+12^\circ30'20''\) é igual a:</p>
+      <ol class="opts"><li>\(37^\circ78'70''\)</li><li>\(37^\circ19'10''\)</li><li>\(38^\circ18'10''\)</li><li>\(38^\circ19'10''\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Casa por casa: \(37^\circ78'70''\).</p></div><div class="st"><span class="pl">Passo 2 · vai um</span><p>\(70''=1'10''\Rightarrow79'\); \(79'=1^\circ19'\Rightarrow38^\circ19'10''\).</p></div></div><p class="rev">Revise: <a href="#m1-s5">1.5 Técnica 6</a></p></div>
+    <div class="q" data-id="m1v10" data-ans="C"><div class="qh"><span class="qn">Verificação 10</span><span class="tag d">difícil</span></div><p>O complemento de \(38^\circ49'27''\) é:</p>
+      <ol class="opts"><li>\(52^\circ11'33''\)</li><li>\(51^\circ51'73''\)</li><li>\(51^\circ10'33''\)</li><li>\(52^\circ10'33''\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(90^\circ=89^\circ59'60''\).</p></div><div class="st"><span class="pl">Passo 2</span><div class="m">\[89^\circ59'60''-38^\circ49'27''=51^\circ10'33''\]</div></div></div><p class="rev">Revise: <a href="#m1-s5">1.5 Técnica 7</a></p></div>
   </div>
 
   <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação visual do conteúdo deste módulo</p></div></div>

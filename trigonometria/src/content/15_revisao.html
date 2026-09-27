@@ -1,8 +1,21 @@
 <section class="page" id="revisao">
 <div class="mhead"><span class="mi"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 4H6l6 8-6 8h12"/></svg></span><div><div class="eyebrow">Revisão final</div><h1>Formulário</h1><p class="muted">Tudo o que o livro ensina, em uma página. Cada bloco leva ao módulo de origem.</p></div></div>
 <div class="book">
+  <div class="box def"><div class="bl">Notação usada em toda a apostila</div>
+    <p>Triângulo \(ABC\) retângulo em \(A\): hipotenusa \(a=BC\), catetos \(b=AC\) e \(c=AB\). Ângulo \(\alpha\) em \(B\) (oposto a \(b\)) e \(\theta\) em \(C\) (oposto a \(c\)), com \(\alpha+\theta=90^\circ\). No ciclo: arco \(x\) (ou \(\theta\)), ponto \(P=(\cos x,\ \sen x)\), \(k\in\mathbb Z\) conta as voltas.</p></div>
   <div class="grid g2">
-    <div class="card" style="display:grid;gap:8px"><h3>Ângulos e arcos <a class="small" href="#m1">Mód. 1–2</a></h3>
+    <div class="card" style="display:grid;gap:8px"><h3>Graus, minutos e segundos <a class="small" href="#m1-s5">Mód. 1.5</a></h3>
+      <p>Somar: some cada coluna; \(60''\to1'\) e \(60'\to1^\circ\) (“vai um”).</p>
+      <p>Subtrair: faltou? Peça emprestado: \(1^\circ=60'\), \(1'=60''\).</p>
+      <p>Dividir: divida os graus; o resto \(\times60\) vai para os minutos; o resto \(\times60\) vai para os segundos.</p>
+      <div>\[x^\circ y'z''=x+\frac{y}{60}+\frac{z}{3600}\ \text{graus}\]</div>
+      <p>Decimal → ° ′ ″: parte decimal \(\times60\) = minutos; nova parte decimal \(\times60\) = segundos.</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Arcos côngruos <a class="small" href="#m6-s4">Mód. 6.4</a></h3>
+      <p>Graus: divida por \(360^\circ\); o <b>resto</b> é a 1ª determinação.</p>
+      <p>Negativo: ache o resto de \(|x|\) e faça \(360^\circ-\text{resto}\) (ou some voltas até ficar positivo).</p>
+      <div>\[\frac{a\pi}{b}:\ a=2b\cdot q+r\ \Rightarrow\ \frac{a\pi}{b}\equiv\frac{r\pi}{b}\]</div>
+      <p>Teste: \(x\equiv y\iff x-y\) é múltiplo de \(360^\circ\) (ou de \(2\pi\)). Expressão geral: \(x_0+2k\pi\).</p></div>
+ <a class="small" href="#m1">Mód. 1–2</a></h3>
       <p>Complementares \(\alpha+\beta=90^\circ\) · suplementares \(180^\circ\) · replementares \(360^\circ\)</p>
       <div>\[1^\circ=60'\quad1'=60''\qquad\pi\ \text{rad}=180^\circ\]</div>
       <div>\[\alpha=\frac{\ell}{R}\ (\text{rad})\qquad\ell=\alpha R\]</div></div>
@@ -19,6 +32,10 @@
       <div>\[[ABC]=\frac{b\,c\,\sen\alpha}{2}\]</div>
       <div>\[A_{\text{polígono}}=\frac{n\,R^2\sen(2\pi/n)}{2}\]</div>
       <p>Elevação: \(H=d\,\tg\theta\) (θ medido da horizontal).</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Leis dos cossenos e dos senos <a class="small" href="#m5">Mód. 5</a></h3>
+      <div>\[a^2=b^2+c^2-2bc\cos\hat A\]</div>
+      <div>\[\frac{a}{\sen\hat A}=\frac{b}{\sen\hat B}=\frac{c}{\sen\hat C}\]</div>
+      <p>Qualquer triângulo (não precisa ser retângulo).</p></div>
     <div class="card" style="display:grid;gap:8px"><h3>Ciclo trigonométrico <a class="small" href="#m6">Mód. 6–7</a></h3>
       <p>\(x^2+y^2=1\), \(P=(\cos\theta,\ \sen\theta)\), sentido positivo anti-horário.</p>
       <p>Côngruos: \(\alpha\equiv\alpha+2k\pi\). \(-1\le\sen,\cos\le1\).</p>
@@ -33,6 +50,12 @@
         <tr><th>cos</th><td>\(\mathbb R\)</td><td>\([-1,1]\)</td><td>\(2\pi\)</td><td>par</td></tr>
         <tr><th>tg</th><td>\(x\ne\frac\pi2+k\pi\)</td><td>\(\mathbb R\)</td><td>\(\pi\)</td><td>ímpar</td></tr></tbody></table></div>
       <p>\(a+b\sen(cx+d)\): \(P=\frac{2\pi}{|c|}\), \(Im=[a-|b|,\ a+|b|]\). Tangente: \(P=\frac\pi{|c|}\), assíntotas em \(cx+d=\frac\pi2+k\pi\).</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Adição de arcos e inversas <a class="small" href="#m12">Mód. 12</a></h3>
+      <div>\[\sen(a\pm b)=\sen a\cos b\pm\cos a\sen b\]</div>
+      <div>\[\cos(a\pm b)=\cos a\cos b\mp\sen a\sen b\]</div>
+      <div>\[\tg(a\pm b)=\frac{\tg a\pm\tg b}{1\mp\tg a\,\tg b}\]</div>
+      <div>\[\sen2a=2\sen a\cos a\qquad\cos2a=\cos^2a-\sen^2a\]</div>
+      <p>\(y=\arcsen x\iff\sen y=x\) com \(y\in[-\frac\pi2,\frac\pi2]\); \(\arccos\): \(y\in[0,\pi]\); \(\text{arctg}\): \(y\in(-\frac\pi2,\frac\pi2)\).</p></div>
     <div class="card" style="display:grid;gap:8px"><h3>Ângulos notáveis <a class="small" href="#m4-s5">Mód. 4</a></h3>
       <div class="tbl"><table><thead><tr><th></th><th>0</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th></tr></thead><tbody>
         <tr><th>sen</th><td>0</td><td>\(\frac12\)</td><td>\(\frac{\sqrt2}2\)</td><td>\(\frac{\sqrt3}2\)</td><td>1</td></tr>
@@ -53,6 +76,7 @@
     <p>A teoria segue as fotos do caderno (aulas 1, 2 e 6, “Ciclo trigonométrico”, “Relações fundamentais” de 06/08/26, funções seno, cosseno e tangente, polígono regular e ângulos notáveis). As listas 2 a 6 vêm das fotos das folhas; a Lista 1, do PDF enviado antes. Trechos da letra que pareciam trocados foram corrigidos e sinalizados no próprio texto:</p>
     <ul><li>3-4-5 com a hipotenusa marcada como 4 (Mód. 4.4);</li><li>“\(1+\tg^2\alpha=\cossec^2\alpha\)” no lugar de \(1+\cotg^2\alpha\) (Mód. 4.3);</li><li>“\(\cos(90+x)=\sen x\)” sem o sinal de menos (Mód. 8.4);</li><li>\(\frac{5\pi}6=160^\circ\) e \(31^\circ15'45''\approx31{,}27^\circ\) nas resoluções da Lista 2;</li><li>letras \(b\) e \(c\) trocadas na resolução da 1ª questão da Lista 1.</li></ul>
     <p>Na Lista 6, item 1(c), \(f(x)=2-3\sen\frac\pi2\) não tem \(x\) dentro do seno; tratamos como função constante e indicamos a leitura alternativa. Nas questões 4 e 5 da Lista 4, o quadrante não é informado; a resposta traz os dois sinais.</p>
+    <p>A Lista de Revisão e as Avaliações 1 e 2 vêm do PDF e das fotos enviados. Na Avaliação 1, questão 5, o gabarito da folha traz \(-\frac{7}{25}\), mas a conta correta dá \(-\frac{25}{7}\) (a resolução mostra o porquê). Na Avaliação 2, questão 6, o domínio também exclui \(x=\frac\pi2+k\pi\).</p>
     <p>Valores de ângulos não notáveis (20°, 25°, 35°, 50°…) foram obtidos com calculadora e arredondados.</p>
   </div>
 </div>

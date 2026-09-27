@@ -127,14 +127,15 @@
     s += Tx(300, 60, "comprimento do arco AB", TS.mut, "start") + Tx(300, 80, "= comprimento do raio", TS.mut, "start") + Tx(300, 110, "⇒ AÔB = 1 radiano", "font-size:14px", "start");
     return svg("0 20 470 200", s);
   };
-  F.triAula1 = function () { // notação da Aula 1: reto em A, B em cima, C à direita
-    var A = [70, 200], B = [70, 50], Cc = [330, 200], cen = [157, 150];
-    var s = L(B, Cc, ST.hip) + L(A, Cc, ST.cos) + L(A, B, ST.sen) + rm(A, B, Cc, 12);
-    s += arc(Cc, A, B, 40, "stroke:var(--pri)", "α", 56, "fill:var(--pri);font-size:16px") + arc(B, A, Cc, 30, "stroke:var(--c-aux)", "θ", 46, "fill:var(--c-aux);font-size:16px");
-    s += sideLab(B, Cc, "a (hipotenusa)", cen, TS.hip) + sideLab(A, Cc, "b", cen, TS.cos) + sideLab(A, B, "c", cen, TS.sen);
-    s += Tx(A[0] - 14, A[1] + 8, "A") + Tx(B[0] - 14, B[1] - 6, "B") + Tx(Cc[0] + 14, Cc[1] + 4, "C");
+  F.triPadrao = function () { // notação padrão do livro: reto em A, α em B, θ em C
+    var B = [50, 200], A = [320, 200], Cc = [320, 50], cen = [230, 150];
+    var s = L(B, Cc, ST.hip) + L(A, Cc, ST.sen) + L(B, A, ST.cos) + rm(A, B, Cc, 12);
+    s += arc(B, A, Cc, 42, "stroke:var(--pri)", "α", 60, "fill:var(--pri);font-size:16px") + arc(Cc, A, B, 28, "stroke:var(--c-aux)", "θ", 44, "fill:var(--c-aux);font-size:16px");
+    s += sideLab(B, Cc, "a (hipotenusa)", cen, TS.hip) + sideLab(A, Cc, "b", cen, TS.sen) + sideLab(B, A, "c", cen, TS.cos);
+    s += Tx(B[0] - 14, B[1] + 6, "B") + Tx(A[0] + 14, A[1] + 8, "A") + Tx(Cc[0] + 14, Cc[1] - 4, "C");
     return svg("20 25 360 200", s);
   };
+  F.triAula1 = F.triPadrao;
   F.metricas = function () { // Pitágoras por relações métricas (foto): reto em A em cima
     var B = [40, 200], Cc = [400, 200], a = 360, m = 120, H = [B[0] + m, 200], h = Math.sqrt(m * (a - m)), A = [H[0], 200 - h];
     var s = L(B, Cc, ST.ink) + L(A, B, ST.sen) + L(A, Cc, ST.cos) + L(A, H, "stroke:var(--c-aux);stroke-width:2;stroke-dasharray:6 4");
@@ -171,6 +172,13 @@
     var s = P([A, Bp, Cc, A], "fill:var(--pri-soft);stroke:var(--ink);stroke-width:2") + L(Cc, H, "stroke:var(--c-sen);stroke-width:2.5;stroke-dasharray:6 4") + rm(H, Bp, Cc, 9);
     s += arc(A, Bp, Cc, 36, "stroke:var(--pri)", "α", 52, "fill:var(--pri);font-size:16px") + sideLab(A, Bp, "b", [190, 150], TS.cos) + sideLab(A, Cc, "c", [190, 190], TS.hip) + Tx(Cc[0] + 10, 150, "h = c·sen α", TS.sen, "start");
     return svg("20 50 380 180", s);
+  };
+  F.leiCos = function () { // triângulo qualquer: altura h de C sobre AB
+    var A = [50, 200], Bp = [360, 200], Cc = [150, 60], H = [150, 200], cen = [187, 153];
+    var s = P([A, Bp, Cc, A], "fill:var(--pri-soft);stroke:var(--ink);stroke-width:2") + L(Cc, H, "stroke:var(--c-sen);stroke-width:2.5;stroke-dasharray:6 4") + rm(H, Bp, Cc, 9);
+    s += arc(A, Bp, Cc, 30, "stroke:var(--pri)", "Â", 46, "fill:var(--pri)") + sideLab(Bp, Cc, "a", cen, TS.hip) + sideLab(A, Cc, "b", cen, TS.cos) + sideLab(A, Bp, "c", cen, "") ;
+    s += Tx(H[0] + 8, 130, "h", TS.sen, "start") + Tx((A[0] + H[0]) / 2, 214, "b·cos Â", "font-size:12px;fill:var(--c-cos)") + Tx((H[0] + Bp[0]) / 2, 228, "c − b·cos Â", "font-size:12px") + Tx(A[0] - 12, 204, "A") + Tx(Bp[0] + 12, 204, "B") + Tx(Cc[0], Cc[1] - 12, "C") + Tx(H[0] - 8, 188, "H", TS.mut, "end");
+    return svg("20 30 380 210", s);
   };
   F.poligono = function (o) {
     var n = (o && o.n) || 6, cx = 140, cy = 120, R = 95, pts = [];
@@ -233,8 +241,13 @@
   // figuras pequenas para os desafios
   F.angQ = function (o) { var d = o.d, O = [40, 110], A = [200, 110], B = pt(40, 110, 150, d); var s = L(O, A, ST.ink) + L(O, B, ST.ink); s += d === 90 ? rm(O, A, B, 14) : '<path d="M72 110 A32 32 0 ' + (d > 180 ? 1 : 0) + ' 0 ' + f1(40 + 32 * Math.cos(d * D)) + " " + f1(110 - 32 * Math.sin(d * D)) + '" style="fill:none;stroke:var(--pri);stroke-width:2.5"/>'; return svg((d > 90 ? "-120" : "0") + " " + (d > 180 ? "0" : "-50") + " " + (d > 90 ? "340" : "230") + " " + (d > 180 ? "280" : "180"), s + (o.lab ? Tx(80, 90, o.lab, "fill:var(--pri)") : "")); };
   F.cicloPt = function (o) { var cx = 150, cy = 130, R = 95, s = cicloBase(cx, cy, R, { quad: o.quad }); (o.d || []).forEach(function (d, i) { var p = pt(cx, cy, R, d), q = pt(cx, cy, R + 20, d); s += L([cx, cy], p, "stroke:var(--line);stroke-width:1.5") + C(p[0], p[1], 6, "fill:var(--pri)") + (o.lab ? Tx(q[0], q[1], o.lab[i], "font-size:13px;fill:var(--pri)", p[0] >= cx ? "start" : "end") : ""); }); return svg("0 0 300 260", s); };
-  F.triQ = function (o) { var A = [60, 200], B = [60, 60], Cc = [320, 200], cen = [147, 153]; var s = L(B, Cc, ST.hip) + L(A, Cc, ST.cos) + L(A, B, ST.sen) + rm(A, B, Cc, 12) + arc(Cc, A, B, 40, "stroke:var(--pri)", o.ang || "α", 58, "fill:var(--pri)"); if (o.a) s += sideLab(B, Cc, o.a, cen, TS.hip); if (o.b) s += sideLab(A, Cc, o.b, cen, TS.cos); if (o.c) s += sideLab(A, B, o.c, cen, TS.sen); return svg("20 40 350 190", s); };
-  F.grafQ = function (o) { var W0 = 360, H0 = 170, ox = 30, oy = 85, kx = 300 / (2 * PI), ky = 22, s = L([ox, oy], [W0 - 10, oy], ST.thin) + L([ox, 10], [ox, H0 - 10], ST.thin); for (var y = -3; y <= 3; y++) if (y) s += Tx(ox - 6, oy - y * ky, y, TS.mut, "end"); [[PI, "π"], [2 * PI, "2π"], [PI / 2, "π/2"], [3 * PI / 2, "3π/2"]].forEach(function (m) { s += L([ox + m[0] * kx, oy - 3], [ox + m[0] * kx, oy + 3], ST.thin) + Tx(ox + m[0] * kx, oy + 14, m[1], TS.mut); }); var pts = []; for (var i = 0; i <= 300; i++) { var x = 2 * PI * i / 300, v = o.a + o.b * (o.f === "cos" ? Math.cos(o.c * x) : Math.sin(o.c * x)); pts.push([ox + x * kx, oy - v * ky]); } s += P(pts, "fill:none;stroke:var(--c-sen);stroke-width:3"); return svg("0 0 " + W0 + " " + H0, s); };
+  F.triQ = function (o) { // α em B (esquerda), reto em A, C em cima
+    var B = [60, 200], A = [320, 200], Cc = [320, 60], cen = [233, 153];
+    var s = L(B, Cc, ST.hip) + L(A, Cc, ST.sen) + L(B, A, ST.cos) + rm(A, B, Cc, 12) + arc(B, A, Cc, 42, "stroke:var(--pri)", o.ang || "α", 62, "fill:var(--pri)");
+    if (o.hip) s += sideLab(B, Cc, o.hip, cen, TS.hip); if (o.op) s += sideLab(A, Cc, o.op, cen, TS.sen); if (o.adj) s += sideLab(B, A, o.adj, cen, TS.cos);
+    return svg("20 40 360 190", s);
+  };
+  F.grafQ = function (o) { var W0 = 360, H0 = 170, ox = 30, oy = 85, kx = 300 / (2 * PI), ky = o.ky || 22, s = L([ox, oy], [W0 - 10, oy], ST.thin) + L([ox, 10], [ox, H0 - 10], ST.thin); for (var y = -(o.ym || 3); y <= (o.ym || 3); y++) if (y) s += Tx(ox - 6, oy - y * ky, y, TS.mut, "end"); [[PI, "π"], [2 * PI, "2π"], [PI / 2, "π/2"], [3 * PI / 2, "3π/2"]].forEach(function (m) { s += L([ox + m[0] * kx, oy - 3], [ox + m[0] * kx, oy + 3], ST.thin) + Tx(ox + m[0] * kx, oy + 14, m[1], TS.mut); }); var pts = []; for (var i = 0; i <= 300; i++) { var x = 2 * PI * i / 300, v = o.a + o.b * (o.f === "cos" ? Math.cos(o.c * x) : Math.sin(o.c * x)); pts.push([ox + x * kx, oy - v * ky]); } s += P(pts, "fill:none;stroke:var(--c-sen);stroke-width:3"); return svg("0 0 " + W0 + " " + H0, s); };
 
   // =================================================================== LABORATÓRIOS
   // --- Módulo 1: ângulo e classificação
@@ -268,6 +281,241 @@
       out.innerHTML = '<div class="row"><b>Em graus decimais</b><span>' + tex(g + "^\\circ+\\frac{" + m + "}{60}^\\circ+\\frac{" + s + "}{3600}^\\circ\\approx" + tf(dec, 4) + "^\\circ") + '</span></div><div class="row"><b>Em radianos</b><span>' + tex(tf(dec, 4) + "\\cdot\\frac{\\pi}{180}\\approx" + tf(dec / 180, 5) + "\\pi\\approx" + tf(dec * D, 4) + "\\text{ rad}") + "</span></div>";
     }
     c.addEventListener("input", go); go();
+  };
+  // ---------- graus, minutos e segundos: motor de passos
+  function dmsStr(g, m, s) { return g + "°" + (m || s ? " " + m + "′" : "") + (s ? " " + s + "″" : ""); }
+  function dmsTex(g, m, s) { return g + "^\\circ" + (m || s ? "\\," + m + "'" : "") + (s ? "\\," + s + "''" : ""); }
+  function normSteps(g, m, s, st) { // normaliza com "vai um"
+    if (s >= 60) { var c = Math.floor(s / 60); st.push("Os segundos passaram de 60: " + s + "″ = " + c + "′ " + (s - 60 * c) + "″. Sobe " + c + "′ para os minutos (“vai " + c + "”)."); m += c; s -= 60 * c; st.push("Fica " + tex(dmsTex(g, m, s)) + "."); }
+    if (m >= 60) { var c2 = Math.floor(m / 60); st.push("Os minutos passaram de 60: " + m + "′ = " + c2 + "° " + (m - 60 * c2) + "′. Sobe " + c2 + "° para os graus."); g += c2; m -= 60 * c2; st.push("Fica " + tex(dmsTex(g, m, s)) + "."); }
+    return [g, m, s];
+  }
+  function sexOp(op, a, b, k) { // a,b = [g,m,s]; devolve {res:[g,m,s]|number, steps:[]}
+    var st = [], g, m, s;
+    if (op === "soma") {
+      g = a[0] + b[0]; m = a[1] + b[1]; s = a[2] + b[2];
+      st.push("Some cada unidade separadamente (graus com graus, minutos com minutos, segundos com segundos): " + tex(dmsTex(a[0], a[1], a[2]) + "+" + dmsTex(b[0], b[1], b[2]) + "=" + g + "^\\circ\\," + m + "'\\," + s + "''") + ".");
+      var r = normSteps(g, m, s, st); if (st.length === 1) st.push("Nada passou de 60: o resultado já está pronto."); return { res: r, steps: st };
+    }
+    if (op === "sub") {
+      if (a[0] * 3600 + a[1] * 60 + a[2] < b[0] * 3600 + b[1] * 60 + b[2]) return { res: null, steps: ["O primeiro ângulo é menor que o segundo: a diferença seria negativa. Troque a ordem."] };
+      g = a[0]; m = a[1]; s = a[2];
+      st.push("Escreva um embaixo do outro: " + tex(dmsTex(g, m, s) + "-" + dmsTex(b[0], b[1], b[2])) + ".");
+      if (s < b[2]) { st.push("Não dá para tirar " + b[2] + "″ de " + s + "″: empreste 1′ dos minutos (1′ = 60″). " + tex(m + "'\\," + s + "''\\to" + (m - 1) + "'\\," + (s + 60) + "''") + "."); m -= 1; s += 60; }
+      if (m < b[1]) { st.push("Não dá para tirar " + b[1] + "′ de " + m + "′: empreste 1° dos graus (1° = 60′). " + tex(g + "^\\circ\\," + m + "'\\to" + (g - 1) + "^\\circ\\," + (m + 60) + "'") + "."); g -= 1; m += 60; }
+      st.push("Agora subtraia unidade por unidade: " + tex((g - b[0]) + "^\\circ\\ \\ " + (m - b[1]) + "'\\ \\ " + (s - b[2]) + "''") + ".");
+      return { res: [g - b[0], m - b[1], s - b[2]], steps: st };
+    }
+    if (op === "mul") {
+      g = a[0] * k; m = a[1] * k; s = a[2] * k;
+      st.push("Multiplique cada unidade por " + k + ": " + tex(k + "\\times(" + dmsTex(a[0], a[1], a[2]) + ")=" + g + "^\\circ\\," + m + "'\\," + s + "''") + ".");
+      return { res: normSteps(g, m, s, st), steps: st };
+    }
+    if (op === "div") {
+      var q1 = Math.floor(a[0] / k), r1 = a[0] - k * q1;
+      st.push("Graus: " + a[0] + " ÷ " + k + " = " + q1 + "°, resto " + r1 + "°." + (r1 ? " O resto vira minutos: " + r1 + "° = " + (60 * r1) + "′." : ""));
+      var mt = a[1] + 60 * r1, q2 = Math.floor(mt / k), r2 = mt - k * q2;
+      st.push("Minutos: " + (r1 ? 60 * r1 + "′ + " : "") + a[1] + "′ = " + mt + "′; " + mt + " ÷ " + k + " = " + q2 + "′, resto " + r2 + "′." + (r2 ? " O resto vira segundos: " + r2 + "′ = " + (60 * r2) + "″." : ""));
+      var stt = a[2] + 60 * r2, q3 = stt / k;
+      st.push("Segundos: " + (r2 ? 60 * r2 + "″ + " : "") + a[2] + "″ = " + stt + "″; " + stt + " ÷ " + k + " = " + fmt(q3, 2) + "″.");
+      return { res: [q1, q2, Math.round(q3 * 100) / 100], steps: st };
+    }
+    if (op === "min") {
+      var tm = a[0] * 60 + a[1];
+      st.push("Cada grau tem 60′: " + tex(a[0] + "\\cdot60=" + (a[0] * 60) + "'") + ".");
+      st.push("Some os minutos que já existiam: " + tex((a[0] * 60) + "+" + a[1] + "=" + tm + "'") + (a[2] ? " e os " + a[2] + "″ valem " + fmt(a[2] / 60, 3) + "′" : "") + ".");
+      return { res: tm + a[2] / 60, steps: st, unit: "′" };
+    }
+    if (op === "seg") {
+      var ts = a[0] * 3600 + a[1] * 60 + a[2];
+      st.push("Cada grau tem 3600″ (60 × 60): " + tex(a[0] + "\\cdot3600=" + (a[0] * 3600) + "''") + ".");
+      st.push("Cada minuto tem 60″: " + tex(a[1] + "\\cdot60=" + (a[1] * 60) + "''") + ".");
+      st.push("Some tudo: " + tex((a[0] * 3600) + "+" + (a[1] * 60) + "+" + a[2] + "=" + ts + "''") + ".");
+      return { res: ts, steps: st, unit: "″" };
+    }
+    if (op === "dec") {
+      var d = a[0] + a[1] / 60 + a[2] / 3600;
+      st.push("Minutos viram fração de grau dividindo por 60; segundos, dividindo por 3600.");
+      st.push(tex(a[0] + "+\\frac{" + a[1] + "}{60}+\\frac{" + a[2] + "}{3600}\\approx" + tf(d, 4)) + " graus.");
+      return { res: d, steps: st, unit: "°" };
+    }
+    if (op === "rad") {
+      var tsec = a[0] * 3600 + a[1] * 60 + a[2], num = tsec, den = 648000, gg = gcd(num, den); num /= gg; den /= gg;
+      st.push("Escreva tudo em segundos: " + tsec + "″. Meia volta (180°) tem 180 · 3600 = 648000″ e vale π rad.");
+      st.push("Regra de três: " + tex("\\frac{" + tsec + "}{648000}\\pi=" + (num === 1 ? "" : num) + (den === 1 ? "\\pi" : "\\frac{\\pi}{" + den + "}") + (den === 1 ? "" : "") + "\\approx" + tf(tsec / 648000 * PI, 4) + "\\ \\text{rad}") + ".");
+      return { res: tsec / 648000 * PI, steps: st, unit: " rad" };
+    }
+    if (op === "desec") { // k segundos -> g m s
+      var mm = Math.floor(k / 60), ss = k - 60 * mm, gg2 = Math.floor(mm / 60), m2 = mm - 60 * gg2;
+      st.push("Divida os segundos por 60: " + k + " ÷ 60 = " + mm + " (minutos), resto " + ss + "″.");
+      st.push("Divida os minutos por 60: " + mm + " ÷ 60 = " + gg2 + " (graus), resto " + m2 + "′.");
+      st.push("Leia de baixo para cima: " + tex(dmsTex(gg2, m2, ss)) + ".");
+      return { res: [gg2, m2, ss], steps: st };
+    }
+    if (op === "demin") {
+      var g3 = Math.floor(k / 60), m3 = k - 60 * g3;
+      st.push("Divida os minutos por 60: " + k + " ÷ 60 = " + g3 + " (graus), resto " + m3 + "′.");
+      return { res: [g3, m3, 0], steps: st };
+    }
+  }
+  W.sexOp = sexOp;
+  function resStr(r) { if (r.res === null) return "—"; if (Array.isArray(r.res)) return dmsStr(r.res[0], r.res[1], r.res[2]); return fmt(r.res, 4) + (r.unit || ""); }
+  W.sexCalc = function (h) {
+    var ops = [["soma", "somar (A + B)"], ["sub", "subtrair (A − B)"], ["mul", "multiplicar A por k"], ["div", "dividir A por k"], ["min", "A em minutos"], ["seg", "A em segundos"], ["dec", "A em graus decimais"], ["rad", "A em radianos"], ["desec", "k segundos → ° ′ ″"], ["demin", "k minutos → ° ′"]];
+    var box = el("div", { class: "grid", style: "gap:10px" });
+    box.innerHTML = '<div class="btns"><b style="min-width:2em">A</b><input id="scG1" class="inp" style="width:5em" value="25" inputmode="numeric" aria-label="Graus de A"><span>°</span><input id="scM1" class="inp" style="width:5em" value="48" inputmode="numeric" aria-label="Minutos de A"><span>′</span><input id="scS1" class="inp" style="width:5em" value="50" inputmode="numeric" aria-label="Segundos de A"><span>″</span></div>' +
+      '<div class="btns"><label for="scOp"><b>Operação</b></label><select id="scOp" class="inp" style="width:auto">' + ops.map(function (o) { return '<option value="' + o[0] + '">' + o[1] + "</option>"; }).join("") + '</select><label for="scK" class="small">k =</label><input id="scK" class="inp" style="width:6em" value="3" inputmode="numeric"></div>' +
+      '<div class="btns" id="scBrow"><b style="min-width:2em">B</b><input id="scG2" class="inp" style="width:5em" value="12" inputmode="numeric" aria-label="Graus de B"><span>°</span><input id="scM2" class="inp" style="width:5em" value="30" inputmode="numeric" aria-label="Minutos de B"><span>′</span><input id="scS2" class="inp" style="width:5em" value="20" inputmode="numeric" aria-label="Segundos de B"><span>″</span></div>';
+    h.appendChild(box); var out = el("div", { class: "steps" }); h.appendChild(out);
+    function v(id) { var x = parseInt(box.querySelector(id).value, 10); return isNaN(x) || x < 0 ? 0 : x; }
+    function go() {
+      var op = box.querySelector("#scOp").value, a = [v("#scG1"), v("#scM1"), v("#scS1")], b = [v("#scG2"), v("#scM2"), v("#scS2")], k = Math.max(1, v("#scK"));
+      box.querySelector("#scBrow").hidden = !(op === "soma" || op === "sub");
+      box.querySelector("#scK").parentNode.querySelectorAll("#scK,label[for=scK]").forEach(function (x) { x.hidden = !(op === "mul" || op === "div" || op === "desec" || op === "demin"); });
+      var r = sexOp(op, a, b, k);
+      out.innerHTML = r.steps.map(function (s, i) { return '<div class="st"><span class="pl">Passo ' + (i + 1) + "</span><p>" + s + "</p></div>"; }).join("") + '<div class="final"><b>Resultado:</b> ' + resStr(r) + "</div>";
+    }
+    box.addEventListener("input", go); box.addEventListener("change", go); go();
+  };
+  function parseAns(s) { var n = (s.replace(/,/g, ".").match(/-?\d+(\.\d+)?/g) || []).map(Number); return n; }
+  W.sexTreino = function (h) {
+    var q = el("p", { class: "ex-q" }), inp = el("input", { class: "inp", id: "stIn", style: "width:12em", "aria-label": "Sua resposta" }), bt = el("button", { class: "btn p", type: "button" }, "Conferir"), nx = el("button", { class: "btn", type: "button" }, "Nova questão");
+    var hint = el("p", { class: "small muted" }), fb = el("div"), sc = el("span", { class: "small muted" });
+    var row = el("div", { class: "btns" }); row.appendChild(inp); row.appendChild(bt); row.appendChild(nx); row.appendChild(sc);
+    h.appendChild(q); h.appendChild(hint); h.appendChild(row); h.appendChild(fb);
+    var cur, hits = 0, tries = 0, done;
+    function ri(a, b) { return a + Math.floor(Math.random() * (b - a + 1)); }
+    function gen() {
+      var t = ri(1, 8), A = [ri(5, 80), ri(1, 59), ri(1, 59)], B = [ri(3, 40), ri(1, 59), ri(1, 59)];
+      done = false; fb.innerHTML = ""; inp.value = "";
+      if (t === 1) cur = { op: "min", a: [A[0], A[1], 0], txt: "Quantos minutos tem um arco de " + dmsStr(A[0], A[1], 0) + "?", kind: "num", fmt: "um número, ex.: 1518" };
+      if (t === 2) cur = { op: "seg", a: A, txt: "Quantos segundos tem um arco de " + dmsStr(A[0], A[1], A[2]) + "?", kind: "num", fmt: "um número, ex.: 7123" };
+      if (t === 3) { var mm = [6, 12, 15, 18, 24, 30, 36, 42, 45, 48, 54][ri(0, 10)]; cur = { op: "dec", a: [A[0], mm, 0], txt: "Escreva " + dmsStr(A[0], mm, 0) + " em graus decimais.", kind: "num", fmt: "decimal, ex.: 22,5" }; }
+      if (t === 4) cur = { op: "soma", a: A, b: B, txt: "Calcule " + dmsStr(A[0], A[1], A[2]) + " + " + dmsStr(B[0], B[1], B[2]) + ".", kind: "dms", fmt: "graus minutos segundos, ex.: 38 19 10" };
+      if (t === 5) { if (A[1] >= B[1]) B[1] = Math.min(59, A[1] + ri(1, 10)); if (A[0] <= B[0]) A[0] = B[0] + ri(2, 30); cur = { op: "sub", a: A, b: B, txt: "Calcule " + dmsStr(A[0], A[1], A[2]) + " − " + dmsStr(B[0], B[1], B[2]) + ".", kind: "dms", fmt: "graus minutos segundos, ex.: 51 10 33" }; }
+      if (t === 6) { var tot = ri(3000, 20000); cur = { op: "desec", k: tot, txt: "Escreva " + tot + "″ em graus, minutos e segundos.", kind: "dms", fmt: "graus minutos segundos" }; }
+      if (t === 7) { var C = [ri(10, 80), ri(1, 59), ri(0, 59)]; cur = { op: "sub", a: [90, 0, 0], b: C, txt: "Qual é o complemento de " + dmsStr(C[0], C[1], C[2]) + "?", kind: "dms", fmt: "graus minutos segundos (lembre: 90° = 89° 59′ 60″)" }; }
+      if (t === 8) { var k = ri(2, 3), Q = [ri(5, 40), ri(0, 59), ri(0, 59)], P0 = [Q[0] * k, Q[1] * k, Q[2] * k]; var n = normSteps(P0[0], P0[1], P0[2], []); cur = { op: "div", a: n, k: k, txt: "Divida " + dmsStr(n[0], n[1], n[2]) + " por " + k + ".", kind: "dms", fmt: "graus minutos segundos" }; }
+      cur.r = sexOp(cur.op, cur.a, cur.b, cur.k);
+      q.innerHTML = cur.txt; hint.textContent = "Responda como " + cur.fmt + ".";
+    }
+    function check() {
+      if (done) return; var n = parseAns(inp.value); if (!n.length) { fb.innerHTML = '<div class="alert bad">Digite sua resposta.</div>'; return; }
+      var ok;
+      if (cur.kind === "num") ok = Math.abs(n[0] - cur.r.res) < 0.011;
+      else { var u = (n[0] || 0) * 3600 + (n[1] || 0) * 60 + (n[2] || 0), w = cur.r.res[0] * 3600 + cur.r.res[1] * 60 + cur.r.res[2]; ok = Math.abs(u - w) < 0.6 && (n[1] || 0) < 60 && (n[2] || 0) < 60; if (!ok && Math.abs(u - w) < 0.6) cur.note = "O valor total está certo, mas minutos e segundos devem ficar abaixo de 60 (faça o “vai um”)."; }
+      tries++; if (ok) { hits++; T_().beep("ok"); T_().addXP(2, "treino"); } else T_().beep("bad");
+      done = true; sc.textContent = "Acertos: " + hits + "/" + tries;
+      fb.innerHTML = '<div class="fb ' + (ok ? "y" : "n") + '"><b class="t">' + (ok ? "Certo!" : "Ainda não. Resposta: " + resStr(cur.r)) + "</b>" + (cur.note && !ok ? cur.note : "") + '</div><div class="steps" style="margin-top:8px">' + cur.r.steps.map(function (s, i) { return '<div class="st"><span class="pl">Passo ' + (i + 1) + "</span><p>" + s + "</p></div>"; }).join("") + "</div>";
+      cur.note = "";
+    }
+    bt.onclick = check; inp.addEventListener("keydown", function (e) { if (e.key === "Enter") check(); }); nx.onclick = gen; gen();
+  };
+  // ---------- arcos côngruos: motor com todas as técnicas
+  function fracPi(n, d) { // n·π/d em LaTeX, simplificado
+    if (n === 0) return "0"; var g = gcd(n, d); n /= g; d /= g; var sg = n < 0 ? "-" : ""; n = Math.abs(n);
+    var num = (n === 1 ? "" : n) + "\\pi"; return d === 1 ? sg + num : sg + "\\frac{" + num + "}{" + d + "}";
+  }
+  function quadOf(deg) { var r = refInfo(deg); return r.q ? r.q + "º quadrante" : "sobre um eixo (" + mod360(deg) + "°), não pertence a quadrante"; }
+  function congSteps(raw) {
+    var s = raw.trim().replace(/−/g, "-").replace(/\s+/g, "").replace(/pi/gi, "π").replace(",", ".");
+    var T = [], out = { ok: true };
+    var mR = s.match(/^(-?\d*)π(?:\/(\d+))?$/), mReal = s.match(/^(-?\d+(?:\.\d+)?)rad$/), mD = s.match(/^(-?\d+(?:\.\d+)?)°?$/);
+    if (mR) {
+      var a = mR[1] === "" ? 1 : mR[1] === "-" ? -1 : +mR[1], b = mR[2] ? +mR[2] : 1, g0 = gcd(a, b); a /= g0; b /= g0;
+      var two = 2 * b, q = Math.floor(a / two), r = a - two * q, deg = a * 180 / b;
+      out.deg = mod360(deg); out.tex = fracPi(r, b); out.q = quadOf(deg); out.k = q; out.inTex = fracPi(a, b);
+      T.push(["Técnica 1 · dividir o numerador por 2b", "Uma volta é \\(2\\pi" + (b > 1 ? "=\\tfrac{" + two + "\\pi}{" + b + "}" : "") + "\\). Divida o numerador " + a + " por " + two + " (o dobro do denominador) e guarde o resto (entre 0 e " + (two - 1) + ").",
+        a + "=" + two + "\\cdot(" + q + ")+" + r + "\\ \\Rightarrow\\ " + fracPi(a, b) + "=" + q + "\\cdot2\\pi+" + fracPi(r, b)]);
+      T.push(["Técnica 2 · trocar π por 180° e dividir por 360", "Converta para graus e divida por 360°; o resto é a 1ª determinação.",
+        fracPi(a, b) + "=" + fmt(deg, 2).replace(",", "{,}") + "^\\circ=360^\\circ\\cdot(" + Math.floor(deg / 360) + ")+" + fmt(mod360(deg), 2).replace(",", "{,}") + "^\\circ"]);
+      var near = 2 * Math.round(a / b / 2), rest = a - near * b;
+      T.push(["Técnica 3 · tirar o múltiplo par de π mais próximo", "\\(\\frac ab\\approx" + tf(a / b, 2) + "\\); o número par mais próximo é " + near + ". Tire " + near + "π (" + (near / 2) + " voltas)" + (rest < 0 ? " e, como sobrou negativo, some \\(2\\pi\\)." : "."),
+        fracPi(a, b) + "-" + near + "\\pi=" + fracPi(rest, b) + (rest < 0 ? "\\ \\equiv\\ " + fracPi(rest, b) + "+2\\pi=" + fracPi(rest + two, b) : "")]);
+    } else if (mReal) {
+      var x = +mReal[1], tw = 2 * PI, q2 = Math.floor(x / tw), r2 = x - tw * q2;
+      out.deg = r2 / D; out.tex = tf(r2, 4) + "\\text{ rad}"; out.q = quadOf(r2 / D); out.k = q2; out.inTex = tf(x, 4) + "\\text{ rad}";
+      T.push(["Técnica 4 · número real (sem π)", "Use \\(2\\pi\\approx6{,}2832\\). Divida por \\(2\\pi\\): o quociente inteiro é o número de voltas.",
+        tf(x, 4) + "=6{,}2832\\cdot(" + q2 + ")+" + tf(r2, 4)]);
+      T.push(["Localizar", "Compare com \\(\\frac\\pi2\\approx1{,}571\\), \\(\\pi\\approx3{,}142\\) e \\(\\frac{3\\pi}2\\approx4{,}712\\).", tf(r2, 4) + "\\ \\text{rad}\\approx" + tf(r2 / D, 1) + "^\\circ"]);
+    } else if (mD) {
+      var dg = +mD[1], q3 = Math.floor(dg / 360), r3 = Math.round((dg - 360 * q3) * 1000) / 1000;
+      out.deg = r3; out.tex = fmt(r3, 3).replace(",", "{,}") + "^\\circ"; out.q = quadOf(r3); out.k = q3; out.inTex = fmt(dg, 3).replace(",", "{,}") + "^\\circ";
+      T.push(["Técnica 1 · dividir por 360°", dg >= 0 ? "Faça a divisão inteira por 360: o quociente é o número de voltas completas e o <b>resto</b> é a 1ª determinação." : "Para arco negativo, use a divisão “com resto positivo”: o quociente é o inteiro logo abaixo.",
+        fmt(dg, 3).replace(",", "{,}") + "=360\\cdot(" + q3 + ")+" + fmt(r3, 3).replace(",", "{,}")]);
+      if (dg < 0) {
+        var steps = [], v = dg; while (v < 0 && steps.length < 8) { steps.push(fmt(v, 3).replace(",", "{,}") + "^\\circ"); v += 360; } steps.push(fmt(v, 3).replace(",", "{,}") + "^\\circ");
+        var ad = Math.abs(dg), qq = Math.floor(ad / 360), rr = Math.round((ad - 360 * qq) * 1000) / 1000;
+        T.push(["Técnica 2 · somar 360° até ficar positivo", "Cada soma de 360° é uma volta a mais, então o ponto final não muda.", steps.join("\\to") + (steps.length >= 9 ? "\\cdots" : "")]);
+        T.push(["Técnica 3 · usar o valor positivo e “voltar”", "Divida o módulo: " + ad + " = 360·" + qq + " + " + rr + ". Andar −" + rr + "° (horário) é o mesmo que andar 360° − " + rr + "° no sentido positivo.", rr === 0 ? "0^\\circ" : "360^\\circ-" + fmt(rr, 3).replace(",", "{,}") + "^\\circ=" + fmt(360 - rr, 3).replace(",", "{,}") + "^\\circ"]);
+      }
+    } else { out.ok = false; return out; }
+    out.T = T; return out;
+  }
+  W.congSteps = congSteps;
+  function congHTML(c) {
+    var h = "";
+    c.T.forEach(function (t) { h += '<div class="st"><span class="pl">' + t[0] + "</span><p>" + t[1] + '</p><div class="m">' + tex(t[2], true) + "</div></div>"; });
+    var fam = /π|pi/.test(c.inTex) || /\\pi/.test(c.tex) ? c.tex + "+2k\\pi" : c.tex + "+k\\cdot360^\\circ";
+    h += '<div class="final"><b>1ª determinação:</b> ' + tex(c.inTex + "\\equiv" + c.tex) + " · " + c.q + " · " + Math.abs(c.k) + (Math.abs(c.k) === 1 ? " volta" : " voltas") + (c.k < 0 ? " no sentido negativo" : "") + '.<br><span class="small">Todos os arcos côngruos a ele: ' + tex(fam + ",\\ k\\in\\mathbb Z") + "</span></div>";
+    return h;
+  }
+  W.congHTML = congHTML;
+  W.congLab = function (h) {
+    var bx = el("div", { class: "btns" }, '<label for="cgIn" class="small"><b>Arco</b></label><input id="cgIn" class="inp" value="41π/3" aria-label="Arco: em graus (2100), negativo (−1000), em radianos (41π/3) ou real (10 rad)"><span class="small muted">graus: 2100 · negativo: −1000 · radianos: 41π/3 ou −17π/4 · real: 10 rad</span>');
+    h.appendChild(bx); var S = scene(h, "0 0 400 250"), out = el("div", { class: "steps" }); h.appendChild(out);
+    var ex = el("div", { class: "btns" }); h.appendChild(ex);
+    ["2100", "1270", "-1000", "81π/4", "41π/3", "31π/6", "-17π/4", "-π/2", "10 rad"].forEach(function (x) { var b = el("button", { class: "btn s", type: "button" }, x); b.onclick = function () { bx.querySelector("input").value = x; go(); }; ex.appendChild(b); });
+    function go() {
+      var c = congSteps(bx.querySelector("input").value);
+      if (!c.ok) { out.innerHTML = '<div class="alert bad">Não entendi. Escreva em graus (2100 ou −1000), em radianos com π (41π/3) ou um número com “rad” (10 rad).</div>'; return; }
+      out.innerHTML = congHTML(c); T_().renderMath(out);
+      var cx = 200, cy = 125, R = 90, s = cicloBase(cx, cy, R, { quad: 1 }), turns = c.k + c.deg / 360, pts = [], n = Math.max(2, Math.ceil(Math.abs(turns * 360) / 3));
+      for (var i = 0; i <= n; i++) { var u = turns * 360 * i / n; pts.push(pt(cx, cy, 18 + 62 * i / n, u)); }
+      s += P(pts, "fill:none;stroke:" + (turns >= 0 ? "var(--ok)" : "var(--bad)") + ";stroke-width:2");
+      var Pp = pt(cx, cy, R, c.deg); s += L([cx, cy], Pp, ST.hip) + C(Pp[0], Pp[1], 6, "fill:var(--pri)");
+      S.innerHTML = s;
+    }
+    bx.querySelector("input").addEventListener("input", go); go();
+  };
+  W.congTreino = function (h) {
+    var q = el("div", { class: "gbig" }), opts = el("div", { class: "grid", style: "grid-template-columns:repeat(auto-fit,minmax(110px,1fr));max-width:560px" }), qd = el("div", { class: "btns" }), fb = el("div"), bar = el("div", { class: "btns" });
+    var nx = el("button", { class: "btn p", type: "button" }, "Novo arco"), sc = el("span", { class: "small muted" }); bar.appendChild(nx); bar.appendChild(sc);
+    h.appendChild(el("p", { class: "small" }, "<b>Etapa 1:</b> escolha a 1ª determinação. <b>Etapa 2:</b> diga o quadrante.")); h.appendChild(q); h.appendChild(opts); h.appendChild(qd); h.appendChild(fb); h.appendChild(bar);
+    var hits = 0, tries = 0, cur;
+    function ri(a, b) { return a + Math.floor(Math.random() * (b - a + 1)); }
+    function gen() {
+      var t = ri(1, 4), raw, c, choices = [];
+      if (t === 1) { raw = String(ri(2, 9) * 360 + ri(1, 359)); }
+      if (t === 2) { raw = String(-(ri(0, 4) * 360 + ri(1, 359))); }
+      if (t === 3 || t === 4) { var b = [2, 3, 4, 6][ri(0, 3)], a; do { a = ri(2 * b + 1, 14 * b); } while (gcd(a, b) !== 1); if (t === 4) a = -a; raw = a + "π/" + b; if (b === 1) raw = a + "π"; }
+      c = congSteps(raw); cur = { raw: raw, c: c, step: 1 };
+      var isRad = /π/.test(raw), right = isRad ? c.tex : c.tex;
+      var cand = [c.deg, 360 - c.deg, (c.deg + 180) % 360, (c.deg + 90) % 360, Math.abs(Number(raw)) % 360];
+      cand.forEach(function (d) { if (isNaN(d)) return; d = Math.round((((d % 360) + 360) % 360) * 1000) / 1000; if (choices.every(function (x) { return x !== d; }) && choices.length < 4 && !(d === 0 && c.deg !== 0)) choices.push(d); });
+      while (choices.length < 4) { var d2 = ri(1, 23) * 15; if (choices.indexOf(d2) < 0) choices.push(d2); }
+      choices.sort(function () { return Math.random() - 0.5; });
+      q.innerHTML = isRad ? tex(c.inTex) : c.inTex.replace("^\\circ", "°").replace("{,}", ",");
+      if (isRad) q.innerHTML = tex(c.inTex);
+      opts.innerHTML = ""; qd.innerHTML = ""; fb.innerHTML = "";
+      choices.forEach(function (d) {
+        var lab = isRad ? tex(degToPiTex(d)) : fmt(d, 3) + "°";
+        var b2 = el("button", { class: "btn", type: "button", style: "font-size:1.05rem" }, lab);
+        b2.onclick = function () { if (cur.step !== 1) return; var ok = Math.abs(d - c.deg) < 1e-6; b2.classList.add(ok ? "p" : "wrong"); [].forEach.call(opts.children, function (x) { x.disabled = true; }); tries++; if (ok) { hits++; T_().beep("ok"); T_().addXP(2, "côngruos"); } else T_().beep("bad"); cur.step = 2; cur.ok1 = ok; askQ(); };
+        opts.appendChild(b2);
+      });
+      sc.textContent = "Acertos: " + hits + "/" + tries;
+    }
+    function askQ() {
+      qd.innerHTML = '<span class="small"><b>Quadrante:</b></span>';
+      var ri2 = refInfo(cur.c.deg), right = ri2.q;
+      [[1, "1º"], [2, "2º"], [3, "3º"], [4, "4º"], [0, "eixo"]].forEach(function (o) {
+        var b = el("button", { class: "btn s", type: "button" }, o[1]);
+        b.onclick = function () { if (cur.step !== 2) return; var ok = o[0] === right; b.classList.add(ok ? "p" : "wrong"); cur.step = 3; tries++; if (ok) { hits++; T_().beep("ok"); T_().addXP(2, "quadrante"); } else T_().beep("bad"); sc.textContent = "Acertos: " + hits + "/" + tries; fb.innerHTML = '<div class="fb ' + (ok && cur.ok1 ? "y" : "n") + '"><b class="t">' + (ok && cur.ok1 ? "Certo nas duas etapas!" : "Veja a resolução completa:") + '</b></div><div class="steps" style="margin-top:8px">' + congHTML(cur.c) + "</div>"; T_().renderMath(fb); };
+        qd.appendChild(b);
+      });
+    }
+    nx.onclick = gen; gen();
   };
   // --- Módulo 2: radiano e comprimento de arco
   W.radLab = function (h) {
@@ -310,24 +558,22 @@
     return null;
   }
   W.parseRad = parseRad;
-  // --- Módulo 3: triângulo retângulo com as 6 razões (notação da Aula 1)
+  // --- Módulo 3: triângulo retângulo com as 6 razões (notação padrão: α em B)
   W.triLab = function (h) {
     var S = scene(h, "0 0 440 270"), c = el("div", { class: "ctrls" }); h.appendChild(c);
-    var sa = slider(c, "trA", "Ângulo α (em C)", 5, 85, 1, 35, function (v) { return v + "°"; });
+    var sa = slider(c, "trA", "Ângulo α (em B)", 5, 85, 1, 35, function (v) { return v + "°"; });
     var sh = slider(c, "trH", "Hipotenusa a", 3, 10, 0.1, 8, function (v) { return fmt(v, 1); });
     var tb = el("div", { class: "tbl" }); h.appendChild(tb);
     function draw() {
-      var al = +sa.value, a = +sh.value, th = 90 - al, b = a * Math.cos(al * D), cc = a * Math.sin(al * D), k = 36;
-      var A = [50, 245], B = [50, 245 - cc * k * 0.62], Cc = [50 + b * k * 0.62 * 1.4, 245];
-      // escala uniforme
-      var sc = Math.min(330 / b, 215 / cc); B = [50, 245 - cc * sc]; Cc = [50 + b * sc, 245];
+      var al = +sa.value, a = +sh.value, th = 90 - al, b = a * Math.sin(al * D), cc = a * Math.cos(al * D);
+      var sc = Math.min(330 / cc, 215 / b), B = [50, 245], A = [50 + cc * sc, 245], Cc = [A[0], 245 - b * sc];
       var cen = [(A[0] + B[0] + Cc[0]) / 3, (A[1] + B[1] + Cc[1]) / 3];
-      var s = L(B, Cc, ST.hip) + L(A, Cc, ST.cos) + L(A, B, ST.sen) + rm(A, B, Cc, 12) + arc(Cc, A, B, 38, "stroke:var(--pri)", "α", 54, "fill:var(--pri)") + arc(B, A, Cc, 26, "stroke:var(--c-aux)", "θ", 42, "fill:var(--c-aux)");
-      s += sideLab(B, Cc, "a = " + fmt(a, 1), cen, TS.hip) + sideLab(A, Cc, "b = " + fmt(b, 2), cen, TS.cos) + sideLab(A, B, "c = " + fmt(cc, 2), cen, TS.sen);
-      s += Tx(A[0] - 12, A[1] + 4, "A") + Tx(B[0] - 12, B[1] - 4, "B") + Tx(Cc[0] + 12, Cc[1] + 4, "C");
+      var s = L(B, Cc, ST.hip) + L(A, Cc, ST.sen) + L(B, A, ST.cos) + rm(A, B, Cc, 12) + arc(B, A, Cc, 38, "stroke:var(--pri)", "α", 54, "fill:var(--pri)") + arc(Cc, A, B, 26, "stroke:var(--c-aux)", "θ", 42, "fill:var(--c-aux)");
+      s += sideLab(B, Cc, "a = " + fmt(a, 1), cen, TS.hip) + sideLab(A, Cc, "b = " + fmt(b, 2), cen, TS.sen) + sideLab(B, A, "c = " + fmt(cc, 2), cen, TS.cos);
+      s += Tx(B[0] - 12, B[1] + 4, "B") + Tx(A[0] + 12, A[1] + 4, "A") + Tx(Cc[0] + 12, Cc[1] - 4, "C");
       S.innerHTML = s;
-      var sa_ = cc / a, ca = b / a;
-      var R = [["\\sen", "\\frac ca", sa_, "\\cossec", "\\frac ac", 1 / sa_], ["\\cos", "\\frac ba", ca, "\\sec", "\\frac ab", 1 / ca], ["\\tg", "\\frac cb", sa_ / ca, "\\cotg", "\\frac bc", ca / sa_]];
+      var sn = b / a, cs = cc / a;
+      var R = [["\\sen", "\\frac ba", sn, "\\cossec", "\\frac ab", 1 / sn], ["\\cos", "\\frac ca", cs, "\\sec", "\\frac ac", 1 / cs], ["\\tg", "\\frac bc", sn / cs, "\\cotg", "\\frac cb", cs / sn]];
       var html = "<table><thead><tr><th>razão de α = " + al + "°</th><th>valor</th><th>inversa</th><th>valor</th><th>igual para θ = " + th + "°</th></tr></thead><tbody>";
       var twin = ["\\cos\\theta", "\\sen\\theta", "\\cotg\\theta"];
       R.forEach(function (x, i) { html += "<tr><td>" + tex(x[0] + "\\,\\alpha=" + x[1]) + "</td><td>" + fmt(x[2]) + "</td><td>" + tex(x[3] + "\\,\\alpha=" + x[4]) + "</td><td>" + fmt(x[5]) + "</td><td>" + tex("=" + twin[i]) + "</td></tr>"; });
@@ -467,36 +713,6 @@
     S.addEventListener("pointermove", function (e) { if (drag) fromEvt(e); });
     S.addEventListener("pointerup", function () { drag = false; });
     draw();
-  };
-  // arcos côngruos
-  W.congLab = function (h) {
-    var bx = el("div", { class: "btns" }, '<label for="cgIn" class="small"><b>Arco</b></label><input id="cgIn" class="inp" value="41π/3" aria-label="Arco em graus (ex.: 2100) ou radianos (ex.: 41π/3)"><span class="small muted">ex.: 2100, 1270, 81π/4, −π/2</span>');
-    h.appendChild(bx); var S = scene(h, "0 0 400 250"), out = el("div", { class: "rows" }); h.appendChild(out);
-    var ex = el("div", { class: "btns" }); h.appendChild(ex);
-    ["81π/4", "41π/3", "2100", "1270", "25π/3", "31π/6", "-π/2"].forEach(function (x) { var b = el("button", { class: "btn s", type: "button" }, x); b.onclick = function () { bx.querySelector("input").value = x; go(); }; ex.appendChild(b); });
-    function go() {
-      var raw = bx.querySelector("input").value.trim().replace("−", "-"), deg, isRad = /π|pi/i.test(raw);
-      var num, den;
-      if (isRad) { var m = raw.replace(/\s/g, "").replace(/pi/gi, "π").match(/^(-?\d*)π(?:\/(\d+))?$/); if (!m) { out.innerHTML = '<div class="alert bad">Escreva como 41π/3 ou −π/2.</div>'; return; } num = m[1] === "" ? 1 : m[1] === "-" ? -1 : +m[1]; den = m[2] ? +m[2] : 1; deg = num * 180 / den; }
-      else { deg = parseFloat(raw.replace("°", "").replace(",", ".")); if (isNaN(deg)) { out.innerHTML = '<div class="alert bad">Digite um número de graus ou um arco com π.</div>'; return; } }
-      var k = Math.floor(deg / 360), a = deg - 360 * k, ri = refInfo(a), html = "";
-      if (isRad) {
-        var full = 2 * den, kk = Math.floor(num / full), rest = num - kk * full;
-        html += '<div class="row"><b>Divisão</b><span>' + tex("\\frac{" + num + "\\pi}{" + den + "}:\\ 2\\pi=\\frac{" + (2 * den) + "\\pi}{" + den + "}\\ \\Rightarrow\\ " + num + "=" + full + "\\cdot(" + kk + ")+" + rest) + "</span></div>";
-        html += '<div class="row"><b>Resultado</b><span>' + tex("\\frac{" + num + "\\pi}{" + den + "}=" + kk + "\\cdot2\\pi+\\frac{" + rest + "\\pi}{" + den + "}\\ \\equiv\\ " + (rest === 0 ? "0" : "\\frac{" + rest + "\\pi}{" + den + "}")) + "</span></div>";
-      } else {
-        html += '<div class="row"><b>Divisão</b><span>' + tex(fmt(deg, 2).replace(",", "{,}") + "=360\\cdot(" + k + ")+" + fmt(a, 2).replace(",", "{,}")) + "</span></div>";
-        html += '<div class="row"><b>Resultado</b><span>' + tex(fmt(deg, 2).replace(",", "{,}") + "^\\circ\\equiv" + fmt(a, 2).replace(",", "{,}") + "^\\circ") + "</span></div>";
-      }
-      html += '<div class="row"><b>Posição</b><span>' + (ri.q ? ri.q + "º quadrante" : "sobre um eixo") + " · " + Math.abs(k) + (Math.abs(k) === 1 ? " volta" : " voltas") + " completas " + (k < 0 ? "(sentido negativo)" : "") + "</span></div>";
-      out.innerHTML = html;
-      var cx = 200, cy = 125, R = 90, s = cicloBase(cx, cy, R, { quad: 1 }), pts = [], n = Math.max(2, Math.ceil(Math.abs(deg) / 3));
-      for (var i = 0; i <= n; i++) { var u = deg * i / n; pts.push(pt(cx, cy, 20 + 60 * i / n, u)); }
-      s += P(pts, "fill:none;stroke:var(--ok);stroke-width:2");
-      var Pp = pt(cx, cy, R, deg); s += L([cx, cy], Pp, ST.hip) + C(Pp[0], Pp[1], 6, "fill:var(--pri)");
-      S.innerHTML = s;
-    }
-    bx.querySelector("input").addEventListener("input", go); go();
   };
   // simetria no ciclo
   W.simLab = function (h) {
@@ -668,10 +884,10 @@
   // =================================================================== JOGOS
   W.games = function (host) {
     if (!host) return;
-    var T = window.T, S = T.S, g = "ciclo", tabs = seg(host, [["ciclo", "Ciclo Relâmpago"], ["sinal", "Sinal Certo"], ["conv", "Conversor Turbo"]], "ciclo", function (v) { g = v; setup(); });
+    var T = window.T, S = T.S, g = "ciclo", tabs = seg(host, [["ciclo", "Ciclo Relâmpago"], ["sinal", "Sinal Certo"], ["conv", "Conversor Turbo"], ["cong", "Côngruos"], ["sex", "Minutos e segundos"]], "ciclo", function (v) { g = v; setup(); });
     var box = el("div", { class: "card game" }); host.appendChild(box);
     var timer = 0, left = 0, score = 0, running = false;
-    var DESC = { ciclo: "Aparece um arco. Toque no ponto do ciclo onde ele termina (tolerância de 12°). 45 segundos.", sinal: "Aparece uma razão, como sen 251°. Decida se o valor é positivo ou negativo pelo quadrante. 45 segundos.", conv: "Converta entre graus e radianos escolhendo a alternativa certa. 45 segundos." };
+    var DESC = { ciclo: "Aparece um arco. Toque no ponto do ciclo onde ele termina (tolerância de 12°). 45 segundos.", sinal: "Aparece uma razão, como sen 251°. Decida se o valor é positivo ou negativo pelo quadrante. 45 segundos.", conv: "Converta entre graus e radianos escolhendo a alternativa certa. 45 segundos.", cong: "Aparece um arco grande ou negativo. Escolha a 1ª determinação (entre 0 e 360° ou 0 e 2π). 45 segundos.", sex: "Conversões e contas com graus, minutos e segundos. 45 segundos." };
     function setup() {
       clearInterval(timer); running = false;
       box.innerHTML = '<div class="gstat"><span class="chip">' + T.icon("clock") + ' <b id="gT">45</b> s</span><span class="chip">' + T.icon("check") + ' <b id="gS">0</b> pontos</span><span class="chip">' + T.icon("trophy") + " recorde: <b>" + (S.games[g] || 0) + '</b></span></div><p class="small muted" style="text-align:center">' + DESC[g] + '</p><div class="gbig" id="gQ">Pronto?</div><div id="gA"></div><div class="btns" style="justify-content:center"><button class="btn p" id="gGo" type="button">' + T.icon("play") + " Começar</button></div>";
@@ -714,6 +930,27 @@
         Q.innerHTML = tex("\\" + f + "\\ " + a + "^\\circ");
         A.innerHTML = '<div class="btns" style="justify-content:center"><button class="btn p" type="button" data-s="1" style="font-size:1.4rem;min-width:90px">+</button><button class="btn p" type="button" data-s="-1" style="font-size:1.4rem;min-width:90px">−</button></div><p class="small muted" style="text-align:center" id="gH"></p>';
         [].forEach.call(A.querySelectorAll("button"), function (b) { b.onclick = function () { var ok = Math.sign(v) === +b.dataset.s; hit(ok); A.querySelector("#gH").textContent = a + "° está no " + refInfo(a).q + "º quadrante: " + f + " é " + (v > 0 ? "positivo" : "negativo") + "."; [].forEach.call(A.querySelectorAll("button"), function (x) { x.disabled = true; }); setTimeout(next, ok ? 450 : 1300); }; });
+      } else if (g === "cong") {
+        var raw, isR = Math.random() < 0.5;
+        if (isR) { var bb = rnd([2, 3, 4, 6]), aa; do { aa = 2 * bb + 1 + Math.floor(Math.random() * 10 * bb); } while (gcd(aa, bb) !== 1); if (Math.random() < 0.3) aa = -aa; raw = aa + "π/" + bb; }
+        else raw = String((Math.random() < 0.3 ? -1 : 1) * (360 * (1 + Math.floor(Math.random() * 6)) + 15 * (1 + Math.floor(Math.random() * 23))));
+        var cc = congSteps(raw), right = Math.round(cc.deg * 1000) / 1000, op = [right];
+        [360 - right, (right + 180) % 360, (right + 90) % 360, (right + 270) % 360].forEach(function (d) { d = Math.round(d * 1000) / 1000; if (op.length < 4 && op.indexOf(d) < 0 && d !== 360) op.push(d); });
+        op.sort(function () { return Math.random() - 0.5; });
+        Q.innerHTML = tex(cc.inTex) + ' <span class="small muted">≡ ?</span>';
+        A.innerHTML = '<div class="grid" style="grid-template-columns:1fr 1fr;max-width:420px;margin:0 auto"></div><p class="small muted" style="text-align:center" id="gH"></p>';
+        op.forEach(function (d) { var b = el("button", { class: "btn", type: "button", style: "font-size:1.1rem" }, isR ? tex(degToPiTex(d)) : fmt(d, 1) + "°"); b.onclick = function () { var ok = d === right; hit(ok); b.classList.add(ok ? "p" : "wrong"); A.querySelector("#gH").innerHTML = "Resposta: " + tex(cc.inTex + "\\equiv" + cc.tex) + " (" + cc.q + ")"; [].forEach.call(A.firstChild.children, function (x) { x.disabled = true; }); setTimeout(next, ok ? 500 : 1500); }; A.firstChild.appendChild(b); });
+      } else if (g === "sex") {
+        var t = Math.floor(Math.random() * 4), gg = 2 + Math.floor(Math.random() * 60), mm = 1 + Math.floor(Math.random() * 59), ss = 1 + Math.floor(Math.random() * 59), qtxt, ans, alts;
+        if (t === 0) { qtxt = gg + "° " + mm + "′ = ? minutos"; ans = gg * 60 + mm; alts = [ans, gg * 100 + mm, gg * 60 - mm, (gg + 1) * 60 + mm]; }
+        else if (t === 1) { qtxt = gg + "° " + mm + "′ " + ss + "″ = ? segundos"; ans = gg * 3600 + mm * 60 + ss; alts = [ans, gg * 3600 + mm * 100 + ss, gg * 360 + mm * 60 + ss, gg * 3600 + mm + ss]; }
+        else if (t === 2) { var m6 = [6, 12, 15, 18, 24, 30, 36, 45, 48, 54][Math.floor(Math.random() * 10)]; qtxt = gg + "° " + m6 + "′ = ? graus"; ans = gg + m6 / 60; alts = [ans, gg + m6 / 100, gg + m6 / 36, gg + 60 / m6 / 10]; }
+        else { var tot = 3600 + Math.floor(Math.random() * 20000); qtxt = tot + "″ = ?"; var mt = Math.floor(tot / 60), g2 = Math.floor(mt / 60); ans = [g2, mt - 60 * g2, tot - 60 * mt]; alts = [ans, [g2, mt - 60 * g2 + 1, tot - 60 * mt], [Math.floor(tot / 100) % 100, 0, tot % 60], [g2 + 1, mt - 60 * g2, tot - 60 * mt]]; }
+        var shown = alts.map(function (x) { return Array.isArray(x) ? x[0] + "° " + x[1] + "′ " + x[2] + "″" : fmt(x, 3); }), key = shown[0];
+        shown = shown.filter(function (x, i) { return shown.indexOf(x) === i; }).sort(function () { return Math.random() - 0.5; });
+        Q.textContent = qtxt;
+        A.innerHTML = '<div class="grid" style="grid-template-columns:1fr 1fr;max-width:420px;margin:0 auto"></div>';
+        shown.forEach(function (x) { var b = el("button", { class: "btn", type: "button", style: "font-size:1.05rem" }, x); b.onclick = function () { var ok = x === key; hit(ok); b.classList.add(ok ? "p" : "wrong"); [].forEach.call(A.firstChild.children, function (y) { y.disabled = true; if (y.textContent === key) y.classList.add("p"); }); setTimeout(next, ok ? 450 : 1300); }; A.firstChild.appendChild(b); });
       } else {
         var dd = rnd([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330, 36, 72, 15, 20, 18, 22.5]), toRad = Math.random() < 0.5;
         var opts = [dd]; while (opts.length < 4) { var w = rnd([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330, 36, 72, 15, 20, 18, 22.5]); if (opts.indexOf(w) < 0) opts.push(w); }

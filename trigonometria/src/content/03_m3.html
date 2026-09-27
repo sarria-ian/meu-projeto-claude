@@ -8,40 +8,48 @@
 
   <h2 class="sec"><span class="n">3.1</span> Elementos do triângulo retângulo</h2>
   <div class="prose">
-    <p>Usamos a notação da Aula 1: triângulo \(ABC\) com ângulo reto em \(A\), ângulo \(\alpha\) em \(C\) e \(\theta\) em \(B\).</p>
-    <figure class="fig" data-f="triAula1"><figcaption>Cada lado recebe a letra minúscula do vértice oposto: \(a=\overline{BC}\), \(b=\overline{AC}\), \(c=\overline{AB}\).</figcaption></figure>
+    <div class="box note"><div class="bl">Notação padrão deste livro (vale para todos os módulos)</div>
+      <div class="tbl"><table><thead><tr><th>símbolo</th><th class="l">significado</th></tr></thead><tbody>
+        <tr><td>\(A,\ B,\ C\)</td><td class="l">vértices; o ângulo reto fica sempre em \(A\)</td></tr>
+        <tr><td>\(\alpha\)</td><td class="l">ângulo agudo no vértice \(B\) (também escrito \(\hat B\))</td></tr>
+        <tr><td>\(\theta\)</td><td class="l">ângulo agudo no vértice \(C\) (também \(\hat C\)); \(\theta=90^\circ-\alpha\)</td></tr>
+        <tr><td>\(a,\ b,\ c\)</td><td class="l">lados; a minúscula é o lado <b>oposto</b> ao vértice de mesma letra: \(a=\overline{BC}\), \(b=\overline{AC}\), \(c=\overline{AB}\)</td></tr>
+        <tr><td>\(\sen,\ \cos,\ \tg\)</td><td class="l">seno, cosseno, tangente (no Brasil: sen e tg, não sin e tan)</td></tr>
+        <tr><td>\(\cossec,\ \sec,\ \cotg\)</td><td class="l">cossecante, secante, cotangente (as inversas)</td></tr></tbody></table></div>
+      <p class="small">Na Aula 1 do caderno o \(\alpha\) aparece em \(C\). Aqui ele fica em \(B\), como nas aulas seguintes e na Lista 1. As fórmulas “oposto/adjacente/hipotenusa” não mudam; só os nomes das letras.</p></div>
+    <figure class="fig" data-f="triPadrao"><figcaption>Triângulo padrão: reto em \(A\), \(\alpha\) em \(B\), \(\theta\) em \(C\). Para \(\alpha\): <span class="cs">b é o cateto oposto</span>, <span class="cc">c é o cateto adjacente</span>, <span class="ch">a é a hipotenusa</span>.</figcaption></figure>
     <div class="box def"><div class="bl">Elementos</div><ul><li>\(a\) → <b>hipotenusa</b> (oposta ao ângulo reto; é o maior lado);</li><li>\(b,\ c\) → <b>catetos</b> (formam o ângulo reto);</li><li>\(\alpha,\ \theta\) → <b>ângulos agudos</b> (\(\alpha,\theta\lt90^\circ\));</li><li>\(\alpha+\theta=90^\circ\) → são <b>complementares</b> (a soma dos ângulos internos é 180° e o reto já ocupa 90°).</li></ul></div>
-    <div class="box warn"><div class="bl">Atenção</div><p>“Cateto oposto” e “cateto adjacente” dependem do ângulo. Para \(\alpha\) (em \(C\)), o oposto é \(c\) e o adjacente é \(b\). Para \(\theta\) (em \(B\)), é o contrário.</p></div>
+    <div class="box warn"><div class="bl">Atenção</div><p>“Cateto oposto” e “cateto adjacente” dependem do ângulo. Para \(\alpha\) (em \(B\)), o oposto é \(b\) e o adjacente é \(c\). Para \(\theta\) (em \(C\)), é o contrário.</p></div>
   </div>
 
   <h2 class="sec"><span class="n">3.2</span> Seno, cosseno e tangente</h2>
   <div class="prose">
     <div class="tbl"><table><thead><tr><th class="l">Razão</th><th class="l">Em palavras</th><th>Para α</th><th>Para θ</th></tr></thead><tbody>
-      <tr><td class="l"><span class="cs">seno</span></td><td class="l">cateto oposto ÷ hipotenusa</td><td>\(\sen\alpha=\dfrac ca\)</td><td>\(\sen\theta=\dfrac ba\)</td></tr>
-      <tr><td class="l"><span class="cc">cosseno</span></td><td class="l">cateto adjacente ÷ hipotenusa</td><td>\(\cos\alpha=\dfrac ba\)</td><td>\(\cos\theta=\dfrac ca\)</td></tr>
-      <tr><td class="l"><span class="ct">tangente</span></td><td class="l">cateto oposto ÷ cateto adjacente</td><td>\(\tg\alpha=\dfrac cb\)</td><td>\(\tg\theta=\dfrac bc\)</td></tr>
+      <tr><td class="l"><span class="cs">seno</span></td><td class="l">cateto oposto ÷ hipotenusa</td><td>\(\sen\alpha=\dfrac ba\)</td><td>\(\sen\theta=\dfrac ca\)</td></tr>
+      <tr><td class="l"><span class="cc">cosseno</span></td><td class="l">cateto adjacente ÷ hipotenusa</td><td>\(\cos\alpha=\dfrac ca\)</td><td>\(\cos\theta=\dfrac ba\)</td></tr>
+      <tr><td class="l"><span class="ct">tangente</span></td><td class="l">cateto oposto ÷ cateto adjacente</td><td>\(\tg\alpha=\dfrac bc\)</td><td>\(\tg\theta=\dfrac cb\)</td></tr>
     </tbody></table></div>
-    <div class="box tip"><div class="bl">Isolando o lado</div><p>Da definição sai direto a forma de calcular lados: \(c=a\sen\alpha\), \(b=a\cos\alpha\) e \(c=b\tg\alpha\).</p></div>
+    <div class="box tip"><div class="bl">Isolando o lado</div><p>Da definição sai direto a forma de calcular lados: \(b=a\sen\alpha\), \(c=a\cos\alpha\) e \(b=c\tg\alpha\).</p></div>
     <div class="box warn"><div class="bl">Erro comum</div><p>Inverter a fração. Seno e cosseno de ângulo agudo são <b>menores que 1</b>, porque o cateto é menor que a hipotenusa. Se deu mais que 1, a fração está de cabeça para baixo.</p></div>
   </div>
 
   <h2 class="sec"><span class="n">3.3</span> As inversas: cossecante, secante e cotangente</h2>
   <div class="prose">
     <div class="tbl"><table><thead><tr><th>Razão</th><th>é o inverso de</th><th>Para α</th><th>Para θ</th></tr></thead><tbody>
-      <tr><td>\(\cossec\)</td><td>seno</td><td>\(\cossec\alpha=\dfrac ac\)</td><td>\(\cossec\theta=\dfrac ab\)</td></tr>
-      <tr><td>\(\sec\)</td><td>cosseno</td><td>\(\sec\alpha=\dfrac ab\)</td><td>\(\sec\theta=\dfrac ac\)</td></tr>
-      <tr><td>\(\cotg\)</td><td>tangente</td><td>\(\cotg\alpha=\dfrac bc\)</td><td>\(\cotg\theta=\dfrac cb\)</td></tr>
+      <tr><td>\(\cossec\)</td><td>seno</td><td>\(\cossec\alpha=\dfrac ab\)</td><td>\(\cossec\theta=\dfrac ac\)</td></tr>
+      <tr><td>\(\sec\)</td><td>cosseno</td><td>\(\sec\alpha=\dfrac ac\)</td><td>\(\sec\theta=\dfrac ab\)</td></tr>
+      <tr><td>\(\cotg\)</td><td>tangente</td><td>\(\cotg\alpha=\dfrac cb\)</td><td>\(\cotg\theta=\dfrac bc\)</td></tr>
     </tbody></table></div>
     <div>\[\cossec\alpha=\frac{1}{\sen\alpha}\qquad\sec\alpha=\frac1{\cos\alpha}\qquad\cotg\alpha=\frac1{\tg\alpha}\]</div>
     <p>Basta virar a fração: se \(\sen\alpha=\frac35\), então \(\cossec\alpha=\frac53\).</p>
   </div>
-  <div class="lab" data-w="triLab"><div class="lt">Laboratório: as seis razões ao vivo</div><p class="ld">Mude o ângulo \(\alpha\) e a hipotenusa. A última coluna mostra que cada razão de \(\alpha\) é igual a uma razão de \(\theta=90^\circ-\alpha\).</p></div>
+  <div class="lab" data-w="triLab"><div class="lt">Laboratório: as seis razões ao vivo (α em B)</div><p class="ld">Mude o ângulo \(\alpha\) e a hipotenusa. A última coluna mostra que cada razão de \(\alpha\) é igual a uma razão de \(\theta=90^\circ-\alpha\).</p></div>
 
   <h2 class="sec"><span class="n">3.4</span> Relações notáveis entre ângulos complementares</h2>
   <div class="prose">
     <p>Olhe a tabela de 3.2: o lado que é oposto a \(\alpha\) é adjacente a \(\theta\). Por isso:</p>
     <div class="two">
-      <div class="box def"><div class="bl">Seno, cosseno e tangente</div><div>\[\sen\alpha=\cos\theta\qquad\sen\theta=\cos\alpha\]\[\tg\alpha\cdot\tg\theta=\frac cb\cdot\frac bc=1\]</div></div>
+      <div class="box def"><div class="bl">Seno, cosseno e tangente</div><div>\[\sen\alpha=\cos\theta\qquad\sen\theta=\cos\alpha\]\[\tg\alpha\cdot\tg\theta=\frac bc\cdot\frac cb=1\]</div></div>
       <div class="box def"><div class="bl">As inversas</div><div>\[\cossec\alpha=\sec\theta\qquad\cossec\theta=\sec\alpha\]\[\cotg\alpha\cdot\cotg\theta=1\]</div></div>
     </div>
     <p><b>Condição:</b> acontece sempre que dois ângulos são complementares (\(\alpha+\theta=90^\circ\)). Exemplos: \(\sen30^\circ=\cos60^\circ\); \(\cos20^\circ=\sen70^\circ\); \(\tg10^\circ\cdot\tg80^\circ=1\).</p>
@@ -54,14 +62,14 @@
       <div class="steps">
         <div class="st"><span class="pl">Passo 1</span><p>Tome dois triângulos retângulos com o mesmo ângulo agudo \(\alpha\). O terceiro ângulo também é igual, \(90^\circ-\alpha\).</p></div>
         <div class="st"><span class="pl">Passo 2</span><p>Três ângulos iguais ⇒ triângulos <b>semelhantes</b> (caso AA): os lados do segundo são os do primeiro multiplicados por um mesmo \(k\gt0\).</p><div class="m">\[a_2=k\,a_1,\quad b_2=k\,b_1,\quad c_2=k\,c_1\]</div></div>
-        <div class="st"><span class="pl">Passo 3</span><p>Na razão, o \(k\) cancela:</p><div class="m">\[\frac{c_2}{a_2}=\frac{k\,c_1}{k\,a_1}=\frac{c_1}{a_1}\]</div></div>
+        <div class="st"><span class="pl">Passo 3</span><p>Na razão, o \(k\) cancela:</p><div class="m">\[\frac{b_2}{a_2}=\frac{k\,b_1}{k\,a_1}=\frac{b_1}{a_1}\]</div></div>
       </div>
       <p class="concl">Logo \(\sen\alpha\) é o mesmo número em qualquer triângulo retângulo com ângulo \(\alpha\). O mesmo vale para as outras cinco razões.</p></div></details>
   </div>
 
   <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Uma rampa de acessibilidade</h3>
     <p>Uma rampa vence um desnível de 0,5 m e a superfície inclinada mede 6 m. Qual o ângulo com o chão, e qual a inclinação em porcentagem? (No Brasil, a norma de acessibilidade NBR 9050 costuma limitar rampas a 8,33%.)</p>
-    <figure class="fig sm" data-f="triQ" data-o='{"a":"6 m","c":"0,5 m","b":"x","ang":"α"}'></figure>
+    <figure class="fig sm" data-f="triQ" data-o='{"hip":"6 m","op":"0,5 m","adj":"x"}'></figure>
     <div class="steps">
       <div class="st"><span class="pl">Passo 1 · escolher a razão</span><p>Temos o cateto <b>oposto</b> a \(\alpha\) (0,5 m) e a <b>hipotenusa</b> (6 m): seno.</p><div class="m">\[\sen\alpha=\frac{0{,}5}{6}\approx0{,}0833\]</div></div>
       <div class="st"><span class="pl">Passo 2 · achar o ângulo</span><p>Na calculadora (modo graus), a tecla \(\sin^{-1}\) faz o caminho de volta: “qual ângulo tem seno 0,0833?”</p><div class="m">\[\alpha\approx4{,}8^\circ\]</div></div>
@@ -72,8 +80,8 @@
   </div>
 
   <h2 class="sec">Exemplos resolvidos</h2>
-  <div class="ex"><div class="et">Exemplo 1</div><p>No triângulo da Aula 1, \(a=13\), \(b=12\) e \(c=5\). Calcule as seis razões de \(\alpha\).</p>
-    <div class="steps"><div class="st"><span class="pl">Passo 1 · identificar</span><p>Para \(\alpha\): oposto \(c=5\), adjacente \(b=12\), hipotenusa \(a=13\).</p></div>
+  <div class="ex"><div class="et">Exemplo 1</div><p>No triângulo padrão, \(a=13\), \(b=5\) e \(c=12\). Calcule as seis razões de \(\alpha\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1 · identificar</span><p>Para \(\alpha\) (em \(B\)): oposto \(b=5\), adjacente \(c=12\), hipotenusa \(a=13\).</p></div>
     <div class="st"><span class="pl">Passo 2</span><div class="m">\[\sen\alpha=\tfrac5{13},\ \cos\alpha=\tfrac{12}{13},\ \tg\alpha=\tfrac5{12}\]</div></div>
     <div class="st"><span class="pl">Passo 3 · inversas</span><div class="m">\[\cossec\alpha=\tfrac{13}5,\ \sec\alpha=\tfrac{13}{12},\ \cotg\alpha=\tfrac{12}5\]</div></div></div></div>
   <div class="ex"><div class="et">Exemplo 2</div><p>Sabendo que \(\sen40^\circ\approx0{,}643\), quanto vale \(\cos50^\circ\)?</p>
@@ -87,9 +95,9 @@
   <h2 class="sec">Questões de verificação</h2>
   <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
   <div class="verif qs">
-    <div class="q" data-id="m3v1" data-ans="A"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>No triângulo da Aula 1 (reto em \(A\), \(\alpha\) em \(C\)), \(\sen\alpha\) é:</p>
-      <ol class="opts"><li>\(\frac ca\)</li><li>\(\frac ba\)</li><li>\(\frac cb\)</li><li>\(\frac ac\)</li></ol>
-      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>O cateto oposto a \(\alpha\) (em \(C\)) é \(c=\overline{AB}\); a hipotenusa é \(a\). Seno = oposto/hipotenusa = \(\frac ca\).</p></div></div><p class="rev">Revise: <a href="#m3-s2">3.2 Seno, cosseno e tangente</a></p></div>
+    <div class="q" data-id="m3v1" data-ans="A"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>No triângulo padrão (reto em \(A\), \(\alpha\) em \(B\)), \(\sen\alpha\) é:</p>
+      <ol class="opts"><li>\(\frac ba\)</li><li>\(\frac ca\)</li><li>\(\frac bc\)</li><li>\(\frac ab\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>O cateto oposto a \(\alpha\) (em \(B\)) é \(b=\overline{AC}\); a hipotenusa é \(a\). Seno = oposto/hipotenusa = \(\frac ba\).</p></div></div><p class="rev">Revise: <a href="#m3-s2">3.2 Seno, cosseno e tangente</a></p></div>
     <div class="q" data-id="m3v2" data-ans="C"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>Num triângulo retângulo, os catetos medem 6 e 8 e a hipotenusa 10. A tangente do ângulo oposto ao cateto 6 é:</p>
       <ol class="opts"><li>\(\frac35\)</li><li>\(\frac45\)</li><li>\(\frac34\)</li><li>\(\frac43\)</li></ol>
       <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Tangente = oposto ÷ adjacente = \(\frac68=\frac34\).</p></div></div><p class="rev">Revise: <a href="#m3-s2">3.2 Tangente</a></p></div>
@@ -108,9 +116,9 @@
   </div>
 
   <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação visual do conteúdo deste módulo</p></div></div>
-    <div class="q dq" data-id="m3d1" data-ans="B"><p>Na figura, qual lado é o cateto <b>adjacente</b> a \(\alpha\)?</p><figure class="fig sm" data-f="triQ" data-o='{"a":"a","b":"b","c":"c"}'></figure><ol class="opts"><li>\(a\)</li><li>\(b\)</li><li>\(c\)</li><li>nenhum</li></ol><div class="why" hidden>O lado \(b\) encosta no ângulo \(\alpha\) e não é a hipotenusa: é o adjacente.</div></div>
-    <div class="q dq" data-id="m3d2" data-ans="A"><p>Com os valores da figura, \(\cos\alpha\) vale:</p><figure class="fig sm" data-f="triQ" data-o='{"a":"10","b":"8","c":"6"}'></figure><ol class="opts"><li>0,8</li><li>0,6</li><li>0,75</li><li>1,25</li></ol><div class="why" hidden>Adjacente ÷ hipotenusa = 8/10 = 0,8.</div></div>
-    <div class="q dq" data-id="m3d3" data-ans="D"><p>Na mesma figura (10, 8, 6), \(\cotg\alpha\) vale:</p><figure class="fig sm" data-f="triQ" data-o='{"a":"10","b":"8","c":"6"}'></figure><ol class="opts"><li>\(\frac34\)</li><li>\(\frac35\)</li><li>\(\frac53\)</li><li>\(\frac43\)</li></ol><div class="why" hidden>\(\cotg\alpha=\frac{\text{adjacente}}{\text{oposto}}=\frac86=\frac43\).</div></div>
+    <div class="q dq" data-id="m3d1" data-ans="C"><p>Na figura (triângulo padrão), qual lado é o cateto <b>adjacente</b> a \(\alpha\)?</p><figure class="fig sm" data-f="triQ" data-o='{"hip":"a","op":"b","adj":"c"}'></figure><ol class="opts"><li>\(a\)</li><li>\(b\)</li><li>\(c\)</li><li>nenhum</li></ol><div class="why" hidden>O lado \(c\) encosta no ângulo \(\alpha\) e não é a hipotenusa: é o adjacente.</div></div>
+    <div class="q dq" data-id="m3d2" data-ans="A"><p>Com os valores da figura, \(\cos\alpha\) vale:</p><figure class="fig sm" data-f="triQ" data-o='{"hip":"10","adj":"8","op":"6"}'></figure><ol class="opts"><li>0,8</li><li>0,6</li><li>0,75</li><li>1,25</li></ol><div class="why" hidden>Adjacente ÷ hipotenusa = 8/10 = 0,8.</div></div>
+    <div class="q dq" data-id="m3d3" data-ans="D"><p>Na mesma figura (10, 8, 6), \(\cotg\alpha\) vale:</p><figure class="fig sm" data-f="triQ" data-o='{"hip":"10","adj":"8","op":"6"}'></figure><ol class="opts"><li>\(\frac34\)</li><li>\(\frac35\)</li><li>\(\frac53\)</li><li>\(\frac43\)</li></ol><div class="why" hidden>\(\cotg\alpha=\frac{\text{adjacente}}{\text{oposto}}=\frac86=\frac43\).</div></div>
     <div class="q dq" data-id="m3d4" data-ans="C"><p>Se \(\alpha+\theta=90^\circ\) e \(\sen\alpha=0{,}28\), então:</p><ol class="opts"><li>\(\sen\theta=0{,}28\)</li><li>\(\tg\theta=0{,}28\)</li><li>\(\cos\theta=0{,}28\)</li><li>\(\cos\alpha=0{,}28\)</li></ol><div class="why" hidden>Complementares: o seno de um é o cosseno do outro.</div></div>
   </div>
 </div>
