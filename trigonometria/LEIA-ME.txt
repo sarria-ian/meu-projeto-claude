@@ -1,0 +1,23 @@
+APOSTILA DE TRIGONOMETRIA - COMO ABRIR
+======================================
+
+1. Descompacte o arquivo ZIP (clique com o botao direito > "Extrair tudo").
+2. Abra o arquivo "apostila-trigonometria.html" com dois cliques.
+   Ele abre no navegador (Chrome, Edge, Firefox ou Safari, versoes atuais).
+3. Nao precisa de internet: formulas, figuras e animacoes estao dentro do arquivo.
+
+No celular: salve o .html no aparelho e abra com o navegador
+(por exemplo, pelo app "Arquivos" > abrir com Chrome/Safari).
+
+Dicas de uso
+- "Sumario" (botao no topo) volta para o indice dos modulos.
+- "Proximo passo" revela a resolucao uma etapa por vez.
+- Nos laboratorios, arraste os controles deslizantes; as animacoes
+  tem botoes Iniciar/Pausar e Reiniciar.
+- "Tema" alterna entre modo claro e escuro.
+- Para imprimir ou gerar PDF: Ctrl+P (as resolucoes saem completas).
+
+Conteudo da pasta
+- apostila-trigonometria.html  -> a apostila completa (arquivo unico)
+- LEIA-ME.txt                  -> este arquivo
+- licencas/KaTeX-LICENSE.txt   -> licenca do KaTeX (renderizador de formulas, MIT)

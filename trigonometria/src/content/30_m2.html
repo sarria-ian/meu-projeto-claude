@@ -1,0 +1,94 @@
+<section class="module" id="m2" data-title="2 · Relação fundamental">
+  <div class="mhead">
+    <div class="eyebrow">Módulo 2 · Teoria do caderno <span class="tag foto">Caderno</span></div>
+    <h1>1.1 – Relação fundamental da trigonometria</h1>
+    <p class="goal">Ao final você vai saber demonstrar \(\sen^2\hat B+\cos^2\hat B=1\) a partir de Pitágoras e usá-la para descobrir o cosseno quando só o seno é dado (e vice-versa).</p>
+    <nav class="subnav"><a href="#m2-t">Teoria</a><a href="#m2-l">Laboratório</a><a href="#m2-e">Exemplos (3)</a><a href="#m2-q">Verificação (3)</a></nav>
+  </div>
+  <div class="stage">
+    <div class="stagehead" id="m2-t"><span class="ic">T</span><h2>Teoria</h2></div>
+
+    <article class="sheet">
+      <h3><span class="sn">2.1</span> O enunciado</h3>
+      <div class="box key"><div class="lbl">Relação fundamental</div><div>\[\sen^2\hat B+\cos^2\hat B=1\]</div><p>Vale para qualquer ângulo agudo \(\hat B\) de um triângulo retângulo (e, mais adiante no curso, para qualquer ângulo).</p></div>
+      <div class="box tip"><div class="lbl">Leitura da notação</div><p>\(\sen^2\hat B\) significa \((\sen\hat B)^2\): primeiro calcula o seno, depois eleva ao quadrado. Não é \(\sen(\hat B^2)\).</p></div>
+    </article>
+
+    <article class="sheet">
+      <h3><span class="sn">2.2</span> Demonstração (a mesma do caderno, com as justificativas)</h3>
+      <figure class="fig narrow">{{FIG:notacao}}</figure>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>Parta de Pitágoras no triângulo retângulo em \(A\):</p><div class="m">\[b^2+c^2=a^2\]</div><p class="why">Condição: triângulo retângulo, \(a\) = hipotenusa (Módulo 0.4).</p></div>
+          <div class="st"><p>Troque os catetos pelas formas isoladas do Módulo 1: \(b=a\sen\hat B\) e \(c=a\cos\hat B\).</p><div class="m">\[(a\sen\hat B)^2+(a\cos\hat B)^2=a^2\]</div><p class="why">Estamos escrevendo os mesmos comprimentos de outra maneira; a igualdade continua verdadeira.</p></div>
+          <div class="st"><p>Potência de um produto: \((xy)^2=x^2y^2\).</p><div class="m">\[a^2\sen^2\hat B+a^2\cos^2\hat B=a^2\]</div></div>
+          <div class="st"><p>Divida os dois membros por \(a^2\) (o caderno anota “\(\div a^2\)”).</p><div class="m">\[\sen^2\hat B+\cos^2\hat B=1\]</div><p class="why">Pode dividir porque \(a\) é um comprimento, logo \(a\neq0\).</p></div>
+        </div>
+        <div class="final"><div class="lbl">Conclusão</div><p>A relação fundamental é o <b>Teorema de Pitágoras dividido por \(a^2\)</b>. Ela não depende do tamanho do triângulo — só do ângulo.</p></div>
+      </div>
+    </article>
+
+    <article class="sheet">
+      <h3><span class="sn">2.3</span> Como usar: de uma razão para a outra</h3>
+      <p>Isolando o cosseno:</p>
+      <div>\[\cos^2\hat B=1-\sen^2\hat B\;\Longrightarrow\;\cos\hat B=\sqrt{1-\sen^2\hat B}\]</div>
+      <p>Escolhemos a raiz <b>positiva</b> porque, no triângulo retângulo, \(\cos\hat B=\frac{c}{a}\) é razão de comprimentos, logo positivo. Do mesmo modo, \(\sen\hat B=\sqrt{1-\cos^2\hat B}\).</p>
+      <div class="box tip"><div class="lbl">Quando usar</div><p>A questão dá <b>uma</b> razão (seno ou cosseno) e pede outra, ou você precisa do seno mas recebeu o cosseno (caso da 1ª questão da lista).</p></div>
+      <div class="box warn"><div class="lbl">Erros comuns</div><ul><li>Esquecer de elevar ao quadrado: \(1-\sen\hat B\) no lugar de \(1-\sen^2\hat B\).</li><li>Achar que \(\sen\hat B+\cos\hat B=1\). Ex.: em 45°, \(\frac{\sqrt2}{2}+\frac{\sqrt2}{2}=\sqrt2\approx1{,}41\).</li></ul></div>
+    </article>
+
+    <div class="stagehead sh-lab" id="m2-l"><span class="ic">L</span><h2>Laboratório</h2></div>
+    <div class="lab" data-lab="fund">
+      <div class="lh"><span class="lt">Laboratório 2</span><h4>As duas parcelas sempre completam 1</h4></div>
+      <p class="small">Com hipotenusa 1, o cateto oposto vale \(\sen\hat B\) e o adjacente vale \(\cos\hat B\). Os quadrados desses catetos (as áreas coloridas) somam sempre a área do quadrado da hipotenusa, que é 1.</p>
+    </div>
+
+    <div class="stagehead sh-ex" id="m2-e"><span class="ic">E</span><h2>Exemplos resolvidos</h2></div>
+    <article class="ex">
+      <div class="ex-h"><span class="num">Ex. 2.1</span><span class="src">Criado aqui</span></div>
+      <p class="ex-q">Sabendo que \(\sen\hat B=\frac35\), com \(\hat B\) agudo, calcule \(\cos\hat B\), \(\tg\hat B\) e \(\cotg\hat B\).</p>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>Relação fundamental, isolando o cosseno:</p><div class="m">\[\cos^2\hat B=1-\left(\tfrac35\right)^2=1-\tfrac{9}{25}=\tfrac{16}{25}\]</div></div>
+          <div class="st"><p>Raiz positiva (ângulo agudo):</p><div class="m">\[\cos\hat B=\tfrac45\]</div></div>
+          <div class="st"><p>Tangente e cotangente pelas relações do Módulo 3 (\(\tg=\frac{\sen}{\cos}\), \(\cotg=\frac1{\tg}\)):</p><div class="m">\[\tg\hat B=\frac{3/5}{4/5}=\frac34,\qquad\cotg\hat B=\frac43\]</div></div>
+        </div>
+        <div class="final"><div class="lbl">Resposta</div><p>\(\cos\hat B=\frac45\), \(\tg\hat B=\frac34\), \(\cotg\hat B=\frac43\).</p></div>
+      </div>
+    </article>
+    <article class="ex">
+      <div class="ex-h"><span class="num">Ex. 2.2</span><span class="src">Criado aqui</span></div>
+      <p class="ex-q">Se \(\cos\hat B=\frac{\sqrt5}{3}\), quanto vale \(\sen\hat B\)?</p>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>Eleve o cosseno ao quadrado com cuidado: \((\sqrt5)^2=5\) e \(3^2=9\).</p><div class="m">\[\cos^2\hat B=\tfrac{5}{9}\]</div></div>
+          <div class="st"><p>Relação fundamental:</p><div class="m">\[\sen^2\hat B=1-\tfrac59=\tfrac49\;\Rightarrow\;\sen\hat B=\tfrac23\]</div></div>
+        </div>
+        <div class="final"><div class="lbl">Resposta</div><p>\(\sen\hat B=\frac23\).</p></div>
+      </div>
+    </article>
+    <article class="ex">
+      <div class="ex-h"><span class="num">Ex. 2.3</span><span class="src">Criado aqui</span></div>
+      <p class="ex-q">Existe um ângulo agudo com \(\sen\hat B=0{,}6\) e \(\cos\hat B=0{,}7\)?</p>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>Teste a relação fundamental, que <b>todo</b> ângulo precisa satisfazer:</p><div class="m">\[0{,}6^2+0{,}7^2=0{,}36+0{,}49=0{,}85\neq1\]</div></div>
+        </div>
+        <div class="final"><div class="lbl">Resposta</div><p>Não existe. A relação fundamental serve também para <b>conferir</b> resultados.</p></div>
+      </div>
+    </article>
+
+    <div class="stagehead sh-qz" id="m2-q"><span class="ic">✓</span><h2>Verificação</h2></div>
+    <div class="quiz">
+      <div class="qz" data-ans="c"><div class="qn">Questão 1</div><p>Na demonstração, por que é permitido dividir tudo por \(a^2\)?</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>Porque \(a=1\)</span></button><button class="alt" data-k="b"><span class="L">B</span><span>Porque \(a\) é o maior lado</span></button><button class="alt" data-k="c"><span class="L">C</span><span>Porque \(a\neq0\) (é um comprimento)</span></button></div>
+        <div class="fbs"><div data-for="c">Isso. A única exigência para dividir é o divisor não ser zero.</div><div data-for="*">A única condição para dividir é o divisor ser diferente de zero. Como \(a\) é um comprimento, \(a\gt0\).</div></div></div>
+      <div class="qz" data-ans="a"><div class="qn">Questão 2</div><p>Se \(\cos\hat B=\frac{12}{13}\), então \(\sen\hat B\) vale:</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>\(\frac{5}{13}\)</span></button><button class="alt" data-k="b"><span class="L">B</span><span>\(\frac{1}{13}\)</span></button><button class="alt" data-k="c"><span class="L">C</span><span>\(\frac{12}{5}\)</span></button></div>
+        <div class="fbs"><div data-for="a">Correto: \(\sen^2\hat B=1-\frac{144}{169}=\frac{25}{169}\), então \(\sen\hat B=\frac5{13}\).</div><div data-for="b">\(1-\frac{12}{13}=\frac1{13}\) esquece os quadrados. Use \(1-\cos^2\hat B\).</div><div data-for="c">Isso é maior que 1; seno de ângulo agudo é sempre menor que 1.</div></div></div>
+      <div class="qz" data-ans="b"><div class="qn">Questão 3</div><p>Para \(\hat B=45^\circ\), \(\sen\hat B+\cos\hat B\) vale:</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>1</span></button><button class="alt" data-k="b"><span class="L">B</span><span>\(\sqrt2\)</span></button><button class="alt" data-k="c"><span class="L">C</span><span>2</span></button></div>
+        <div class="fbs"><div data-for="b">Isso: \(\frac{\sqrt2}{2}+\frac{\sqrt2}{2}=\sqrt2\). Quem vale 1 é a soma dos <b>quadrados</b>.</div><div data-for="*">\(\frac{\sqrt2}{2}+\frac{\sqrt2}{2}=\sqrt2\approx1{,}41\). A relação fundamental fala da soma dos <b>quadrados</b>, não da soma simples.</div></div></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,98 @@
+<section class="module" id="m1" data-title="1 · Triângulo retângulo">
+  <div class="mhead">
+    <div class="eyebrow">Módulo 1 · Teoria do caderno <span class="tag foto">Caderno</span></div>
+    <h1>1 – Trigonometria no triângulo retângulo</h1>
+    <p class="goal">Ao final você vai saber definir seno, cosseno, tangente e cotangente de um ângulo agudo, explicar por que esses números dependem só do ângulo (e não do tamanho do triângulo) e usar \(b=a\sen\hat B\), \(c=a\cos\hat B\) para achar lados.</p>
+    <nav class="subnav"><a href="#m1-t">Teoria</a><a href="#m1-l">Laboratório</a><a href="#m1-e">Exemplos (2)</a><a href="#m1-q">Verificação (3)</a></nav>
+  </div>
+  <div class="stage">
+    <div class="stagehead" id="m1-t"><span class="ic">T</span><h2>Teoria</h2></div>
+
+    <article class="sheet">
+      <h3><span class="sn">1.1</span> A ideia: comparar lados</h3>
+      <p>Fixe o ângulo \(\hat B\). Um triângulo retângulo com esse ângulo pode ser pequeno ou enorme, mas a <b>forma</b> é sempre a mesma. Então as <b>divisões</b> entre dois lados não mudam. A trigonometria dá nome a essas divisões.</p>
+      <figure class="fig narrow">{{FIG:notacao}}<figcaption>Referência: ângulo \(\hat B\). <span class="cop">b = cateto oposto</span>, <span class="cadj">c = cateto adjacente</span>, <span class="chip">a = hipotenusa</span>.</figcaption></figure>
+    </article>
+
+    <article class="sheet">
+      <h3><span class="sn">1.2</span> As quatro razões do caderno</h3>
+      <p>Para o ângulo agudo \(\hat B\) do triângulo retângulo em \(A\) (\(0^\circ\lt\hat B\lt 90^\circ\)):</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Razão</th><th>Fórmula (caderno)</th><th class="l">Em palavras</th><th>Isolando o lado</th></tr></thead>
+        <tbody>
+          <tr><td><b>seno</b></td><td>\(\sen\hat B=\dfrac{b}{a}\)</td><td class="l"><span class="cop">oposto</span> ÷ <span class="chip">hipotenusa</span></td><td>\(b=a\,\sen\hat B\)</td></tr>
+          <tr><td><b>cosseno</b></td><td>\(\cos\hat B=\dfrac{c}{a}\)</td><td class="l"><span class="cadj">adjacente</span> ÷ <span class="chip">hipotenusa</span></td><td>\(c=a\,\cos\hat B\)</td></tr>
+          <tr><td><b>tangente</b></td><td>\(\tg\hat B=\dfrac{b}{c}\)</td><td class="l"><span class="cop">oposto</span> ÷ <span class="cadj">adjacente</span></td><td>\(b=c\,\tg\hat B\)</td></tr>
+          <tr><td><b>cotangente</b></td><td>\(\cotg\hat B=\dfrac{c}{b}\)</td><td class="l"><span class="cadj">adjacente</span> ÷ <span class="cop">oposto</span></td><td>\(c=b\,\cotg\hat B\)</td></tr>
+        </tbody></table></div>
+      <p class="muted small">As duas primeiras formas isoladas (\(b=a\sen\hat B\) e \(c=a\cos\hat B\)) estão no caderno; as outras duas saem do mesmo jeito: multiplicando os dois lados da igualdade pelo denominador.</p>
+      <div class="box tip"><div class="lbl">Notação brasileira</div><p>Escrevemos <b>sen</b> (não “sin”), <b>tg</b> (não “tan”) e <b>cotg</b> (não “cot”). Na calculadora as teclas costumam ser <code>sin</code>, <code>cos</code>, <code>tan</code>; não há tecla de cotg: calcula-se \(1/\tg\).</p></div>
+      <div class="box warn"><div class="lbl">Erros comuns</div><ul><li>Inverter a fração: \(\sen\hat B=\frac{a}{b}\) está errado — seno e cosseno de ângulo agudo são sempre <b>menores que 1</b>, pois o cateto é menor que a hipotenusa.</li><li>Usar o oposto de outro ângulo: sempre pergunte “oposto <b>a qual</b> ângulo?”.</li></ul></div>
+    </article>
+
+    <article class="sheet">
+      <h3><span class="sn">1.3</span> Demonstração: por que a razão depende só do ângulo</h3>
+      <p>Isso é o que torna as razões úteis: \(\sen 35^\circ\) é <b>um número</b>, igual em qualquer triângulo retângulo com ângulo de 35°.</p>
+      <figure class="fig narrow">{{FIG:semelhanca}}<figcaption>Três triângulos retângulos com o mesmo ângulo \(\hat B\).</figcaption></figure>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>Tome dois triângulos retângulos \(A_1B C_1\) e \(A_2B C_2\), ambos com ângulo reto em \(A_i\) e o mesmo ângulo agudo \(\hat B\).</p><p class="why">Hipótese: mesmo ângulo agudo e ângulo reto nos dois.</p></div>
+          <div class="st"><p>O terceiro ângulo também coincide: \(\hat C_1=90^\circ-\hat B=\hat C_2\).</p><p class="why">Soma dos ângulos internos (Módulo 0.3).</p></div>
+          <div class="st"><p>Triângulos com os três ângulos iguais são <b>semelhantes</b> (caso AA). Então os lados correspondentes são proporcionais, com uma razão \(k\gt0\):</p><div class="m">\[a_2=k\,a_1,\qquad b_2=k\,b_1,\qquad c_2=k\,c_1\]</div></div>
+          <div class="st"><p>Calcule o seno nos dois; o fator \(k\) cancela:</p><div class="m">\[\frac{b_2}{a_2}=\frac{k\,b_1}{k\,a_1}=\frac{b_1}{a_1}\]</div><p class="why">O mesmo cancelamento vale para \(c/a\), \(b/c\) e \(c/b\).</p></div>
+        </div>
+        <div class="final"><div class="lbl">Conclusão</div><p>Seno, cosseno, tangente e cotangente de \(\hat B\) dependem <b>apenas</b> da medida de \(\hat B\). <b>Condição:</b> triângulo retângulo e \(\hat B\) agudo.</p></div>
+      </div>
+    </article>
+
+    <article class="sheet">
+      <h3><span class="sn">1.4</span> As razões do outro ângulo agudo, \(\hat C\)</h3>
+      <p>Trocando a referência para \(\hat C\), o cateto oposto passa a ser \(c\) e o adjacente passa a ser \(b\):</p>
+      <div>\[\sen\hat C=\frac{c}{a}\qquad\cos\hat C=\frac{b}{a}\qquad\tg\hat C=\frac{c}{b}\qquad\cotg\hat C=\frac{b}{c}\]</div>
+      <div class="box tip"><div class="lbl">Repare</div><p>\(\sen\hat C=\frac{c}{a}=\cos\hat B\) e \(\tg\hat C=\frac{c}{b}=\cotg\hat B\). Essa coincidência é a “OBS” do caderno, estudada no Módulo 3.</p></div>
+    </article>
+
+    <div class="stagehead sh-lab" id="m1-l"><span class="ic">L</span><h2>Laboratório</h2></div>
+    <div class="lab" data-lab="razoes">
+      <div class="lh"><span class="lt">Laboratório 1</span><h4>Mude o tamanho, mantenha o ângulo</h4></div>
+      <p class="small">Mova o controle da <b>hipotenusa</b>: os lados mudam, mas as razões ficam iguais. Depois mova o <b>ângulo</b>: aí as razões mudam. Troque a referência para ver oposto e adjacente trocarem de lugar.</p>
+    </div>
+
+    <div class="stagehead sh-ex" id="m1-e"><span class="ic">E</span><h2>Exemplos resolvidos</h2></div>
+    <article class="ex">
+      <div class="ex-h"><span class="num">Ex. 1.1</span><span class="src">Criado aqui</span></div>
+      <p class="ex-q">No triângulo retângulo em \(A\), \(a=13\), \(b=5\) e \(c=12\). Calcule as quatro razões de \(\hat B\) e de \(\hat C\).</p>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>Para \(\hat B\): oposto \(b=5\), adjacente \(c=12\), hipotenusa \(a=13\).</p><div class="m">\[\sen\hat B=\tfrac{5}{13},\quad\cos\hat B=\tfrac{12}{13},\quad\tg\hat B=\tfrac{5}{12},\quad\cotg\hat B=\tfrac{12}{5}\]</div></div>
+          <div class="st"><p>Para \(\hat C\): os catetos trocam de papel (oposto \(c=12\), adjacente \(b=5\)).</p><div class="m">\[\sen\hat C=\tfrac{12}{13},\quad\cos\hat C=\tfrac{5}{13},\quad\tg\hat C=\tfrac{12}{5},\quad\cotg\hat C=\tfrac{5}{12}\]</div></div>
+        </div>
+        <div class="final"><div class="lbl">Observação</div><p>\(\sen\hat B=\cos\hat C\) e \(\tg\hat B=\cotg\hat C\), como previsto no item 1.4.</p></div>
+      </div>
+    </article>
+    <article class="ex">
+      <div class="ex-h"><span class="num">Ex. 1.2</span><span class="src">Criado aqui</span></div>
+      <p class="ex-q">A hipotenusa de um triângulo retângulo mede \(10\ \text{cm}\) e \(\sen\hat B=0{,}6\). Calcule os catetos \(b\) e \(c\).</p>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>Fórmula escolhida: \(b=a\sen\hat B\) (temos hipotenusa e seno; queremos o oposto).</p><div class="m">\[b=10\cdot0{,}6=6\ \text{cm}\]</div></div>
+          <div class="st"><p>Com dois lados conhecidos, Pitágoras dá o terceiro:</p><div class="m">\[c^2=a^2-b^2=100-36=64\;\Rightarrow\;c=8\ \text{cm}\]</div></div>
+        </div>
+        <div class="final"><div class="lbl">Resposta</div><p>\(b=6\ \text{cm}\) e \(c=8\ \text{cm}\) (e, de brinde, \(\cos\hat B=\frac{8}{10}=0{,}8\)).</p></div>
+      </div>
+    </article>
+
+    <div class="stagehead sh-qz" id="m1-q"><span class="ic">✓</span><h2>Verificação</h2></div>
+    <div class="quiz">
+      <div class="qz" data-ans="b"><div class="qn">Questão 1</div><p>No triângulo do caderno, \(\cos\hat B\) é igual a:</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>\(\frac{b}{a}\)</span></button><button class="alt" data-k="b"><span class="L">B</span><span>\(\frac{c}{a}\)</span></button><button class="alt" data-k="c"><span class="L">C</span><span>\(\frac{b}{c}\)</span></button><button class="alt" data-k="d"><span class="L">D</span><span>\(\frac{a}{c}\)</span></button></div>
+        <div class="fbs"><div data-for="b">Correto: adjacente (\(c\)) sobre hipotenusa (\(a\)).</div><div data-for="a">\(\frac{b}{a}\) é o <b>seno</b> de \(\hat B\) (oposto/hipotenusa).</div><div data-for="c">\(\frac{b}{c}\) é a <b>tangente</b> de \(\hat B\).</div><div data-for="d">Fração invertida: daria um número maior que 1, e o cosseno de ângulo agudo é menor que 1.</div></div></div>
+      <div class="qz" data-ans="a"><div class="qn">Questão 2</div><p>Dobrando todos os lados de um triângulo retângulo, o que acontece com \(\sen\hat B\)?</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>Não muda</span></button><button class="alt" data-k="b"><span class="L">B</span><span>Dobra</span></button><button class="alt" data-k="c"><span class="L">C</span><span>Cai pela metade</span></button></div>
+        <div class="fbs"><div data-for="a">Isso: \(\frac{2b}{2a}=\frac{b}{a}\). O ângulo não mudou, então a razão não muda (item 1.3).</div><div data-for="*">Numerador e denominador dobram juntos: \(\frac{2b}{2a}=\frac{b}{a}\). A razão só depende do ângulo.</div></div></div>
+      <div class="qz" data-ans="c"><div class="qn">Questão 3</div><p>Com a hipotenusa \(a\) e o ângulo \(\hat B\) conhecidos, qual expressão dá o cateto adjacente a \(\hat B\)?</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>\(a\,\sen\hat B\)</span></button><button class="alt" data-k="b"><span class="L">B</span><span>\(a\,\tg\hat B\)</span></button><button class="alt" data-k="c"><span class="L">C</span><span>\(a\,\cos\hat B\)</span></button></div>
+        <div class="fbs"><div data-for="c">Certo: \(\cos\hat B=\frac{c}{a}\Rightarrow c=a\cos\hat B\).</div><div data-for="a">\(a\sen\hat B\) dá o cateto <b>oposto</b> \(b\).</div><div data-for="*">Adjacente e hipotenusa aparecem juntos no <b>cosseno</b>: \(c=a\cos\hat B\).</div></div></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,108 @@
+<section class="module" id="m5" data-title="5 · Resolvendo triângulos">
+  <div class="mhead">
+    <div class="eyebrow">Módulo 5 · Método <span class="tag comp">Complemento</span></div>
+    <h1>Resolvendo triângulos retângulos</h1>
+    <p class="goal">As fotos trazem as definições; a lista pede que você as <b>aplique</b>. Este módulo ensina o roteiro de escolha da razão, o uso de calculadora para ângulos que não são notáveis (35° e 20° aparecem na lista) e como achar os lados quando só uma razão é dada.</p>
+    <nav class="subnav"><a href="#m5-t">Teoria</a><a href="#m5-l">Laboratórios</a><a href="#m5-e">Exemplos (2)</a><a href="#m5-q">Verificação (3)</a></nav>
+  </div>
+  <div class="stage">
+    <div class="stagehead" id="m5-t"><span class="ic">T</span><h2>Teoria</h2></div>
+
+    <article class="sheet">
+      <h3><span class="sn">5.1</span> Qual razão usar? Roteiro em 4 passos</h3>
+      <ol>
+        <li><b>Desenhe</b> e marque o ângulo conhecido (ou pedido). Ele é a sua referência.</li>
+        <li><b>Classifique</b> o lado dado e o lado pedido em relação a esse ângulo: <span class="cop">oposto</span>, <span class="cadj">adjacente</span> ou <span class="chip">hipotenusa</span>.</li>
+        <li><b>Escolha</b> a razão que junta exatamente esses dois lados (tabela abaixo).</li>
+        <li><b>Isole, substitua, calcule e confira</b> (hipotenusa é o maior lado; Pitágoras fecha?).</li>
+      </ol>
+      <div class="tbl"><table>
+        <thead><tr><th>Lados envolvidos (dado + pedido)</th><th>Razão</th></tr></thead>
+        <tbody>
+          <tr><td><span class="cop">oposto</span> e <span class="chip">hipotenusa</span></td><td>\(\sen\)</td></tr>
+          <tr><td><span class="cadj">adjacente</span> e <span class="chip">hipotenusa</span></td><td>\(\cos\)</td></tr>
+          <tr><td><span class="cop">oposto</span> e <span class="cadj">adjacente</span></td><td>\(\tg\) (ou \(\cotg\))</td></tr>
+          <tr><td>dois lados, sem ângulo, querendo o 3º lado</td><td>Pitágoras</td></tr>
+        </tbody></table></div>
+      <div class="box tip"><div class="lbl">Dica</div><p>Prefira calcular cada lado <b>a partir dos dados originais</b>. Se você errar (ou arredondar) um lado e usá-lo para achar o próximo, o erro se propaga.</p></div>
+    </article>
+
+    <article class="sheet" id="m5-calc">
+      <h3><span class="sn">5.2</span> Ângulos que não são notáveis <span class="tag comp">Complemento</span></h3>
+      <p>Para 35° ou 20° não existe um triângulo “bonito” como o quadrado ou o equilátero. Os valores são obtidos por <b>calculadora científica</b> ou por <b>tabela trigonométrica</b>. A lista não fornece esses valores; aqui usamos os da calculadora, com 4 casas decimais.</p>
+      <div class="box warn"><div class="lbl">Erro comum: modo da calculadora</div><p>A calculadora precisa estar em <b>DEG</b> (graus). Em RAD, \(\sin 35\) dá \(-0{,}428\) — um seno negativo para um “ângulo agudo” é sinal claro de modo errado.</p></div>
+      <div class="lab" data-lab="calc">
+        <div class="lh"><span class="lt">Laboratório 5A</span><h4>Tabela trigonométrica interativa</h4></div>
+        <p class="small">Escolha um ângulo de 1° a 89°. Nos notáveis (30°, 45°, 60°) aparece também o valor exato.</p>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>ângulo</th><th>sen</th><th>cos</th><th>tg</th></tr></thead>
+        <tbody>
+          <tr class="hi"><td>20°</td><td>0,3420</td><td>0,9397</td><td>0,3640</td></tr>
+          <tr class="hi"><td>35°</td><td>0,5736</td><td>0,8192</td><td>0,7002</td></tr>
+          <tr><td>55°</td><td>0,8192</td><td>0,5736</td><td>1,4281</td></tr>
+          <tr><td>70°</td><td>0,9397</td><td>0,3420</td><td>2,7475</td></tr>
+        </tbody></table></div>
+      <p class="muted small">Linhas destacadas: ângulos usados na lista. Note que \(\sen35^\circ=\cos55^\circ\): complementares (Módulo 3).</p>
+    </article>
+
+    <article class="sheet">
+      <h3><span class="sn">5.3</span> Só uma razão foi dada: o método do \(k\)</h3>
+      <p>Saber que \(\tg\hat B=\frac{p}{q}\) não diz o tamanho dos catetos, só a <b>proporção</b> entre eles. Escrevemos os lados com um fator desconhecido \(k\) e usamos o dado restante para achá-lo.</p>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>De \(\frac bc=\frac pq\) segue \(\frac bp=\frac cq\) (troca de meios). Chame esse valor comum de \(k\gt0\):</p><div class="m">\[b=p\,k,\qquad c=q\,k\]</div><p class="why">Isso não é chute: é a própria igualdade de razões reescrita.</p></div>
+          <div class="st"><p>Pitágoras dá a hipotenusa em função de \(k\):</p><div class="m">\[a=\sqrt{p^2k^2+q^2k^2}=k\sqrt{p^2+q^2}\]</div></div>
+          <div class="st"><p>Iguale ao valor dado de \(a\) (ou de outro lado) e resolva para \(k\). Depois volte em \(b=pk\), \(c=qk\).</p></div>
+        </div>
+      </div>
+      <div class="box tip"><div class="lbl">Caminho alternativo</div><p>Também dá para usar \(\tg=\frac{\sen}{\cos}\) junto com \(\sen^2+\cos^2=1\) para achar seno e cosseno, e então \(b=a\sen\hat B\), \(c=a\cos\hat B\). A 2ª questão da lista é resolvida dos dois jeitos.</p></div>
+    </article>
+
+    <div class="stagehead sh-lab" id="m5-l"><span class="ic">L</span><h2>Laboratório</h2></div>
+    <div class="lab" data-lab="qual">
+      <div class="lh"><span class="lt">Laboratório 5B</span><h4>Treino: qual razão usar?</h4></div>
+      <p class="small">Um problema aleatório é sorteado. Escolha a razão certa; o feedback explica e mostra a conta.</p>
+    </div>
+
+    <div class="stagehead sh-ex" id="m5-e"><span class="ic">E</span><h2>Exemplos resolvidos</h2></div>
+    <article class="ex">
+      <div class="ex-h"><span class="num">Ex. 5.1</span><span class="src">Criado aqui</span></div>
+      <p class="ex-q">Num triângulo retângulo em \(A\), \(\hat B=25^\circ\) e \(b=6\ \text{cm}\). Calcule \(c\) e \(a\). (\(\sen25^\circ\approx0{,}4226\), \(\tg25^\circ\approx0{,}4663\))</p>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>Classificar em relação a \(\hat B\): \(b\) é o <span class="cop">oposto</span> (dado); \(c\) é o <span class="cadj">adjacente</span> e \(a\) a <span class="chip">hipotenusa</span> (pedidos).</p></div>
+          <div class="st"><p>Oposto e adjacente → tangente:</p><div class="m">\[\tg25^\circ=\frac{6}{c}\;\Rightarrow\;c=\frac{6}{0{,}4663}\approx12{,}87\ \text{cm}\]</div><p class="why">\(c\) estava no denominador: multiplicamos os dois lados por \(c\) e dividimos por \(\tg25^\circ\).</p></div>
+          <div class="st"><p>Oposto e hipotenusa → seno (usando o dado original \(b\)):</p><div class="m">\[\sen25^\circ=\frac{6}{a}\;\Rightarrow\;a=\frac{6}{0{,}4226}\approx14{,}20\ \text{cm}\]</div></div>
+          <div class="st"><p>Conferência por Pitágoras: \(6^2+12{,}87^2\approx36+165{,}6=201{,}6\) e \(14{,}20^2\approx201{,}6\). ✓</p></div>
+        </div>
+        <div class="final"><div class="lbl">Resposta</div><p>\(c\approx12{,}87\ \text{cm}\) e \(a\approx14{,}20\ \text{cm}\).</p></div>
+      </div>
+    </article>
+    <article class="ex">
+      <div class="ex-h"><span class="num">Ex. 5.2</span><span class="src">Criado aqui</span></div>
+      <p class="ex-q">Num triângulo retângulo em \(A\), \(\tg\hat B=\frac34\) e \(a=15\). Calcule \(b\) e \(c\).</p>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>Método do \(k\): \(\frac bc=\frac34\Rightarrow b=3k,\ c=4k\).</p></div>
+          <div class="st"><p>Pitágoras:</p><div class="m">\[a^2=9k^2+16k^2=25k^2\;\Rightarrow\;a=5k\]</div></div>
+          <div class="st"><p>Como \(a=15\): \(5k=15\Rightarrow k=3\).</p><div class="m">\[b=3\cdot3=9,\qquad c=4\cdot3=12\]</div></div>
+        </div>
+        <div class="final"><div class="lbl">Resposta</div><p>\(b=9\) e \(c=12\). Conferência: \(\frac9{12}=\frac34\) ✓ e \(81+144=225=15^2\) ✓.</p></div>
+      </div>
+    </article>
+
+    <div class="stagehead sh-qz" id="m5-q"><span class="ic">✓</span><h2>Verificação</h2></div>
+    <div class="quiz">
+      <div class="qz" data-ans="b"><div class="qn">Questão 1</div><p>Conhece-se um ângulo agudo e a hipotenusa. Quer-se o cateto adjacente ao ângulo. Qual razão?</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>seno</span></button><button class="alt" data-k="b"><span class="L">B</span><span>cosseno</span></button><button class="alt" data-k="c"><span class="L">C</span><span>tangente</span></button></div>
+        <div class="fbs"><div data-for="b">Isso: adjacente + hipotenusa = cosseno.</div><div data-for="*">A razão que junta <b>adjacente</b> e <b>hipotenusa</b> é o cosseno.</div></div></div>
+      <div class="qz" data-ans="c"><div class="qn">Questão 2</div><p>Na calculadora aparece \(\sin(20)=0{,}9129\). O que houve?</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>Está certo</span></button><button class="alt" data-k="b"><span class="L">B</span><span>A calculadora deu \(\cos20^\circ\)</span></button><button class="alt" data-k="c"><span class="L">C</span><span>Está em radianos; o certo é \(\approx0{,}3420\)</span></button></div>
+        <div class="fbs"><div data-for="c">Correto: 0,9129 é o seno de 20 <b>radianos</b>. Mude para DEG.</div><div data-for="*">\(\sen20^\circ\approx0{,}342\) (e \(\cos20^\circ\approx0{,}940\)). O valor 0,9129 é o seno de 20 <b>radianos</b>: a calculadora está no modo errado.</div></div></div>
+      <div class="qz" data-ans="a"><div class="qn">Questão 3</div><p>Se \(\tg\hat B=\frac{5}{12}\) e \(a=26\), quanto vale \(k\) no método do \(k\)?</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>2</span></button><button class="alt" data-k="b"><span class="L">B</span><span>13</span></button><button class="alt" data-k="c"><span class="L">C</span><span>\(\frac{26}{17}\)</span></button></div>
+        <div class="fbs"><div data-for="a">Isso: \(a=k\sqrt{25+144}=13k=26\Rightarrow k=2\) (então \(b=10\), \(c=24\)).</div><div data-for="c">\(\frac{26}{17}\) vem de somar \(5+12\); mas a hipotenusa é \(k\sqrt{5^2+12^2}\), não \(k(5+12)\).</div><div data-for="*">\(a=k\sqrt{5^2+12^2}=13k\). Com \(a=26\), \(k=2\).</div></div></div>
+    </div>
+  </div>
+</section>

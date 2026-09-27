@@ -1,0 +1,113 @@
+<section class="module" id="m4" data-title="4 · Ângulos notáveis">
+  <div class="mhead">
+    <div class="eyebrow">Módulo 4 · Teoria do caderno <span class="tag foto">Caderno</span></div>
+    <h1>1.2 – Razões trigonométricas especiais</h1>
+    <p class="goal">Ao final você vai saber deduzir (não só decorar) seno, cosseno, tangente e cotangente de 30°, 45° e 60°, a partir de um quadrado e de um triângulo equilátero, exatamente como no caderno.</p>
+    <nav class="subnav"><a href="#m4-45">45°</a><a href="#m4-3060">30° e 60°</a><a href="#m4-tab">Tabela</a><a href="#m4-e">Exemplos (3)</a><a href="#m4-q">Verificação (3)</a></nav>
+  </div>
+  <div class="stage">
+    <div class="stagehead"><span class="ic">T</span><h2>Teoria</h2></div>
+
+    <article class="sheet" id="m4-45">
+      <h3><span class="sn">4.1</span> 45°: metade de um quadrado</h3>
+      <p>Se um ângulo agudo mede 45°, o outro também mede \(90^\circ-45^\circ=45^\circ\). Triângulo com dois ângulos iguais tem os lados opostos a eles iguais: os catetos são iguais — é a <b>metade de um quadrado</b>, cortado pela diagonal. O caderno escolhe catetos \(b=c=1\).</p>
+      <div class="lab" data-lab="anim45">
+        <div class="lh"><span class="lt">Animação</span><h4>Cortando o quadrado pela diagonal</h4></div>
+      </div>
+      <div class="two">
+        <figure class="fig">{{FIG:45}}<figcaption>Como no caderno: \(b=1\), \(c=1\), ângulo de 45° em \(B\).</figcaption></figure>
+        <div class="reveal">
+          <div class="steps">
+            <div class="st"><p>Hipotenusa por Pitágoras (caderno: “\(a^2=1^2+1^2\ \therefore\ a=\sqrt2\)”):</p><div class="m">\[a^2=1^2+1^2=2\;\Rightarrow\;a=\sqrt2\]</div></div>
+            <div class="st"><p>Seno: oposto ÷ hipotenusa, depois racionaliza.</p><div class="m">\[\sen45^\circ=\frac{b}{a}=\frac{1}{\sqrt2}=\frac{\sqrt2}{2}\]</div></div>
+            <div class="st"><p>Cosseno: adjacente ÷ hipotenusa — os catetos são iguais, então dá o mesmo.</p><div class="m">\[\cos45^\circ=\frac{c}{a}=\frac{1}{\sqrt2}=\frac{\sqrt2}{2}\]</div></div>
+            <div class="st"><p>Tangente e cotangente:</p><div class="m">\[\tg45^\circ=\frac{b}{c}=\frac11=1,\qquad\cotg45^\circ=\frac{1}{1}=1\]</div></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="sheet" id="m4-3060">
+      <h3><span class="sn">4.2</span> 30° e 60°: metade de um triângulo equilátero</h3>
+      <p>O equilátero tem três lados iguais e três ângulos de 60°. A altura, baixada de um vértice, cai no <b>meio</b> da base e divide o ângulo de cima ao meio (em todo triângulo isósceles, a altura relativa à base também é mediana e bissetriz). Resultado: dois triângulos retângulos com ângulos de 30°, 60° e 90°. O caderno usa lado 2, para que a metade da base seja 1.</p>
+      <div class="lab" data-lab="anim3060">
+        <div class="lh"><span class="lt">Animação</span><h4>Dividindo o triângulo equilátero pela altura</h4></div>
+      </div>
+      <div class="two">
+        <figure class="fig">{{FIG:eq}}<figcaption>Como no caderno: lado 2, base dividida em 1 e 1, altura \(h=\sqrt3\).</figcaption></figure>
+        <div class="reveal">
+          <div class="steps">
+            <div class="st"><p>Altura por Pitágoras na metade (hipotenusa 2, cateto 1). Caderno: “\(h^2=2^2-1^2\), \(h=\sqrt3\)”.</p><div class="m">\[h^2=4-1=3\;\Rightarrow\;h=\sqrt3\]</div></div>
+            <div class="st"><p>Para <b>30°</b> (ângulo de cima): oposto = 1, adjacente = \(\sqrt3\), hipotenusa = 2.</p><div class="m">\[\sen30^\circ=\tfrac12,\quad\cos30^\circ=\tfrac{\sqrt3}{2},\quad\tg30^\circ=\tfrac{1}{\sqrt3}=\tfrac{\sqrt3}{3},\quad\cotg30^\circ=\sqrt3\]</div></div>
+            <div class="st"><p>Para <b>60°</b> (ângulo da base): oposto = \(\sqrt3\), adjacente = 1, hipotenusa = 2.</p><div class="m">\[\sen60^\circ=\tfrac{\sqrt3}{2},\quad\cos60^\circ=\tfrac12,\quad\tg60^\circ=\sqrt3,\quad\cotg60^\circ=\tfrac{\sqrt3}{3}\]</div></div>
+            <div class="st"><p>Conferência com o Módulo 3: 30° e 60° são complementares, então seno de um = cosseno do outro, e tg de um = cotg do outro. ✓</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="box tip"><div class="lbl">Por que lado 2 e não outro valor?</div><p>Pura conveniência (evita frações). Pelo Módulo 1.3, qualquer tamanho de lado daria as mesmas razões.</p></div>
+    </article>
+
+    <article class="sheet" id="m4-tab">
+      <h3><span class="sn">4.3</span> Tabela dos ângulos notáveis</h3>
+      <div class="tbl"><table>
+        <thead><tr><th></th><th>30°</th><th>45°</th><th>60°</th></tr></thead>
+        <tbody>
+          <tr><th>sen</th><td>\(\frac12\)</td><td>\(\frac{\sqrt2}{2}\)</td><td>\(\frac{\sqrt3}{2}\)</td></tr>
+          <tr><th>cos</th><td>\(\frac{\sqrt3}{2}\)</td><td>\(\frac{\sqrt2}{2}\)</td><td>\(\frac12\)</td></tr>
+          <tr><th>tg</th><td>\(\frac{\sqrt3}{3}\)</td><td>\(1\)</td><td>\(\sqrt3\)</td></tr>
+          <tr><th>cotg</th><td>\(\sqrt3\)</td><td>\(1\)</td><td>\(\frac{\sqrt3}{3}\)</td></tr>
+        </tbody></table></div>
+      <div class="box tip"><div class="lbl">Truque para lembrar</div><p>Seno de 30°, 45°, 60°: \(\frac{\sqrt1}{2},\frac{\sqrt2}{2},\frac{\sqrt3}{2}\) (a raiz sobe 1, 2, 3). O cosseno é a mesma linha <b>de trás para a frente</b>. A tangente é \(\frac{\sen}{\cos}\).</p></div>
+      <div class="box warn"><div class="lbl">Erros comuns</div><ul><li>Trocar \(\sen30^\circ\) com \(\sen60^\circ\). Lembre: o menor ângulo tem o menor seno (quanto maior o ângulo, maior o cateto oposto).</li><li>Deixar \(\frac{1}{\sqrt3}\) e depois comparar com um gabarito \(\frac{\sqrt3}{3}\): são o <b>mesmo número</b>.</li></ul></div>
+      <div class="chkgame" data-game="tabela"></div>
+    </article>
+
+    <div class="stagehead sh-ex" id="m4-e"><span class="ic">E</span><h2>Exemplos resolvidos</h2></div>
+    <article class="ex">
+      <div class="ex-h"><span class="num">Ex. 4.1</span><span class="src">Criado aqui</span></div>
+      <p class="ex-q">Um triângulo retângulo tem hipotenusa \(8\ \text{cm}\) e um ângulo de 30°. Calcule os catetos.</p>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>Oposto ao 30°: fórmula \(b=a\sen\hat B\).</p><div class="m">\[b=8\cdot\sen30^\circ=8\cdot\tfrac12=4\ \text{cm}\]</div></div>
+          <div class="st"><p>Adjacente ao 30°: \(c=a\cos\hat B\).</p><div class="m">\[c=8\cdot\tfrac{\sqrt3}{2}=4\sqrt3\approx6{,}93\ \text{cm}\]</div></div>
+        </div>
+        <div class="final"><div class="lbl">Resposta</div><p>Catetos \(4\ \text{cm}\) (oposto ao 30°) e \(4\sqrt3\ \text{cm}\) (adjacente). Conferência: \(16+48=64=8^2\). ✓</p></div>
+      </div>
+    </article>
+    <article class="ex">
+      <div class="ex-h"><span class="num">Ex. 4.2</span><span class="src">Criado aqui</span></div>
+      <p class="ex-q">O cateto adjacente a um ângulo de 60° mede \(10\ \text{m}\). Calcule o outro cateto e a hipotenusa.</p>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>Temos adjacente e queremos oposto: tangente.</p><div class="m">\[\tg60^\circ=\frac{\text{op}}{10}\;\Rightarrow\;\text{op}=10\sqrt3\approx17{,}32\ \text{m}\]</div></div>
+          <div class="st"><p>Hipotenusa pelo cosseno (usa só o dado original, evita propagar erro):</p><div class="m">\[\cos60^\circ=\frac{10}{a}\;\Rightarrow\;a=\frac{10}{1/2}=20\ \text{m}\]</div></div>
+        </div>
+        <div class="final"><div class="lbl">Resposta</div><p>Cateto oposto \(10\sqrt3\approx17{,}32\ \text{m}\); hipotenusa \(20\ \text{m}\).</p></div>
+      </div>
+    </article>
+    <article class="ex">
+      <div class="ex-h"><span class="num">Ex. 4.3</span><span class="src">Criado aqui</span></div>
+      <p class="ex-q">Confira a relação fundamental para 30° e para 45° usando a tabela.</p>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>30°:</p><div class="m">\[\left(\tfrac12\right)^2+\left(\tfrac{\sqrt3}{2}\right)^2=\tfrac14+\tfrac34=1\]</div></div>
+          <div class="st"><p>45°:</p><div class="m">\[\left(\tfrac{\sqrt2}{2}\right)^2+\left(\tfrac{\sqrt2}{2}\right)^2=\tfrac24+\tfrac24=1\]</div></div>
+        </div>
+        <div class="final"><div class="lbl">Resposta</div><p>As duas dão 1, como deveria (Módulo 2).</p></div>
+      </div>
+    </article>
+
+    <div class="stagehead sh-qz" id="m4-q"><span class="ic">✓</span><h2>Verificação</h2></div>
+    <div class="quiz">
+      <div class="qz" data-ans="c"><div class="qn">Questão 1</div><p>\(\tg30^\circ\) vale:</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>\(\sqrt3\)</span></button><button class="alt" data-k="b"><span class="L">B</span><span>\(\frac12\)</span></button><button class="alt" data-k="c"><span class="L">C</span><span>\(\frac{\sqrt3}{3}\)</span></button></div>
+        <div class="fbs"><div data-for="c">Isso: oposto 1, adjacente \(\sqrt3\): \(\frac1{\sqrt3}=\frac{\sqrt3}{3}\).</div><div data-for="a">\(\sqrt3\) é \(\tg60^\circ\) (ou \(\cotg30^\circ\)).</div><div data-for="b">\(\frac12\) é \(\sen30^\circ\).</div></div></div>
+      <div class="qz" data-ans="a"><div class="qn">Questão 2</div><p>Por que o triângulo retângulo com um ângulo de 45° tem catetos iguais?</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>Porque os dois agudos medem 45°, e lados opostos a ângulos iguais são iguais</span></button><button class="alt" data-k="b"><span class="L">B</span><span>Porque a hipotenusa mede \(\sqrt2\)</span></button><button class="alt" data-k="c"><span class="L">C</span><span>Porque \(\tg45^\circ=1\) por definição</span></button></div>
+        <div class="fbs"><div data-for="a">Correto: é isósceles. Daí sai \(\tg45^\circ=1\), e não o contrário.</div><div data-for="*">A razão geométrica vem primeiro: o outro agudo também é 45°, e ângulos iguais têm lados opostos iguais. Os valores (\(\sqrt2\), \(\tg=1\)) são <b>consequências</b>.</div></div></div>
+      <div class="qz" data-ans="b"><div class="qn">Questão 3</div><p>Num triângulo retângulo, a hipotenusa mede 12 e um ângulo mede 60°. O cateto oposto ao 60° mede:</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>6</span></button><button class="alt" data-k="b"><span class="L">B</span><span>\(6\sqrt3\)</span></button><button class="alt" data-k="c"><span class="L">C</span><span>\(12\sqrt3\)</span></button></div>
+        <div class="fbs"><div data-for="b">Isso: \(12\cdot\sen60^\circ=12\cdot\frac{\sqrt3}{2}=6\sqrt3\).</div><div data-for="a">6 é o cateto <b>adjacente</b> (\(12\cos60^\circ\)).</div><div data-for="*">Oposto = hipotenusa · seno: \(12\cdot\frac{\sqrt3}{2}=6\sqrt3\).</div></div></div>
+    </div>
+  </div>
+</section>

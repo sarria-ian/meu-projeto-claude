@@ -1,0 +1,108 @@
+<section class="module" id="m6" data-title="6 · Aplicações">
+  <div class="mhead">
+    <div class="eyebrow">Módulo 6 · Aplicações <span class="tag comp">Complemento</span></div>
+    <h1>Problemas de aplicação</h1>
+    <p class="goal">A segunda página da lista é toda de situações reais: prédio, chaminé, escada. Aqui você aprende a transformar o texto em triângulo retângulo, a trabalhar com dois triângulos que dividem um lado e a usar a altura relativa à hipotenusa.</p>
+    <nav class="subnav"><a href="#m6-elev">Elevação</a><a href="#m6-dois">Dois triângulos</a><a href="#m6-alt">Altura</a><a href="#m6-esc">Escada</a><a href="#m6-e">Exemplos (2)</a><a href="#m6-q">Verificação (3)</a></nav>
+  </div>
+  <div class="stage">
+    <div class="stagehead"><span class="ic">T</span><h2>Teoria</h2></div>
+
+    <article class="sheet" id="m6-elev">
+      <h3><span class="sn">6.1</span> Ângulo de elevação e de depressão</h3>
+      <p>“Ver um prédio sob um ângulo de 60°” significa: a linha do olho até o topo faz 60° com a <b>horizontal</b>. Olhando para cima é ângulo de <b>elevação</b>; olhando para baixo, de <b>depressão</b>.</p>
+      <figure class="fig narrow">{{FIG:elevacao}}<figcaption>Os dois ângulos são medidos a partir da horizontal.</figcaption></figure>
+      <div class="box key"><div class="lbl">Como vira triângulo retângulo</div><p>“Terreno plano” + prédio vertical ⇒ o prédio forma 90° com o chão. Ângulo de elevação \(\theta\), distância horizontal \(d\) e altura \(H\):</p><div>\[\tg\theta=\frac{H}{d}\qquad\Longrightarrow\qquad H=d\,\tg\theta\]</div></div>
+      <div class="box warn"><div class="lbl">Condições e hipóteses</div><ul><li>Quando o enunciado não dá a altura dos olhos do observador, ela é desprezada (observador tratado como um ponto no chão).</li><li>O ângulo é medido da <b>horizontal</b>, nunca da vertical — confira isso em todo enunciado.</li></ul></div>
+    </article>
+
+    <article class="sheet" id="m6-dois">
+      <h3><span class="sn">6.2</span> Dois triângulos com um lado em comum</h3>
+      <p>Muitas vezes um triângulo sozinho tem só um dado — não dá para resolver. A saída é achar <b>dois</b> triângulos retângulos que compartilham um lado desconhecido e escrever <b>uma equação para cada um</b>.</p>
+      <ol>
+        <li>Nomeie as incógnitas (ex.: altura \(H\) e distância \(d\)).</li>
+        <li>Em cada triângulo, escreva a razão que liga os lados às incógnitas.</li>
+        <li>Resolva o sistema: isole a mesma incógnita nas duas e iguale.</li>
+      </ol>
+      <div class="lab" data-lab="predio">
+        <div class="lh"><span class="lt">Laboratório 6A</span><h4>O observador se afasta: o ângulo diminui</h4></div>
+        <p class="small">Animação com os números da 5ª questão da lista. Veja como a altura \(H\) fica fixa enquanto a distância cresce e o ângulo cai de 60° para 45°. A tangente liga as três coisas: \(\tg\theta=\frac{H}{d}\).</p>
+      </div>
+      <div class="lab" data-lab="chamine">
+        <div class="lh"><span class="lt">Laboratório 6B</span><h4>Chaminé: um ângulo acima, outro abaixo da horizontal</h4></div>
+        <p class="small">A horizontal \(AB\) divide a figura em dois triângulos retângulos com o lado \(AB\) em comum (mesma disposição da 6ª questão). Mude \(\alpha\), \(\beta\) e \(h\).</p>
+      </div>
+    </article>
+
+    <article class="sheet" id="m6-alt">
+      <h3><span class="sn">6.3</span> Altura relativa à hipotenusa</h3>
+      <p>Num triângulo retângulo em \(A\), a altura \(h=\overline{AH}\) baixada até a hipotenusa \(BC\) divide o triângulo em dois triângulos retângulos menores, e divide \(BC\) em duas partes (as <b>projeções</b> dos catetos), chamadas aqui de \(x=\overline{BH}\) e \(y=\overline{HC}\).</p>
+      <figure class="fig narrow">{{FIG:q4}}<figcaption>Os triângulos \(ABH\) e \(AHC\) são retângulos em \(H\).</figcaption></figure>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>No triângulo \(ABH\): ângulo reto em \(H\) e ângulo \(\hat B\) em \(B\) (é o mesmo ângulo do triângulo grande, pois \(H\) está sobre \(BC\)). Em relação a \(\hat B\), \(h\) é oposto e \(x\) é adjacente:</p><div class="m">\[\tg\hat B=\frac{h}{x}\]</div></div>
+          <div class="st"><p>No triângulo \(AHC\): ângulo reto em \(H\) e ângulo \(\hat C\) em \(C\). Em relação a \(\hat C\), \(h\) é oposto e \(y\) é adjacente:</p><div class="m">\[\tg\hat C=\frac{h}{y}\]</div></div>
+          <div class="st"><p>Isolando \(h\) nas duas e igualando (o lado comum é \(h\)):</p><div class="m">\[x\,\tg\hat B=y\,\tg\hat C\;\Longrightarrow\;\frac{y}{x}=\frac{\tg\hat B}{\tg\hat C}\]</div></div>
+          <div class="st"><p>Como \(\hat C=90^\circ-\hat B\), \(\tg\hat C=\cotg\hat B=\frac1{\tg\hat B}\) (Módulo 3). Então:</p><div class="m">\[\frac{y}{x}=\tg^2\hat B\]</div><p class="why">Condição: triângulo retângulo em \(A\) e \(H\) = pé da altura sobre a hipotenusa.</p></div>
+        </div>
+      </div>
+      <div class="lab" data-lab="altura">
+        <div class="lh"><span class="lt">Laboratório 6C</span><h4>Como a altura divide a hipotenusa</h4></div>
+        <p class="small">Mude \(\hat C\) e observe a razão \(y/x\). Em \(\hat C=30^\circ\) (4ª questão da lista) ela vale exatamente 3.</p>
+      </div>
+    </article>
+
+    <article class="sheet" id="m6-esc">
+      <h3><span class="sn">6.4</span> Escada apoiada na parede</h3>
+      <p>Parede vertical + chão (ou apoio) horizontal ⇒ ângulo reto no pé da parede. A <b>escada é a hipotenusa</b>. O ponto delicado é <b>com quem</b> o ângulo é medido:</p>
+      <div class="two">
+        <div class="box tip"><div class="lbl">Ângulo com a parede \(\theta\)</div><p>A altura vencida pela escada é <b>adjacente</b> a \(\theta\):</p><div>\[v=L\cos\theta\]</div></div>
+        <div class="box tip"><div class="lbl">Ângulo com o chão \(\varphi\)</div><p>A altura vencida é <b>oposta</b> a \(\varphi\):</p><div>\[v=L\sen\varphi\]</div></div>
+      </div>
+      <p class="muted small">Os dois dão o mesmo resultado, pois \(\theta+\varphi=90^\circ\) e \(\cos\theta=\sen(90^\circ-\theta)\).</p>
+      <div class="lab" data-lab="escada">
+        <div class="lh"><span class="lt">Laboratório 6D</span><h4>Escada de 3 m, parede de 4 m</h4></div>
+        <p class="small">Situação da 7ª questão da lista. Mude o ângulo entre a escada e a parede. A escada sozinha não alcança 4 m, então ela precisa ser apoiada sobre algo de altura \(s\). Abaixo de 20° o enunciado diz que a escada cai.</p>
+      </div>
+    </article>
+
+    <div class="stagehead sh-ex" id="m6-e"><span class="ic">E</span><h2>Exemplos resolvidos</h2></div>
+    <article class="ex">
+      <div class="ex-h"><span class="num">Ex. 6.1</span><span class="src">Criado aqui</span></div>
+      <p class="ex-q">A 50 m da base de uma torre, em terreno plano, uma pessoa vê o topo sob ângulo de 30°. Qual a altura da torre? (Despreze a altura da pessoa.)</p>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>Em relação ao ângulo de 30°: a altura \(H\) é o oposto; os 50 m são o adjacente → tangente.</p><div class="m">\[\tg30^\circ=\frac{H}{50}\]</div></div>
+          <div class="st"><p>Isolando e substituindo \(\tg30^\circ=\frac{\sqrt3}{3}\):</p><div class="m">\[H=50\cdot\frac{\sqrt3}{3}=\frac{50\sqrt3}{3}\approx28{,}87\ \text{m}\]</div></div>
+        </div>
+        <div class="final"><div class="lbl">Resposta</div><p>\(H=\frac{50\sqrt3}{3}\ \text{m}\approx28{,}87\ \text{m}\).</p></div>
+      </div>
+    </article>
+    <article class="ex">
+      <div class="ex-h"><span class="num">Ex. 6.2</span><span class="src">Criado aqui</span></div>
+      <p class="ex-q">Uma pessoa vê o topo de uma torre sob 30°. Aproximando-se 20 m, passa a vê-lo sob 60°. Qual a altura da torre?</p>
+      <div class="reveal">
+        <div class="steps">
+          <div class="st"><p>Incógnitas: altura \(H\) e distância final \(d\) (posição mais próxima). A posição inicial fica a \(d+20\).</p></div>
+          <div class="st"><p>Triângulo próximo (60°) e triângulo distante (30°):</p><div class="m">\[\tg60^\circ=\frac{H}{d}\Rightarrow H=d\sqrt3\qquad\tg30^\circ=\frac{H}{d+20}\Rightarrow H=\frac{\sqrt3}{3}(d+20)\]</div></div>
+          <div class="st"><p>Igualando e dividindo por \(\sqrt3\):</p><div class="m">\[d=\frac{d+20}{3}\Rightarrow3d=d+20\Rightarrow d=10\ \text{m}\]</div></div>
+          <div class="st"><p>Voltando: \(H=10\sqrt3\).</p></div>
+        </div>
+        <div class="final"><div class="lbl">Resposta</div><p>\(H=10\sqrt3\ \text{m}\approx17{,}32\ \text{m}\).</p></div>
+      </div>
+    </article>
+
+    <div class="stagehead sh-qz" id="m6-q"><span class="ic">✓</span><h2>Verificação</h2></div>
+    <div class="quiz">
+      <div class="qz" data-ans="a"><div class="qn">Questão 1</div><p>Afastando-se de um prédio, o ângulo de elevação até o topo:</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>diminui</span></button><button class="alt" data-k="b"><span class="L">B</span><span>aumenta</span></button><button class="alt" data-k="c"><span class="L">C</span><span>não muda</span></button></div>
+        <div class="fbs"><div data-for="a">Isso: \(\tg\theta=\frac{H}{d}\); com \(H\) fixo e \(d\) maior, a tangente (e o ângulo) diminui.</div><div data-for="*">\(\tg\theta=\frac{H}{d}\): \(H\) fixo, \(d\) crescendo ⇒ \(\tg\theta\) diminui ⇒ \(\theta\) diminui. Confira no Laboratório 6A.</div></div></div>
+      <div class="qz" data-ans="c"><div class="qn">Questão 2</div><p>Uma escada de comprimento \(L\) faz ângulo \(\theta\) com a <b>parede</b>. A altura que ela vence é:</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>\(L\sen\theta\)</span></button><button class="alt" data-k="b"><span class="L">B</span><span>\(L\tg\theta\)</span></button><button class="alt" data-k="c"><span class="L">C</span><span>\(L\cos\theta\)</span></button></div>
+        <div class="fbs"><div data-for="c">Correto: a altura encosta no ângulo \(\theta\) (está ao longo da parede): é adjacente.</div><div data-for="a">\(L\sen\theta\) seria a distância horizontal (afastamento do pé da escada até a parede).</div><div data-for="*">A altura corre ao longo da parede, então é <b>adjacente</b> a \(\theta\): \(L\cos\theta\).</div></div></div>
+      <div class="qz" data-ans="b"><div class="qn">Questão 3</div><p>No triângulo retângulo em \(A\) com altura \(h\) sobre a hipotenusa, qual é o ângulo em \(B\) do triângulo menor \(ABH\)?</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>\(\hat C\)</span></button><button class="alt" data-k="b"><span class="L">B</span><span>\(\hat B\)</span></button><button class="alt" data-k="c"><span class="L">C</span><span>90°</span></button></div>
+        <div class="fbs"><div data-for="b">Isso: é o mesmo ângulo, pois \(H\) está sobre o lado \(BC\).</div><div data-for="*">O vértice \(B\) é compartilhado e \(H\) está sobre \(BC\): o ângulo em \(B\) é o próprio \(\hat B\). (O 90° fica em \(H\).)</div></div></div>
+    </div>
+  </div>
+</section>

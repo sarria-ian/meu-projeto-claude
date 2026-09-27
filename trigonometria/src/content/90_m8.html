@@ -1,0 +1,84 @@
+<section class="module" id="m8" data-title="8 · Revisão final">
+  <div class="mhead">
+    <div class="eyebrow">Módulo 8 · Revisão</div>
+    <h1>Revisão final</h1>
+    <p class="goal">Formulário, ideias-chave, roteiro para escolher o método e a lista dos erros mais comuns. Bom para revisar antes da prova.</p>
+    <nav class="subnav"><a href="#m8-f">Formulário</a><a href="#m8-r">Roteiro</a><a href="#m8-err">Erros comuns</a><a href="#m8-q">Desafio final (4)</a></nav>
+  </div>
+  <div class="stage">
+    <div class="stagehead" id="m8-f"><span class="ic">F</span><h2>Formulário</h2></div>
+    <div class="fgrid">
+      <div class="fcard"><h4>Notação (retângulo em \(A\))</h4><p>\(a\) hipotenusa; \(b\) oposto a \(\hat B\); \(c\) oposto a \(\hat C\). \(\hat B+\hat C=90^\circ\).</p></div>
+      <div class="fcard"><h4>Pitágoras</h4><div>\[b^2+c^2=a^2\]</div></div>
+      <div class="fcard"><h4>Razões de \(\hat B\)</h4><div>\[\sen\hat B=\tfrac ba\quad\cos\hat B=\tfrac ca\]\[\tg\hat B=\tfrac bc\quad\cotg\hat B=\tfrac cb\]</div></div>
+      <div class="fcard"><h4>Lados a partir do ângulo</h4><div>\[b=a\sen\hat B\qquad c=a\cos\hat B\]\[b=c\,\tg\hat B\]</div></div>
+      <div class="fcard"><h4>Relação fundamental</h4><div>\[\sen^2\hat B+\cos^2\hat B=1\]</div></div>
+      <div class="fcard"><h4>Algumas relações</h4><div>\[\tg\hat B=\frac{\sen\hat B}{\cos\hat B}\qquad\cotg\hat B=\frac{\cos\hat B}{\sen\hat B}=\frac1{\tg\hat B}\]</div></div>
+      <div class="fcard"><h4>Complementares</h4><div>\[\cos\hat B=\sen(90^\circ-\hat B)\]\[\cotg\hat B=\tg(90^\circ-\hat B)\]</div></div>
+      <div class="fcard"><h4>Altura sobre a hipotenusa</h4><div>\[h=x\,\tg\hat B=y\,\tg\hat C\qquad\frac yx=\tg^2\hat B\]</div></div>
+      <div class="fcard"><h4>Elevação</h4><div>\[H=d\,\tg\theta\]</div><p class="small muted">\(\theta\) medido da horizontal.</p></div>
+    </div>
+    <article class="sheet">
+      <h3>Ângulos notáveis</h3>
+      <div class="tbl"><table>
+        <thead><tr><th></th><th>30°</th><th>45°</th><th>60°</th></tr></thead>
+        <tbody>
+          <tr><th>sen</th><td>\(\frac12\)</td><td>\(\frac{\sqrt2}{2}\)</td><td>\(\frac{\sqrt3}{2}\)</td></tr>
+          <tr><th>cos</th><td>\(\frac{\sqrt3}{2}\)</td><td>\(\frac{\sqrt2}{2}\)</td><td>\(\frac12\)</td></tr>
+          <tr><th>tg</th><td>\(\frac{\sqrt3}{3}\)</td><td>\(1\)</td><td>\(\sqrt3\)</td></tr>
+          <tr><th>cotg</th><td>\(\sqrt3\)</td><td>\(1\)</td><td>\(\frac{\sqrt3}{3}\)</td></tr>
+        </tbody></table></div>
+      <p class="small muted">Origem: metade do quadrado de lado 1 (45°) e metade do equilátero de lado 2 (30° e 60°).</p>
+    </article>
+
+    <article class="sheet">
+      <h3>Ideias-chave</h3>
+      <ul>
+        <li>As razões dependem <b>só do ângulo</b>, não do tamanho do triângulo (semelhança).</li>
+        <li>Oposto e adjacente dependem do ângulo de referência; a hipotenusa não.</li>
+        <li>A relação fundamental é Pitágoras dividido por \(a^2\).</li>
+        <li>Complemento troca seno ↔ cosseno e tangente ↔ cotangente.</li>
+        <li>Uma razão sozinha dá proporção, não tamanho: use o método do \(k\) ou a relação fundamental.</li>
+        <li>Com duas incógnitas, procure dois triângulos com um lado comum e escreva uma equação em cada.</li>
+      </ul>
+    </article>
+
+    <div class="stagehead" id="m8-r"><span class="ic">R</span><h2>Roteiro: qual método usar?</h2></div>
+    <article class="sheet">
+      <div class="flow">
+        <div class="fq"><b>1.</b> Há dois lados e quero o terceiro, sem ângulo? → <b>Pitágoras</b>.</div>
+        <div class="fq"><b>2.</b> Há um ângulo e um lado? → classifique o lado dado e o pedido (op/adj/hip) → <b>sen, cos ou tg</b> (Módulo 5.1).</div>
+        <div class="fq"><b>3.</b> Há uma razão (sen, cos ou tg) em vez do ângulo? → <b>relação fundamental</b> para achar a outra, ou <b>método do \(k\)</b>.</div>
+        <div class="fq"><b>4.</b> O ângulo é 30°, 45° ou 60°? → valores exatos da tabela. Outro ângulo? → <b>calculadora em graus</b>.</div>
+        <div class="fq"><b>5.</b> Um triângulo só não fecha? → dois triângulos com <b>lado comum</b>; iguale as expressões.</div>
+        <div class="fq"><b>6.</b> Sobrou raiz no denominador? → <b>racionalize</b> (conjugado se for soma/diferença).</div>
+      </div>
+    </article>
+
+    <div class="stagehead" id="m8-err"><span class="ic">!</span><h2>Erros comuns</h2></div>
+    <article class="sheet">
+      <div class="two">
+        <div class="box warn"><div class="lbl">Montagem</div><ul><li>Oposto/adjacente em relação ao ângulo errado.</li><li>Ângulo com a parede tratado como ângulo com o chão.</li><li>Ângulo de elevação medido da vertical.</li><li>Usar a distância “a mais” (30 m) como distância total.</li></ul></div>
+        <div class="box warn"><div class="lbl">Contas</div><ul><li>\(\sqrt{b^2+c^2}=b+c\) (falso).</li><li>\((2\sqrt{17})^2=34\) (é 68).</li><li>\(\sen\hat B+\cos\hat B=1\) (é a soma dos quadrados).</li><li>Calculadora em radianos.</li></ul></div>
+        <div class="box warn"><div class="lbl">Notação</div><ul><li>\(\sen^2\hat B\) é \((\sen\hat B)^2\).</li><li>\(\cos\hat B=90^\circ-\hat B\) (falso): é \(\sen(90^\circ-\hat B)\).</li><li>\(b\) não é “o cateto vertical”: é o oposto a \(B\).</li></ul></div>
+        <div class="box warn"><div class="lbl">Interpretação</div><ul><li>Seno ou cosseno maior que 1 ⇒ fração invertida.</li><li>Cateto maior que a hipotenusa ⇒ erro de montagem.</li><li>Tomar os números da tangente como os próprios catetos.</li></ul></div>
+      </div>
+    </article>
+
+    <div class="stagehead sh-qz" id="m8-q"><span class="ic">✓</span><h2>Desafio final</h2></div>
+    <div class="quiz">
+      <div class="qz" data-ans="b"><div class="qn">Desafio 1</div><p>Num triângulo retângulo, \(\cos\hat B=\frac{1}{3}\) e \(a=9\). O cateto oposto a \(\hat B\) mede:</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>3</span></button><button class="alt" data-k="b"><span class="L">B</span><span>\(6\sqrt2\)</span></button><button class="alt" data-k="c"><span class="L">C</span><span>6</span></button></div>
+        <div class="fbs"><div data-for="b">Isso: \(\sen\hat B=\sqrt{1-\frac19}=\frac{2\sqrt2}{3}\) e \(b=9\cdot\frac{2\sqrt2}{3}=6\sqrt2\).</div><div data-for="a">3 é o cateto <b>adjacente</b>: \(9\cdot\frac13\).</div><div data-for="*">Ache o seno pela relação fundamental: \(\sen\hat B=\frac{2\sqrt2}{3}\); então \(b=9\sen\hat B=6\sqrt2\).</div></div></div>
+      <div class="qz" data-ans="c"><div class="qn">Desafio 2</div><p>\(\sen^2 25^\circ+\sen^2 65^\circ\) vale:</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>\(\frac12\)</span></button><button class="alt" data-k="b"><span class="L">B</span><span>não dá para saber sem calculadora</span></button><button class="alt" data-k="c"><span class="L">C</span><span>1</span></button></div>
+        <div class="fbs"><div data-for="a">Não: \(\sen65^\circ=\cos25^\circ\), e a soma vira \(\sen^2 25^\circ+\cos^2 25^\circ=1\).</div><div data-for="c">Correto: \(\sen65^\circ=\cos25^\circ\) (complementares), então é \(\sen^2 25^\circ+\cos^2 25^\circ=1\).</div><div data-for="*">Use complementares: \(\sen65^\circ=\cos25^\circ\). Aí vira a relação fundamental: 1.</div></div></div>
+      <div class="qz" data-ans="a"><div class="qn">Desafio 3</div><p>Um avião sobe em linha reta fazendo 30° com a pista. Após percorrer 2 km nessa linha, qual sua altura?</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>1 km</span></button><button class="alt" data-k="b"><span class="L">B</span><span>\(\sqrt3\) km</span></button><button class="alt" data-k="c"><span class="L">C</span><span>\(\frac{2\sqrt3}{3}\) km</span></button></div>
+        <div class="fbs"><div data-for="a">Isso: o trajeto é a hipotenusa; a altura é oposta a 30°: \(2\sen30^\circ=1\) km.</div><div data-for="b">\(\sqrt3\) km é a distância horizontal (\(2\cos30^\circ\)).</div><div data-for="*">Trajeto = hipotenusa (2 km); altura = oposto ao 30°: \(2\cdot\frac12=1\) km.</div></div></div>
+      <div class="qz" data-ans="b"><div class="qn">Desafio 4</div><p>Na figura da 4ª questão, se fosse \(y=4x\), quanto valeria \(\tg\hat B\)?</p>
+        <div class="alts"><button class="alt" data-k="a"><span class="L">A</span><span>4</span></button><button class="alt" data-k="b"><span class="L">B</span><span>2</span></button><button class="alt" data-k="c"><span class="L">C</span><span>\(\frac12\)</span></button></div>
+        <div class="fbs"><div data-for="b">Correto: \(\frac yx=\tg^2\hat B=4\Rightarrow\tg\hat B=2\).</div><div data-for="*">Pelo Módulo 6.3, \(\frac yx=\tg^2\hat B\). Então \(\tg^2\hat B=4\) e \(\tg\hat B=2\).</div></div></div>
+    </div>
+  </div>
+</section>
