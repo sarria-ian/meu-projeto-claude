@@ -1,0 +1,35 @@
+APOSTILA DE BINOMIO DE NEWTON - COMO ABRIR
+==========================================
+
+1. Descompacte o arquivo ZIP (botao direito > "Extrair tudo").
+2. Abra "apostila-binomio.html" com dois cliques. Ele abre no navegador
+   (Chrome, Edge, Firefox ou Safari atuais). Funciona sem internet
+   (com internet, so a fonte do texto fica mais bonita).
+
+No celular: salve o .html no aparelho e abra com o navegador (Chrome).
+
+Como usar
+- Modulos: leia em ordem (1 a 9), do zero ao avancado:
+    1 Potencias e produtos notaveis   2 Fatorial
+    3 Combinacoes e numeros binomiais 4 Triangulo de Pascal
+    5 O desenvolvimento de (a+b)^n    6 Termo geral
+    7 Somas de coeficientes           8 Aplicacoes (aproximacoes, restos, probabilidade)
+    9 Topicos avancados
+  Cada modulo tem objetivos, teoria, exemplos guiados, laboratorios
+  interativos e animacoes, estudo de caso, verificacoes (valem XP)
+  e a "Hora do desafio".
+- Listas: 7 listas com resposta e resolucao passo a passo.
+  Marque "Acertei" ou "Errei, vou revisar".
+- Jogar: 4 jogos rapidos (Pascal Relampago, Fatorial Turbo,
+  Combinacao Rapida, Coeficiente Certo).
+- Simulado: 10 questoes sorteadas de todos os modulos.
+- Formulario: resumo de todas as formulas e dos erros comuns.
+- Perfil: seu nome, nivel, estatisticas e conquistas.
+
+O progresso (XP, estrelas, conquistas) fica salvo so neste navegador,
+neste aparelho. Limpar os dados do navegador apaga o progresso.
+
+Conteudo da pasta
+- apostila-binomio.html        -> a apostila completa (arquivo unico)
+- LEIA-ME.txt                  -> este arquivo
+- licencas/KaTeX-LICENSE.txt   -> licenca do KaTeX (formulas, MIT)

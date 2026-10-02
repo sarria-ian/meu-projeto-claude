@@ -1,0 +1,114 @@
+<section class="page mod" id="m2" data-num="2" data-part="Parte I · A base (do zero)" data-short="Fatorial" data-title="Fatorial: definição, simplificação e equações" data-icon="fact" data-desc="O que significa n!, por que 0! = 1, como simplificar frações com fatorial e resolver equações.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>calcular \(n!\) e explicar o que ele conta;</li>
+    <li>justificar por que \(0!=1\);</li>
+    <li>usar a relação \(n!=n\cdot(n-1)!\) para simplificar frações como \(\frac{10!}{8!}\) e \(\frac{(n+2)!}{n!}\);</li>
+    <li>resolver equações que envolvem fatorial.</li></ul></div>
+
+  <h2 class="sec"><span class="n">2.1</span> O que é o fatorial</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>Para um número natural \(n\ge1\), o <b>fatorial de \(n\)</b> (lê-se “\(n\) fatorial”) é o produto de todos os naturais de \(n\) até 1:</p><div>\[n!=n\cdot(n-1)\cdot(n-2)\cdots3\cdot2\cdot1\]</div><p>Por definição, \(0!=1\) (o porquê está logo abaixo).</p></div>
+    <div class="tbl"><table><thead><tr><th>\(n\)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr></thead><tbody><tr><th>\(n!\)</th><td>1</td><td>1</td><td>2</td><td>6</td><td>24</td><td>120</td><td>720</td><td>5 040</td><td>40 320</td></tr></tbody></table></div>
+    <div class="box obs"><div class="bl">O que o fatorial conta</div><p>\(n!\) é o número de jeitos de <b>colocar \(n\) objetos em fila</b>. Com 3 livros A, B, C: para o 1º lugar há 3 opções, para o 2º sobram 2, para o 3º sobra 1: \(3\cdot2\cdot1=6\) filas (ABC, ACB, BAC, BCA, CAB, CBA).</p></div>
+  </div>
+  <div class="lab" data-w="fatLab"><div class="lt">Laboratório: o fatorial cresce muito rápido</div><p class="ld">Mexa em \(n\). O gráfico compara o número de algarismos de \(n!\) (rosa) com o de \(2^n\) (azul). Em \(n=20\), \(n!\) já tem 19 algarismos.</p></div>
+
+  <h2 class="sec"><span class="n">2.2</span> A relação fundamental e o 0! = 1</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Relação de recorrência</div><div>\[n!=n\cdot(n-1)!\qquad(n\ge1)\]</div><p>Exemplos: \(6!=6\cdot5!=6\cdot120=720\) e \(10!=10\cdot9\cdot8!\). Você pode “parar” a descida em qualquer fatorial menor.</p></div>
+    <details class="demo" open><summary>Demonstração: por que 0! = 1</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>Queremos que a relação \(n!=n\cdot(n-1)!\) valha também para \(n=1\).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><div class="m">\[1!=1\cdot0!\ \Rightarrow\ 1=1\cdot0!\ \Rightarrow\ 0!=1\]</div></div>
+        <div class="st"><span class="pl">Passo 3 · interpretação</span><p>Existe exatamente <b>um</b> jeito de enfileirar zero objetos: não fazer nada. Por isso \(0!=1\) também faz sentido na contagem.</p></div>
+      </div></div></details>
+  </div>
+
+  <h2 class="sec"><span class="n">2.3</span> Simplificando frações com fatorial</h2>
+  <div class="prose">
+    <div class="box tip"><div class="bl">A técnica (sempre a mesma)</div><p><b>1.</b> Ache o fatorial maior. <b>2.</b> Escreva-o “descendo” até chegar ao fatorial menor. <b>3.</b> Corte o fatorial que aparece em cima e embaixo.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado 1</div><p>Calcule \(\dfrac{10!}{8!}\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · desça o 10! até o 8!</span><div class="m">\[10!=10\cdot9\cdot8!\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · corte</span><div class="m">\[\frac{10\cdot9\cdot\cancel{8!}}{\cancel{8!}}=10\cdot9=90\]</div><p>Não precisamos calcular 10! = 3 628 800.</p></div>
+      </div></div>
+    <div class="ex"><div class="et">Exemplo guiado 2 (com letra)</div><p>Simplifique \(\dfrac{(n+2)!}{n!}\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · desça o (n + 2)! até o n!</span><div class="m">\[(n+2)!=(n+2)(n+1)\,n!\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · corte</span><div class="m">\[\frac{(n+2)(n+1)\cancel{n!}}{\cancel{n!}}=(n+2)(n+1)=n^2+3n+2\]</div></div>
+      </div></div>
+    <div class="ex"><div class="et">Exemplo guiado 3 (soma no numerador)</div><p>Simplifique \(\dfrac{8!+7!}{6!}\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · escreva tudo em função do menor (6!)</span><div class="m">\[8!=8\cdot7\cdot6!=56\cdot6!\qquad7!=7\cdot6!\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · coloque 6! em evidência</span><div class="m">\[\frac{56\cdot6!+7\cdot6!}{6!}=\frac{6!\,(56+7)}{6!}=63\]</div></div>
+      </div></div>
+    <div class="box warn"><div class="bl">Erros comuns</div><p>\(\frac{10!}{5!}\ne2!\) (fatorial não se divide assim: o certo é \(10\cdot9\cdot8\cdot7\cdot6=30\,240\)).<br>\(3!+4!\ne7!\) (\(6+24=30\), mas \(7!=5\,040\)).<br>\(2\cdot3!\ne6!\) (\(12\ne720\)).</p></div>
+  </div>
+  <div class="lab" data-w="fatSimp"><div class="lt">Laboratório: simplificador de fatoriais passo a passo</div><p class="ld">Digite o que está no numerador e no denominador (sem o “!”): dois números (10 e 7) ou duas expressões em \(n\) (n+2 e n). Os botões trazem exemplos prontos.</p></div>
+
+  <h2 class="sec"><span class="n">2.4</span> Equações com fatorial</h2>
+  <div class="prose">
+    <div class="box tip"><div class="bl">Roteiro</div><p><b>1.</b> Simplifique a fração (seção 2.3). <b>2.</b> Resolva a equação que sobrou (normalmente do 1º ou 2º grau). <b>3.</b> Descarte soluções que não são naturais ou que deixam um fatorial de número negativo.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Resolva \(\dfrac{(n+1)!}{(n-1)!}=56\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · simplifique</span><div class="m">\[\frac{(n+1)\,n\,\cancel{(n-1)!}}{\cancel{(n-1)!}}=(n+1)\,n\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · resolva</span><div class="m">\[n^2+n-56=0\ \Rightarrow\ n=\frac{-1\pm\sqrt{1+224}}{2}=\frac{-1\pm15}{2}\]</div><p>\(n=7\) ou \(n=-8\).</p></div>
+        <div class="st"><span class="pl">Passo 3 · descarte</span><p>\(n=-8\) não serve (não existe fatorial de número negativo). Resposta: \(n=7\). Conferência: \(\frac{8!}{6!}=8\cdot7=56\) ✓.</p></div>
+      </div></div>
+    <div class="box obs"><div class="bl">Atalho de “produto de consecutivos”</div><p>\((n+1)n=56\) pede dois números consecutivos cujo produto é 56: \(8\cdot7\). Logo \(n+1=8\), \(n=7\). Esse atalho resolve muitas questões sem Bhaskara.</p></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Quantas ordens possíveis para uma playlist?</h3>
+    <p>Uma playlist tem 10 músicas no modo aleatório. (a) De quantas ordens diferentes elas podem tocar? (b) Se você fixar a música favorita como primeira, quantas ordens sobram? (c) Quantas vezes (a) é maior que (b)?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · (a)</span><div class="m">\[10!=3\,628\,800\ \text{ordens}\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · (b)</span><p>A primeira está fixa; as outras 9 podem ser ordenadas de \(9!=362\,880\) jeitos.</p></div>
+      <div class="st"><span class="pl">Passo 3 · (c) sem calculadora</span><div class="m">\[\frac{10!}{9!}=\frac{10\cdot\cancel{9!}}{\cancel{9!}}=10\]</div></div>
+    </div>
+    <div class="final"><b>Respostas:</b> (a) 3 628 800; (b) 362 880; (c) 10 vezes. Ouvindo uma ordem diferente por dia, levaria quase 10 mil anos para esgotar todas.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Calcule \(\dfrac{12!}{9!\,3!}\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\frac{12\cdot11\cdot10\cdot\cancel{9!}}{\cancel{9!}\cdot3!}=\frac{1320}{6}=220\]</div><p>Você vai reencontrar essa conta no Módulo 3: ela é \(\binom{12}{3}\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Simplifique \(\dfrac{n!}{(n-2)!}\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\frac{n(n-1)\cancel{(n-2)!}}{\cancel{(n-2)!}}=n(n-1)=n^2-n\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Resolva \((n-3)!=1\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>Os fatoriais que valem 1 são \(0!\) e \(1!\).</p></div><div class="st"><span class="pl">Passo 2</span><p>\(n-3=0\Rightarrow n=3\) ou \(n-3=1\Rightarrow n=4\). Resposta: \(n\in\{3,4\}\).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m2v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Quanto vale \(5!\)?</p>
+      <ol class="opts"><li>25</li><li>120</li><li>15</li><li>60</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[5\cdot4\cdot3\cdot2\cdot1=120\]</div></div></div><p class="rev">Revise: <a href="#m2-s1">2.1 Definição</a></p></div>
+    <div class="q" data-id="m2v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>Quanto vale \(0!\)?</p>
+      <ol class="opts"><li>1</li><li>0</li><li>não existe</li><li>infinito</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>De \(1!=1\cdot0!\) tiramos \(0!=1\).</p></div></div><p class="rev">Revise: <a href="#m2-s2">2.2 Por que 0! = 1</a></p></div>
+    <div class="q" data-id="m2v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag f">fácil</span></div><p>\(\dfrac{9!}{7!}\) é igual a:</p>
+      <ol class="opts"><li>2</li><li>\(2!\)</li><li>63</li><li>72</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\frac{9\cdot8\cdot7!}{7!}=72\]</div></div></div><p class="rev">Revise: <a href="#m2-s3">2.3 Simplificação</a></p></div>
+    <div class="q" data-id="m2v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>\(\dfrac{(n+1)!}{n!}\) é igual a:</p>
+      <ol class="opts"><li>\(n\)</li><li>1</li><li>\(n+1\)</li><li>\(n(n+1)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\frac{(n+1)\,n!}{n!}=n+1\]</div></div></div><p class="rev">Revise: <a href="#m2-s3">2.3 Simplificação</a></p></div>
+    <div class="q" data-id="m2v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>\(\dfrac{7!+6!}{5!}\) vale:</p>
+      <ol class="opts"><li>13</li><li>48</li><li>42</li><li>\(13!\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[7!=42\cdot5!,\quad6!=6\cdot5!\ \Rightarrow\ \frac{5!(42+6)}{5!}=48\]</div></div></div><p class="rev">Revise: <a href="#m2-s3">2.3 Exemplo 3</a></p></div>
+    <div class="q" data-id="m2v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag m">médio</span></div><p>A solução de \(\dfrac{n!}{(n-2)!}=30\) é:</p>
+      <ol class="opts"><li>\(n=6\)</li><li>\(n=5\)</li><li>\(n=15\)</li><li>\(n=6\) ou \(n=-5\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(n(n-1)=30=6\cdot5\Rightarrow n=6\). A raiz \(-5\) da equação \(n^2-n-30=0\) é descartada.</p></div></div><p class="rev">Revise: <a href="#m2-s4">2.4 Equações</a></p></div>
+    <div class="q" data-id="m2v7" data-ans="C"><div class="qh"><span class="qn">Verificação 7</span><span class="tag d">difícil</span></div><p>De quantos modos 6 pessoas podem formar uma fila se duas delas (Ana e Bia) querem ficar sempre juntas?</p>
+      <ol class="opts"><li>120</li><li>720</li><li>240</li><li>48</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1 · grude as duas</span><p>Ana+Bia viram um bloco: são 5 “objetos” em fila: \(5!=120\).</p></div><div class="st"><span class="pl">Passo 2 · ordem dentro do bloco</span><p>AB ou BA: \(2!=2\). Total: \(120\cdot2=240\).</p></div></div><p class="rev">Revise: <a href="#m2-s1">2.1 O que o fatorial conta</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m2d1" data-ans="C"><p>\(3!+3!\) é igual a:</p><ol class="opts"><li>\(6!\)</li><li>720</li><li>12</li><li>\(3!\cdot2!\cdot2\)</li></ol><div class="why" hidden>\(6+6=12\). Fatorial não se soma “por dentro”: \(6!=720\).</div></div>
+    <div class="q dq" data-id="m2d2" data-ans="A"><p>\(\dfrac{100!}{98!}\) vale:</p><ol class="opts"><li>9 900</li><li>2</li><li>200</li><li>\(2!\)</li></ol><div class="why" hidden>\(\frac{100\cdot99\cdot98!}{98!}=9\,900\).</div></div>
+    <div class="q dq" data-id="m2d3" data-ans="D"><p>Quantas filas diferentes podem ser formadas com 4 pessoas?</p><ol class="opts"><li>4</li><li>16</li><li>10</li><li>24</li></ol><div class="why" hidden>\(4!=24\).</div></div>
+    <div class="q dq" data-id="m2d4" data-ans="B"><p>Qual é o primeiro passo para simplificar \(\frac{(n+3)!}{(n+1)!}\)?</p><ol class="opts"><li>Cortar os “!”</li><li>Escrever \((n+3)!=(n+3)(n+2)(n+1)!\)</li><li>Dividir \(n+3\) por \(n+1\)</li><li>Fazer \(n=0\)</li></ol><div class="why" hidden>Desça o fatorial maior até o menor e corte: o resultado é \((n+3)(n+2)\).</div></div>
+  </div>
+</div>
+</section>

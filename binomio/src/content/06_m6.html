@@ -1,0 +1,130 @@
+<section class="page mod" id="m6" data-num="6" data-part="Parte III · O Binômio de Newton" data-short="Termo geral" data-title="O termo geral: achando um termo sem desenvolver tudo" data-icon="target" data-desc="A fórmula T(k+1), o p-ésimo termo, o termo em xᵐ, o termo independente, os termos médios e coeficiente × termo.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>escrever o termo geral \(T_{k+1}\) de qualquer binômio;</li>
+    <li>achar o termo de uma posição dada (5º termo, 8º termo…);</li>
+    <li>achar o termo que contém \(x^m\) e o termo independente de \(x\);</li>
+    <li>achar o(s) termo(s) médio(s);</li>
+    <li>distinguir <b>termo</b> de <b>coeficiente</b>.</li></ul></div>
+
+  <h2 class="sec"><span class="n">6.1</span> A fórmula do termo geral</h2>
+  <div class="prose">
+    <p>Em \((a+b)^{20}\) há 21 termos. Se a questão pede só um deles, não precisamos escrever os outros 20.</p>
+    <div class="box def"><div class="bl">Termo geral</div><div>\[T_{k+1}=\binom nk\,a^{\,n-k}\,b^{\,k},\qquad k=0,1,2,\dots,n\]</div><p>\(T_{k+1}\) é o termo de <b>posição \(k+1\)</b>: o 1º termo tem \(k=0\), o 2º tem \(k=1\), o 3º tem \(k=2\)…</p></div>
+    <div class="box warn"><div class="bl">O erro número 1</div><p>“5º termo \(\Rightarrow k=5\)” está <b>errado</b>. O 5º termo é \(T_5=T_{k+1}\Rightarrow k=4\). Sempre: <b>\(k\) = posição − 1</b>.</p></div>
+    <div class="box tip"><div class="bl">Ordem dos termos importa</div><p>A fórmula conta as posições com \(a\) = primeiro termo do parêntese e \(b\) = segundo. Em \((2-x)^6\), \(a=2\) e \(b=-x\). Se a questão disser “desenvolvido segundo as potências <b>decrescentes</b> de \(x\)”, coloque o termo com \(x\) primeiro.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">6.2</span> O termo de uma posição dada</h2>
+  <div class="prose">
+    <div class="ex"><div class="et">Exemplo guiado 1</div><p>Ache o 4º termo de \((x-3)^8\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · posição → k</span><p>\(T_4=T_{k+1}\Rightarrow k=3\).</p></div>
+        <div class="st"><span class="pl">Passo 2 · substitua</span><div class="m">\[T_4=\binom83x^{8-3}(-3)^3=56\cdot x^5\cdot(-27)\]</div></div>
+        <div class="st"><span class="pl">Passo 3 · calcule</span><div class="m">\[T_4=-1512\,x^5\]</div></div>
+      </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">6.3</span> O termo que contém xᵐ</h2>
+  <div class="prose">
+    <div class="box tip"><div class="bl">Roteiro em 4 passos</div><p><b>1.</b> Escreva \(T_{k+1}\) com as potências de \(x\) separadas. <b>2.</b> Junte tudo em uma única potência de \(x\) (expoente em função de \(k\)). <b>3.</b> Iguale ao expoente pedido e ache \(k\). <b>4.</b> Se \(k\) for natural entre 0 e \(n\), substitua; se não for, o termo <b>não existe</b> (coeficiente 0).</p></div>
+    <div class="ex"><div class="et">Exemplo guiado 2</div><p>Qual é o coeficiente de \(x^7\) em \((x+2)^{10}\)?</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · termo geral</span><div class="m">\[T_{k+1}=\binom{10}{k}x^{10-k}\,2^k\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · expoente</span><p>O expoente de \(x\) é \(10-k\).</p></div>
+        <div class="st"><span class="pl">Passo 3 · iguale</span><div class="m">\[10-k=7\Rightarrow k=3\]</div></div>
+        <div class="st"><span class="pl">Passo 4 · substitua</span><div class="m">\[T_4=\binom{10}{3}x^7\,2^3=120\cdot8\,x^7=960\,x^7\]</div><p>Coeficiente: <b>960</b>.</p></div>
+      </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">6.4</span> O termo independente de x</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>É o termo <b>sem \(x\)</b>, ou seja, com \(x^0\). Procure-o igualando o expoente de \(x\) a <b>zero</b>.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado 3</div><p>Ache o termo independente de \(x\) em \(\left(x^2+\dfrac1x\right)^9\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · termo geral com potências de x</span><div class="m">\[T_{k+1}=\binom9k(x^2)^{9-k}(x^{-1})^k=\binom9k x^{18-2k}x^{-k}=\binom9k x^{18-3k}\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · expoente igual a zero</span><div class="m">\[18-3k=0\Rightarrow k=6\]</div></div>
+        <div class="st"><span class="pl">Passo 3 · substitua</span><div class="m">\[T_7=\binom96=\binom93=84\]</div></div>
+      </div>
+      <div class="final"><b>Resposta:</b> o termo independente é 84 (é o 7º termo).</div></div>
+    <div class="ex"><div class="et">Exemplo guiado 4 · quando não existe</div><p>Existe termo independente em \(\left(x+\dfrac1x\right)^7\)?</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>Expoente de \(x\): \((7-k)-k=7-2k\).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><p>\(7-2k=0\Rightarrow k=3{,}5\), que não é natural.</p></div>
+      </div>
+      <div class="final"><b>Resposta:</b> não existe termo independente (ele “vale 0”).</div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">6.5</span> Termo(s) médio(s)</h2>
+  <div class="prose">
+    <div class="two">
+      <div class="box obs"><div class="bl">n par</div><p>Há \(n+1\) termos (ímpar): <b>um</b> termo médio, de posição \(\frac n2+1\).</p><p>Ex.: \((a+b)^{10}\): 11 termos, o médio é o 6º (\(k=5\)).</p></div>
+      <div class="box obs"><div class="bl">n ímpar</div><p>Há \(n+1\) termos (par): <b>dois</b> termos médios, de posições \(\frac{n+1}2\) e \(\frac{n+1}2+1\).</p><p>Ex.: \((a+b)^7\): 8 termos, os médios são o 4º e o 5º.</p></div>
+    </div>
+    <div class="ex"><div class="et">Exemplo guiado 5</div><p>Ache o termo médio de \((2x-1)^6\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>\(n=6\) é par: 7 termos, médio é o 4º, \(k=3\).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><div class="m">\[T_4=\binom63(2x)^3(-1)^3=20\cdot8x^3\cdot(-1)=-160\,x^3\]</div></div>
+      </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">6.6</span> Termo × coeficiente</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Não confunda</div><p>O <b>termo</b> é a parte inteira: \(-160x^3\). O <b>coeficiente</b> é só o número que multiplica a parte literal: \(-160\). O <b>coeficiente binomial</b> é só o \(\binom nk\): aqui, \(\binom63=20\). Leia com cuidado o que a questão pede.</p></div>
+  </div>
+  <div class="lab" data-w="termoLab"><div class="lt">Laboratório: caçador de termos</div><p class="ld">Digite o binômio, o expoente e escolha o que procurar. A resolução sai no formato do roteiro: termo geral → expoente → k → substituição. Os botões trazem os exemplos da página.</p></div>
+  <div class="lab" data-w="termoTreino"><div class="lt">Treino infinito: termo geral</div><p class="ld">Questões novas a cada clique (coeficiente de \(x^m\), termo independente, coeficiente do p-ésimo termo). Digite um inteiro ou uma fração. Acerto de primeira: +2 XP. Errou duas vezes? A resolução completa aparece.</p></div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Controle de qualidade: chance de exatamente 2 peças com defeito</h3>
+    <p>Uma máquina produz 5% de peças com defeito. Num lote de 10 peças, a probabilidade de <b>exatamente 2</b> serem defeituosas é o termo do binômio \((0{,}95+0{,}05)^{10}\) que tem \(0{,}05^2\) (o Módulo 8 explica o porquê). Vamos achar esse termo com o termo geral.</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · termo geral</span><div class="m">\[T_{k+1}=\binom{10}{k}(0{,}95)^{10-k}(0{,}05)^k\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · queremos \(0{,}05^2\)</span><p>\(k=2\): é o 3º termo.</p></div>
+      <div class="st"><span class="pl">Passo 3 · calcule</span><div class="m">\[T_3=45\cdot(0{,}95)^8\cdot(0{,}05)^2\approx45\cdot0{,}6634\cdot0{,}0025\approx0{,}0746\]</div></div>
+    </div>
+    <div class="final"><b>Resposta:</b> cerca de 7,5% de chance. Com o termo geral achamos esse valor sem calcular os outros 10 termos.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Ache o 3º termo de \((2x+y)^5\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1 · k = 2</span><div class="m">\[T_3=\binom52(2x)^3y^2=10\cdot8x^3y^2=80x^3y^2\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Ache o termo independente de \(\left(2x-\dfrac{1}{x}\right)^6\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[T_{k+1}=\binom6k(2x)^{6-k}(-x^{-1})^k=\binom6k2^{6-k}(-1)^kx^{6-2k}\]</div></div><div class="st"><span class="pl">Passo 2 · 6 − 2k = 0 → k = 3</span><div class="m">\[T_4=20\cdot2^3\cdot(-1)^3=-160\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Em \((x+a)^5\), o coeficiente de \(x^3\) é 40. Ache \(a>0\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1 · x³ → k = 2</span><div class="m">\[\binom52a^2=10a^2=40\Rightarrow a^2=4\Rightarrow a=2\]</div></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m6v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Para achar o 6º termo de um binômio, usamos:</p>
+      <ol class="opts"><li>\(k=6\)</li><li>\(k=5\)</li><li>\(k=7\)</li><li>\(k=0\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(T_6=T_{k+1}\Rightarrow k=5\).</p></div></div><p class="rev">Revise: <a href="#m6-s1">6.1 O erro número 1</a></p></div>
+    <div class="q" data-id="m6v2" data-ans="D"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>O 2º termo de \((x+5)^6\) é:</p>
+      <ol class="opts"><li>\(5x^5\)</li><li>\(6x^5\)</li><li>\(150x^4\)</li><li>\(30x^5\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1 · k = 1</span><div class="m">\[\binom61x^5\cdot5=30x^5\]</div></div></div><p class="rev">Revise: <a href="#m6-s2">6.2 Posição</a></p></div>
+    <div class="q" data-id="m6v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>O coeficiente de \(x^2\) em \((x-1)^6\) é:</p>
+      <ol class="opts"><li>15</li><li>\(-15\)</li><li>20</li><li>\(-20\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(6-k=2\Rightarrow k=4\): \(\binom64(-1)^4=15\).</p></div></div><p class="rev">Revise: <a href="#m6-s3">6.3 Termo em xᵐ</a></p></div>
+    <div class="q" data-id="m6v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>O termo independente de \(\left(x+\dfrac1x\right)^6\) é:</p>
+      <ol class="opts"><li>6</li><li>15</li><li>20</li><li>não existe</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Expoente \(6-2k=0\Rightarrow k=3\): \(\binom63=20\).</p></div></div><p class="rev">Revise: <a href="#m6-s4">6.4 Termo independente</a></p></div>
+    <div class="q" data-id="m6v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>Quantos termos médios tem \((a+b)^{11}\) e quais são suas posições?</p>
+      <ol class="opts"><li>um, o 6º</li><li>dois, o 6º e o 7º</li><li>dois, o 5º e o 6º</li><li>um, o 7º</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(n=11\) ímpar: 12 termos, os médios são o 6º e o 7º.</p></div></div><p class="rev">Revise: <a href="#m6-s5">6.5 Termos médios</a></p></div>
+    <div class="q" data-id="m6v6" data-ans="D"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Em \(\left(x^3-\dfrac{2}{x^2}\right)^{10}\), o termo independente é:</p>
+      <ol class="opts"><li>não existe</li><li>\(-8\,064\)</li><li>\(210\)</li><li>\(13\,440\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1 · expoente</span><p>\(3(10-k)-2k=30-5k=0\Rightarrow k=6\).</p></div><div class="st"><span class="pl">Passo 2</span><div class="m">\[T_7=\binom{10}{6}(-2)^6=210\cdot64=13\,440\]</div></div></div><p class="rev">Revise: <a href="#m6-s4">6.4 Termo independente</a></p></div>
+    <div class="q" data-id="m6v7" data-ans="A"><div class="qh"><span class="qn">Verificação 7</span><span class="tag d">difícil</span></div><p>Em \((x+a)^4\), o coeficiente de \(x^2\) é 54. Se \(a>0\), então \(a\) vale:</p>
+      <ol class="opts"><li>3</li><li>9</li><li>\(\sqrt6\)</li><li>2</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1 · k = 2</span><div class="m">\[\binom42a^2=6a^2=54\Rightarrow a^2=9\Rightarrow a=3\]</div></div></div><p class="rev">Revise: <a href="#m6-s3">6.3 Termo em xᵐ</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m6d1" data-ans="C"><p>O termo independente de \(x\) é o termo com:</p><ol class="opts"><li>\(x^1\)</li><li>coeficiente 1</li><li>\(x^0\)</li><li>\(k=0\)</li></ol><div class="why" hidden>Independente de \(x\) = sem \(x\) = expoente zero.</div></div>
+    <div class="q dq" data-id="m6d2" data-ans="A"><p>Se ao igualar o expoente você obtém \(k=2{,}5\), então:</p><ol class="opts"><li>o termo não existe</li><li>arredonde para 3</li><li>use \(k=2\) e \(k=3\)</li><li>errou a conta, certamente</li></ol><div class="why" hidden>\(k\) precisa ser natural entre 0 e \(n\); se não for, esse termo não aparece.</div></div>
+    <div class="q dq" data-id="m6d3" data-ans="D"><p>Em \(T_4=-1512x^5\), o coeficiente é:</p><ol class="opts"><li>\(x^5\)</li><li>4</li><li>1512</li><li>\(-1512\)</li></ol><div class="why" hidden>O coeficiente é o número que multiplica a parte literal, com o sinal.</div></div>
+    <div class="q dq" data-id="m6d4" data-ans="B"><p>\((a+b)^{8}\) tem quantos termos médios?</p><ol class="opts"><li>dois</li><li>um (o 5º)</li><li>nenhum</li><li>um (o 4º)</li></ol><div class="why" hidden>\(n=8\) par: 9 termos, o médio é o \(\frac82+1=5\)º.</div></div>
+  </div>
+</div>
+</section>

@@ -1,0 +1,104 @@
+<section class="page mod" id="m7" data-num="7" data-part="Parte III · O Binômio de Newton" data-short="Somas de coeficientes e maior termo" data-title="Soma dos coeficientes, somas notáveis e o maior coeficiente" data-icon="sigma" data-desc="Trocar as letras por 1, somas alternadas, somas dos termos de ordem par e ímpar, achar n pela soma e o coeficiente máximo.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>calcular a soma dos coeficientes de um desenvolvimento sem desenvolvê-lo;</li>
+    <li>provar \(\sum\binom nk=2^n\) e \(\sum(-1)^k\binom nk=0\) pelo binômio;</li>
+    <li>separar a soma dos coeficientes de ordem par e de ordem ímpar;</li>
+    <li>descobrir \(n\) a partir da soma dos coeficientes;</li>
+    <li>achar o maior coeficiente de um desenvolvimento.</li></ul></div>
+
+  <h2 class="sec"><span class="n">7.1</span> Soma dos coeficientes: troque as letras por 1</h2>
+  <div class="prose">
+    <p>Desenvolvido, \((2x-1)^3=8x^3-12x^2+6x-1\). A soma dos coeficientes é \(8-12+6-1=1\). Agora repare: colocar \(x=1\) em cada termo faz cada um virar o seu coeficiente.</p>
+    <div class="box def"><div class="bl">Regra</div><p>A soma dos coeficientes de um polinômio \(P(x)\) é \(P(1)\). Para binômios:</p><div>\[\text{soma dos coeficientes de }(\alpha x+\beta)^n=(\alpha+\beta)^n\]</div><p>Com mais letras (\(x\), \(y\)…), troque <b>todas</b> por 1.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado 1</div><p>Qual é a soma dos coeficientes de \((3x-2y)^{7}\)?</p>
+      <div class="steps"><div class="st"><span class="pl">Passo 1 · x = y = 1</span><div class="m">\[(3-2)^7=1^7=1\]</div><p>Sem escrever nenhum dos 8 termos.</p></div></div></div>
+    <div class="box warn"><div class="bl">Cuidado com o termo independente</div><p>Se a questão pedir a soma dos coeficientes <b>dos termos com \(x\)</b>, tire o termo independente: \(P(1)-P(0)\).</p></div>
+  </div>
+  <div class="lab" data-w="somaLab"><div class="lt">Laboratório: soma dos coeficientes de dois jeitos</div><p class="ld">O laboratório desenvolve o binômio, soma os coeficientes um por um e compara com o atalho de trocar as letras por 1.</p></div>
+
+  <h2 class="sec"><span class="n">7.2</span> Somas notáveis com os binomiais</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Duas identidades em uma linha</div><p>No binômio \((1+x)^n=\sum\binom nkx^k\):</p><div>\[x=1:\quad\binom n0+\binom n1+\cdots+\binom nn=(1+1)^n=2^n\]</div><div>\[x=-1:\quad\binom n0-\binom n1+\binom n2-\cdots\pm\binom nn=(1-1)^n=0\quad(n\ge1)\]</div></div>
+    <div class="box def"><div class="bl">Consequência: pares e ímpares</div><p>Somando e subtraindo as duas identidades:</p><div>\[\binom n0+\binom n2+\binom n4+\cdots=\binom n1+\binom n3+\binom n5+\cdots=2^{n-1}\]</div><p>Ex.: linha 6: \(1+15+15+1=32\) e \(6+20+6=32\), e \(2^5=32\) ✓.</p></div>
+    <div class="box obs"><div class="bl">Para qualquer binômio</div><p>Se \(P(x)\) é o desenvolvimento: soma dos coeficientes de grau par \(=\dfrac{P(1)+P(-1)}{2}\) e de grau ímpar \(=\dfrac{P(1)-P(-1)}{2}\).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">7.3</span> Descobrindo n pela soma</h2>
+  <div class="prose">
+    <div class="ex"><div class="et">Exemplo guiado 2</div><p>A soma dos coeficientes de \((x+y)^n\) é 1 024. Quantos termos tem o desenvolvimento?</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><div class="m">\[(1+1)^n=2^n=1024=2^{10}\Rightarrow n=10\]</div></div>
+        <div class="st"><span class="pl">Passo 2</span><p>Termos: \(n+1=11\).</p></div>
+      </div></div>
+    <div class="ex"><div class="et">Exemplo guiado 3</div><p>A soma dos coeficientes de \((2x+1)^n\) é 243. Ache \(n\) e o termo médio.</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><div class="m">\[(2+1)^n=3^n=243=3^5\Rightarrow n=5\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · n ímpar: dois termos médios (3º e 4º)</span><div class="m">\[T_3=\binom52(2x)^3=80x^3\qquad T_4=\binom53(2x)^2=40x^2\]</div></div>
+      </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">7.4</span> O maior coeficiente</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Em (a + b)ⁿ</div><p>Os binomiais crescem até o meio da linha e depois decrescem. O maior é o central: \(\binom{n}{n/2}\) (n par) ou os dois centrais \(\binom{n}{(n-1)/2}=\binom{n}{(n+1)/2}\) (n ímpar).</p></div>
+    <div class="box def"><div class="bl">Com pesos, como em (1 + 2x)ⁿ</div><p>O coeficiente de \(x^k\) é \(c_k=\binom nk p^{n-k}q^k\). Compare vizinhos:</p><div>\[\frac{c_{k+1}}{c_k}=\frac{n-k}{k+1}\cdot\frac{q}{p}\]</div><p>Enquanto essa razão for maior que 1, os coeficientes <b>crescem</b>. O maior aparece onde ela passa a ser menor que 1.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado 4</div><p>Qual é o maior coeficiente de \((1+2x)^{10}\)?</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · razão</span><div class="m">\[\frac{c_{k+1}}{c_k}=\frac{10-k}{k+1}\cdot2>1\iff20-2k>k+1\iff k<\frac{19}{3}\approx6{,}33\]</div></div>
+        <div class="st"><span class="pl">Passo 2</span><p>Cresce até \(k=6\to7\) (de \(c_6\) para \(c_7\)) e depois cai: o máximo é \(c_7\).</p><div class="m">\[c_7=\binom{10}{7}2^7=120\cdot128=15\,360\]</div></div>
+      </div></div>
+  </div>
+  <div class="lab" data-w="maxLab"><div class="lt">Laboratório: o desenho dos coeficientes</div><p class="ld">Barras dos coeficientes de \((p+qx)^n\). Com \(p=q\) fica simétrico; aumentando \(q\), o pico anda para a direita. A barra cheia é o maior coeficiente.</p></div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Quantas pizzas diferentes dá para montar?</h3>
+    <p>Uma pizzaria oferece 8 coberturas, e o cliente pode escolher quantas quiser (de 0 a 8). Quantas pizzas diferentes existem? E quantas têm um número <b>par</b> de coberturas?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · some todas as quantidades</span><div class="m">\[\binom80+\binom81+\cdots+\binom88=2^8=256\]</div><p>(Ou: cada cobertura entra ou não entra: \(2^8\).)</p></div>
+      <div class="st"><span class="pl">Passo 2 · só as quantidades pares</span><div class="m">\[\binom80+\binom82+\binom84+\binom86+\binom88=2^{7}=128\]</div><p>Conferência: \(1+28+70+28+1=128\) ✓.</p></div>
+    </div>
+    <div class="final"><b>Resposta:</b> 256 pizzas (incluindo a “sem cobertura”); exatamente metade, 128, tem número par de coberturas.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Soma dos coeficientes de \((x^2-3x+1)^{5}\)? (Não é binômio, mas a regra vale para qualquer polinômio.)</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(P(1)=(1-3+1)^5=(-1)^5=-1\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Calcule \(\binom{10}{1}+\binom{10}{3}+\binom{10}{5}+\binom{10}{7}+\binom{10}{9}\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>Soma das classes ímpares: \(2^{9}=512\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Soma dos coeficientes dos termos com \(x\) em \((x+2)^4\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(P(1)-P(0)=3^4-2^4=81-16=65\).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m7v1" data-ans="A"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>A soma dos coeficientes de \((x+2)^5\) é:</p>
+      <ol class="opts"><li>243</li><li>32</li><li>10</li><li>64</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((1+2)^5=243\).</p></div></div><p class="rev">Revise: <a href="#m7-s1">7.1 Soma dos coeficientes</a></p></div>
+    <div class="q" data-id="m7v2" data-ans="C"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(\binom{5}{0}-\binom51+\binom52-\binom53+\binom54-\binom55\) vale:</p>
+      <ol class="opts"><li>32</li><li>1</li><li>0</li><li>\(-1\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>É \((1-1)^5=0\).</p></div></div><p class="rev">Revise: <a href="#m7-s2">7.2 Somas notáveis</a></p></div>
+    <div class="q" data-id="m7v3" data-ans="B"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>A soma dos coeficientes de \((x-3y)^4\) é:</p>
+      <ol class="opts"><li>\(-16\)</li><li>16</li><li>256</li><li>\(-8\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((1-3)^4=(-2)^4=16\).</p></div></div><p class="rev">Revise: <a href="#m7-s1">7.1</a></p></div>
+    <div class="q" data-id="m7v4" data-ans="D"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>A soma dos coeficientes de \((a+b)^n\) é 256. O desenvolvimento tem:</p>
+      <ol class="opts"><li>8 termos</li><li>16 termos</li><li>256 termos</li><li>9 termos</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(2^n=256\Rightarrow n=8\): \(8+1=9\) termos.</p></div></div><p class="rev">Revise: <a href="#m7-s3">7.3 Descobrindo n</a></p></div>
+    <div class="q" data-id="m7v5" data-ans="A"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>\(\binom{12}{0}+\binom{12}{2}+\binom{12}{4}+\cdots+\binom{12}{12}\) vale:</p>
+      <ol class="opts"><li>2048</li><li>4096</li><li>1024</li><li>924</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Classes pares: \(2^{11}=2048\).</p></div></div><p class="rev">Revise: <a href="#m7-s2">7.2 Pares e ímpares</a></p></div>
+    <div class="q" data-id="m7v6" data-ans="C"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>O maior coeficiente binomial de \((a+b)^{9}\) é:</p>
+      <ol class="opts"><li>84</li><li>36</li><li>126</li><li>252</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(n=9\) ímpar: os centrais são \(\binom94=\binom95=126\).</p></div></div><p class="rev">Revise: <a href="#m7-s4">7.4 Maior coeficiente</a></p></div>
+    <div class="q" data-id="m7v7" data-ans="B"><div class="qh"><span class="qn">Verificação 7</span><span class="tag d">difícil</span></div><p>Em \((x+1)^{n}\), a soma dos coeficientes dos termos de grau ímpar é 64. Então \(n\) vale:</p>
+      <ol class="opts"><li>6</li><li>7</li><li>8</li><li>64</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Soma das classes ímpares: \(2^{n-1}=64=2^6\Rightarrow n=7\).</p></div></div><p class="rev">Revise: <a href="#m7-s2">7.2 Pares e ímpares</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m7d1" data-ans="D"><p>Para achar a soma dos coeficientes de um polinômio \(P(x)\) calculamos:</p><ol class="opts"><li>\(P(0)\)</li><li>\(P(-1)\)</li><li>o grau de \(P\)</li><li>\(P(1)\)</li></ol><div class="why" hidden>Com \(x=1\), cada termo vira o seu coeficiente.</div></div>
+    <div class="q dq" data-id="m7d2" data-ans="B"><p>\(P(0)\) dá:</p><ol class="opts"><li>a soma dos coeficientes</li><li>o termo independente</li><li>o maior coeficiente</li><li>o número de termos</li></ol><div class="why" hidden>Com \(x=0\), somem todos os termos com \(x\).</div></div>
+    <div class="q dq" data-id="m7d3" data-ans="A"><p>\(\sum_{k=0}^{n}\binom nk=2^n\) vem de qual substituição em \((1+x)^n\)?</p><ol class="opts"><li>\(x=1\)</li><li>\(x=0\)</li><li>\(x=-1\)</li><li>\(x=2\)</li></ol><div class="why" hidden>\((1+1)^n=2^n\).</div></div>
+    <div class="q dq" data-id="m7d4" data-ans="C"><p>Em \((p+qx)^n\) com \(q>p\), o maior coeficiente fica:</p><ol class="opts"><li>sempre no meio</li><li>no primeiro termo</li><li>deslocado para os termos com potências maiores de \(x\)</li><li>no último termo, sempre</li></ol><div class="why" hidden>O peso \(q\) maior favorece os termos com mais \(x\); a razão \(\frac{n-k}{k+1}\cdot\frac qp\) continua maior que 1 por mais tempo.</div></div>
+  </div>
+</div>
+</section>
