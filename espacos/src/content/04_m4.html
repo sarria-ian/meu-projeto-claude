@@ -1,0 +1,107 @@
+<section class="page mod" id="m4" data-num="4" data-part="Parte II · Espaços e subespaços" data-short="Subespaços" data-title="Subespaços vetoriais: o teste dos três itens" data-icon="tri" data-desc="Definição, teste rápido (nulo, soma, escalar), retas e planos pela origem, soluções de sistemas homogêneos, interseção, soma e soma direta.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>decidir se um subconjunto é subespaço com o teste dos três itens;</li>
+    <li>reconhecer subespaços de \(\mathbb R^2\) e \(\mathbb R^3\) geometricamente (origem, retas e planos pela origem, o espaço todo);</li>
+    <li>provar que as soluções de um sistema homogêneo formam um subespaço;</li>
+    <li>calcular interseção e soma de subespaços e reconhecer soma direta.</li></ul></div>
+
+  <h2 class="sec"><span class="n">4.1</span> Definição e o teste rápido</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>Um subconjunto \(W\subset V\) é um <b>subespaço</b> de \(V\) se ele mesmo é um espaço vetorial com as operações de \(V\).</p></div>
+    <div class="box def"><div class="bl">Teorema · teste dos três itens</div><p>\(W\subset V\) é subespaço se, e só se:</p><p><b>(i)</b> \(0\in W\);<br><b>(ii)</b> \(u,v\in W\Rightarrow u+v\in W\);<br><b>(iii)</b> \(u\in W,\ \alpha\in\mathbb R\Rightarrow\alpha u\in W\).</p><p>Os 8 axiomas já valem “de graça”, porque valem em \(V\).</p></div>
+    <div class="box tip"><div class="bl">Atalho para descartar</div><p>Se \(0\notin W\), acabou: não é subespaço. É o primeiro teste a fazer. Ex.: a reta \(y=2x+1\) não passa pela origem.</p></div>
+  </div>
+  <div class="lab" data-w="subLab"><div class="lt">Laboratório: é subespaço de ℝ²?</div><p class="ld">Escolha um conjunto. O laboratório sorteia \(u\), \(v\) dentro dele e um escalar \(\alpha\), e mostra em verde o que continua no conjunto e em vermelho o que escapa.</p></div>
+
+  <h2 class="sec"><span class="n">4.2</span> Provando que é subespaço</h2>
+  <div class="prose">
+    <div class="ex"><div class="et">Exemplo guiado 1</div><p>Mostre que \(W=\{(x,y,z)\in\mathbb R^3:\ x-2y+z=0\}\) é subespaço.</p>
+      <div class="steps">
+        <div class="st"><span class="pl">(i) nulo</span><p>\(0-2\cdot0+0=0\) ✓.</p></div>
+        <div class="st"><span class="pl">(ii) soma</span><p>Sejam \(u=(x_1,y_1,z_1)\) e \(v=(x_2,y_2,z_2)\) em \(W\). Então</p><div class="m">\[(x_1+x_2)-2(y_1+y_2)+(z_1+z_2)=\underbrace{(x_1-2y_1+z_1)}_{0}+\underbrace{(x_2-2y_2+z_2)}_{0}=0\ ✓\]</div></div>
+        <div class="st"><span class="pl">(iii) escalar</span><div class="m">\[\alpha x_1-2\alpha y_1+\alpha z_1=\alpha(x_1-2y_1+z_1)=\alpha\cdot0=0\ ✓\]</div></div>
+      </div>
+      <div class="final">\(W\) é subespaço: é um <b>plano pela origem</b>.</div></div>
+    <div class="box def"><div class="bl">Teorema · núcleo de um sistema homogêneo</div><p>O conjunto das soluções de \(AX=0\) (\(A\) matriz \(m\times n\)) é um subespaço de \(\mathbb R^n\). Prova: \(A0=0\); \(A(X+Y)=AX+AY=0\); \(A(\alpha X)=\alpha AX=0\).</p><p>Já as soluções de \(AX=B\) com \(B\ne0\) <b>não</b> formam subespaço (\(X=0\) não é solução).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">4.3</span> Mostrando que NÃO é subespaço</h2>
+  <div class="prose">
+    <div class="ex"><div class="et">Exemplo guiado 2</div><p>\(W=\{(x,y)\in\mathbb R^2:\ x\cdot y\ge0\}\) (1º e 3º quadrantes, com os eixos) é subespaço?</p>
+      <div class="steps">
+        <div class="st"><span class="pl">(i)</span><p>\((0,0)\in W\) ✓. Não dá para descartar já.</p></div>
+        <div class="st"><span class="pl">(iii)</span><p>\(\alpha(x,y)\) tem produto \(\alpha^2xy\ge0\) ✓.</p></div>
+        <div class="st"><span class="pl">(ii) contraexemplo</span><p>\((2,1)\in W\) e \((-1,-2)\in W\), mas \((2,1)+(-1,-2)=(1,-1)\): \(1\cdot(-1)<0\) ✗.</p></div>
+      </div>
+      <div class="final">Não é subespaço.</div></div>
+    <div class="box obs"><div class="bl">Os subespaços de ℝ² e ℝ³ (lista completa)</div><p>\(\mathbb R^2\): \(\{0\}\), retas pela origem, \(\mathbb R^2\).<br>\(\mathbb R^3\): \(\{0\}\), retas pela origem, planos pela origem, \(\mathbb R^3\).<br>Nada além disso. (Provaremos isso com dimensão no Módulo 7.)</p></div>
+    <div class="ex"><div class="et">Exemplo guiado 3 · matrizes</div><p>As matrizes \(2\times2\) simétricas (\(A^T=A\)) formam subespaço de \(M_{2\times2}\)? E as inversíveis?</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Simétricas</span><p>\(0^T=0\); \((A+B)^T=A^T+B^T=A+B\); \((\alpha A)^T=\alpha A^T=\alpha A\). Sim.</p></div>
+        <div class="st"><span class="pl">Inversíveis</span><p>A matriz nula não é inversível. Não.</p></div>
+      </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">4.4</span> Interseção, soma e soma direta</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Interseção</div><p>Se \(U\) e \(W\) são subespaços, \(U\cap W\) também é. (A <b>união</b>, em geral, não: os dois eixos de \(\mathbb R^2\) são subespaços, mas a união não é fechada para a soma.)</p></div>
+    <div class="box def"><div class="bl">Soma</div><div>\[U+W=\{u+w:\ u\in U,\ w\in W\}\]</div><p>É o menor subespaço que contém \(U\) e \(W\). Se, além disso, \(U\cap W=\{0\}\), a soma é <b>direta</b>: \(U\oplus W\), e cada vetor da soma se escreve de um único jeito como \(u+w\).</p></div>
+    <div class="ex"><div class="et">Exemplo guiado 4</div><p>Em \(\mathbb R^3\), \(U=\{(x,y,0)\}\) (plano \(xy\)) e \(W=\{(0,0,z)\}\) (eixo \(z\)).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Interseção</span><p>Um vetor nos dois tem \(z=0\) e \(x=y=0\): \(U\cap W=\{0\}\).</p></div>
+        <div class="st"><span class="pl">Soma</span><p>\((x,y,z)=(x,y,0)+(0,0,z)\): todo vetor é soma. \(U+W=\mathbb R^3\).</p></div>
+      </div>
+      <div class="final">\(\mathbb R^3=U\oplus W\) (soma direta).</div></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Circuitos elétricos: correntes que respeitam as leis de Kirchhoff</h3>
+    <p>Num circuito com três fios saindo de um nó, as correntes \(i_1,i_2,i_3\) obedecem à lei dos nós: o que entra é igual ao que sai, \(i_1-i_2-i_3=0\). As distribuições de corrente possíveis formam um subespaço?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1</span><p>O conjunto é \(\{(i_1,i_2,i_3):\ i_1-i_2-i_3=0\}\): soluções de um sistema <b>homogêneo</b>. Pelo teorema da seção 4.2, é subespaço de \(\mathbb R^3\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · o que isso significa na prática</span><p>Se duas fontes produzem, separadas, correntes válidas \(c\) e \(d\), ligadas juntas produzem \(c+d\), também válida. Dobrar a tensão dobra todas as correntes. Esse é o <b>princípio da superposição</b> da física, e ele é exatamente o fechamento de um subespaço.</p></div>
+      <div class="st"><span class="pl">Passo 3 · descrição</span><p>\(i_1=i_2+i_3\): \((i_2+i_3,i_2,i_3)=i_2(1,1,0)+i_3(1,0,1)\). Um plano pela origem.</p></div>
+    </div>
+    <div class="final"><b>Resposta:</b> sim, é um subespaço de dimensão 2 (um plano em \(\mathbb R^3\)). A superposição de circuitos lineares é o fechamento de um subespaço.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>\(W=\{(x,y,z):\ x=2y,\ z=0\}\) é subespaço de \(\mathbb R^3\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>São as soluções do sistema homogêneo \(x-2y=0,\ z=0\). Sim, é subespaço (uma reta pela origem).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>\(W=\{p\in P_2:\ p(1)=0\}\) é subespaço de \(P_2\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>Nulo: \(0(1)=0\) ✓. Soma: \((p+q)(1)=p(1)+q(1)=0\) ✓. Escalar: \((\alpha p)(1)=\alpha\cdot0=0\) ✓. Sim.</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>\(W=\{(x,y):\ y=x^2\}\) é subespaço?</p>
+    <div class="steps"><div class="st"><span class="pl">Contraexemplo</span><p>\((1,1)\in W\), mas \(2(1,1)=(2,2)\) e \(2\ne2^2\). Não.</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m4v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Qual destes é subespaço de \(\mathbb R^2\)?</p>
+      <ol class="opts"><li>\(y=3x-1\)</li><li>\(y=-4x\)</li><li>\(y=x^3\)</li><li>\(x\ge0\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Reta pela origem.</p></div></div><p class="rev">Revise: <a href="#m4-s1">4.1</a></p></div>
+    <div class="q" data-id="m4v2" data-ans="D"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>O primeiro teste para descartar um candidato a subespaço é:</p>
+      <ol class="opts"><li>calcular o determinante</li><li>testar a soma</li><li>achar uma base</li><li>verificar se contém o vetor nulo</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Sem o nulo, não é subespaço.</p></div></div><p class="rev">Revise: <a href="#m4-s1">4.1 Atalho</a></p></div>
+    <div class="q" data-id="m4v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>\(\{(x,y,z):\ x+y+z=1\}\) não é subespaço porque:</p>
+      <ol class="opts"><li>não contém \((0,0,0)\)</li><li>não é fechado para escalar positivo</li><li>é um plano</li><li>tem infinitos elementos</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(0+0+0=0\ne1\).</p></div></div><p class="rev">Revise: <a href="#m4-s1">4.1</a></p></div>
+    <div class="q" data-id="m4v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>A união dos eixos \(x\) e \(y\) em \(\mathbb R^2\) não é subespaço porque falha:</p>
+      <ol class="opts"><li>o vetor nulo</li><li>o produto por escalar</li><li>a soma</li><li>nada; é subespaço</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((1,0)+(0,1)=(1,1)\) não está em nenhum eixo.</p></div></div><p class="rev">Revise: <a href="#m4-s4">4.4</a></p></div>
+    <div class="q" data-id="m4v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>Qual destes <b>não</b> é subespaço de \(M_{2\times2}\)?</p>
+      <ol class="opts"><li>matrizes com traço 0</li><li>matrizes com determinante 0</li><li>matrizes diagonais</li><li>matrizes simétricas</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\begin{bmatrix}1&0\\0&0\end{bmatrix}+\begin{bmatrix}0&0\\0&1\end{bmatrix}=I\): as duas têm det 0, a soma tem det 1.</p></div></div><p class="rev">Revise: <a href="#m4-s3">4.3</a></p></div>
+    <div class="q" data-id="m4v6" data-ans="D"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Em \(\mathbb R^3\), sejam \(U=\{(x,y,z):z=0\}\) e \(W=\{(x,y,z):x=0\}\). Então \(U\cap W\) é:</p>
+      <ol class="opts"><li>\(\{0\}\)</li><li>o plano \(xy\)</li><li>\(\mathbb R^3\)</li><li>o eixo \(y\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(z=0\) e \(x=0\): sobram \((0,y,0)\), o eixo \(y\). (A soma \(U+W=\mathbb R^3\), mas não é direta.)</p></div></div><p class="rev">Revise: <a href="#m4-s4">4.4</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m4d1" data-ans="C"><p>As soluções de \(AX=B\), com \(B\ne0\):</p><ol class="opts"><li>sempre formam subespaço</li><li>formam subespaço se houver infinitas</li><li>nunca formam subespaço</li><li>formam o espaço todo</li></ol><div class="why" hidden>\(X=0\) não é solução quando \(B\ne0\).</div></div>
+    <div class="q dq" data-id="m4d2" data-ans="A"><p>Os subespaços de \(\mathbb R^3\) são:</p><ol class="opts"><li>{0}, retas e planos pela origem, ℝ³</li><li>qualquer reta ou plano</li><li>só planos</li><li>qualquer conjunto com o 0</li></ol><div class="why" hidden>Precisam passar pela origem; e só há essas dimensões: 0, 1, 2, 3.</div></div>
+    <div class="q dq" data-id="m4d3" data-ans="D"><p>\(U\oplus W\) (soma direta) exige:</p><ol class="opts"><li>\(U=W\)</li><li>\(U\cup W=V\)</li><li>\(U\subset W\)</li><li>\(U\cap W=\{0\}\)</li></ol><div class="why" hidden>Com interseção trivial, a decomposição \(u+w\) é única.</div></div>
+    <div class="q dq" data-id="m4d4" data-ans="B"><p>O princípio da superposição em física corresponde a:</p><ol class="opts"><li>vetores serem setas</li><li>as soluções formarem um subespaço (fechado para soma e escalar)</li><li>o determinante ser zero</li><li>a dimensão ser 3</li></ol><div class="why" hidden>Somar soluções e multiplicar por constante continua dando solução.</div></div>
+  </div>
+</div>
+</section>

@@ -1,0 +1,115 @@
+<section class="page mod" id="m1" data-num="1" data-part="Parte I · Fundamentos" data-short="Vetores no plano e no espaço" data-title="Vetores: do desenho às listas de números" data-icon="vec" data-desc="Vetor como seta e como lista de coordenadas, soma (paralelogramo), produto por escalar, propriedades e o ℝⁿ.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>representar um vetor como seta e como par/terno ordenado;</li>
+    <li>somar vetores e multiplicá-los por números (escalares), no desenho e nas coordenadas;</li>
+    <li>reconhecer as propriedades dessas operações (elas serão os “axiomas” do Módulo 3);</li>
+    <li>trabalhar com vetores do \(\mathbb R^n\), listas com \(n\) números.</li></ul></div>
+
+  <div class="box tip"><div class="bl">Como usar esta apostila</div><p>Leia em ordem: cada módulo usa os anteriores. Mexa nos laboratórios (eles fazem as contas com frações exatas e mostram cada passo), responda às verificações (valem XP) e encare a “Hora do desafio”. A ideia central do curso: <b>espaço vetorial é qualquer lugar onde dá para somar e multiplicar por número seguindo as mesmas regras das setas</b>.</p></div>
+
+  <h2 class="sec"><span class="n">1.1</span> O que é um vetor</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Ideia geométrica</div><p>Um <b>vetor</b> no plano é uma seta com <b>direção</b>, <b>sentido</b> e <b>comprimento</b> (módulo). Setas com essas três coisas iguais representam o mesmo vetor, não importa onde estejam desenhadas.</p></div>
+    <div class="box def"><div class="bl">Ideia algébrica</div><p>Desenhando a seta a partir da origem, ela fica determinada pelo ponto da ponta. Então o vetor é um <b>par ordenado</b> \(u=(u_1,u_2)\) no plano, ou um <b>terno</b> \(u=(u_1,u_2,u_3)\) no espaço.</p></div>
+    <div class="two">
+      <div class="box obs"><div class="bl">Exemplos</div><p>\(u=(3,1)\): 3 para a direita, 1 para cima.<br>\(v=(-2,4)\): 2 para a esquerda, 4 para cima.<br>\(0=(0,0)\): o <b>vetor nulo</b> (seta de comprimento zero).</p></div>
+      <div class="box obs"><div class="bl">Igualdade</div><p>Dois vetores são iguais quando <b>todas</b> as coordenadas são iguais: \((a,b)=(c,d)\iff a=c\) e \(b=d\). Essa regra vira sistema de equações o tempo todo.</p></div>
+    </div>
+  </div>
+
+  <h2 class="sec"><span class="n">1.2</span> Soma de vetores</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><div>\[(u_1,u_2)+(v_1,v_2)=(u_1+v_1,\ u_2+v_2)\]</div><p>Geometricamente: ande \(u\) e, a partir da ponta, ande \(v\). Ou: \(u+v\) é a diagonal do paralelogramo de lados \(u\) e \(v\).</p></div>
+    <figure class="fig" data-f="paralelogramo"><figcaption>Regra do paralelogramo: \((4,1)+(1,3)=(5,4)\).</figcaption></figure>
+  </div>
+
+  <h2 class="sec"><span class="n">1.3</span> Produto por escalar</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><div>\[\alpha\,(u_1,u_2)=(\alpha u_1,\ \alpha u_2)\qquad(\alpha\in\mathbb R)\]</div><p>Na física e na álgebra linear, número real é chamado de <b>escalar</b>. Multiplicar por \(\alpha\) estica (\(|\alpha|>1\)), encolhe (\(|\alpha|<1\)) e, se \(\alpha<0\), inverte o sentido. A direção nunca muda.</p></div>
+    <div class="box obs"><div class="bl">Vetores paralelos</div><p>\(u\) e \(v\) (não nulos) são <b>paralelos</b> quando um é múltiplo do outro: \(v=\alpha u\). Ex.: \((2,1)\) e \((-6,-3)=-3\cdot(2,1)\). Essa ideia vai virar “linearmente dependentes” no Módulo 6.</p></div>
+    <div class="box def"><div class="bl">Diferença</div><p>\(u-v=u+(-1)v\). É a seta que vai da ponta de \(v\) até a ponta de \(u\).</p></div>
+  </div>
+  <div class="lab" data-w="vetorLab"><div class="lt">Laboratório: soma, escalar e combinação no plano</div><p class="ld">Mude as coordenadas de \(u\), \(v\) e o escalar \(\alpha\). Troque o modo para ver soma, produto por escalar, diferença e \(\alpha u+v\).</p></div>
+
+  <h2 class="sec"><span class="n">1.4</span> Propriedades das operações</h2>
+  <div class="prose">
+    <p>Para quaisquer vetores \(u,v,w\) e escalares \(\alpha,\beta\):</p>
+    <div class="tbl"><table><thead><tr><th class="l">Nome</th><th>Propriedade</th></tr></thead><tbody>
+      <tr><td class="l">Comutativa</td><td>\(u+v=v+u\)</td></tr>
+      <tr><td class="l">Associativa</td><td>\((u+v)+w=u+(v+w)\)</td></tr>
+      <tr><td class="l">Elemento neutro</td><td>\(u+0=u\)</td></tr>
+      <tr><td class="l">Oposto</td><td>\(u+(-u)=0\)</td></tr>
+      <tr><td class="l">Associativa do escalar</td><td>\(\alpha(\beta u)=(\alpha\beta)u\)</td></tr>
+      <tr><td class="l">Distributivas</td><td>\((\alpha+\beta)u=\alpha u+\beta u\) &nbsp;e&nbsp; \(\alpha(u+v)=\alpha u+\alpha v\)</td></tr>
+      <tr><td class="l">Unidade</td><td>\(1\cdot u=u\)</td></tr>
+    </tbody></table></div>
+    <details class="demo"><summary>Prova de uma delas (as outras são iguais)</summary><div>
+      <div class="steps"><div class="st"><span class="pl">Distributiva \(\alpha(u+v)=\alpha u+\alpha v\)</span><div class="m">\[\alpha\big((u_1,u_2)+(v_1,v_2)\big)=\alpha(u_1+v_1,u_2+v_2)=(\alpha u_1+\alpha v_1,\ \alpha u_2+\alpha v_2)=\alpha u+\alpha v\]</div><p>Cada propriedade dos vetores vem da propriedade correspondente dos números reais, coordenada por coordenada.</p></div></div></div></details>
+    <div class="box tip"><div class="bl">Guarde esta tabela</div><p>São exatamente essas 8 regras que vão <b>definir</b> espaço vetorial no Módulo 3. Qualquer conjunto com soma e produto por escalar que obedeça às 8 regras se comporta como as setas.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">1.5</span> O espaço ℝⁿ</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>\(\mathbb R^n\) é o conjunto das listas ordenadas de \(n\) números reais, \(u=(u_1,u_2,\dots,u_n)\), com soma e produto por escalar feitos <b>coordenada a coordenada</b>.</p></div>
+    <p>Não dá para desenhar \(\mathbb R^4\) ou \(\mathbb R^{10}\), mas as contas são as mesmas. Exemplo de uso real: uma loja registra as vendas de 5 produtos num dia como \((12,0,7,3,9)\in\mathbb R^5\); somar dois dias é somar os vetores.</p>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Com \(u=(1,-2,0,3)\) e \(v=(2,1,-1,0)\), calcule \(3u-2v\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><div class="m">\[3u=(3,-6,0,9)\qquad2v=(4,2,-2,0)\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · subtraia coordenada a coordenada</span><div class="m">\[3u-2v=(3-4,\ -6-2,\ 0+2,\ 9-0)=(-1,-8,2,9)\]</div></div>
+      </div></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Um drone contra o vento</h3>
+    <p>Um drone voa com velocidade própria \(d=(8,6)\) km/h (8 para leste, 6 para norte). Sopra um vento \(w=(-3,1)\) km/h. Qual é a velocidade real em relação ao chão? E onde ele estará depois de 2 horas?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · velocidades se somam como vetores</span><div class="m">\[d+w=(8-3,\ 6+1)=(5,7)\ \text{km/h}\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · deslocamento = tempo × velocidade (produto por escalar)</span><div class="m">\[2\cdot(5,7)=(10,14)\ \text{km}\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · rapidez (comprimento)</span><div class="m">\[\|(5,7)\|=\sqrt{25+49}=\sqrt{74}\approx8{,}6\ \text{km/h}\]</div></div>
+    </div>
+    <div class="final"><b>Resposta:</b> velocidade real \((5,7)\) km/h (cerca de 8,6 km/h); após 2 h, o drone está 10 km a leste e 14 km ao norte do ponto de partida.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Ache \(x\) e \(y\) com \((x+1,\ 2y)=(4,\ -6)\).</p>
+    <div class="steps"><div class="st"><span class="pl">Iguale coordenadas</span><p>\(x+1=4\Rightarrow x=3\); \(2y=-6\Rightarrow y=-3\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Os vetores \((2,-3)\) e \((-4,6)\) são paralelos?</p>
+    <div class="steps"><div class="st"><span class="pl">Procure α</span><p>\((-4,6)=-2\cdot(2,-3)\). Sim, são paralelos (sentidos opostos).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Resolva a equação vetorial \(2x+(1,4)=(7,0)\), com \(x\in\mathbb R^2\).</p>
+    <div class="steps"><div class="st"><span class="pl">Como numa equação comum</span><div class="m">\[2x=(7,0)-(1,4)=(6,-4)\Rightarrow x=(3,-2)\]</div></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m1v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>\((2,-1)+(3,4)\) é:</p>
+      <ol class="opts"><li>\((6,-4)\)</li><li>\((5,3)\)</li><li>\((5,-5)\)</li><li>\((-1,5)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Coordenada a coordenada: \((2+3,\ -1+4)=(5,3)\).</p></div></div><p class="rev">Revise: <a href="#m1-s2">1.2 Soma</a></p></div>
+    <div class="q" data-id="m1v2" data-ans="D"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(-3\cdot(1,-2,0)\) é:</p>
+      <ol class="opts"><li>\((-3,-2,0)\)</li><li>\((-3,-6,-3)\)</li><li>\((3,-6,0)\)</li><li>\((-3,6,0)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((-3\cdot1,\ -3\cdot(-2),\ -3\cdot0)=(-3,6,0)\).</p></div></div><p class="rev">Revise: <a href="#m1-s3">1.3 Escalar</a></p></div>
+    <div class="q" data-id="m1v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag f">fácil</span></div><p>Multiplicar um vetor não nulo por \(-1\):</p>
+      <ol class="opts"><li>inverte o sentido e mantém direção e comprimento</li><li>muda a direção</li><li>zera o vetor</li><li>dobra o comprimento</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(|-1|=1\) mantém o comprimento; o sinal negativo inverte o sentido.</p></div></div><p class="rev">Revise: <a href="#m1-s3">1.3</a></p></div>
+    <div class="q" data-id="m1v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Qual vetor é paralelo a \((3,-1)\)?</p>
+      <ol class="opts"><li>\((1,3)\)</li><li>\((3,1)\)</li><li>\((-6,2)\)</li><li>\((6,-1)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((-6,2)=-2\cdot(3,-1)\).</p></div></div><p class="rev">Revise: <a href="#m1-s3">1.3 Paralelos</a></p></div>
+    <div class="q" data-id="m1v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>Se \(u=(1,0,2)\) e \(v=(0,3,-1)\), então \(2u-v\) é:</p>
+      <ol class="opts"><li>\((2,3,3)\)</li><li>\((2,-3,5)\)</li><li>\((2,-3,3)\)</li><li>\((1,-3,5)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[(2,0,4)-(0,3,-1)=(2,-3,5)\]</div></div></div><p class="rev">Revise: <a href="#m1-s5">1.5 ℝⁿ</a></p></div>
+    <div class="q" data-id="m1v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag m">médio</span></div><p>A solução de \(3x-(2,1)=(4,5)\) em \(\mathbb R^2\) é:</p>
+      <ol class="opts"><li>\((2,2)\)</li><li>\((6,6)\)</li><li>\((2,\tfrac43)\)</li><li>\((\tfrac23,\tfrac43)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(3x=(6,6)\Rightarrow x=(2,2)\).</p></div></div><p class="rev">Revise: <a href="#m1-s4">1.4 Propriedades</a></p></div>
+    <div class="q" data-id="m1v7" data-ans="D"><div class="qh"><span class="qn">Verificação 7</span><span class="tag d">difícil</span></div><p>Para que \((a,6)\) e \((2,a)\) sejam paralelos, \(a\) deve valer:</p>
+      <ol class="opts"><li>3</li><li>12</li><li>\(\pm3\)</li><li>\(\pm2\sqrt3\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1 · proporcionalidade</span><p>\(\frac a2=\frac6a\Rightarrow a^2=12\Rightarrow a=\pm2\sqrt3\).</p></div></div><p class="rev">Revise: <a href="#m1-s3">1.3 Paralelos</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m1d1" data-ans="C"><p>O vetor nulo de \(\mathbb R^3\) é:</p><ol class="opts"><li>0</li><li>\((1,1,1)\)</li><li>\((0,0,0)\)</li><li>não existe</li></ol><div class="why" hidden>Em \(\mathbb R^3\) o nulo é o terno \((0,0,0)\).</div></div>
+    <div class="q dq" data-id="m1d2" data-ans="A"><p>\(u+v\) geometricamente é:</p><ol class="opts"><li>a diagonal do paralelogramo de lados \(u\) e \(v\)</li><li>a soma dos comprimentos</li><li>o maior dos dois</li><li>perpendicular a \(u\)</li></ol><div class="why" hidden>Regra do paralelogramo (ou “ande u, depois v”).</div></div>
+    <div class="q dq" data-id="m1d3" data-ans="D"><p>Qual destas é uma propriedade das operações com vetores?</p><ol class="opts"><li>\(u+v=u\cdot v\)</li><li>\(\alpha u=u+\alpha\)</li><li>\(u-v=v-u\)</li><li>\(\alpha(u+v)=\alpha u+\alpha v\)</li></ol><div class="why" hidden>É uma das distributivas.</div></div>
+    <div class="q dq" data-id="m1d4" data-ans="B"><p>\((1,2,3,4,5)\) pertence a:</p><ol class="opts"><li>\(\mathbb R^3\)</li><li>\(\mathbb R^5\)</li><li>\(\mathbb R^{15}\)</li><li>\(\mathbb R^2\)</li></ol><div class="why" hidden>São 5 coordenadas.</div></div>
+  </div>
+</div>
+</section>

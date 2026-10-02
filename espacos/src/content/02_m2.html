@@ -1,0 +1,105 @@
+<section class="page mod" id="m2" data-num="2" data-part="Parte I · Fundamentos" data-short="Sistemas e escalonamento" data-title="A ferramenta principal: sistemas lineares e escalonamento" data-icon="matrix" data-desc="Matriz aumentada, operações elementares, forma escalonada e reduzida, posto, SPD/SPI/SI e sistemas homogêneos.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>escrever um sistema linear como matriz aumentada;</li>
+    <li>escalonar uma matriz com as três operações elementares;</li>
+    <li>calcular o posto e classificar o sistema (SPD, SPI, SI);</li>
+    <li>escrever a solução geral de um sistema indeterminado com parâmetros;</li>
+    <li>entender por que um sistema homogêneo sempre tem solução.</li></ul></div>
+
+  <div class="box tip"><div class="bl">Por que escalonamento numa apostila de espaços vetoriais?</div><p>Quase toda pergunta de espaço vetorial (“\(w\) é combinação de \(u\) e \(v\)?”, “esses vetores são LI?”, “qual a dimensão?”) vira um <b>sistema linear</b>. Quem escalona bem resolve o curso inteiro. Por isso este módulo vem antes de tudo.</p></div>
+
+  <h2 class="sec"><span class="n">2.1</span> Sistema linear e matriz aumentada</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>Uma <b>equação linear</b> tem as incógnitas só no 1º grau, sem produtos entre elas: \(2x-y+3z=5\). Um <b>sistema linear</b> é um conjunto delas. Guardamos só os números numa <b>matriz aumentada</b>:</p><div>\[\begin{cases}x+2y+z=4\\2x+5y+3z=11\\x+3y+4z=11\end{cases}\quad\longrightarrow\quad\left[\begin{array}{rrr|r}1&2&1&4\\2&5&3&11\\1&3&4&11\end{array}\right]\]</div><p>Cada linha é uma equação; cada coluna (antes da barra) é uma incógnita; a última coluna são os termos independentes.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">2.2</span> Operações elementares e escalonamento</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">As três operações que não mudam as soluções</div><p><b>1.</b> Trocar duas linhas: \(L_i\leftrightarrow L_j\).<br><b>2.</b> Multiplicar uma linha por um número \(k\ne0\): \(L_i\leftarrow kL_i\).<br><b>3.</b> Somar a uma linha um múltiplo de outra: \(L_i\leftarrow L_i+kL_j\).</p></div>
+    <div class="box def"><div class="bl">Forma escalonada</div><p>Uma matriz está <b>escalonada</b> quando: as linhas nulas ficam no fim; o primeiro número não nulo de cada linha (o <b>pivô</b>) fica à direita do pivô da linha de cima. Fica um formato de “escada”. Na forma <b>escalonada reduzida</b>, além disso, cada pivô vale 1 e é o único número não nulo da sua coluna.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado (método de Gauss)</div><p>Resolva o sistema da seção 2.1.</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · zere abaixo do 1º pivô (o 1 da linha 1)</span><div class="m">\[L_2\leftarrow L_2-2L_1,\ \ L_3\leftarrow L_3-L_1:\quad\left[\begin{array}{rrr|r}1&2&1&4\\0&1&1&3\\0&1&3&7\end{array}\right]\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · zere abaixo do 2º pivô</span><div class="m">\[L_3\leftarrow L_3-L_2:\quad\left[\begin{array}{rrr|r}1&2&1&4\\0&1&1&3\\0&0&2&4\end{array}\right]\]</div><p>Escalonada!</p></div>
+        <div class="st"><span class="pl">Passo 3 · substitua de baixo para cima</span><p>\(2z=4\Rightarrow z=2\). \(y+z=3\Rightarrow y=1\). \(x+2y+z=4\Rightarrow x=0\).</p></div>
+      </div>
+      <div class="final"><b>Solução:</b> \((x,y,z)=(0,1,2)\).</div></div>
+  </div>
+  <div class="lab" data-w="escalonador"><div class="lt">Laboratório: escalonador passo a passo (com frações exatas)</div><p class="ld">Digite qualquer matriz. O laboratório mostra cada operação elementar, o posto e, se for sistema, a classificação e a solução geral. Use os botões SPD, SPI, SI e Homogêneo para ver os três casos.</p></div>
+
+  <h2 class="sec"><span class="n">2.3</span> Posto e classificação</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Posto</div><p>O <b>posto</b> de uma matriz é o número de pivôs (linhas não nulas) depois de escalonar.</p></div>
+    <div class="tbl"><table><thead><tr><th class="l">Situação na forma escalonada</th><th class="l">Classificação</th><th class="l">Soluções</th></tr></thead><tbody>
+      <tr><td class="l">Aparece uma linha \([0\ 0\ \cdots\ 0\,|\,c]\) com \(c\ne0\)</td><td class="l"><b>SI</b> (impossível)</td><td class="l">nenhuma</td></tr>
+      <tr><td class="l">Não há essa linha e posto = nº de incógnitas</td><td class="l"><b>SPD</b> (possível e determinado)</td><td class="l">uma só</td></tr>
+      <tr><td class="l">Não há essa linha e posto &lt; nº de incógnitas</td><td class="l"><b>SPI</b> (possível e indeterminado)</td><td class="l">infinitas</td></tr>
+    </tbody></table></div>
+    <div class="box obs"><div class="bl">Variáveis livres</div><p>No SPI, as incógnitas cujas colunas <b>não</b> têm pivô são <b>livres</b>: viram parâmetros (\(t, s, \dots\)). O número de variáveis livres é \(\text{incógnitas}-\text{posto}\).</p></div>
+    <div class="ex"><div class="et">Exemplo guiado · SPI</div><p>Resolva \(\begin{cases}x+y+2z=3\\2x+2y+4z=6\\x-y=1\end{cases}\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · escalone</span><div class="m">\[\left[\begin{array}{rrr|r}1&1&2&3\\2&2&4&6\\1&-1&0&1\end{array}\right]\to\left[\begin{array}{rrr|r}1&1&2&3\\0&-2&-2&-2\\0&0&0&0\end{array}\right]\]</div><p>(\(L_2\leftarrow L_2-2L_1\) zera a linha 2; \(L_3\leftarrow L_3-L_1\) dá \((0,-2,-2\,|\,-2)\); por fim troque \(L_2\) e \(L_3\).)</p></div>
+        <div class="st"><span class="pl">Passo 2 · posto 2 &lt; 3 incógnitas: SPI com 1 livre</span><p>\(z\) não tem pivô: \(z=t\). Da linha 2: \(-2y-2t=-2\Rightarrow y=1-t\). Da linha 1: \(x=3-y-2t=2-t\).</p></div>
+      </div>
+      <div class="final"><b>Solução geral:</b> \((x,y,z)=(2-t,\ 1-t,\ t)=(2,1,0)+t(-1,-1,1)\), \(t\in\mathbb R\). Geometricamente, uma reta no espaço.</div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">2.4</span> Sistemas homogêneos</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>Um sistema é <b>homogêneo</b> quando todos os termos independentes são zero: \(AX=0\). Ele <b>sempre</b> tem a solução trivial \(X=0\). Então só há dois casos: SPD (só a trivial) ou SPI (infinitas).</p></div>
+    <div class="box tip"><div class="bl">Regra de bolso</div><p>Homogêneo com <b>mais incógnitas que equações</b> é sempre SPI (o posto não pode passar do número de equações). Essa regra vai explicar por que “3 vetores em \(\mathbb R^2\) são sempre LD” no Módulo 6.</p></div>
+    <div class="box obs"><div class="bl">Prévia do que vem</div><p>As soluções de um sistema homogêneo formam um <b>subespaço</b> (Módulo 4): somando duas soluções ou multiplicando uma solução por um número, continua sendo solução. Já um sistema com termos independentes não nulos não tem essa propriedade.</p></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Balanceando uma reação química</h3>
+    <p>Para balancear \(x\,\text{C}_3\text{H}_8+y\,\text{O}_2\to z\,\text{CO}_2+w\,\text{H}_2\text{O}\) (queima do propano), o número de átomos de cada elemento tem que ser igual dos dois lados.</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · uma equação por elemento</span><p>C: \(3x=z\). H: \(8x=2w\). O: \(2y=2z+w\). Passando tudo para a esquerda, é um sistema <b>homogêneo</b> com 4 incógnitas e 3 equações.</p><div class="m">\[\left[\begin{array}{rrrr|r}3&0&-1&0&0\\8&0&0&-2&0\\0&2&-2&-1&0\end{array}\right]\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · escalone (laboratório)</span><p>Posto 3 &lt; 4 incógnitas: SPI com 1 variável livre. Tomando \(x=t\): \(z=3t\), \(w=4t\), \(y=\frac{2z+w}{2}=5t\).</p></div>
+      <div class="st"><span class="pl">Passo 3 · menor solução inteira</span><p>\(t=1\): \(x=1,\ y=5,\ z=3,\ w=4\).</p></div>
+    </div>
+    <div class="final"><b>Resposta:</b> \(\text{C}_3\text{H}_8+5\,\text{O}_2\to3\,\text{CO}_2+4\,\text{H}_2\text{O}\). As soluções \(t(1,5,3,4)\) formam uma reta: um subespaço de dimensão 1.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1 · SI</div><p>Classifique \(\begin{cases}x+y+z=1\\2x+2y+2z=3\end{cases}\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(L_2\leftarrow L_2-2L_1\) dá \([0\ 0\ 0\,|\,1]\): \(0=1\). Sistema impossível.</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2 · homogêneo</div><p>Resolva \(\begin{cases}x+2y-z=0\\2x+4y-2z=0\end{cases}\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>A 2ª é o dobro da 1ª: sobra \(x=-2y+z\), com \(y=s\), \(z=t\) livres.</p></div><div class="st"><span class="pl">Solução</span><div class="m">\[(x,y,z)=s(-2,1,0)+t(1,0,1)\]</div><p>Um plano pela origem.</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m2v1" data-ans="C"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Qual operação <b>não</b> é elementar?</p>
+      <ol class="opts"><li>\(L_1\leftrightarrow L_3\)</li><li>\(L_2\leftarrow5L_2\)</li><li>\(L_2\leftarrow0\cdot L_2\)</li><li>\(L_3\leftarrow L_3-4L_1\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Multiplicar por 0 apaga a equação e pode mudar as soluções; só vale \(k\ne0\).</p></div></div><p class="rev">Revise: <a href="#m2-s2">2.2 Operações</a></p></div>
+    <div class="q" data-id="m2v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>Uma linha \([0\ 0\ 0\,|\,5]\) na forma escalonada indica:</p>
+      <ol class="opts"><li>sistema impossível</li><li>solução única</li><li>infinitas soluções</li><li>que \(z=5\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Ela diz \(0x+0y+0z=5\), isto é, \(0=5\).</p></div></div><p class="rev">Revise: <a href="#m2-s3">2.3 Classificação</a></p></div>
+    <div class="q" data-id="m2v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag f">fácil</span></div><p>Um sistema homogêneo:</p>
+      <ol class="opts"><li>pode ser impossível</li><li>tem sempre infinitas soluções</li><li>nunca tem solução</li><li>tem sempre ao menos a solução nula</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Todas as incógnitas iguais a 0 satisfazem \(AX=0\).</p></div></div><p class="rev">Revise: <a href="#m2-s4">2.4 Homogêneos</a></p></div>
+    <div class="q" data-id="m2v4" data-ans="B"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>A solução de \(\begin{cases}x+y=5\\x-y=1\end{cases}\) é:</p>
+      <ol class="opts"><li>\((2,3)\)</li><li>\((3,2)\)</li><li>\((4,1)\)</li><li>infinitas</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(L_2\leftarrow L_2-L_1\): \(-2y=-4\Rightarrow y=2\), \(x=3\).</p></div></div><p class="rev">Revise: <a href="#m2-s2">2.2</a></p></div>
+    <div class="q" data-id="m2v5" data-ans="C"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>Um sistema com 4 incógnitas tem, após escalonar, posto 2 e nenhuma linha \([0\cdots0|c]\), \(c\ne0\). Ele é:</p>
+      <ol class="opts"><li>SPD</li><li>SI</li><li>SPI com 2 variáveis livres</li><li>SPI com 4 variáveis livres</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Livres \(=4-2=2\).</p></div></div><p class="rev">Revise: <a href="#m2-s3">2.3 Variáveis livres</a></p></div>
+    <div class="q" data-id="m2v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag m">médio</span></div><p>O posto de \(\begin{bmatrix}1&2\\3&6\end{bmatrix}\) é:</p>
+      <ol class="opts"><li>1</li><li>2</li><li>0</li><li>6</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(L_2\leftarrow L_2-3L_1\) zera a 2ª linha: 1 pivô.</p></div></div><p class="rev">Revise: <a href="#m2-s3">2.3 Posto</a></p></div>
+    <div class="q" data-id="m2v7" data-ans="D"><div class="qh"><span class="qn">Verificação 7</span><span class="tag d">difícil</span></div><p>Para que valor de \(k\) o sistema \(\begin{cases}x+2y=3\\2x+4y=k\end{cases}\) tem infinitas soluções?</p>
+      <ol class="opts"><li>\(k=3\)</li><li>\(k=4\)</li><li>qualquer \(k\)</li><li>\(k=6\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(L_2\leftarrow L_2-2L_1\): \([0\ 0\,|\,k-6]\). Para não ser SI, \(k=6\); aí sobra uma equação com 2 incógnitas: SPI.</p></div></div><p class="rev">Revise: <a href="#m2-s3">2.3</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m2d1" data-ans="B"><p>O pivô de uma linha é:</p><ol class="opts"><li>o maior número da linha</li><li>o primeiro número não nulo da linha</li><li>o último número</li><li>sempre 1</li></ol><div class="why" hidden>Na forma escalonada (não reduzida) o pivô pode ser qualquer número não nulo.</div></div>
+    <div class="q dq" data-id="m2d2" data-ans="D"><p>Homogêneo com 3 equações e 5 incógnitas é:</p><ol class="opts"><li>SI</li><li>SPD</li><li>depende</li><li>SPI</li></ol><div class="why" hidden>Posto ≤ 3 &lt; 5 incógnitas e homogêneo nunca é SI.</div></div>
+    <div class="q dq" data-id="m2d3" data-ans="A"><p>Na solução \((2-t,\ 1-t,\ t)\), o conjunto das soluções é:</p><ol class="opts"><li>uma reta</li><li>um ponto</li><li>um plano</li><li>vazio</li></ol><div class="why" hidden>Um parâmetro: ponto \((2,1,0)\) mais múltiplos de \((-1,-1,1)\).</div></div>
+    <div class="q dq" data-id="m2d4" data-ans="C"><p>Por que escalonar ajuda em espaços vetoriais?</p><ol class="opts"><li>Não ajuda</li><li>Só serve para calcular determinantes</li><li>Porque perguntas sobre vetores viram sistemas lineares</li><li>Porque elimina os vetores</li></ol><div class="why" hidden>Combinação linear, independência, base e dimensão: tudo vira sistema.</div></div>
+  </div>
+</div>
+</section>

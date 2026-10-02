@@ -1,0 +1,107 @@
+<section class="page mod" id="m3" data-num="3" data-part="Parte II · Espaços e subespaços" data-short="Espaços vetoriais" data-title="Espaço vetorial: a definição e os exemplos" data-icon="grid" data-desc="Os 8 axiomas, exemplos (ℝⁿ, matrizes, polinômios, funções), contraexemplos e propriedades que decorrem dos axiomas.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>enunciar a definição de espaço vetorial (fechamento + 8 axiomas);</li>
+    <li>reconhecer os exemplos clássicos: \(\mathbb R^n\), \(M_{m\times n}\), \(P_n\) e espaços de funções;</li>
+    <li>mostrar que uma estrutura <b>não</b> é espaço vetorial com um contraexemplo;</li>
+    <li>deduzir propriedades como \(0\cdot u=0\) e \((-1)u=-u\) só a partir dos axiomas.</li></ul></div>
+
+  <h2 class="sec"><span class="n">3.1</span> A definição</h2>
+  <div class="prose">
+    <p>No Módulo 1 vimos que as setas obedecem a 8 regras. A grande ideia da Álgebra Linear é <b>inverter o caminho</b>: chamar de “vetor” qualquer objeto que obedeça a essas regras.</p>
+    <div class="box def"><div class="bl">Definição</div><p>Um <b>espaço vetorial real</b> é um conjunto \(V\ne\varnothing\) com duas operações:</p><p>• <b>soma</b>: para \(u,v\in V\), \(u+v\in V\) (fechamento da soma);<br>• <b>produto por escalar</b>: para \(\alpha\in\mathbb R\) e \(u\in V\), \(\alpha u\in V\) (fechamento do produto);</p><p>tais que, para todos \(u,v,w\in V\) e \(\alpha,\beta\in\mathbb R\):</p>
+      <div class="tbl"><table><tbody>
+        <tr><td class="l"><b>A1</b></td><td>\(u+v=v+u\)</td><td class="l"><b>M1</b></td><td>\(\alpha(\beta u)=(\alpha\beta)u\)</td></tr>
+        <tr><td class="l"><b>A2</b></td><td>\((u+v)+w=u+(v+w)\)</td><td class="l"><b>M2</b></td><td>\((\alpha+\beta)u=\alpha u+\beta u\)</td></tr>
+        <tr><td class="l"><b>A3</b></td><td>existe \(0\in V\) com \(u+0=u\)</td><td class="l"><b>M3</b></td><td>\(\alpha(u+v)=\alpha u+\alpha v\)</td></tr>
+        <tr><td class="l"><b>A4</b></td><td>para cada \(u\) existe \(-u\) com \(u+(-u)=0\)</td><td class="l"><b>M4</b></td><td>\(1\cdot u=u\)</td></tr>
+      </tbody></table></div><p>Os elementos de \(V\) passam a se chamar <b>vetores</b>, mesmo que sejam matrizes, polinômios ou funções.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">3.2</span> Os exemplos clássicos</h2>
+  <div class="prose">
+    <div class="tbl"><table><thead><tr><th class="l">Espaço</th><th class="l">Vetores são</th><th class="l">Vetor nulo</th></tr></thead><tbody>
+      <tr><td class="l">\(\mathbb R^n\)</td><td class="l">listas \((x_1,\dots,x_n)\)</td><td class="l">\((0,\dots,0)\)</td></tr>
+      <tr><td class="l">\(M_{m\times n}\)</td><td class="l">matrizes \(m\times n\), soma entrada a entrada</td><td class="l">matriz nula</td></tr>
+      <tr><td class="l">\(P_n\)</td><td class="l">polinômios de grau \(\le n\): \(a_0+a_1t+\cdots+a_nt^n\)</td><td class="l">polinômio nulo \(0\)</td></tr>
+      <tr><td class="l">\(P\)</td><td class="l">todos os polinômios</td><td class="l">\(0\)</td></tr>
+      <tr><td class="l">\(\mathcal F(\mathbb R)\)</td><td class="l">funções \(f:\mathbb R\to\mathbb R\), com \((f+g)(x)=f(x)+g(x)\)</td><td class="l">a função constante 0</td></tr>
+    </tbody></table></div>
+    <div class="ex"><div class="et">Exemplo guiado · operações em \(P_2\) e \(M_{2\times2}\)</div>
+      <div class="steps">
+        <div class="st"><span class="pl">Polinômios</span><div class="m">\[(1+2t-t^2)+3(t+t^2)=1+5t+2t^2\]</div><p>Soma-se coeficiente a coeficiente: \(1+2t-t^2\) “funciona como” \((1,2,-1)\in\mathbb R^3\).</p></div>
+        <div class="st"><span class="pl">Matrizes</span><div class="m">\[2\begin{bmatrix}1&0\\-1&3\end{bmatrix}-\begin{bmatrix}0&4\\2&1\end{bmatrix}=\begin{bmatrix}2&-4\\-4&5\end{bmatrix}\]</div><p>Uma matriz \(2\times2\) “funciona como” um vetor de \(\mathbb R^4\).</p></div>
+      </div></div>
+    <div class="box tip"><div class="bl">O ganho</div><p>Tudo o que provarmos usando só os axiomas vale ao mesmo tempo para setas, matrizes, polinômios e funções. Um teorema, quatro (ou infinitas) aplicações.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">3.3</span> Quando NÃO é espaço vetorial</h2>
+  <div class="prose">
+    <div class="box warn"><div class="bl">Como mostrar que não é</div><p>Basta <b>um</b> contraexemplo: um axioma (ou um fechamento) que falha para vetores e escalares específicos. Para mostrar que <b>é</b>, é preciso provar os 10 itens em geral.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Em \(\mathbb R^2\), com a soma usual e o produto \(\alpha(a,b)=(\alpha a,\ b)\), temos um espaço vetorial?</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Teste M2 com α = β = 1 e u = (1, 1)</span><div class="m">\[(1+1)(1,1)=(2,1)\qquad1(1,1)+1(1,1)=(1,1)+(1,1)=(2,2)\]</div></div>
+        <div class="st"><span class="pl">Conclusão</span><p>\((2,1)\ne(2,2)\): M2 falha. Não é espaço vetorial.</p></div>
+      </div></div>
+  </div>
+  <div class="lab" data-w="axiomaLab"><div class="lt">Laboratório: testador de axiomas</div><p class="ld">Escolha uma estrutura. O laboratório testa o fechamento e os 8 axiomas com muitos números sorteados e mostra um contraexemplo quando algo falha. Repare no último exemplo, bem estranho, que <b>é</b> espaço vetorial.</p></div>
+
+  <h2 class="sec"><span class="n">3.4</span> Consequências dos axiomas</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Propriedades (valem em qualquer espaço vetorial)</div><p>1) O vetor nulo é único. 2) O oposto de cada vetor é único. 3) \(0\cdot u=0\). 4) \(\alpha\cdot0=0\). 5) \((-1)u=-u\). 6) Se \(\alpha u=0\), então \(\alpha=0\) ou \(u=0\).</p></div>
+    <details class="demo" open><summary>Demonstração de \(0\cdot u=0\) (só com axiomas)</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · M2 com α = β = 0</span><div class="m">\[0u=(0+0)u=0u+0u\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · some \(-(0u)\) dos dois lados (A4, A2)</span><div class="m">\[0u+(-0u)=(0u+0u)+(-0u)\ \Rightarrow\ 0=0u+0=0u\]</div></div>
+        <div class="st"><span class="pl">Observação</span><p>Repare: no lado esquerdo “0” é o número zero; no direito, é o vetor nulo de \(V\). Em \(\mathbb R_+\) com a soma estranha do laboratório, o vetor nulo é o número 1, e de fato \(x^0=1\).</p></div>
+      </div></div></details>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Sinais de áudio são vetores</h3>
+    <p>Um trecho de áudio digital com 1 segundo, gravado a 44 100 amostras por segundo, é uma lista de 44 100 números (a pressão do ar em cada instante): um vetor de \(\mathbb R^{44100}\). Mixar duas faixas e mudar o volume são as operações do espaço vetorial.</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Mixagem = soma</span><p>Voz \(v\) e violão \(g\) tocando juntos: a gravação é \(v+g\), amostra por amostra.</p></div>
+      <div class="st"><span class="pl">Volume = escalar</span><p>Baixar o violão pela metade: \(v+0{,}5\,g\). Inverter a fase (cancelamento de ruído): multiplicar por \(-1\).</p></div>
+      <div class="st"><span class="pl">Cancelamento de ruído</span><p>Fones com cancelamento captam o ruído \(r\) e tocam \(-r\): no seu ouvido chega \(m+r+(-r)=m\), só a música. É o axioma A4 funcionando.</p></div>
+    </div>
+    <div class="final"><b>Lição:</b> “vetor” não precisa ser seta. Qualquer coisa que soma e escala com as regras dos axiomas é vetor, e toda a teoria vale para ela.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>O conjunto \(\{(x,1):x\in\mathbb R\}\) com as operações de \(\mathbb R^2\) é espaço vetorial?</p>
+    <div class="steps"><div class="st"><span class="pl">Fechamento da soma</span><p>\((1,1)+(2,1)=(3,2)\), que não tem 2ª coordenada 1. Não é. (Também não contém \((0,0)\).)</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Os polinômios de grau <b>exatamente</b> 2 formam espaço vetorial?</p>
+    <div class="steps"><div class="st"><span class="pl">Fechamento da soma</span><p>\((t^2+1)+(-t^2+t)=t+1\), de grau 1. Não é. (E o polinômio nulo nem tem grau 2.) Por isso usamos \(P_2\) = grau <b>menor ou igual</b> a 2.</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m3v1" data-ans="C"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>O vetor nulo de \(M_{2\times2}\) é:</p>
+      <ol class="opts"><li>o número 0</li><li>a matriz identidade</li><li>a matriz com todas as entradas 0</li><li>não existe</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(A+0=A\) para toda \(A\) só com a matriz nula.</p></div></div><p class="rev">Revise: <a href="#m3-s2">3.2 Exemplos</a></p></div>
+    <div class="q" data-id="m3v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>Para mostrar que uma estrutura <b>não</b> é espaço vetorial, basta:</p>
+      <ol class="opts"><li>um contraexemplo para um axioma ou fechamento</li><li>testar 3 vetores</li><li>mostrar que o nulo existe</li><li>provar todos os axiomas</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Os axiomas têm que valer para <b>todos</b> os vetores; uma falha derruba.</p></div></div><p class="rev">Revise: <a href="#m3-s3">3.3</a></p></div>
+    <div class="q" data-id="m3v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>Qual destes <b>é</b> espaço vetorial (operações usuais)?</p>
+      <ol class="opts"><li>polinômios de grau exatamente 3</li><li>\(\{(x,y):x\ge0\}\)</li><li>\(\{(x,2):x\in\mathbb R\}\)</li><li>\(P_3\) (grau \(\le3\))</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(P_3\) é fechado e contém o nulo. Os outros falham em fechamento ou no nulo.</p></div></div><p class="rev">Revise: <a href="#m3-s2">3.2</a> e <a href="#m3-s3">3.3</a></p></div>
+    <div class="q" data-id="m3v4" data-ans="B"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Em \(\mathbb R^2\) com soma usual e \(\alpha(a,b)=(0,0)\), qual axioma falha?</p>
+      <ol class="opts"><li>A1</li><li>M4: \(1\cdot u=u\)</li><li>A2</li><li>nenhum</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(1\cdot(2,3)=(0,0)\ne(2,3)\).</p></div></div><p class="rev">Revise: <a href="#m3-s1">3.1 Axiomas</a></p></div>
+    <div class="q" data-id="m3v5" data-ans="C"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>\(2(1-t+t^2)-(t+3t^2)\) em \(P_2\) é:</p>
+      <ol class="opts"><li>\(2-t-t^2\)</li><li>\(2-3t+5t^2\)</li><li>\(2-3t-t^2\)</li><li>\(1-2t-2t^2\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(2-2t+2t^2-t-3t^2=2-3t-t^2\).</p></div></div><p class="rev">Revise: <a href="#m3-s2">3.2</a></p></div>
+    <div class="q" data-id="m3v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Em \(\mathbb R_+\) com \(x\oplus y=xy\) e \(\alpha\odot x=x^\alpha\), o oposto de \(x=4\) é:</p>
+      <ol class="opts"><li>\(\tfrac14\)</li><li>\(-4\)</li><li>0</li><li>não existe</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>O nulo é 1 (pois \(x\cdot1=x\)). O oposto \(y\) cumpre \(4\oplus y=1\): \(4y=1\Rightarrow y=\frac14\).</p></div></div><p class="rev">Revise: <a href="#m3-s3">laboratório 3.3</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m3d1" data-ans="B"><p>Num espaço vetorial, “vetor” significa:</p><ol class="opts"><li>só setas</li><li>qualquer elemento de \(V\)</li><li>só listas de números</li><li>só matrizes</li></ol><div class="why" hidden>Vetores são os elementos do espaço, sejam o que forem.</div></div>
+    <div class="q dq" data-id="m3d2" data-ans="D"><p>\(0\cdot u=0\) vale:</p><ol class="opts"><li>só em \(\mathbb R^n\)</li><li>é um axioma</li><li>só para matrizes</li><li>em todo espaço vetorial, e é consequência dos axiomas</li></ol><div class="why" hidden>Prova com M2 e A4 (seção 3.4).</div></div>
+    <div class="q dq" data-id="m3d3" data-ans="A"><p>Um polinômio de \(P_2\) pode ser pensado como:</p><ol class="opts"><li>um vetor de \(\mathbb R^3\) (os coeficientes)</li><li>um número</li><li>um vetor de \(\mathbb R^2\)</li><li>uma matriz 2×2</li></ol><div class="why" hidden>\(a+bt+ct^2\leftrightarrow(a,b,c)\).</div></div>
+    <div class="q dq" data-id="m3d4" data-ans="C"><p>Um conjunto que não contém o vetor nulo (com as operações usuais):</p><ol class="opts"><li>pode ser espaço vetorial</li><li>é sempre espaço vetorial</li><li>não é espaço vetorial</li><li>é um subespaço</li></ol><div class="why" hidden>A3 exige o nulo (e o fechamento do escalar daria \(0u=0\) dentro do conjunto).</div></div>
+  </div>
+</div>
+</section>

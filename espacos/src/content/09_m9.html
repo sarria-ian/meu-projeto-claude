@@ -1,0 +1,92 @@
+<section class="page mod" id="m9" data-num="9" data-part="Parte V · Tópicos avançados" data-short="Transformações lineares" data-title="Transformações lineares: núcleo, imagem e matriz" data-icon="expand" data-desc="Funções entre espaços que respeitam soma e escalar, matriz de uma transformação, núcleo, imagem e o Teorema do Núcleo e da Imagem.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>verificar se uma função entre espaços vetoriais é linear;</li>
+    <li>montar a matriz de uma transformação a partir das imagens da base canônica;</li>
+    <li>calcular núcleo e imagem (com bases e dimensões);</li>
+    <li>usar \(\dim N(T)+\dim\text{Im}(T)=\dim V\) e decidir injetividade e sobrejetividade.</li></ul></div>
+
+  <h2 class="sec"><span class="n">9.1</span> Definição</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Transformação linear</div><p>Uma função \(T:V\to W\) entre espaços vetoriais é <b>linear</b> se, para todos \(u,v\in V\) e \(\alpha\in\mathbb R\):</p><div>\[T(u+v)=T(u)+T(v)\qquad\text{e}\qquad T(\alpha u)=\alpha\,T(u)\]</div><p>Ela “respeita” as duas operações. Consequência imediata: \(T(0)=0\).</p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>\(T(x,y)=(x+2y,\ 3x)\) é linear? E \(S(x,y)=(x+1,\ y)\)?</p>
+      <div class="steps">
+        <div class="st"><span class="pl">T</span><p>\(T(u+v)=(x_1+x_2+2y_1+2y_2,\ 3x_1+3x_2)=T(u)+T(v)\) e \(T(\alpha u)=(\alpha x+2\alpha y,3\alpha x)=\alpha T(u)\). Linear.</p></div>
+        <div class="st"><span class="pl">S</span><p>\(S(0,0)=(1,0)\ne(0,0)\). Não é linear (é uma translação).</p></div>
+      </div></div>
+    <div class="box tip"><div class="bl">Teste rápido de olho</div><p>Em \(\mathbb R^n\), \(T\) é linear quando cada coordenada da imagem é uma combinação \(a_1x_1+\cdots+a_nx_n\), <b>sem constantes soltas, sem produtos \(xy\), sem potências, sem \(|x|\) ou \(\sin x\)</b>.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">9.2</span> A matriz de uma transformação</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Teorema</div><p>Uma transformação linear fica <b>totalmente determinada</b> pelas imagens de uma base. Em \(\mathbb R^n\to\mathbb R^m\):</p><div>\[T(x)=A\,x,\qquad A=\Big[\ T(e_1)\ \ T(e_2)\ \cdots\ T(e_n)\ \Big]\]</div><p>As colunas de \(A\) são as imagens dos vetores canônicos.</p></div>
+    <div class="ex"><div class="et">Exemplo</div><p>\(T(x,y)=(x+2y,\ 3x)\): \(T(e_1)=(1,3)\), \(T(e_2)=(2,0)\), então \(A=\begin{bmatrix}1&2\\3&0\end{bmatrix}\).</p></div>
+  </div>
+  <div class="lab" data-w="tlLab"><div class="lt">Laboratório: veja uma transformação deformar o plano</div><p class="ld">Escolha a matriz (ou um dos exemplos). Aperte “Iniciar” para ver a grade se transformar continuamente. O quadrado dourado de área 1 vira um paralelogramo de área \(|\det A|\). Quando \(\det=0\), o plano é esmagado numa reta.</p></div>
+
+  <h2 class="sec"><span class="n">9.3</span> Núcleo e imagem</h2>
+  <div class="prose">
+    <div class="two">
+      <div class="box def"><div class="bl">Núcleo</div><div>\[N(T)=\{v\in V:\ T(v)=0\}\]</div><p>É subespaço de \(V\). Cálculo: resolva \(Ax=0\).</p></div>
+      <div class="box def"><div class="bl">Imagem</div><div>\[\text{Im}(T)=\{T(v):\ v\in V\}\]</div><p>É subespaço de \(W\). Cálculo: é gerada pelas colunas de \(A\) (extraia uma base: Módulo 7).</p></div>
+    </div>
+    <div class="box def"><div class="bl">Teorema do Núcleo e da Imagem</div><div>\[\dim N(T)+\dim\text{Im}(T)=\dim V\]</div><p>Na matriz: (variáveis livres) + (pivôs) = (número de colunas).</p></div>
+    <div class="box def"><div class="bl">Injetora e sobrejetora</div><p><b>Injetora</b> \(\iff N(T)=\{0\}\). <b>Sobrejetora</b> \(\iff\text{Im}(T)=W\). Se \(\dim V=\dim W\), uma implica a outra; com as duas, \(T\) é um <b>isomorfismo</b> (inversível).</p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>\(T:\mathbb R^3\to\mathbb R^2\), \(T(x,y,z)=(x+y,\ y-z)\). Ache núcleo e imagem.</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Núcleo</span><p>\(x+y=0\) e \(y-z=0\): \(y=t\), \(z=t\), \(x=-t\). \(N(T)=[(-1,1,1)]\), dimensão 1.</p></div>
+        <div class="st"><span class="pl">Imagem</span><p>Pelo teorema, \(\dim\text{Im}=3-1=2=\dim\mathbb R^2\): \(\text{Im}(T)=\mathbb R^2\).</p></div>
+        <div class="st"><span class="pl">Conclusão</span><p>Sobrejetora, não injetora.</p></div>
+      </div></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>A sombra de um objeto (projeção)</h3>
+    <p>Com o sol a pino, a sombra de um ponto \((x,y,z)\) no chão é \(P(x,y,z)=(x,y,0)\). Essa “máquina de sombras” é linear? O que é o núcleo? Dá para reconstruir o objeto a partir da sombra?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · linear</span><p>Cada coordenada é combinação de \(x,y,z\) sem constantes: linear, com matriz \(\begin{bmatrix}1&0&0\\0&1&0\\0&0&0\end{bmatrix}\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · núcleo</span><p>\(P(v)=0\iff x=y=0\): o eixo \(z\). Tudo o que está na vertical sobre um ponto da sombra “some”. \(\dim N=1\).</p></div>
+      <div class="st"><span class="pl">Passo 3 · imagem e teorema</span><p>Imagem: o plano do chão, dimensão 2. \(1+2=3\) ✓. Como o núcleo não é \(\{0\}\), \(P\) não é injetora: objetos diferentes podem ter a mesma sombra, e não dá para reconstruir a altura.</p></div>
+    </div>
+    <div class="final"><b>Lição:</b> o núcleo mede a informação que a transformação perde. Fotos (3D → 2D) e compressão de dados funcionam assim.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>\(T(x,y)=(xy,\ x)\) é linear?</p>
+    <div class="steps"><div class="st"><span class="pl">Contraexemplo</span><p>\(T(2(1,1))=T(2,2)=(4,2)\), mas \(2T(1,1)=(2,2)\). Não é.</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Ache a transformação linear com \(T(1,0)=(2,1)\) e \(T(0,1)=(-1,3)\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(T(x,y)=xT(e_1)+yT(e_2)=(2x-y,\ x+3y)\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>A derivada \(D:P_3\to P_2\), \(D(p)=p'\), é linear. Ache \(N(D)\) e \(\dim\text{Im}(D)\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(p'=0\iff p\) constante: \(N(D)=P_0\), dimensão 1.</p></div><div class="st"><span class="pl">Passo 2</span><p>\(\dim\text{Im}=4-1=3=\dim P_2\): \(D\) é sobrejetora.</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m9v1" data-ans="C"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Qual é linear?</p>
+      <ol class="opts"><li>\(T(x,y)=(x+3,\ y)\)</li><li>\(T(x,y)=(x^2,\ y)\)</li><li>\(T(x,y)=(2x-y,\ 5y)\)</li><li>\(T(x,y)=(|x|,\ y)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Só combinações lineares de \(x\) e \(y\), sem constantes nem potências.</p></div></div><p class="rev">Revise: <a href="#m9-s1">9.1</a></p></div>
+    <div class="q" data-id="m9v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>Toda transformação linear leva o vetor nulo em:</p>
+      <ol class="opts"><li>vetor nulo</li><li>\(e_1\)</li><li>qualquer vetor</li><li>depende da matriz</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(T(0)=T(0\cdot v)=0\cdot T(v)=0\).</p></div></div><p class="rev">Revise: <a href="#m9-s1">9.1</a></p></div>
+    <div class="q" data-id="m9v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>A matriz de \(T(x,y,z)=(x-z,\ 2y)\) é:</p>
+      <ol class="opts"><li>\(\begin{bmatrix}1&0\\0&2\\-1&0\end{bmatrix}\)</li><li>\(\begin{bmatrix}1&-1\\2&0\end{bmatrix}\)</li><li>\(\begin{bmatrix}1&2&-1\end{bmatrix}\)</li><li>\(\begin{bmatrix}1&0&-1\\0&2&0\end{bmatrix}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(T(e_1)=(1,0)\), \(T(e_2)=(0,2)\), \(T(e_3)=(-1,0)\) como colunas.</p></div></div><p class="rev">Revise: <a href="#m9-s2">9.2</a></p></div>
+    <div class="q" data-id="m9v4" data-ans="B"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>\(T:\mathbb R^4\to\mathbb R^3\) linear com \(\dim N(T)=2\). Então \(\dim\text{Im}(T)\) é:</p>
+      <ol class="opts"><li>1</li><li>2</li><li>3</li><li>4</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(2+\dim\text{Im}=4\Rightarrow\dim\text{Im}=2\).</p></div></div><p class="rev">Revise: <a href="#m9-s3">9.3 Teorema</a></p></div>
+    <div class="q" data-id="m9v5" data-ans="C"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>Uma transformação linear \(T:\mathbb R^3\to\mathbb R^2\) pode ser injetora?</p>
+      <ol class="opts"><li>sim, sempre</li><li>sim, se for sobrejetora</li><li>não, nunca</li><li>só se \(\det\ne0\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\dim\text{Im}\le2\Rightarrow\dim N\ge3-2=1\): o núcleo nunca é só \(\{0\}\).</p></div></div><p class="rev">Revise: <a href="#m9-s3">9.3</a></p></div>
+    <div class="q" data-id="m9v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>O núcleo de \(T(x,y,z)=(x+y+z,\ x-y)\) é gerado por:</p>
+      <ol class="opts"><li>\((1,1,-2)\)</li><li>\((1,-1,0)\)</li><li>\((1,1,1)\)</li><li>\((0,0,1)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(x=y=t\), \(z=-2t\): \(t(1,1,-2)\).</p></div></div><p class="rev">Revise: <a href="#m9-s3">9.3</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m9d1" data-ans="D"><p>As colunas da matriz de T são:</p><ol class="opts"><li>as linhas de T</li><li>os vetores do núcleo</li><li>os autovetores</li><li>as imagens dos vetores canônicos</li></ol><div class="why" hidden>\(A=[T(e_1)\ \cdots\ T(e_n)]\).</div></div>
+    <div class="q dq" data-id="m9d2" data-ans="B"><p>Se det A = 0 (A quadrada), a transformação:</p><ol class="opts"><li>é inversível</li><li>tem núcleo não trivial</li><li>é a identidade</li><li>dobra áreas</li></ol><div class="why" hidden>Colunas LD: existe \(x\ne0\) com \(Ax=0\).</div></div>
+    <div class="q dq" data-id="m9d3" data-ans="A"><p>O núcleo mede:</p><ol class="opts"><li>o que a transformação “apaga” (leva em 0)</li><li>o que ela alcança</li><li>a área</li><li>o número de linhas</li></ol><div class="why" hidden>Vetores do núcleo viram zero: informação perdida.</div></div>
+    <div class="q dq" data-id="m9d4" data-ans="C"><p>\(\dim N(T)+\dim\text{Im}(T)\) é igual a:</p><ol class="opts"><li>dim do contradomínio</li><li>posto</li><li>dim do domínio</li><li>sempre 3</li></ol><div class="why" hidden>Teorema do Núcleo e da Imagem.</div></div>
+  </div>
+</div>
+</section>

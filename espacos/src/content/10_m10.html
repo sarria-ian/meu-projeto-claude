@@ -1,0 +1,93 @@
+<section class="page mod" id="m10" data-num="10" data-part="Parte V · Tópicos avançados" data-short="Produto interno e ortogonalidade" data-title="Produto interno, ortogonalidade e Gram-Schmidt" data-icon="target" data-desc="Produto interno, norma, ângulo, vetores ortogonais, projeção ortogonal, bases ortonormais e o processo de Gram-Schmidt.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>calcular produto interno, norma, distância e ângulo;</li>
+    <li>reconhecer vetores e bases ortogonais/ortonormais;</li>
+    <li>calcular a projeção ortogonal de um vetor sobre outro;</li>
+    <li>transformar qualquer base em ortonormal com Gram-Schmidt;</li>
+    <li>obter coordenadas numa base ortonormal sem resolver sistema.</li></ul></div>
+
+  <h2 class="sec"><span class="n">10.1</span> Produto interno, norma e ângulo</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Produto interno usual de ℝⁿ</div><div>\[\langle u,v\rangle=u_1v_1+u_2v_2+\cdots+u_nv_n\]</div><p>(também escrito \(u\cdot v\)). O resultado é um <b>número</b>. Propriedades: simétrico, linear em cada entrada, e \(\langle v,v\rangle>0\) se \(v\ne0\). Qualquer operação com essas propriedades é um produto interno; ex.: em \(P_n\), \(\langle p,q\rangle=\int_0^1p(t)q(t)\,dt\).</p></div>
+    <div class="box def"><div class="bl">Norma, distância e ângulo</div><div>\[\|v\|=\sqrt{\langle v,v\rangle}\qquad d(u,v)=\|u-v\|\]</div><div>\[\cos\theta=\frac{\langle u,v\rangle}{\|u\|\,\|v\|}\]</div><p>Vetor <b>unitário</b>: norma 1. Normalizar: \(\frac{v}{\|v\|}\).</p></div>
+    <div class="ex"><div class="et">Exemplo</div><p>\(u=(1,2,2)\), \(v=(3,0,-4)\): \(\langle u,v\rangle=3+0-8=-5\); \(\|u\|=3\); \(\|v\|=5\); \(\cos\theta=\frac{-5}{15}=-\frac13\Rightarrow\theta\approx109{,}5^\circ\).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">10.2</span> Ortogonalidade e projeção</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Ortogonais</div><p>\(u\perp v\iff\langle u,v\rangle=0\). Um conjunto é <b>ortogonal</b> se seus vetores são dois a dois ortogonais; <b>ortonormal</b> se, além disso, todos têm norma 1.</p></div>
+    <div class="box def"><div class="bl">Teorema</div><p>Um conjunto ortogonal de vetores <b>não nulos</b> é sempre LI. (Prova: faça \(\langle\sum a_iv_i,\ v_j\rangle=0\); só sobra \(a_j\|v_j\|^2=0\), logo \(a_j=0\).)</p></div>
+    <div class="box def"><div class="bl">Projeção ortogonal de v sobre u</div><div>\[\text{proj}_u\,v=\frac{\langle v,u\rangle}{\langle u,u\rangle}\,u\]</div><p>É a “sombra” de \(v\) na direção de \(u\). O resto, \(v-\text{proj}_uv\), é ortogonal a \(u\).</p></div>
+  </div>
+  <div class="lab" data-w="projLab"><div class="lt">Laboratório: produto interno, ângulo e projeção</div><p class="ld">Mexa em \(u\) e \(v\). Quando \(\langle u,v\rangle=0\), o ângulo é 90°. A seta dourada \(v-\text{proj}_uv\) é sempre perpendicular a \(u\).</p></div>
+
+  <h2 class="sec"><span class="n">10.3</span> Bases ortonormais: coordenadas sem sistema</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Teorema</div><p>Se \(\{u_1,\dots,u_n\}\) é base <b>ortonormal</b>, então</p><div>\[v=\langle v,u_1\rangle u_1+\langle v,u_2\rangle u_2+\cdots+\langle v,u_n\rangle u_n\]</div><p>As coordenadas são só produtos internos. Nada de escalonar!</p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Base ortonormal de \(\mathbb R^2\): \(u_1=\frac1{\sqrt2}(1,1)\), \(u_2=\frac1{\sqrt2}(1,-1)\). Coordenadas de \(v=(3,1)\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>\(\langle v,u_1\rangle=\frac{3+1}{\sqrt2}=2\sqrt2\); \(\langle v,u_2\rangle=\frac{3-1}{\sqrt2}=\sqrt2\).</p></div>
+        <div class="st"><span class="pl">Conferência</span><p>\(2\sqrt2\cdot\frac{(1,1)}{\sqrt2}+\sqrt2\cdot\frac{(1,-1)}{\sqrt2}=(2,2)+(1,-1)=(3,1)\) ✓.</p></div>
+      </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">10.4</span> O processo de Gram-Schmidt</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Algoritmo</div><p>Dada uma base \(\{v_1,\dots,v_n\}\), construa:</p><div>\[w_1=v_1\]</div><div>\[w_2=v_2-\frac{\langle v_2,w_1\rangle}{\langle w_1,w_1\rangle}w_1\]</div><div>\[w_3=v_3-\frac{\langle v_3,w_1\rangle}{\langle w_1,w_1\rangle}w_1-\frac{\langle v_3,w_2\rangle}{\langle w_2,w_2\rangle}w_2\quad\cdots\]</div><p>Cada \(w_k\) é \(v_k\) menos as suas projeções sobre os anteriores. \(\{w_i\}\) é base ortogonal do mesmo subespaço; dividindo cada um pela norma, fica ortonormal.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Ortogonalize \(v_1=(3,1)\), \(v_2=(2,2)\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>\(w_1=(3,1)\), \(\langle w_1,w_1\rangle=10\).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><div class="m">\[w_2=(2,2)-\frac{6+2}{10}(3,1)=(2,2)-\left(\tfrac{12}5,\tfrac45\right)=\left(-\tfrac25,\tfrac65\right)\]</div><p>Confira: \(\langle w_1,w_2\rangle=-\frac65+\frac65=0\) ✓.</p></div>
+        <div class="st"><span class="pl">Passo 3 · normalize</span><p>\(u_1=\frac{1}{\sqrt{10}}(3,1)\); \(\|w_2\|=\sqrt{\frac{40}{25}}=\frac{2\sqrt{10}}{5}\), \(u_2=\frac{1}{\sqrt{10}}(-1,3)\).</p></div>
+      </div></div>
+  </div>
+  <div class="lab" data-w="gramLab"><div class="lt">Laboratório: Gram-Schmidt passo a passo (frações exatas)</div><p class="ld">Digite uma base (até \(\mathbb R^6\)). Cada passo mostra as projeções retiradas, a conferência de ortogonalidade e a base ortonormal no final.</p></div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>A reta que melhor se ajusta aos dados (mínimos quadrados)</h3>
+    <p>Três medições: \((x,y)=(0,1),(1,3),(2,4)\). Não existe reta \(y=a+bx\) passando pelos três pontos. Qual chega mais perto?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · em linguagem de vetores</span><p>Queremos \(a\cdot(1,1,1)+b\cdot(0,1,2)\approx y=(1,3,4)\). Ou seja, o vetor mais próximo de \(y\) dentro do plano \(W=[(1,1,1),(0,1,2)]\): a <b>projeção ortogonal</b> de \(y\) sobre \(W\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · o erro tem que ser ortogonal a W (equações normais)</span><div class="m">\[\begin{cases}\langle y-a\mathbf 1-bx,\ \mathbf 1\rangle=0\\\langle y-a\mathbf 1-bx,\ x\rangle=0\end{cases}\iff\begin{cases}3a+3b=8\\3a+5b=11\end{cases}\]</div></div>
+      <div class="st"><span class="pl">Passo 3</span><p>Subtraindo: \(2b=3\Rightarrow b=\frac32\); \(a=\frac{8-\frac92}{3}=\frac76\).</p></div>
+    </div>
+    <div class="final"><b>Resposta:</b> \(y=\frac76+\frac32x\). É assim que planilhas e calculadoras traçam a “linha de tendência”: uma projeção ortogonal num subespaço.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Ache \(k\) para que \((1,k,2)\perp(3,1,-1)\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(3+k-2=0\Rightarrow k=-1\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Projeção de \(v=(2,3)\) sobre \(u=(4,1)\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\frac{8+3}{17}(4,1)=\left(\tfrac{44}{17},\tfrac{11}{17}\right)\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Normalize \(v=(2,-1,2)\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(\|v\|=\sqrt{4+1+4}=3\): \(\frac{v}{3}=\left(\frac23,-\frac13,\frac23\right)\).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m10v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>\(\langle(1,2,3),(4,0,-1)\rangle\) vale:</p>
+      <ol class="opts"><li>7</li><li>1</li><li>\(-1\)</li><li>\((4,0,-3)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(4+0-3=1\). (O resultado é um número, não um vetor.)</p></div></div><p class="rev">Revise: <a href="#m10-s1">10.1</a></p></div>
+    <div class="q" data-id="m10v2" data-ans="D"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>A norma de \((3,4)\) é:</p>
+      <ol class="opts"><li>7</li><li>25</li><li>1</li><li>5</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\sqrt{9+16}=5\).</p></div></div><p class="rev">Revise: <a href="#m10-s1">10.1</a></p></div>
+    <div class="q" data-id="m10v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>\((2,-1)\) e \((1,2)\) são:</p>
+      <ol class="opts"><li>ortogonais</li><li>paralelos</li><li>unitários</li><li>LD</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(2-2=0\).</p></div></div><p class="rev">Revise: <a href="#m10-s2">10.2</a></p></div>
+    <div class="q" data-id="m10v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>A projeção de \((3,4)\) sobre \((1,0)\) é:</p>
+      <ol class="opts"><li>\((0,4)\)</li><li>\((3,4)\)</li><li>\((3,0)\)</li><li>3</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\frac{3}{1}(1,0)=(3,0)\).</p></div></div><p class="rev">Revise: <a href="#m10-s2">10.2 Projeção</a></p></div>
+    <div class="q" data-id="m10v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag d">difícil</span></div><p>Aplicando Gram-Schmidt a \(v_1=(1,1,0)\), \(v_2=(1,0,1)\), o vetor \(w_2\) é:</p>
+      <ol class="opts"><li>\((1,0,1)\)</li><li>\((\tfrac12,-\tfrac12,1)\)</li><li>\((0,-1,1)\)</li><li>\((1,-1,0)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[w_2=(1,0,1)-\frac{1}{2}(1,1,0)=\left(\tfrac12,-\tfrac12,1\right)\]</div></div></div><p class="rev">Revise: <a href="#m10-s4">10.4 Gram-Schmidt</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m10d1" data-ans="C"><p>Vetores não nulos dois a dois ortogonais são:</p><ol class="opts"><li>LD</li><li>paralelos</li><li>LI</li><li>unitários</li></ol><div class="why" hidden>Teorema da seção 10.2.</div></div>
+    <div class="q dq" data-id="m10d2" data-ans="A"><p>Numa base ortonormal, a coordenada de v na direção de \(u_i\) é:</p><ol class="opts"><li>\(\langle v,u_i\rangle\)</li><li>\(\|v\|\)</li><li>\(\langle u_i,u_i\rangle\)</li><li>a solução de um sistema</li></ol><div class="why" hidden>Seção 10.3.</div></div>
+    <div class="q dq" data-id="m10d3" data-ans="D"><p>Gram-Schmidt produz uma base:</p><ol class="opts"><li>de outro subespaço</li><li>sempre canônica</li><li>com mais vetores</li><li>ortogonal do mesmo subespaço</li></ol><div class="why" hidden>Só “endireita” a base, sem mudar o espaço gerado.</div></div>
+    <div class="q dq" data-id="m10d4" data-ans="B"><p>A linha de tendência de uma planilha é uma aplicação de:</p><ol class="opts"><li>determinante</li><li>projeção ortogonal (mínimos quadrados)</li><li>fatorial</li><li>mudança de base canônica</li></ol><div class="why" hidden>O melhor ajuste é a projeção do vetor de dados no subespaço dos modelos.</div></div>
+  </div>
+</div>
+</section>

@@ -1,0 +1,90 @@
+<section class="page mod" id="m8" data-num="8" data-part="Parte IV · Base e dimensão" data-short="Coordenadas e mudança de base" data-title="Coordenadas e mudança de base" data-icon="grid" data-desc="Coordenadas de um vetor numa base, a unicidade, a matriz de mudança de base e como converter coordenadas de uma base para outra.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>explicar por que as coordenadas numa base são únicas;</li>
+    <li>calcular \([v]_B\) resolvendo um sistema;</li>
+    <li>montar a matriz de mudança de base \(M_{B\to C}\) (ou \([I]^B_C\));</li>
+    <li>converter coordenadas entre duas bases.</li></ul></div>
+
+  <h2 class="sec"><span class="n">8.1</span> Coordenadas numa base</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Teorema e definição</div><p>Se \(B=\{v_1,\dots,v_n\}\) é base de \(V\), todo \(v\in V\) se escreve de <b>um único jeito</b> como \(v=a_1v_1+\cdots+a_nv_n\). Os números \(a_1,\dots,a_n\) são as <b>coordenadas</b> de \(v\) na base \(B\):</p><div>\[[v]_B=\begin{bmatrix}a_1\\\vdots\\a_n\end{bmatrix}\]</div></div>
+    <details class="demo"><summary>Por que é único (é aqui que o LI aparece)</summary><div>
+      <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>Se \(v=\sum a_iv_i=\sum b_iv_i\), subtraia: \(\sum(a_i-b_i)v_i=0\).</p></div><div class="st"><span class="pl">Passo 2</span><p>Como \(B\) é LI, todos os \(a_i-b_i=0\), ou seja, \(a_i=b_i\).</p></div></div></div></details>
+    <div class="box obs"><div class="bl">A base é um “sistema de medidas”</div><p>Na base canônica, \((3,5)\) tem coordenadas 3 e 5. Em outra base, o mesmo vetor (a mesma seta) ganha outros números. A ordem dos vetores da base importa: \(B\) é uma base <b>ordenada</b>.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Ache as coordenadas de \(v=(1,4)\) na base \(B=\{(2,1),(-1,1)\}\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><div class="m">\[a(2,1)+b(-1,1)=(1,4)\iff\begin{cases}2a-b=1\\a+b=4\end{cases}\]</div></div>
+        <div class="st"><span class="pl">Passo 2</span><p>Somando: \(3a=5\Rightarrow a=\frac53\); \(b=4-\frac53=\frac73\).</p></div>
+      </div>
+      <div class="final">\([v]_B=\left(\tfrac53,\ \tfrac73\right)\). Confira: \(\frac53(2,1)+\frac73(-1,1)=(\frac{10-7}{3},\frac{5+7}{3})=(1,4)\) ✓.</div></div>
+  </div>
+  <div class="lab" data-w="coordLab"><div class="lt">Laboratório: a grade de uma base</div><p class="ld">Escolha \(b_1\), \(b_2\) e o vetor \(v\). A grade verde é a “régua” da base \(B\). As coordenadas \([v]_B\) dizem quantos passos de \(b_1\) e de \(b_2\) levam até \(v\).</p></div>
+
+  <h2 class="sec"><span class="n">8.2</span> Coordenadas em outros espaços</h2>
+  <div class="prose">
+    <div class="ex"><div class="et">Exemplo guiado · em P₂</div><p>Coordenadas de \(p=3+2t-t^2\) na base \(B=\{1,\ 1+t,\ 1+t+t^2\}\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>\(a\cdot1+b(1+t)+c(1+t+t^2)=(a+b+c)+(b+c)t+ct^2\).</p></div>
+        <div class="st"><span class="pl">Passo 2 · iguale coeficientes</span><p>\(c=-1\); \(b+c=2\Rightarrow b=3\); \(a+b+c=3\Rightarrow a=1\).</p></div>
+      </div>
+      <div class="final">\([p]_B=(1,3,-1)\). Na base canônica \(\{1,t,t^2\}\), seria \((3,2,-1)\).</div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">8.3</span> Matriz de mudança de base</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>Sejam \(B\) e \(C\) bases de \(V\). A <b>matriz de mudança da base \(B\) para a base \(C\)</b> é a matriz cujas colunas são as coordenadas, na base \(C\), dos vetores de \(B\):</p><div>\[M_{B\to C}=\Big[\ [b_1]_C\ \ [b_2]_C\ \cdots\ [b_n]_C\ \Big]\qquad\text{e}\qquad[v]_C=M_{B\to C}\,[v]_B\]</div><p>Na notação de muitos livros brasileiros, \(M_{B\to C}=[I]^B_C\). Além disso, \(M_{C\to B}=(M_{B\to C})^{-1}\).</p></div>
+    <div class="box tip"><div class="bl">Caso mais comum: C é a canônica</div><p>Se \(C\) é a base canônica de \(\mathbb R^n\), as colunas de \(M_{B\to C}\) são os próprios vetores de \(B\). Então \([v]_{can}=M\,[v]_B\) e, para ir da canônica para \(B\), use a inversa: \([v]_B=M^{-1}v\).</p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Com \(B=\{(2,1),(-1,1)\}\), ache \([v]_B\) para \(v=(1,4)\) usando matriz.</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · B → canônica</span><div class="m">\[M=\begin{bmatrix}2&-1\\1&1\end{bmatrix},\quad\det M=3\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · inversa de 2×2</span><div class="m">\[M^{-1}=\frac13\begin{bmatrix}1&1\\-1&2\end{bmatrix}\]</div></div>
+        <div class="st"><span class="pl">Passo 3</span><div class="m">\[[v]_B=\frac13\begin{bmatrix}1&1\\-1&2\end{bmatrix}\begin{bmatrix}1\\4\end{bmatrix}=\frac13\begin{bmatrix}5\\7\end{bmatrix}\]</div><p>O mesmo resultado da seção 8.1, agora com uma matriz que serve para <b>qualquer</b> \(v\).</p></div>
+      </div></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Coordenadas de um robô numa esteira inclinada</h3>
+    <p>Um braço robótico trabalha sobre uma esteira inclinada. É mais fácil programá-lo em coordenadas da esteira: \(b_1=(2,1)\) (ao longo da esteira) e \(b_2=(-1,1)\) (atravessando). A câmera da fábrica, porém, mede posições na base canônica. A câmera viu uma peça em \((1,4)\). Que comando o robô deve receber?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1</span><p>O robô precisa de \([v]_B\); a câmera dá \(v\) na canônica. Use \(M^{-1}\) da seção 8.3.</p></div>
+      <div class="st"><span class="pl">Passo 2</span><p>\([v]_B=(\tfrac53,\tfrac73)\): ande \(\frac53\) de \(b_1\) e \(\frac73\) de \(b_2\).</p></div>
+      <div class="st"><span class="pl">Passo 3 · automatizando</span><p>O software calcula \(M^{-1}\) uma vez e, a cada nova peça, faz uma multiplicação matriz × vetor. É assim que robótica, computação gráfica e GPS convertem entre referenciais.</p></div>
+    </div>
+    <div class="final"><b>Resposta:</b> comando \((\tfrac53,\tfrac73)\) nas coordenadas da esteira.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Se \([v]_B=(2,-1)\) com \(B=\{(1,1),(0,3)\}\), quem é \(v\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(v=2(1,1)-1(0,3)=(2,-1)\). (Coincidência: aqui o vetor ficou igual às suas coordenadas.)</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Coordenadas de \((3,2,1)\) na base \(\{(1,0,0),(1,1,0),(1,1,1)\}\).</p>
+    <div class="steps"><div class="st"><span class="pl">De baixo para cima</span><p>\(a(1,0,0)+b(1,1,0)+c(1,1,1)=(a+b+c,\ b+c,\ c)\): \(c=1\), \(b=1\), \(a=1\). Resposta \((1,1,1)\).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m8v1" data-ans="A"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>As coordenadas de \((7,-2)\) na base canônica de \(\mathbb R^2\) são:</p>
+      <ol class="opts"><li>\((7,-2)\)</li><li>\((-2,7)\)</li><li>\((1,1)\)</li><li>\((7,2)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((7,-2)=7e_1-2e_2\).</p></div></div><p class="rev">Revise: <a href="#m8-s1">8.1</a></p></div>
+    <div class="q" data-id="m8v2" data-ans="C"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>As coordenadas numa base são únicas porque a base é:</p>
+      <ol class="opts"><li>ortogonal</li><li>canônica</li><li>LI</li><li>finita</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Duas escritas diferentes dariam uma combinação nula não trivial.</p></div></div><p class="rev">Revise: <a href="#m8-s1">8.1</a></p></div>
+    <div class="q" data-id="m8v3" data-ans="B"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>As coordenadas de \((5,3)\) na base \(\{(1,1),(1,-1)\}\) são:</p>
+      <ol class="opts"><li>\((3,2)\)</li><li>\((4,1)\)</li><li>\((5,3)\)</li><li>\((1,4)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(a+b=5\), \(a-b=3\Rightarrow a=4,\ b=1\).</p></div></div><p class="rev">Revise: <a href="#m8-s1">8.1</a></p></div>
+    <div class="q" data-id="m8v4" data-ans="D"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>As coordenadas de \(p=2+3t\) na base \(\{1+t,\ 1-t\}\) de \(P_1\) são:</p>
+      <ol class="opts"><li>\((2,3)\)</li><li>\((3,2)\)</li><li>\((\tfrac12,\tfrac52)\)</li><li>\((\tfrac52,-\tfrac12)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(a(1+t)+b(1-t)=(a+b)+(a-b)t\): \(a+b=2\), \(a-b=3\Rightarrow a=\frac52,\ b=-\frac12\).</p></div></div><p class="rev">Revise: <a href="#m8-s2">8.2</a></p></div>
+    <div class="q" data-id="m8v5" data-ans="A"><div class="qh"><span class="qn">Verificação 5</span><span class="tag d">difícil</span></div><p>Se \(B=\{(1,2),(3,5)\}\), a matriz que leva coordenadas canônicas em coordenadas na base \(B\) é:</p>
+      <ol class="opts"><li>\(\begin{bmatrix}-5&3\\2&-1\end{bmatrix}\)</li><li>\(\begin{bmatrix}1&3\\2&5\end{bmatrix}\)</li><li>\(\begin{bmatrix}5&-3\\-2&1\end{bmatrix}\)</li><li>\(\begin{bmatrix}1&2\\3&5\end{bmatrix}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(M=\begin{bmatrix}1&3\\2&5\end{bmatrix}\), \(\det=-1\). \(M^{-1}=\frac{1}{-1}\begin{bmatrix}5&-3\\-2&1\end{bmatrix}=\begin{bmatrix}-5&3\\2&-1\end{bmatrix}\).</p></div></div><p class="rev">Revise: <a href="#m8-s3">8.3</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m8d1" data-ans="B"><p>Trocar a ordem dos vetores da base:</p><ol class="opts"><li>não muda as coordenadas</li><li>troca a ordem das coordenadas</li><li>deixa de ser base</li><li>zera as coordenadas</li></ol><div class="why" hidden>A base é ordenada; as coordenadas acompanham a ordem.</div></div>
+    <div class="q dq" data-id="m8d2" data-ans="D"><p>As colunas da matriz de mudança de B para a canônica de ℝⁿ são:</p><ol class="opts"><li>os canônicos</li><li>as linhas de B</li><li>a inversa de B</li><li>os vetores de B</li></ol><div class="why" hidden>\([b_i]_{can}=b_i\).</div></div>
+    <div class="q dq" data-id="m8d3" data-ans="A"><p>Para ir de coordenadas canônicas para coordenadas em B, usamos:</p><ol class="opts"><li>a inversa da matriz de B</li><li>a própria matriz de B</li><li>a transposta, sempre</li><li>o determinante</li></ol><div class="why" hidden>\([v]_B=M^{-1}v\).</div></div>
+    <div class="q dq" data-id="m8d4" data-ans="C"><p>Em P₂, as coordenadas de \(a+bt+ct^2\) na base \(\{1,t,t^2\}\) são:</p><ol class="opts"><li>\((c,b,a)\)</li><li>\((1,1,1)\)</li><li>\((a,b,c)\)</li><li>\((a+b+c)\)</li></ol><div class="why" hidden>Base canônica de P₂: os próprios coeficientes.</div></div>
+  </div>
+</div>
+</section>

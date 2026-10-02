@@ -1,0 +1,100 @@
+<section class="page mod" id="m5" data-num="5" data-part="Parte III · Geradores e independência" data-short="Combinação linear e geradores" data-title="Combinação linear e subespaço gerado" data-icon="link" data-desc="O que é combinação linear, como decidir se um vetor é combinação de outros, o subespaço gerado [S] e como descrevê-lo por equações.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>escrever e calcular combinações lineares;</li>
+    <li>decidir, com um sistema, se um vetor é combinação linear de outros (e achar os coeficientes);</li>
+    <li>entender o subespaço gerado \([S]\) e descrevê-lo por equações;</li>
+    <li>verificar se um conjunto gera um espaço (ex.: gera \(\mathbb R^3\)?).</li></ul></div>
+
+  <h2 class="sec"><span class="n">5.1</span> Combinação linear</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>Um vetor \(w\) é <b>combinação linear</b> de \(v_1,\dots,v_k\) se existem escalares \(a_1,\dots,a_k\) com</p><div>\[w=a_1v_1+a_2v_2+\cdots+a_kv_k\]</div><p>É o “cardápio” do espaço vetorial: só podemos somar e multiplicar por número. Combinação linear é tudo o que dá para fabricar com os vetores dados.</p></div>
+    <div class="ex"><div class="et">Exemplo</div><p>\(2(1,0,1)-3(0,1,2)=(2,-3,-4)\). Então \((2,-3,-4)\) é combinação linear de \((1,0,1)\) e \((0,1,2)\).</p></div>
+  </div>
+  <div class="lab" data-w="combLab"><div class="lt">Laboratório: alcance o alvo com a·u + b·v</div><p class="ld">Mexa em \(a\) e \(b\) até a seta cair no alvo \(w\). No terceiro par, \(u\) e \(v\) são paralelos: tente alcançar \(w\) e veja por que é impossível.</p></div>
+
+  <h2 class="sec"><span class="n">5.2</span> Decidindo se w é combinação linear</h2>
+  <div class="prose">
+    <div class="box tip"><div class="bl">Roteiro</div><p><b>1.</b> Escreva \(w=a_1v_1+\cdots+a_kv_k\) com os \(a_i\) desconhecidos. <b>2.</b> Iguale coordenada a coordenada: vira um sistema linear em que <b>cada vetor \(v_i\) é uma coluna</b>. <b>3.</b> Escalone. Possível: é combinação (a solução dá os coeficientes). Impossível: não é.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>\(w=(2,5,3)\) é combinação de \(v_1=(1,2,1)\) e \(v_2=(0,1,1)\)?</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><div class="m">\[a(1,2,1)+b(0,1,1)=(2,5,3)\iff\begin{cases}a=2\\2a+b=5\\a+b=3\end{cases}\]</div></div>
+        <div class="st"><span class="pl">Passo 2</span><p>\(a=2\Rightarrow b=1\); e a 3ª equação confere: \(2+1=3\) ✓.</p></div>
+      </div>
+      <div class="final">\((2,5,3)=2(1,2,1)+1(0,1,1)\). Já \((1,0,0)\) não é: \(a=1\), \(b=-2\), mas \(a+b=-1\ne0\).</div></div>
+  </div>
+  <div class="lab" data-w="clLab"><div class="lt">Laboratório: w é combinação linear? (com as equações do subespaço gerado)</div><p class="ld">Digite os vetores e o alvo \(w\). O laboratório monta o sistema, escalona, responde e ainda descreve \([v_1,\dots,v_k]\) por equações.</p></div>
+
+  <h2 class="sec"><span class="n">5.3</span> Subespaço gerado</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>O <b>subespaço gerado</b> por \(S=\{v_1,\dots,v_k\}\) é o conjunto de <b>todas</b> as combinações lineares desses vetores:</p><div>\[[S]=[v_1,\dots,v_k]=\{a_1v_1+\cdots+a_kv_k:\ a_i\in\mathbb R\}\]</div><p>Ele é sempre um subespaço (o menor que contém \(S\)). Dizemos que \(S\) <b>gera</b> \([S]\), ou que \(v_1,\dots,v_k\) são <b>geradores</b>. Outras notações: \(\text{span}(S)\), \(\langle S\rangle\), \(\text{ger}(S)\).</p></div>
+    <figure class="fig" data-f="plano3d"><figcaption>Dois vetores não paralelos de \(\mathbb R^3\) geram um plano pela origem.</figcaption></figure>
+    <div class="tbl"><table><thead><tr><th class="l">Geradores em ℝ³</th><th class="l">[S] é</th></tr></thead><tbody>
+      <tr><td class="l">um vetor não nulo</td><td class="l">uma reta pela origem</td></tr>
+      <tr><td class="l">dois vetores não paralelos</td><td class="l">um plano pela origem</td></tr>
+      <tr><td class="l">três vetores fora de um mesmo plano</td><td class="l">\(\mathbb R^3\) inteiro</td></tr>
+    </tbody></table></div>
+  </div>
+
+  <h2 class="sec"><span class="n">5.4</span> Descrevendo [S] por equações e testando se S gera</h2>
+  <div class="prose">
+    <div class="box tip"><div class="bl">Técnica</div><p>Troque \(w\) por um vetor genérico \((x,y,z)\) e escalone. As linhas que zeram do lado dos coeficientes impõem condições em \(x,y,z\): são as <b>equações</b> de \([S]\). Se nenhuma condição aparecer, \(S\) gera o espaço todo.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Descreva \([(1,2,1),(0,1,1)]\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><div class="m">\[\left[\begin{array}{rr|c}1&0&x\\2&1&y\\1&1&z\end{array}\right]\to\left[\begin{array}{rr|c}1&0&x\\0&1&y-2x\\0&1&z-x\end{array}\right]\to\left[\begin{array}{rr|c}1&0&x\\0&1&y-2x\\0&0&z-x-y+2x\end{array}\right]\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · a última linha precisa ser 0 = 0</span><div class="m">\[x-y+z=0\]</div></div>
+      </div>
+      <div class="final">\([(1,2,1),(0,1,1)]=\{(x,y,z):\ x-y+z=0\}\): um plano pela origem. Confira: \((2,5,3)\) satisfaz \(2-5+3=0\) ✓ e \((1,0,0)\) não.</div></div>
+    <div class="ex"><div class="et">Exemplo guiado · gera ℝ³?</div><p>\(\{(1,0,1),(1,1,0),(0,1,1)\}\) gera \(\mathbb R^3\)?</p>
+      <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>Escalonando a matriz com esses vetores nas colunas aparecem 3 pivôs (no laboratório: botão com esses vetores). Nenhuma condição sobra.</p></div></div>
+      <div class="final">Sim, geram \(\mathbb R^3\).</div></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Misturando tintas RGB</h3>
+    <p>Uma tela mistura luz vermelha, verde e azul. Cada cor é um vetor \((R,G,B)\). Um fabricante só tem três “lâmpadas” fixas: \(p_1=(1,0,1)\) (magenta), \(p_2=(1,1,0)\) (amarelo) e \(p_3=(0,1,1)\) (ciano), e controla a intensidade de cada uma. Ele consegue gerar a cor \((3,1,2)\)?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · sistema</span><div class="m">\[a(1,0,1)+b(1,1,0)+c(0,1,1)=(3,1,2)\iff\begin{cases}a+b=3\\b+c=1\\a+c=2\end{cases}\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · resolva</span><p>Somando as três: \(2(a+b+c)=6\Rightarrow a+b+c=3\). Então \(c=3-3=0\), \(a=3-1=2\), \(b=3-2=1\).</p></div>
+      <div class="st"><span class="pl">Passo 3 · e qualquer cor?</span><p>Como esses três vetores geram \(\mathbb R^3\) (seção 5.4), qualquer \((R,G,B)\) pode ser obtida, desde que se aceitem intensidades negativas. Na prática (intensidades \(\ge0\)) só se alcança uma parte: é o “gamut” da tela.</p></div>
+    </div>
+    <div class="final"><b>Resposta:</b> \((3,1,2)=2p_1+1p_2+0p_3\).</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Escreva \(p=5+t+3t^2\) como combinação de \(1+t\), \(t+t^2\) e \(1+t^2\) em \(P_2\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1 · coeficientes</span><p>\(a(1+t)+b(t+t^2)+c(1+t^2)\): constante \(a+c=5\); \(t\): \(a+b=1\); \(t^2\): \(b+c=3\).</p></div><div class="st"><span class="pl">Passo 2</span><p>Somando: \(a+b+c=\frac92\). Logo \(b=\frac92-5=-\frac12\), \(c=\frac92-1=\frac72\), \(a=\frac92-3=\frac32\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Para que \(k\) o vetor \((1,k,5)\) pertence a \([(1,2,1),(0,1,1)]\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Use a equação do plano</span><p>\(x-y+z=0\Rightarrow1-k+5=0\Rightarrow k=6\).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m5v1" data-ans="A"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>\(3(1,0)+2(0,1)\) é:</p>
+      <ol class="opts"><li>\((3,2)\)</li><li>\((5,0)\)</li><li>\((3,0)\)</li><li>\((2,3)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((3,0)+(0,2)=(3,2)\).</p></div></div><p class="rev">Revise: <a href="#m5-s1">5.1</a></p></div>
+    <div class="q" data-id="m5v2" data-ans="C"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>O subespaço gerado por um único vetor não nulo de \(\mathbb R^3\) é:</p>
+      <ol class="opts"><li>um plano</li><li>\(\mathbb R^3\)</li><li>uma reta pela origem</li><li>só o vetor</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Todos os múltiplos \(av\): uma reta pela origem.</p></div></div><p class="rev">Revise: <a href="#m5-s3">5.3</a></p></div>
+    <div class="q" data-id="m5v3" data-ans="B"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>Os coeficientes com \((7,4)=a(1,1)+b(2,1)\) são:</p>
+      <ol class="opts"><li>\(a=3,\ b=2\)</li><li>\(a=1,\ b=3\)</li><li>\(a=2,\ b=3\)</li><li>\(a=4,\ b=0\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(a+2b=7\), \(a+b=4\Rightarrow b=3,\ a=1\).</p></div></div><p class="rev">Revise: <a href="#m5-s2">5.2</a></p></div>
+    <div class="q" data-id="m5v4" data-ans="D"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>\((1,2)\) e \((2,4)\) geram:</p>
+      <ol class="opts"><li>\(\mathbb R^2\)</li><li>só \(\{0\}\)</li><li>o 1º quadrante</li><li>a reta \(y=2x\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>São paralelos: todas as combinações são múltiplos de \((1,2)\).</p></div></div><p class="rev">Revise: <a href="#m5-s3">5.3</a></p></div>
+    <div class="q" data-id="m5v5" data-ans="A"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>Uma equação de \([(1,0,2),(0,1,-1)]\) é:</p>
+      <ol class="opts"><li>\(2x-y-z=0\)</li><li>\(x+y+z=0\)</li><li>\(z=0\)</li><li>\(x-2y=0\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(a(1,0,2)+b(0,1,-1)=(a,b,2a-b)\): \(x=a\), \(y=b\), \(z=2x-y\), isto é, \(2x-y-z=0\).</p></div></div><p class="rev">Revise: <a href="#m5-s4">5.4</a></p></div>
+    <div class="q" data-id="m5v6" data-ans="C"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Para que \(k\) o vetor \((2,k,1)\) é combinação de \((1,1,0)\) e \((0,1,1)\)?</p>
+      <ol class="opts"><li>\(k=1\)</li><li>\(k=2\)</li><li>\(k=3\)</li><li>qualquer \(k\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(a(1,1,0)+b(0,1,1)=(a,a+b,b)\): \(a=2\), \(b=1\), \(k=a+b=3\).</p></div></div><p class="rev">Revise: <a href="#m5-s2">5.2</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m5d1" data-ans="B"><p>Para decidir se \(w\) é combinação de \(v_1,v_2\), montamos um sistema em que os \(v_i\) são:</p><ol class="opts"><li>as linhas</li><li>as colunas</li><li>os termos independentes</li><li>as incógnitas</li></ol><div class="why" hidden>Cada vetor multiplica uma incógnita \(a_i\): vira coluna.</div></div>
+    <div class="q dq" data-id="m5d2" data-ans="D"><p>O vetor nulo sempre pertence a \([S]\) porque:</p><ol class="opts"><li>é um axioma</li><li>S contém o nulo</li><li>nunca pertence</li><li>\(0v_1+\cdots+0v_k=0\)</li></ol><div class="why" hidden>Combinação com todos os coeficientes nulos.</div></div>
+    <div class="q dq" data-id="m5d3" data-ans="A"><p>Se o sistema “\(w=a_1v_1+\cdots\)” é SPI, então:</p><ol class="opts"><li>\(w\) é combinação de infinitas maneiras</li><li>\(w\) não é combinação</li><li>\(w=0\)</li><li>os \(v_i\) geram tudo</li></ol><div class="why" hidden>Infinitas soluções = infinitos jeitos de escrever \(w\). (Sinal de que os \(v_i\) são LD: Módulo 6.)</div></div>
+    <div class="q dq" data-id="m5d4" data-ans="C"><p>Ao descrever \([S]\) por equações em \(\mathbb R^3\), se não sobrar condição nenhuma:</p><ol class="opts"><li>[S] = {0}</li><li>[S] é uma reta</li><li>[S] = ℝ³</li><li>errou a conta</li></ol><div class="why" hidden>Sem condições, todo \((x,y,z)\) é combinação.</div></div>
+  </div>
+</div>
+</section>

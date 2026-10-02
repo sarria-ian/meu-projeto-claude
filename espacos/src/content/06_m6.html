@@ -1,0 +1,99 @@
+<section class="page mod" id="m6" data-num="6" data-part="Parte III · Geradores e independência" data-short="Dependência e independência linear" data-title="Dependência e independência linear (LI e LD)" data-icon="bolt" data-desc="Definição de LI e LD, o teste pelo sistema homogêneo, interpretação geométrica, determinante e as propriedades que economizam contas.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>definir conjuntos LI e LD e explicar a diferença com palavras;</li>
+    <li>testar independência escalonando (ou com determinante, quando a matriz é quadrada);</li>
+    <li>achar a relação de dependência quando o conjunto é LD;</li>
+    <li>usar os atalhos: conjunto com o nulo, dois vetores paralelos, mais vetores que a dimensão.</li></ul></div>
+
+  <h2 class="sec"><span class="n">6.1</span> A definição</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>\(\{v_1,\dots,v_k\}\) é <b>linearmente independente (LI)</b> se a equação</p><div>\[a_1v_1+a_2v_2+\cdots+a_kv_k=0\]</div><p>só tem a solução trivial \(a_1=a_2=\cdots=a_k=0\). Se existir outra solução (algum \(a_i\ne0\)), o conjunto é <b>linearmente dependente (LD)</b>.</p></div>
+    <div class="box obs"><div class="bl">Em palavras</div><p><b>LD</b>: pelo menos um vetor é combinação dos outros, ele é “redundante” (não acrescenta direção nova).<br><b>LI</b>: nenhum vetor é combinação dos outros; cada um traz uma direção nova.</p></div>
+    <details class="demo"><summary>Por que “equação = 0 com solução não trivial” é o mesmo que “um é combinação dos outros”</summary><div>
+      <div class="steps"><div class="st"><span class="pl">Ida</span><p>Se \(a_1v_1+\cdots+a_kv_k=0\) com, digamos, \(a_1\ne0\), isole: \(v_1=-\frac{a_2}{a_1}v_2-\cdots-\frac{a_k}{a_1}v_k\).</p></div>
+      <div class="st"><span class="pl">Volta</span><p>Se \(v_1=b_2v_2+\cdots+b_kv_k\), então \(1\cdot v_1-b_2v_2-\cdots-b_kv_k=0\), com o coeficiente \(1\ne0\).</p></div></div></div></details>
+  </div>
+
+  <h2 class="sec"><span class="n">6.2</span> Interpretação geométrica</h2>
+  <div class="prose">
+    <div class="tbl"><table><thead><tr><th class="l">Conjunto</th><th class="l">LD quando…</th></tr></thead><tbody>
+      <tr><td class="l">\(\{v\}\)</td><td class="l">\(v=0\)</td></tr>
+      <tr><td class="l">\(\{u,v\}\)</td><td class="l">são paralelos (um é múltiplo do outro)</td></tr>
+      <tr><td class="l">\(\{u,v,w\}\) em \(\mathbb R^3\)</td><td class="l">estão num mesmo plano pela origem (coplanares)</td></tr>
+    </tbody></table></div>
+  </div>
+
+  <h2 class="sec"><span class="n">6.3</span> O teste por escalonamento</h2>
+  <div class="prose">
+    <div class="box tip"><div class="bl">Roteiro</div><p><b>1.</b> Coloque os vetores como <b>colunas</b> de uma matriz. <b>2.</b> Escalone (é um sistema homogêneo). <b>3.</b> Conte os pivôs: <b>pivô em todas as colunas → LI</b>; se alguma coluna ficar sem pivô → LD (ela é combinação das colunas com pivô).</p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>\(\{(1,2,3),(2,1,0),(3,3,3)\}\) é LI?</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · colunas e escalonamento</span><div class="m">\[\begin{bmatrix}1&2&3\\2&1&3\\3&0&3\end{bmatrix}\to\begin{bmatrix}1&2&3\\0&-3&-3\\0&-6&-6\end{bmatrix}\to\begin{bmatrix}1&2&3\\0&-3&-3\\0&0&0\end{bmatrix}\]</div></div>
+        <div class="st"><span class="pl">Passo 2</span><p>A 3ª coluna não tem pivô: LD. Da forma reduzida, \(v_3=v_1+v_2\). Confira: \((1,2,3)+(2,1,0)=(3,3,3)\) ✓.</p></div>
+      </div></div>
+    <div class="box def"><div class="bl">Atalho do determinante (n vetores em ℝⁿ)</div><p>Com exatamente \(n\) vetores em \(\mathbb R^n\), a matriz é quadrada: <b>LI \(\iff\det\ne0\)</b>. No exemplo, \(\det\begin{bmatrix}1&2&3\\2&1&3\\3&0&3\end{bmatrix}=0\): LD.</p></div>
+  </div>
+  <div class="lab" data-w="liLab"><div class="lt">Laboratório: LI ou LD? (com a relação de dependência)</div><p class="ld">Digite os vetores. O laboratório escalona com os vetores nas colunas, conta os pivôs e, se der LD, mostra uma combinação não trivial que dá zero.</p></div>
+  <div class="lab" data-w="liTreino"><div class="lt">Treino infinito: LI ou LD?</div><p class="ld">Vetores novos a cada clique. Decida e veja a justificativa. Acerto vale 2 XP.</p></div>
+
+  <h2 class="sec"><span class="n">6.4</span> Propriedades que economizam contas</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Teoremas</div><p><b>1.</b> Todo conjunto que contém o vetor nulo é LD (\(1\cdot0=0\)).<br><b>2.</b> Dois vetores são LD \(\iff\) um é múltiplo do outro.<br><b>3.</b> Em \(\mathbb R^n\), mais de \(n\) vetores são sempre LD (sistema homogêneo com mais incógnitas que equações: SPI).<br><b>4.</b> Subconjunto de LI é LI; quem contém um LD é LD.<br><b>5.</b> Se \(\{v_1,\dots,v_k\}\) é LI e \(w\notin[v_1,\dots,v_k]\), então \(\{v_1,\dots,v_k,w\}\) continua LI.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado · em P₂</div><p>\(\{1+t,\ t+t^2,\ 1+2t+t^2\}\) é LI em \(P_2\)?</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · observe</span><p>\((1+t)+(t+t^2)=1+2t+t^2\): o terceiro é a soma dos dois primeiros.</p></div>
+        <div class="st"><span class="pl">Conclusão</span><p>LD. (Pelo método geral: coeficientes como vetores \((1,1,0)\), \((0,1,1)\), \((1,2,1)\) e escalonar.)</p></div>
+      </div></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Planilha com colunas redundantes</h3>
+    <p>Uma loja guarda, para 3 produtos, as colunas: <b>quantidade vendida</b> \(q=(10,4,7)\), <b>preço</b> \(p=(5,20,8)\)… e um estagiário acrescentou <b>quantidade em dúzias</b> \(d=(\tfrac{10}{12},\tfrac4{12},\tfrac7{12})\). Um modelo estatístico que usa as colunas \(q\) e \(d\) juntas “trava” (não consegue separar o efeito de cada uma). Por quê?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1</span><p>\(d=\frac1{12}q\): as colunas \(q\) e \(d\) são paralelas, logo \(\{q,d\}\) é <b>LD</b>.</p></div>
+      <div class="st"><span class="pl">Passo 2 · consequência</span><p>Qualquer efeito atribuído a \(q\) pode ser transferido para \(d\) (e vice-versa) sem mudar nada: infinitas soluções (SPI). Em estatística isso se chama <b>multicolinearidade</b>.</p></div>
+      <div class="st"><span class="pl">Passo 3 · e \(\{q,p\}\)?</span><p>\(p\) não é múltiplo de \(q\) (\(\frac5{10}\ne\frac{20}4\)): LI. Essas duas podem ficar.</p></div>
+    </div>
+    <div class="final"><b>Lição:</b> antes de usar várias colunas de dados juntas, elas precisam ser LI. Retire as colunas que são combinação das outras.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>\(\{(1,2),(3,5)\}\) é LI?</p>
+    <div class="steps"><div class="st"><span class="pl">Determinante</span><p>\(1\cdot5-2\cdot3=-1\ne0\): LI.</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>\(\{(1,0),(0,1),(2,3)\}\) é LI?</p>
+    <div class="steps"><div class="st"><span class="pl">Atalho</span><p>3 vetores em \(\mathbb R^2\): LD. (De fato \((2,3)=2(1,0)+3(0,1)\).)</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Para que \(k\) o conjunto \(\{(1,1,0),(0,1,1),(1,k,1)\}\) é LD?</p>
+    <div class="steps"><div class="st"><span class="pl">Determinante</span><div class="m">\[\det\begin{bmatrix}1&0&1\\1&1&k\\0&1&1\end{bmatrix}=1(1-k)-0+1(1-0)=2-k\]</div><p>LD \(\iff2-k=0\iff k=2\).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m6v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>\(\{(2,4),(1,2)\}\) é:</p>
+      <ol class="opts"><li>LI</li><li>LD</li><li>uma base de \(\mathbb R^2\)</li><li>gerador de \(\mathbb R^2\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((2,4)=2(1,2)\): paralelos.</p></div></div><p class="rev">Revise: <a href="#m6-s2">6.2</a></p></div>
+    <div class="q" data-id="m6v2" data-ans="D"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>Um conjunto que contém o vetor nulo é:</p>
+      <ol class="opts"><li>sempre LI</li><li>LI se tiver 2 vetores</li><li>depende</li><li>sempre LD</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(1\cdot0+0\cdot v_2+\cdots=0\) com coeficiente 1 ≠ 0.</p></div></div><p class="rev">Revise: <a href="#m6-s4">6.4</a></p></div>
+    <div class="q" data-id="m6v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag f">fácil</span></div><p>Quatro vetores em \(\mathbb R^3\) são:</p>
+      <ol class="opts"><li>sempre LD</li><li>sempre LI</li><li>LI se forem distintos</li><li>LI se nenhum for nulo</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Mais vetores que a dimensão: LD.</p></div></div><p class="rev">Revise: <a href="#m6-s4">6.4</a></p></div>
+    <div class="q" data-id="m6v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Escalonando com os vetores nas colunas, sobram 2 pivôs para 3 vetores. O conjunto é:</p>
+      <ol class="opts"><li>LI</li><li>uma base</li><li>LD</li><li>impossível dizer</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Uma coluna sem pivô: há solução não trivial.</p></div></div><p class="rev">Revise: <a href="#m6-s3">6.3</a></p></div>
+    <div class="q" data-id="m6v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>\(\{(1,0,0),(1,1,0),(1,1,1)\}\) é:</p>
+      <ol class="opts"><li>LD</li><li>LI</li><li>LD porque têm 1 em comum</li><li>só LI em \(\mathbb R^4\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Matriz triangular com diagonal 1, 1, 1: \(\det=1\ne0\). LI.</p></div></div><p class="rev">Revise: <a href="#m6-s3">6.3 Determinante</a></p></div>
+    <div class="q" data-id="m6v6" data-ans="D"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Para que \(k\) o conjunto \(\{(1,2),(3,k)\}\) é LD?</p>
+      <ol class="opts"><li>\(k=3\)</li><li>\(k=2\)</li><li>\(k=-6\)</li><li>\(k=6\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\det=1\cdot k-2\cdot3=k-6=0\Rightarrow k=6\).</p></div></div><p class="rev">Revise: <a href="#m6-s3">6.3</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m6d1" data-ans="A"><p>LD significa que:</p><ol class="opts"><li>algum vetor é combinação dos outros</li><li>todos os vetores são iguais</li><li>um vetor é nulo, necessariamente</li><li>os vetores geram o espaço</li></ol><div class="why" hidden>Existe redundância: um deles se escreve com os demais.</div></div>
+    <div class="q dq" data-id="m6d2" data-ans="C"><p>Três vetores de \(\mathbb R^3\) num mesmo plano pela origem são:</p><ol class="opts"><li>LI</li><li>base</li><li>LD</li><li>ortogonais</li></ol><div class="why" hidden>Coplanares: um é combinação dos outros dois.</div></div>
+    <div class="q dq" data-id="m6d3" data-ans="B"><p>Se \(\{u,v\}\) é LI e \(w\notin[u,v]\), então \(\{u,v,w\}\) é:</p><ol class="opts"><li>LD</li><li>LI</li><li>depende de w</li><li>vazio</li></ol><div class="why" hidden>\(w\) traz uma direção nova (propriedade 5).</div></div>
+    <div class="q dq" data-id="m6d4" data-ans="D"><p>Para \(n\) vetores em \(\mathbb R^n\), LI equivale a:</p><ol class="opts"><li>det = 0</li><li>todos não nulos</li><li>todos distintos</li><li>det ≠ 0</li></ol><div class="why" hidden>Matriz quadrada inversível ⇔ colunas LI.</div></div>
+  </div>
+</div>
+</section>

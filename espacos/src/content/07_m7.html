@@ -1,0 +1,102 @@
+<section class="page mod" id="m7" data-num="7" data-part="Parte IV · Base e dimensão" data-short="Base e dimensão" data-title="Base e dimensão" data-icon="star" data-desc="Base (LI + gera), bases canônicas, dimensão, extrair e completar bases, dimensão de subespaços e a fórmula dim(U+W).">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>verificar se um conjunto é base (LI e gera);</li>
+    <li>conhecer as bases canônicas e as dimensões de \(\mathbb R^n\), \(M_{m\times n}\) e \(P_n\);</li>
+    <li>extrair uma base de um conjunto gerador e completar um LI até uma base;</li>
+    <li>achar base e dimensão de subespaços dados por equações;</li>
+    <li>usar \(\dim(U+W)=\dim U+\dim W-\dim(U\cap W)\).</li></ul></div>
+
+  <h2 class="sec"><span class="n">7.1</span> O que é base</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>Um conjunto \(B=\{v_1,\dots,v_n\}\subset V\) é uma <b>base</b> de \(V\) se:</p><p><b>(i)</b> \(B\) é LI; e <b>(ii)</b> \(B\) gera \(V\): \([B]=V\).</p><p>Gera = “dá para fazer tudo”; LI = “sem desperdício”. Uma base é um conjunto gerador <b>mínimo</b> (ou um LI <b>máximo</b>).</p></div>
+    <div class="tbl"><table><thead><tr><th class="l">Espaço</th><th class="l">Base canônica</th><th>Dimensão</th></tr></thead><tbody>
+      <tr><td class="l">\(\mathbb R^n\)</td><td class="l">\(e_1=(1,0,\dots,0),\ \dots,\ e_n=(0,\dots,0,1)\)</td><td>\(n\)</td></tr>
+      <tr><td class="l">\(M_{2\times2}\)</td><td class="l">\(\begin{bmatrix}1&0\\0&0\end{bmatrix},\begin{bmatrix}0&1\\0&0\end{bmatrix},\begin{bmatrix}0&0\\1&0\end{bmatrix},\begin{bmatrix}0&0\\0&1\end{bmatrix}\)</td><td>4</td></tr>
+      <tr><td class="l">\(M_{m\times n}\)</td><td class="l">matrizes com um 1 e o resto 0</td><td>\(mn\)</td></tr>
+      <tr><td class="l">\(P_n\)</td><td class="l">\(1,\ t,\ t^2,\ \dots,\ t^n\)</td><td>\(n+1\)</td></tr>
+      <tr><td class="l">\(\{0\}\)</td><td class="l">\(\varnothing\) (conjunto vazio)</td><td>0</td></tr>
+    </tbody></table></div>
+  </div>
+
+  <h2 class="sec"><span class="n">7.2</span> Dimensão</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Teorema e definição</div><p>Todas as bases de um mesmo espaço têm <b>o mesmo número de vetores</b>. Esse número é a <b>dimensão</b>: \(\dim V\).</p></div>
+    <div class="box def"><div class="bl">Consequências (num espaço de dimensão n)</div><p><b>1.</b> Mais de \(n\) vetores são LD. <b>2.</b> Menos de \(n\) vetores não geram \(V\). <b>3.</b> Exatamente \(n\) vetores: LI \(\iff\) geram \(\iff\) base. (Basta testar uma das duas condições!) <b>4.</b> Se \(W\) é subespaço de \(V\), \(\dim W\le\dim V\), com igualdade só se \(W=V\).</p></div>
+    <div class="box obs"><div class="bl">Por isso os subespaços de ℝ³ são só aqueles</div><p>Dimensões possíveis: 0 (\(\{0\}\)), 1 (retas pela origem), 2 (planos pela origem), 3 (\(\mathbb R^3\)). Era a lista do Módulo 4.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">7.3</span> Extraindo e completando bases</h2>
+  <div class="prose">
+    <div class="box tip"><div class="bl">Extrair uma base de [S]</div><p>Coloque os vetores de \(S\) como <b>colunas</b> e escalone. Os vetores <b>originais</b> nas colunas com pivô formam uma base de \([S]\); \(\dim[S]=\) número de pivôs = posto.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Ache uma base e a dimensão de \([(1,2,3),(2,4,6),(0,1,1),(1,3,4)]\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · escalone (laboratório abaixo)</span><p>Pivôs nas colunas 1 e 3. (A coluna 2 é \(2v_1\); a coluna 4 é \(v_1+v_3\).)</p></div>
+        <div class="st"><span class="pl">Passo 2</span><p>Base: \(\{(1,2,3),(0,1,1)\}\), dimensão 2: um plano.</p></div>
+      </div></div>
+    <div class="box tip"><div class="bl">Completar um LI até uma base de ℝⁿ</div><p>Escreva os vetores LI e, depois deles, \(e_1,\dots,e_n\). Escalone e fique com as colunas de pivô: os seus vetores continuam lá, e os canônicos escolhidos completam a base.</p></div>
+  </div>
+  <div class="lab" data-w="baseLab"><div class="lt">Laboratório: base e dimensão de [S] (e completar até ℝⁿ)</div><p class="ld">Digite um conjunto de vetores. O laboratório extrai uma base do subespaço gerado, informa a dimensão e sugere quais canônicos acrescentar para chegar a uma base de \(\mathbb R^n\).</p></div>
+
+  <h2 class="sec"><span class="n">7.4</span> Base de um subespaço dado por equações</h2>
+  <div class="prose">
+    <div class="box tip"><div class="bl">Roteiro</div><p>Resolva o sistema homogêneo das equações; escreva a solução geral com parâmetros; os vetores que multiplicam cada parâmetro formam uma base. <b>Dimensão = número de variáveis livres = nº de incógnitas − posto.</b></p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>\(W=\{(x,y,z,w)\in\mathbb R^4:\ x+y-z=0,\ y+w=0\}\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · isole as variáveis de pivô</span><p>\(y=-w\); \(x=z-y=z+w\). Livres: \(z=s\), \(w=t\).</p></div>
+        <div class="st"><span class="pl">Passo 2 · separe os parâmetros</span><div class="m">\[(s+t,\ -t,\ s,\ t)=s(1,0,1,0)+t(1,-1,0,1)\]</div></div>
+      </div>
+      <div class="final">Base: \(\{(1,0,1,0),(1,-1,0,1)\}\); \(\dim W=2\) (4 incógnitas − 2 equações independentes).</div></div>
+    <div class="box def"><div class="bl">Fórmula da dimensão da soma</div><div>\[\dim(U+W)=\dim U+\dim W-\dim(U\cap W)\]</div><p>Parece a contagem de elementos de uma união: o que está nos dois foi contado duas vezes. Ex.: dois planos distintos pela origem em \(\mathbb R^3\): \(U+W=\mathbb R^3\), então \(3=2+2-\dim(U\cap W)\Rightarrow\dim(U\cap W)=1\): eles se cortam numa reta.</p></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Quantos números você realmente precisa guardar?</h3>
+    <p>Um sensor mede, num ponto de uma fábrica, 4 grandezas \((T_1,T_2,T_3,T_4)\) (temperaturas em lugares diferentes). Pela física do equipamento, sempre valem \(T_1+T_2-T_3=0\) e \(T_2+T_4=0\) (em escalas relativas). Quantos números o sistema precisa transmitir por medição?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1</span><p>As medições possíveis formam exatamente o subespaço \(W\) da seção 7.4.</p></div>
+      <div class="st"><span class="pl">Passo 2</span><p>\(\dim W=2\), com base \(\{(1,0,1,0),(1,-1,0,1)\}\). Toda medição é \(s(1,0,1,0)+t(1,-1,0,1)\).</p></div>
+      <div class="st"><span class="pl">Passo 3</span><p>Basta transmitir \((s,t)=(T_3,T_4)\) e reconstruir \(T_1=T_3+T_4\), \(T_2=-T_4\).</p></div>
+    </div>
+    <div class="final"><b>Resposta:</b> 2 números em vez de 4. A dimensão mede quantos “graus de liberdade” um conjunto de dados realmente tem; é a ideia por trás da compressão de dados e da redução de dimensão em ciência de dados.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>\(\{(1,1),(1,-1)\}\) é base de \(\mathbb R^2\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Atalho</span><p>São 2 vetores em dimensão 2: basta LI. \(\det=-1-1=-2\ne0\). É base.</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Dimensão das matrizes \(2\times2\) simétricas.</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\begin{bmatrix}a&b\\b&c\end{bmatrix}=a\begin{bmatrix}1&0\\0&0\end{bmatrix}+b\begin{bmatrix}0&1\\1&0\end{bmatrix}+c\begin{bmatrix}0&0\\0&1\end{bmatrix}\]</div><p>Três matrizes LI que geram: dimensão 3.</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Dimensão de \(\{p\in P_3:\ p(1)=0\}\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(p=a+bt+ct^2+dt^3\) com \(a+b+c+d=0\): 4 coeficientes, 1 equação. Dimensão 3 (base: \(t-1,\ t^2-1,\ t^3-1\)).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m7v1" data-ans="C"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>\(\dim P_3\) é:</p>
+      <ol class="opts"><li>3</li><li>2</li><li>4</li><li>infinita</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Base \(1,t,t^2,t^3\): 4 vetores.</p></div></div><p class="rev">Revise: <a href="#m7-s1">7.1</a></p></div>
+    <div class="q" data-id="m7v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(\dim M_{2\times3}\) é:</p>
+      <ol class="opts"><li>6</li><li>5</li><li>3</li><li>2</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(2\cdot3=6\) entradas livres.</p></div></div><p class="rev">Revise: <a href="#m7-s1">7.1</a></p></div>
+    <div class="q" data-id="m7v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>Três vetores LI em \(\mathbb R^3\):</p>
+      <ol class="opts"><li>podem não gerar \(\mathbb R^3\)</li><li>geram só um plano</li><li>são LD</li><li>formam uma base de \(\mathbb R^3\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(n\) vetores LI em dimensão \(n\) já são base.</p></div></div><p class="rev">Revise: <a href="#m7-s2">7.2</a></p></div>
+    <div class="q" data-id="m7v4" data-ans="B"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>A dimensão do plano \(x-2y+3z=0\) em \(\mathbb R^3\) é:</p>
+      <ol class="opts"><li>1</li><li>2</li><li>3</li><li>0</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>3 incógnitas − 1 equação = 2 livres.</p></div></div><p class="rev">Revise: <a href="#m7-s4">7.4</a></p></div>
+    <div class="q" data-id="m7v5" data-ans="C"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>\(\dim[(1,1,1),(2,2,2),(1,0,1)]\) é:</p>
+      <ol class="opts"><li>3</li><li>1</li><li>2</li><li>0</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((2,2,2)=2(1,1,1)\); \((1,0,1)\) não é múltiplo de \((1,1,1)\). Sobram 2 LI.</p></div></div><p class="rev">Revise: <a href="#m7-s3">7.3</a></p></div>
+    <div class="q" data-id="m7v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>\(U\) e \(W\) são subespaços de \(\mathbb R^4\) com \(\dim U=3\), \(\dim W=2\) e \(U+W=\mathbb R^4\). Então \(\dim(U\cap W)\) é:</p>
+      <ol class="opts"><li>1</li><li>0</li><li>2</li><li>5</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(4=3+2-\dim(U\cap W)\Rightarrow\dim(U\cap W)=1\).</p></div></div><p class="rev">Revise: <a href="#m7-s4">7.4 Fórmula</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m7d1" data-ans="B"><p>Base é um conjunto:</p><ol class="opts"><li>só LI</li><li>LI e gerador</li><li>só gerador</li><li>de vetores unitários</li></ol><div class="why" hidden>As duas condições juntas.</div></div>
+    <div class="q dq" data-id="m7d2" data-ans="D"><p>Dois vetores podem gerar \(\mathbb R^3\)?</p><ol class="opts"><li>sim, se forem LI</li><li>sim, se forem perpendiculares</li><li>sim, sempre</li><li>não, nunca</li></ol><div class="why" hidden>Menos de 3 vetores não geram um espaço de dimensão 3.</div></div>
+    <div class="q dq" data-id="m7d3" data-ans="A"><p>Para extrair uma base de [S], ficamos com:</p><ol class="opts"><li>os vetores originais das colunas com pivô</li><li>as linhas zeradas</li><li>os vetores da forma escalonada, sempre</li><li>os vetores canônicos</li></ol><div class="why" hidden>As colunas com pivô indicam quais vetores originais são LI e geram o mesmo espaço.</div></div>
+    <div class="q dq" data-id="m7d4" data-ans="C"><p>A dimensão do espaço de soluções de \(AX=0\) é:</p><ol class="opts"><li>o posto</li><li>o número de equações</li><li>o número de variáveis livres</li><li>sempre 1</li></ol><div class="why" hidden>Cada variável livre dá um vetor da base.</div></div>
+  </div>
+</div>
+</section>
