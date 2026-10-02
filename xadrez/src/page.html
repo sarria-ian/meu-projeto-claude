@@ -1,0 +1,365 @@
+<title>Tabuleiro de Treino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+Symbols+2&display=swap">
+<style>
+/* Layout: barra superior + abas; em cada modo, tabuleiro à esquerda e painel de estudo à direita (empilha no celular). */
+:root{
+  --bg:#EEF0EC; --surface:#FBFCFA; --surface2:#E3E7E1; --ink:#18211D; --muted:#5A665F; --line:#CDD4CC;
+  --accent:#1E6B50; --accent-ink:#FFFFFF; --accent-soft:#D5E8DF; --brass:#A87A1F; --brass-soft:#F2E6C8;
+  --good:#1F7A3E; --good-soft:#DCF0E1; --bad:#B3261E; --bad-soft:#F7DEDA;
+  --light:#EBD8B2; --dark:#A9774D; --coord-l:#8A5F3A; --coord-d:#F3E5C9;
+  --hl:rgba(214,170,40,.55); --sel:rgba(30,107,80,.55); --dot:rgba(24,33,29,.28);
+  --wp:#FFFFFF; --wp-line:#1B1B1B; --bp:#1E1E1E;
+  --shadow:0 1px 2px rgba(24,33,29,.06),0 8px 24px rgba(24,33,29,.08);
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --f-piece:"Noto Sans Symbols 2","Segoe UI Symbol","Apple Symbols","DejaVu Sans",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111613; --surface:#1A201D; --surface2:#242C28; --ink:#E5EBE7; --muted:#9BA8A0; --line:#323C37;
+  --accent:#4FB58C; --accent-ink:#0D1411; --accent-soft:#1F3A2F; --brass:#D9A93F; --brass-soft:#3A311B;
+  --good:#5CC27E; --good-soft:#1C3324; --bad:#F07467; --bad-soft:#3D1F1C;
+  --light:#D9C39A; --dark:#8E6340; --coord-l:#7A5332; --coord-d:#EAD9B6;
+  --dot:rgba(10,14,12,.35); --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111613; --surface:#1A201D; --surface2:#242C28; --ink:#E5EBE7; --muted:#9BA8A0; --line:#323C37;
+  --accent:#4FB58C; --accent-ink:#0D1411; --accent-soft:#1F3A2F; --brass:#D9A93F; --brass-soft:#3A311B;
+  --good:#5CC27E; --good-soft:#1C3324; --bad:#F07467; --bad-soft:#3D1F1C;
+  --light:#D9C39A; --dark:#8E6340; --coord-l:#7A5332; --coord-d:#EAD9B6;
+  --dot:rgba(10,14,12,.35); --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35); color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+.mono{font-family:var(--f-mono)}
+
+/* topo */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .row1{display:flex;align-items:center;gap:8px;padding-block:10px}
+[hidden]{display:none!important}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:1.15rem;letter-spacing:-.01em;margin-right:auto}
+.brand .mk{width:34px;height:34px;border-radius:8px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.brand .mk i:nth-child(1),.brand .mk i:nth-child(4){background:var(--light)}
+.brand .mk i:nth-child(2),.brand .mk i:nth-child(3){background:var(--dark)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:.86rem;font-weight:700;white-space:nowrap}
+.chip .bar{width:70px;height:6px;border-radius:9px;background:var(--surface2);overflow:hidden}
+.chip .bar b{display:block;height:100%;background:var(--accent);width:0}
+.lt::before{content:" · "}
+@media (max-width:560px){.lt,.chip .bar{display:none}.brand{font-size:1rem}.brand .mk{width:28px;height:28px}.chip{padding:5px 8px}}
+@media (max-width:400px){#hXp{display:none}}
+.ibtn{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;cursor:pointer}
+.ibtn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tabs{display:flex;gap:4px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{border:0;background:transparent;padding:8px 14px;border-radius:10px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.tab:hover:not([aria-selected="true"]){background:var(--surface2);color:var(--ink)}
+
+/* área de jogo */
+main{padding-block:20px 48px}
+.view[hidden]{display:none}
+.play{display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:880px){.play{grid-template-columns:minmax(0,1fr)}.boardcol{max-width:560px;margin-inline:auto;width:100%}}
+.boardcol{display:grid;gap:10px;min-width:0}
+.panel{display:grid;gap:14px;min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow);min-width:0}
+.eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.small{font-size:.88rem}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{border:1px solid var(--line);background:var(--surface);padding:9px 14px;border-radius:10px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{border-color:var(--ink)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.pri:hover{filter:brightness(1.07)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.seg{display:inline-flex;background:var(--surface2);border-radius:10px;padding:3px;gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;padding:6px 11px;border-radius:8px;font-weight:700;font-size:.9rem;cursor:pointer;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.msg{border-radius:10px;padding:10px 12px;font-weight:700;background:var(--surface2)}
+.msg.good{background:var(--good-soft);color:var(--good)}
+.msg.bad{background:var(--bad-soft);color:var(--bad)}
+.msg.info{background:var(--brass-soft);color:var(--ink)}
+.explain{border-left:4px solid var(--accent);padding:4px 0 4px 12px}
+.explain p{margin:.3em 0}
+
+/* tabuleiro */
+.board{position:relative;width:100%;aspect-ratio:1;max-width:100%;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(8,1fr);border-radius:8px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.18),var(--shadow);container-type:inline-size;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.sq{position:relative;display:grid;place-items:center;cursor:pointer}
+.sq.l{background:var(--light)} .sq.d{background:var(--dark)}
+.sq.last::before{content:"";position:absolute;inset:0;background:var(--hl)}
+.sq.sel::before{content:"";position:absolute;inset:0;background:var(--sel)}
+.sq.chk::before{content:"";position:absolute;inset:0;background:radial-gradient(circle,rgba(230,40,30,.9) 0%,rgba(230,40,30,.55) 35%,transparent 72%)}
+.sq.hint{box-shadow:inset 0 0 0 4px var(--brass)}
+.sq.ok::after,.sq.no::after{content:"";position:absolute;inset:0;animation:flash .7s ease-out forwards}
+.sq.ok::after{background:rgba(40,170,80,.55)} .sq.no::after{background:rgba(220,40,30,.55)}
+@keyframes flash{from{opacity:1}to{opacity:0}}
+.sq .tg{position:absolute;width:30%;height:30%;border-radius:50%;background:var(--dot);z-index:2;pointer-events:none}
+.sq .tg.cap{width:92%;height:92%;background:transparent;border:5cqw solid var(--dot);border-width:1.1cqw}
+.pc{position:relative;z-index:1;font-family:var(--f-piece);font-size:10cqw;line-height:1;pointer-events:none;transition:transform .12s}
+.pc.w{color:var(--wp)}
+.pc.w::after{content:attr(data-o);position:absolute;inset:0;color:var(--wp-line)}
+.pc.b{color:var(--bp);text-shadow:0 0 1px rgba(255,255,255,.25)}
+.sq.sel .pc{transform:scale(1.08)}
+.co{position:absolute;font:700 2.1cqw/1 var(--f-mono);pointer-events:none;z-index:1}
+.co.r{left:3%;top:4%} .co.f{right:4%;bottom:3%}
+.sq.l .co{color:var(--coord-l)} .sq.d .co{color:var(--coord-d)}
+.board.nocoord .co{display:none}
+.promo{position:absolute;inset:0;background:rgba(10,14,12,.55);display:grid;place-items:center;z-index:5}
+.promo[hidden]{display:none}
+.promo div{display:flex;gap:6px;background:var(--surface);padding:10px;border-radius:12px}
+.promo button{width:16cqw;height:16cqw;border:1px solid var(--line);border-radius:10px;background:var(--light);cursor:pointer;display:grid;place-items:center}
+.promo .pc{font-size:12cqw}
+.under{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-size:.9rem}
+.turn{display:inline-flex;align-items:center;gap:8px;font-weight:700}
+.turn i{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--ink)}
+.turn i.w{background:#fff} .turn i.b{background:#1e1e1e}
+.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}
+
+/* táticas */
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.fchip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 11px;font-size:.86rem;font-weight:700;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.fchip small{font-family:var(--f-mono);color:var(--muted);font-weight:500}
+.fchip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.fchip[aria-pressed="true"] small{color:inherit;opacity:.75}
+.plist{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:6px}
+.pdot{height:38px;border-radius:9px;border:1px solid var(--line);background:var(--surface);font:700 .8rem var(--f-mono);cursor:pointer;color:var(--muted)}
+.pdot.done{background:var(--good-soft);color:var(--good);border-color:transparent}
+.pdot.cur{outline:2px solid var(--ink);outline-offset:1px;color:var(--ink)}
+.stars{color:var(--brass);letter-spacing:2px;font-size:1rem}
+.stars .off{color:var(--line)}
+.ptitle{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.ptitle h2{font-size:1.35rem}
+.prompt{font-size:1.05rem;font-weight:700;margin-top:4px}
+
+/* mates */
+.mcards{display:grid;gap:8px}
+.mcard{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:10px 12px;cursor:pointer;text-align:left}
+.mcard[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.mcard .pcs{line-height:1;min-width:64px;display:flex}
+.mcard .pc{font-size:1.8rem}
+.mat .pc{font-size:1.2rem}
+.mcard b{display:block}
+.steps{margin:0;padding-left:1.2em}
+.steps li{margin:.25em 0}
+
+/* jogar */
+.moves{font-family:var(--f-mono);font-size:.92rem;max-height:220px;overflow:auto;display:grid;grid-template-columns:2.6em 6em 6em;gap:2px 8px;align-content:start}
+.moves span.n{color:var(--muted)}
+.moves span.cur{background:var(--brass-soft);border-radius:4px;padding:0 3px}
+.check li{margin:.2em 0}
+.mat{font-family:var(--f-piece);font-size:1.1rem;letter-spacing:1px;min-height:1.4em}
+.mat small{font-family:var(--f-mono);font-size:.8rem;color:var(--muted);margin-left:4px}
+.think{display:inline-flex;gap:4px;align-items:center}
+.think i{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:bl 1s infinite}
+.think i:nth-child(2){animation-delay:.15s}.think i:nth-child(3){animation-delay:.3s}
+@keyframes bl{0%,100%{opacity:.25}50%{opacity:1}}
+
+/* coordenadas */
+.target{font:800 clamp(3rem,10vw,5rem)/1 var(--f-mono);letter-spacing:-.02em;color:var(--accent);text-align:center;padding:6px 0}
+.timer{height:8px;border-radius:9px;background:var(--surface2);overflow:hidden}
+.timer b{display:block;height:100%;background:var(--brass);width:100%;transition:width .2s linear}
+.big{font:800 2.2rem/1 var(--f-display)}
+
+/* progresso */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.kpi{background:var(--surface2);border-radius:12px;padding:12px}
+.kpi b{display:block;font:800 1.6rem/1.1 var(--f-display);font-variant-numeric:tabular-nums}
+.kpi span{font-size:.82rem;color:var(--muted)}
+.row{display:grid;grid-template-columns:110px 1fr 52px;gap:10px;align-items:center;font-size:.9rem}
+.row .tr{height:8px;border-radius:9px;background:var(--surface2);overflow:hidden}
+.row .tr b{display:block;height:100%;background:var(--accent)}
+.row .v{font-family:var(--f-mono);text-align:right;font-size:.82rem}
+.ach{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:8px}
+.ach div{display:flex;gap:10px;align-items:center;padding:10px;border-radius:10px;background:var(--surface2);opacity:.5}
+.ach div.on{opacity:1;background:var(--brass-soft)}
+.ach i{font-style:normal;font-family:var(--f-piece);font-size:1.5rem;line-height:1}
+.ach b{display:block;font-size:.92rem}.ach span{font-size:.8rem;color:var(--muted)}
+.toasts{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:grid;gap:8px;z-index:50;pointer-events:none;width:min(92vw,380px)}
+.toast{background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:12px;font-weight:700;box-shadow:var(--shadow);animation:tin .25s ease-out}
+@keyframes tin{from{transform:translateY(10px);opacity:0}}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<header class="top">
+  <div class="wrap row1">
+    <div class="brand"><span class="mk" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Tabuleiro de Treino</div>
+    <span class="chip" title="Dias seguidos treinando"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-9z"/></svg><span id="hStreak">0</span></span>
+    <span class="chip"><span><span id="hLvl">Nível 1</span><span class="lt" id="hTitle"></span></span><span class="bar"><b id="hBar"></b></span><span id="hXp" class="mono">0 XP</span></span>
+    <button class="ibtn" id="bSound" title="Som ligado/desligado" aria-label="Som"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path id="sWave" d="M16 9a4 4 0 0 1 0 6"/></svg></button>
+    <button class="ibtn" id="bTheme" title="Tema claro/escuro" aria-label="Tema"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></button>
+  </div>
+  <nav class="wrap tabs" role="tablist">
+    <button class="tab" role="tab" data-v="taticas" aria-selected="true">Táticas</button>
+    <button class="tab" role="tab" data-v="mates" aria-selected="false">Mates básicos</button>
+    <button class="tab" role="tab" data-v="jogar" aria-selected="false">Jogar</button>
+    <button class="tab" role="tab" data-v="coord" aria-selected="false">Coordenadas</button>
+    <button class="tab" role="tab" data-v="prog" aria-selected="false">Progresso</button>
+  </nav>
+</header>
+
+<main class="wrap">
+  <!-- TÁTICAS -->
+  <section class="view" id="v-taticas">
+    <div class="play">
+      <div class="boardcol">
+        <div class="board" id="bdT"></div>
+        <div class="under"><span class="turn" id="tTurn"></span><span class="muted small">Toque na peça e depois na casa de destino.</span></div>
+      </div>
+      <div class="panel">
+        <div class="card" style="display:grid;gap:10px">
+          <div class="ptitle"><div><div class="eyebrow" id="tTheme"></div><h2 id="tTitle"></h2></div><span class="stars" id="tLv"></span></div>
+          <div class="prompt" id="tPrompt"></div>
+          <div class="msg" id="tMsg" hidden></div>
+          <div class="explain" id="tExp" hidden></div>
+          <div class="btns">
+            <button class="btn" id="tHint">Dica</button>
+            <button class="btn" id="tSol">Ver solução</button>
+            <button class="btn" id="tRetry">Tentar de novo</button>
+            <button class="btn pri" id="tNext">Próximo</button>
+          </div>
+        </div>
+        <div class="card" style="display:grid;gap:10px">
+          <div class="eyebrow">Temas</div>
+          <div class="filters" id="tFilters"></div>
+          <p class="small muted" id="tThemeInfo" style="margin:0"></p>
+          <div class="plist" id="tList"></div>
+          <p class="small muted" style="margin:0">Acertou de primeira: 10 XP. Com dica ou depois de errar: 5 XP. Vendo a solução: 0 XP.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATES BÁSICOS -->
+  <section class="view" id="v-mates" hidden>
+    <div class="play">
+      <div class="boardcol">
+        <div class="board" id="bdM"></div>
+        <div class="under"><span class="turn" id="mTurn"></span><span class="mono small" id="mCount"></span></div>
+      </div>
+      <div class="panel">
+        <div class="card" style="display:grid;gap:10px">
+          <div class="eyebrow">Escolha o final</div>
+          <div class="mcards" id="mCards"></div>
+        </div>
+        <div class="card" style="display:grid;gap:10px">
+          <h2 id="mTitle" style="font-size:1.3rem"></h2>
+          <div class="msg info" id="mMsg"></div>
+          <ol class="steps" id="mSteps"></ol>
+          <div class="btns"><button class="btn" id="mHint">Dica</button><button class="btn pri" id="mReset">Recomeçar</button></div>
+          <p class="small muted" style="margin:0" id="mGoal"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOGAR -->
+  <section class="view" id="v-jogar" hidden>
+    <div class="play">
+      <div class="boardcol">
+        <div class="mat" id="jMatTop"></div>
+        <div class="board" id="bdJ"></div>
+        <div class="mat" id="jMatBot"></div>
+      </div>
+      <div class="panel">
+        <div class="card" style="display:grid;gap:12px">
+          <div class="eyebrow">Partida contra o computador</div>
+          <div class="msg" id="jMsg">Sua vez.</div>
+          <div style="display:grid;gap:8px">
+            <div class="small muted">Nível do computador</div>
+            <div class="seg" id="jLevel"></div>
+            <div class="small muted">Você joga com</div>
+            <div class="seg" id="jColor"><button data-c="w">Brancas</button><button data-c="b">Pretas</button><button data-c="r">Sorteio</button></div>
+          </div>
+          <div class="btns">
+            <button class="btn pri" id="jNew">Nova partida</button>
+            <button class="btn" id="jUndo">Desfazer</button>
+            <button class="btn" id="jHint">Dica</button>
+            <button class="btn" id="jFlip">Virar</button>
+          </div>
+          <div class="confirm" id="jConfirm" hidden><span class="small">Começar outra partida? A atual será perdida.</span><button class="btn pri" id="jYes">Sim, nova partida</button><button class="btn" id="jNo">Continuar esta</button></div>
+        </div>
+        <div class="card" style="display:grid;gap:8px">
+          <div class="eyebrow">Lances</div>
+          <div class="moves" id="jMoves"></div>
+        </div>
+        <div class="card">
+          <div class="eyebrow" style="margin-bottom:6px">Antes de cada lance</div>
+          <ol class="steps check small">
+            <li>O que o último lance do adversário ameaça?</li>
+            <li>Tenho algum <b>xeque</b>, <b>captura</b> ou <b>ameaça</b>?</li>
+            <li>Depois do meu lance, alguma peça minha fica sem defesa?</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COORDENADAS -->
+  <section class="view" id="v-coord" hidden>
+    <div class="play">
+      <div class="boardcol">
+        <div class="board nocoord" id="bdC"></div>
+      </div>
+      <div class="panel">
+        <div class="card" style="display:grid;gap:12px">
+          <div class="eyebrow">Encontre a casa</div>
+          <p class="small muted" style="margin:0">Aparece o nome de uma casa (por exemplo, <span class="mono">e4</span>). Toque nela no tabuleiro. Você tem 30 segundos. Saber as casas de cor é o que permite ler livros e anotar partidas.</p>
+          <div class="target" id="cTarget">e4</div>
+          <div class="timer"><b id="cTime"></b></div>
+          <div style="display:flex;justify-content:space-between;align-items:end;gap:10px;flex-wrap:wrap">
+            <div><div class="small muted">Acertos</div><div class="big" id="cScore">0</div></div>
+            <div><div class="small muted">Recorde</div><div class="big" id="cBest">0</div></div>
+          </div>
+          <div style="display:grid;gap:8px">
+            <div class="seg" id="cSide"><button data-c="w">Visão das brancas</button><button data-c="b">Visão das pretas</button></div>
+            <div class="seg" id="cShow"><button data-c="0">Sem coordenadas</button><button data-c="1">Com coordenadas</button></div>
+          </div>
+          <div class="btns"><button class="btn pri" id="cGo">Começar</button></div>
+          <div class="msg" id="cMsg" hidden></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRESSO -->
+  <section class="view" id="v-prog" hidden>
+    <div style="display:grid;gap:14px">
+      <div class="card" style="display:grid;gap:12px">
+        <div class="eyebrow">Seu progresso</div>
+        <div class="kpis" id="pKpis"></div>
+      </div>
+      <div class="grid2">
+        <div class="card" style="display:grid;gap:8px"><div class="eyebrow">Táticas por tema</div><div id="pThemes" style="display:grid;gap:8px"></div></div>
+        <div class="card" style="display:grid;gap:8px"><div class="eyebrow">Mates básicos e partidas</div><div id="pOther" style="display:grid;gap:8px"></div></div>
+      </div>
+      <div class="card" style="display:grid;gap:10px"><div class="eyebrow">Conquistas</div><div class="ach" id="pAch"></div></div>
+      <div class="card" style="display:grid;gap:10px">
+        <div class="eyebrow">Plano de estudo sugerido</div>
+        <ol class="steps small">
+          <li><b>Todo dia (15–20 min):</b> táticas. Comece por Mate em 1, Corredor e Peça sem defesa; depois Garfo, Cravada, Espeto e Descoberto.</li>
+          <li><b>Até dominar:</b> os três mates básicos com 3 estrelas (duas torres, dama, torre).</li>
+          <li><b>2 a 3 partidas por dia</b> contra o computador, subindo de nível quando vencer duas seguidas. Use o checklist antes de cada lance.</li>
+          <li><b>1 rodada de coordenadas</b> por dia até passar de 20 acertos.</li>
+        </ol>
+        <p class="small muted" style="margin:0">O progresso fica salvo neste navegador, neste aparelho.</p>
+        <div class="confirm"><button class="btn" id="pReset">Apagar progresso</button><span id="pResetAsk" hidden class="confirm"><span class="small">Tem certeza? Isso apaga XP, estrelas e conquistas.</span><button class="btn" id="pResetYes" style="color:var(--bad)">Apagar</button><button class="btn" id="pResetNo">Cancelar</button></span></div>
+      </div>
+    </div>
+  </section>
+</main>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script id="chesslib">/*CHESSJS*/</script>
+<script id="engine">/*ENGINE*/</script>
+<script>
+var PUZ = /*PUZZLES*/;
+/*APP*/
+</script>
