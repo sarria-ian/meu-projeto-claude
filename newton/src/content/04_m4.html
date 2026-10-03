@@ -1,0 +1,127 @@
+<section class="page mod" id="m4" data-num="4" data-part="Parte II · O Triângulo de Pascal" data-short="Triângulo de Pascal" data-title="O Triângulo de Pascal e suas propriedades" data-icon="tri" data-desc="Construção, relação de Stifel, simetria, soma das linhas (2ⁿ), taco de hóquei, Fibonacci e a tábua de Galton.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>construir o Triângulo de Pascal até qualquer linha;</li>
+    <li>identificar cada número como um binomial \(\binom nk\) (linha \(n\), coluna \(k\), contando a partir de 0);</li>
+    <li>enunciar e provar a relação de Stifel;</li>
+    <li>usar a simetria, a soma das linhas \(2^n\) e a soma das colunas (taco de hóquei) para resolver problemas.</li></ul></div>
+
+  <h2 class="sec"><span class="n">4.1</span> Construção</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Regras</div><p><b>1.</b> Toda linha começa e termina com 1. <b>2.</b> Cada número de dentro é a <b>soma dos dois números logo acima</b> dele.</p></div>
+    <div class="tbl"><table><tbody>
+      <tr><th>linha 0</th><td colspan="9">1</td></tr>
+      <tr><th>linha 1</th><td colspan="9">1 &nbsp; 1</td></tr>
+      <tr><th>linha 2</th><td colspan="9">1 &nbsp; 2 &nbsp; 1</td></tr>
+      <tr><th>linha 3</th><td colspan="9">1 &nbsp; 3 &nbsp; 3 &nbsp; 1</td></tr>
+      <tr><th>linha 4</th><td colspan="9">1 &nbsp; 4 &nbsp; 6 &nbsp; 4 &nbsp; 1</td></tr>
+      <tr><th>linha 5</th><td colspan="9">1 &nbsp; 5 &nbsp; 10 &nbsp; 10 &nbsp; 5 &nbsp; 1</td></tr>
+      <tr><th>linha 6</th><td colspan="9">1 &nbsp; 6 &nbsp; 15 &nbsp; 20 &nbsp; 15 &nbsp; 6 &nbsp; 1</td></tr>
+    </tbody></table></div>
+    <div class="box obs"><div class="bl">Reconhece?</div><p>As linhas 2 e 3 são os coeficientes de \((a+b)^2\) e \((a+b)^3\) do Módulo 1. A linha \(n\) dá os coeficientes de \((a+b)^n\): o Triângulo é uma tabela pronta de coeficientes.</p></div>
+  </div>
+  <div class="lab" data-w="pascalLab"><div class="lt">Laboratório: o Triângulo de Pascal vivo</div><p class="ld">Use as abas: <b>Construir</b> anima a construção; <b>Stifel</b>, <b>Soma da linha</b>, <b>Taco de hóquei</b>, <b>Simetria</b> e <b>Fibonacci</b> destacam propriedades (toque nos números); <b>Pares e ímpares</b> revela um fractal.</p></div>
+
+  <h2 class="sec"><span class="n">4.2</span> Cada número é um binomial</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Posição</div><p>Numerando linhas e colunas <b>a partir de 0</b>, o número da linha \(n\) e coluna \(k\) é</p><div>\[\binom nk\]</div><p>Linha 4: \(\binom40,\binom41,\binom42,\binom43,\binom44=1,4,6,4,1\).</p></div>
+    <div class="box warn"><div class="bl">Atenção à contagem a partir de zero</div><p>O “6” da linha 4 está na <b>3ª posição</b>, mas é \(\binom{4}{2}\) (coluna 2). Esse deslocamento de 1 vai reaparecer no termo geral: o 3º termo usa \(k=2\).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">4.3</span> Relação de Stifel</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Relação de Stifel</div><div>\[\binom{n}{k}+\binom{n}{k+1}=\binom{n+1}{k+1}\]</div><p>É a regra “soma dos dois de cima” escrita com binomiais.</p></div>
+    <details class="demo"><summary>Demonstração 1 · pela contagem (a mais bonita)</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Situação</span><p>Uma turma tem \(n+1\) alunos, um deles é a Ana. Quantas comissões de \(k+1\) alunos existem? Resposta direta: \(\binom{n+1}{k+1}\).</p></div>
+        <div class="st"><span class="pl">Conte de novo, separando em dois casos</span><p><b>Com a Ana:</b> faltam \(k\) entre os outros \(n\): \(\binom nk\). <b>Sem a Ana:</b> todos os \(k+1\) saem dos outros \(n\): \(\binom n{k+1}\).</p></div>
+        <div class="st"><span class="pl">Conclusão</span><p>As duas contagens contam a mesma coisa, então \(\binom nk+\binom n{k+1}=\binom{n+1}{k+1}\).</p></div>
+      </div></div></details>
+    <details class="demo"><summary>Demonstração 2 · pela fórmula</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · escreva com fatoriais</span><div class="m">\[\frac{n!}{k!\,(n-k)!}+\frac{n!}{(k+1)!\,(n-k-1)!}\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · denominador comum \((k+1)!\,(n-k)!\)</span><div class="m">\[=\frac{n!\,(k+1)+n!\,(n-k)}{(k+1)!\,(n-k)!}=\frac{n!\,(n+1)}{(k+1)!\,(n-k)!}\]</div></div>
+        <div class="st"><span class="pl">Passo 3</span><div class="m">\[=\frac{(n+1)!}{(k+1)!\,\big((n+1)-(k+1)\big)!}=\binom{n+1}{k+1}\]</div></div>
+      </div></div></details>
+  </div>
+
+  <h2 class="sec"><span class="n">4.4</span> Simetria e soma das linhas</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Simetria</div><p>Cada linha é um palíndromo (lida igual dos dois lados), porque \(\binom nk=\binom n{n-k}\).</p></div>
+    <div class="box def"><div class="bl">Soma da linha n</div><div>\[\binom n0+\binom n1+\cdots+\binom nn=2^n\]</div><p>Linha 4: \(1+4+6+4+1=16=2^4\).</p></div>
+    <details class="demo"><summary>Por que a soma é 2ⁿ</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>A soma conta todos os subconjuntos de um conjunto com \(n\) elementos (com 0 elementos, com 1, …, com \(n\)).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><p>Contando de outro jeito: cada elemento “entra” ou “não entra”: \(2\cdot2\cdots2=2^n\) subconjuntos.</p></div>
+        <div class="st"><span class="pl">Passo 3</span><p>No Módulo 7 veremos uma terceira prova, de uma linha só, com o Binômio de Newton.</p></div>
+      </div></div></details>
+  </div>
+
+  <h2 class="sec"><span class="n">4.5</span> Soma das colunas (taco de hóquei) e Fibonacci</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Teorema das colunas</div><div>\[\binom kk+\binom{k+1}{k}+\cdots+\binom nk=\binom{n+1}{k+1}\]</div><p>Desça uma coluna somando: o resultado está uma linha abaixo e uma coluna à direita. O desenho lembra um taco de hóquei.</p><p>Exemplo (coluna 2): \(1+3+6+10=20=\binom63\).</p></div>
+    <details class="demo"><summary>Demonstração com Stifel (efeito dominó)</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>Troque \(\binom kk\) por \(\binom{k+1}{k+1}\) (os dois valem 1).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><p>Stifel: \(\binom{k+1}{k+1}+\binom{k+1}{k}=\binom{k+2}{k+1}\). Some o próximo: \(\binom{k+2}{k+1}+\binom{k+2}{k}=\binom{k+3}{k+1}\)…</p></div>
+        <div class="st"><span class="pl">Passo 3</span><p>Cada soma “engole” o próximo termo, até sobrar \(\binom{n+1}{k+1}\).</p></div>
+      </div></div></details>
+    <div class="box obs"><div class="bl">Curiosidades</div><p>Somando as diagonais “rasas” aparece a sequência de Fibonacci: 1, 1, 2, 3, 5, 8, 13… Pintando os números ímpares aparece o Triângulo de Sierpinski. Veja as duas coisas no laboratório.</p></div>
+  </div>
+  <div class="lab" data-w="galton"><div class="lt">Animação: a tábua de Galton</div><p class="ld">Bolinhas caem batendo em pinos e desviam para a esquerda ou para a direita, meio a meio. Solte várias e veja os compartimentos se encherem no formato dos números da linha \(n\) do Triângulo de Pascal.</p></div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Quantos caminhos até a escola?</h3>
+    <p>Num bairro com ruas em grade, Lia mora numa esquina e a escola fica 4 quarteirões a leste e 2 ao norte. Ela só anda para leste (L) ou para norte (N). Quantos caminhos diferentes ela tem?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · traduza o caminho em letras</span><p>Todo caminho tem 6 quarteirões: 4 letras L e 2 letras N, em alguma ordem. Ex.: LLNLNL.</p></div>
+      <div class="st"><span class="pl">Passo 2 · conte</span><p>Basta escolher <b>quais</b> 2 das 6 posições serão N:</p><div class="m">\[\binom62=15\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · ligação com Pascal</span><p>Marcando em cada esquina o número de caminhos que chegam nela, cada número é a soma do que vem de baixo com o que vem da esquerda: o Triângulo de Pascal “inclinado” aparece sobre o mapa.</p></div>
+    </div>
+    <div class="final"><b>Resposta:</b> 15 caminhos (o 15 da linha 6 do Triângulo).</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Escreva a linha 7 do Triângulo de Pascal a partir da linha 6.</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1 · linha 6</span><p>1 6 15 20 15 6 1</p></div><div class="st"><span class="pl">Passo 2 · some vizinhos</span><p>1, 1+6=7, 6+15=21, 15+20=35, 20+15=35, 15+6=21, 6+1=7, 1.</p></div><div class="st"><span class="pl">Conferência</span><p>Soma: \(1+7+21+35+35+21+7+1=128=2^7\) ✓.</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Calcule \(\binom{9}{4}+\binom{9}{5}\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1 · Stifel</span><div class="m">\[\binom94+\binom95=\binom{10}{5}=252\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Calcule \(\binom{7}{0}+\binom71+\binom72+\cdots+\binom77\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>Soma da linha 7: \(2^7=128\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 4</div><p>Calcule \(\binom22+\binom32+\binom42+\cdots+\binom{10}2\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1 · taco de hóquei (coluna 2)</span><div class="m">\[=\binom{11}{3}=\frac{11\cdot10\cdot9}{6}=165\]</div></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m4v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>A linha 5 do Triângulo de Pascal é:</p>
+      <ol class="opts"><li>1 4 6 4 1</li><li>1 5 10 10 5 1</li><li>1 5 10 5 1</li><li>1 5 15 15 5 1</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Da linha 4 (1 4 6 4 1), somando vizinhos: 1, 5, 10, 10, 5, 1.</p></div></div><p class="rev">Revise: <a href="#m4-s1">4.1 Construção</a></p></div>
+    <div class="q" data-id="m4v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>Na linha 6, o número da coluna 2 (contando a partir de 0) é:</p>
+      <ol class="opts"><li>15</li><li>6</li><li>20</li><li>12</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\binom62=\frac{6\cdot5}{2}=15\]</div></div></div><p class="rev">Revise: <a href="#m4-s2">4.2 Posição</a></p></div>
+    <div class="q" data-id="m4v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag f">fácil</span></div><p>A soma dos números da linha 10 é:</p>
+      <ol class="opts"><li>100</li><li>20</li><li>512</li><li>1024</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(2^{10}=1024\).</p></div></div><p class="rev">Revise: <a href="#m4-s4">4.4 Soma das linhas</a></p></div>
+    <div class="q" data-id="m4v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>\(\binom{11}{6}+\binom{11}{7}\) é igual a:</p>
+      <ol class="opts"><li>\(\binom{22}{13}\)</li><li>\(\binom{11}{13}\)</li><li>\(\binom{12}{7}\)</li><li>\(\binom{12}{6}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1 · Stifel</span><p>Mesmo \(n\), classes consecutivas \(k=6\) e \(k+1=7\): soma \(=\binom{12}{7}\).</p></div></div><p class="rev">Revise: <a href="#m4-s3">4.3 Stifel</a></p></div>
+    <div class="q" data-id="m4v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>Quanto vale \(\binom{8}{1}+\binom82+\cdots+\binom87\) (sem o primeiro e o último)?</p>
+      <ol class="opts"><li>256</li><li>254</li><li>255</li><li>128</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Linha inteira: \(2^8=256\). Tire \(\binom80=1\) e \(\binom88=1\): \(256-2=254\).</p></div></div><p class="rev">Revise: <a href="#m4-s4">4.4 Soma das linhas</a></p></div>
+    <div class="q" data-id="m4v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag m">médio</span></div><p>\(\binom33+\binom43+\binom53+\binom63\) vale:</p>
+      <ol class="opts"><li>35</li><li>30</li><li>34</li><li>56</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1 · taco de hóquei</span><div class="m">\[=\binom74=35\qquad(1+4+10+20=35\ ✓)\]</div></div></div><p class="rev">Revise: <a href="#m4-s5">4.5 Colunas</a></p></div>
+    <div class="q" data-id="m4v7" data-ans="D"><div class="qh"><span class="qn">Verificação 7</span><span class="tag d">difícil</span></div><p>Numa tábua de Galton com 6 fileiras de pinos, de quantos caminhos diferentes uma bolinha chega ao compartimento do meio (3 desvios para a direita)?</p>
+      <ol class="opts"><li>6</li><li>15</li><li>64</li><li>20</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Escolher quais 3 dos 6 desvios são para a direita: \(\binom63=20\) (de \(2^6=64\) caminhos no total).</p></div></div><p class="rev">Revise: <a href="#m4-s5">4.5 e a tábua de Galton</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m4d1" data-ans="C"><p>Na linha 6 (1 6 15 20 15 6 1), o número logo abaixo do par 15 e 20 na linha 7 é:</p><ol class="opts"><li>300</li><li>20</li><li>35</li><li>21</li></ol><div class="why" hidden>Soma dos dois de cima: \(15+20=35\).</div></div>
+    <div class="q dq" data-id="m4d2" data-ans="A"><p>Por que as linhas são simétricas?</p><ol class="opts"><li>Porque \(\binom nk=\binom n{n-k}\)</li><li>Porque começam com 1</li><li>Porque somam \(2^n\)</li><li>Por coincidência</li></ol><div class="why" hidden>Escolher \(k\) para entrar é o mesmo que escolher \(n-k\) para ficar de fora.</div></div>
+    <div class="q dq" data-id="m4d3" data-ans="B"><p>Quantos subconjuntos tem um conjunto com 5 elementos (incluindo o vazio)?</p><ol class="opts"><li>25</li><li>32</li><li>10</li><li>120</li></ol><div class="why" hidden>Soma da linha 5: \(2^5=32\).</div></div>
+    <div class="q dq" data-id="m4d4" data-ans="D"><p>O número 10 aparece na linha 5 nas posições:</p><ol class="opts"><li>\(\binom51\) e \(\binom54\)</li><li>só \(\binom52\)</li><li>\(\binom{10}{1}\)</li><li>\(\binom52\) e \(\binom53\)</li></ol><div class="why" hidden>\(\binom52=\binom53=10\) (complementares). Ele também aparece como \(\binom{10}{1}\), mas na linha 10.</div></div>
+  </div>
+</div>
+</section>

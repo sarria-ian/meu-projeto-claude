@@ -1,0 +1,110 @@
+<section class="page mod" id="m8" data-num="8" data-part="Parte IV · Aplicações e tópicos avançados" data-short="Aplicações" data-title="Aplicações: aproximações, restos de divisões e probabilidade" data-icon="dice" data-desc="Aproximar (1 + x)ⁿ, calcular restos de potências enormes e a distribuição binomial de probabilidade.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>aproximar potências como \(1{,}02^{10}\) usando os primeiros termos do binômio;</li>
+    <li>achar o resto da divisão de potências enormes (como \(2^{100}\) por 3);</li>
+    <li>provar divisibilidades do tipo “\(9^n-1\) é múltiplo de 8”;</li>
+    <li>calcular probabilidades com a fórmula binomial \(P(X=k)=\binom nkp^k(1-p)^{n-k}\).</li></ul></div>
+
+  <h2 class="sec"><span class="n">8.1</span> Aproximações</h2>
+  <div class="prose">
+    <p>Quando \(x\) é pequeno (perto de 0), as potências \(x^2, x^3,\dots\) ficam minúsculas. Então os primeiros termos do binômio já dão quase todo o valor:</p>
+    <div class="box def"><div class="bl">Aproximação binomial</div><div>\[(1+x)^n=1+nx+\binom n2x^2+\binom n3x^3+\cdots\approx1+nx+\binom n2x^2\]</div><p>Para \(x\) bem pequeno, até \((1+x)^n\approx1+nx\) serve.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado 1</div><p>Calcule \(1{,}02^{10}\) com 3 casas decimais, sem calculadora.</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · x = 0,02, n = 10</span><div class="m">\[1+10(0{,}02)+45(0{,}02)^2+120(0{,}02)^3+\cdots\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · some os primeiros</span><div class="m">\[1+0{,}2+0{,}018+0{,}00096\approx1{,}219\]</div><p>Valor exato: \(1{,}02^{10}=1{,}218994\ldots\) Com 4 termos o erro é menor que 0,0001.</p></div>
+      </div></div>
+  </div>
+  <div class="lab" data-w="aproxLab"><div class="lt">Laboratório: quantos termos bastam?</div><p class="ld">Compare o valor exato de \((1+x)^n\) com as aproximações de 2, 3 e 4 termos. Quanto menor \(|x|\), menor o erro.</p></div>
+
+  <h2 class="sec"><span class="n">8.2</span> Restos de divisões com potências enormes</h2>
+  <div class="prose">
+    <div class="box tip"><div class="bl">O truque</div><p>Escreva a base como <b>(múltiplo do divisor) ± (número pequeno)</b>. No desenvolvimento, todos os termos menos o último têm o múltiplo como fator; só o último, \((\pm\text{pequeno})^n\), decide o resto.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado 2</div><p>Qual é o resto da divisão de \(11^{40}\) por 10?</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>\(11=10+1\).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><div class="m">\[11^{40}=(10+1)^{40}=\underbrace{10^{40}+\binom{40}{1}10^{39}+\cdots+\binom{40}{39}10}_{\text{múltiplos de }10}+1\]</div></div>
+        <div class="st"><span class="pl">Resposta</span><p>Resto 1 (todo \(11^n\) termina em 1).</p></div>
+      </div></div>
+    <div class="ex"><div class="et">Exemplo guiado 3 · com sinal de menos</div><p>Qual é o resto de \(2^{100}\) por 3?</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>\(2=3-1\), então \(2^{100}=(3-1)^{100}\).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><p>Todos os termos têm fator 3, exceto o último: \((-1)^{100}=1\).</p></div>
+        <div class="st"><span class="pl">Resposta</span><p>Resto 1. (Para \(2^{101}\) o último seria \(-1\): resto \(3-1=2\).)</p></div>
+      </div></div>
+    <div class="ex"><div class="et">Exemplo guiado 4 · divisibilidade</div><p>Mostre que \(9^n-1\) é múltiplo de 8 para todo \(n\ge1\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><div class="m">\[9^n=(8+1)^n=8^n+\binom n18^{n-1}+\cdots+\binom n{n-1}8+1\]</div></div>
+        <div class="st"><span class="pl">Passo 2</span><p>\(9^n-1=8\cdot\left(8^{n-1}+\cdots+\binom{n}{n-1}\right)\): múltiplo de 8. ∎</p></div>
+      </div></div>
+  </div>
+  <div class="lab" data-w="restoLab"><div class="lt">Laboratório: resto de potências pelo binômio</div><p class="ld">Escolha base, expoente e divisor. O laboratório aplica o truque e confere o resultado com o computador.</p></div>
+
+  <h2 class="sec"><span class="n">8.3</span> Probabilidade binomial</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Situação</div><p>Repita \(n\) vezes, de forma independente, uma tentativa com dois resultados: <b>sucesso</b> (probabilidade \(p\)) ou <b>fracasso</b> (\(q=1-p\)). A probabilidade de exatamente \(k\) sucessos é</p><div>\[P(X=k)=\binom nk\,p^k\,q^{\,n-k}\]</div></div>
+    <details class="demo" open><summary>De onde vem a fórmula</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · uma sequência específica</span><p>“Sucesso nas \(k\) primeiras, fracasso nas outras”: \(p\cdot p\cdots p\cdot q\cdots q=p^kq^{n-k}\).</p></div>
+        <div class="st"><span class="pl">Passo 2 · quantas sequências</span><p>Os \(k\) sucessos podem estar em quaisquer \(k\) das \(n\) tentativas: \(\binom nk\) sequências, todas com a mesma probabilidade.</p></div>
+        <div class="st"><span class="pl">Passo 3 · ligação com o binômio</span><p>\(P(X=k)\) é exatamente o termo \(T_{k+1}\) de \((q+p)^n\). E a soma de todas as probabilidades é \((q+p)^n=1^n=1\), como tem que ser.</p></div>
+      </div></div></details>
+    <div class="ex"><div class="et">Exemplo guiado 5</div><p>Uma moeda honesta é lançada 6 vezes. Qual é a probabilidade de sair exatamente 4 caras?</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>\(n=6\), \(k=4\), \(p=q=\frac12\).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><div class="m">\[P=\binom64\left(\frac12\right)^4\left(\frac12\right)^2=\frac{15}{64}\approx23{,}4\%\]</div></div>
+      </div></div>
+  </div>
+  <div class="lab" data-w="probLab"><div class="lt">Laboratório: a distribuição binomial</div><p class="ld">Escolha o número de tentativas, a chance de sucesso e quantos sucessos você quer. A barra destacada é \(P(X=k)\), e a fórmula aparece com os números.</p></div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Prova de múltipla escolha no “chute”</h3>
+    <p>Uma prova tem 10 questões com 5 alternativas cada. Um aluno chuta todas. Qual é a chance de ele acertar pelo menos 6 (e “passar”)?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · modelo</span><p>\(n=10\), sucesso = acertar, \(p=\frac15=0{,}2\), \(q=0{,}8\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · some os casos k = 6 a 10</span><div class="m">\[P(X\ge6)=\sum_{k=6}^{10}\binom{10}{k}(0{,}2)^k(0{,}8)^{10-k}\]</div><div class="m">\[\approx0{,}00551+0{,}00079+0{,}00007+0{,}000004+0{,}0000001\approx0{,}0064\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · compare com o mais provável</span><p>O valor mais provável é \(k=2\): \(P(X=2)=45\cdot0{,}04\cdot0{,}8^8\approx30{,}2\%\).</p></div>
+    </div>
+    <div class="final"><b>Resposta:</b> cerca de 0,64% (menos de 1 em 150). No chute, o mais provável é acertar 2 questões.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Aproxime \(0{,}99^{5}\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1 · x = −0,01</span><div class="m">\[(1-0{,}01)^5\approx1-5(0{,}01)+10(0{,}01)^2=1-0{,}05+0{,}001=0{,}951\]</div><p>Exato: 0,95099…</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Resto de \(7^{20}\) por 6.</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(7=6+1\Rightarrow7^{20}=(6+1)^{20}=\text{múltiplo de }6+1\). Resto 1.</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Um casal planeja 4 filhos (chance de menina \(\frac12\) em cada). Probabilidade de exatamente 2 meninas?</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\binom42\left(\frac12\right)^4=\frac{6}{16}=\frac38=37{,}5\%\]</div></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m8v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Pela aproximação \((1+x)^n\approx1+nx\), \(1{,}001^{20}\) é aproximadamente:</p>
+      <ol class="opts"><li>1,2</li><li>1,02</li><li>1,002</li><li>20,02</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(1+20\cdot0{,}001=1{,}02\).</p></div></div><p class="rev">Revise: <a href="#m8-s1">8.1 Aproximações</a></p></div>
+    <div class="q" data-id="m8v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>O resto da divisão de \(101^{50}\) por 100 é:</p>
+      <ol class="opts"><li>1</li><li>0</li><li>50</li><li>99</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((100+1)^{50}=\text{múltiplo de }100+1\).</p></div></div><p class="rev">Revise: <a href="#m8-s2">8.2 Restos</a></p></div>
+    <div class="q" data-id="m8v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>O resto da divisão de \(5^{31}\) por 6 é:</p>
+      <ol class="opts"><li>1</li><li>0</li><li>\(-1\)</li><li>5</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(5=6-1\). Último termo: \((-1)^{31}=-1\).</p></div><div class="st"><span class="pl">Passo 2</span><p>Resto não pode ser negativo: \(-1\equiv6-1=5\).</p></div></div><p class="rev">Revise: <a href="#m8-s2">8.2 Exemplo 3</a></p></div>
+    <div class="q" data-id="m8v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Lançando uma moeda honesta 5 vezes, a probabilidade de exatamente 2 caras é:</p>
+      <ol class="opts"><li>\(\frac{2}{5}\)</li><li>\(\frac{1}{32}\)</li><li>\(\frac{10}{32}\)</li><li>\(\frac{5}{32}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\binom52\left(\frac12\right)^5=\frac{10}{32}=\frac5{16}\]</div></div></div><p class="rev">Revise: <a href="#m8-s3">8.3 Probabilidade binomial</a></p></div>
+    <div class="q" data-id="m8v5" data-ans="A"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>Um dado é lançado 3 vezes. A probabilidade de sair o 6 exatamente uma vez é:</p>
+      <ol class="opts"><li>\(\frac{75}{216}\)</li><li>\(\frac{1}{6}\)</li><li>\(\frac{25}{216}\)</li><li>\(\frac{3}{6}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\binom31\cdot\frac16\cdot\left(\frac56\right)^2=3\cdot\frac{25}{216}=\frac{75}{216}\]</div></div></div><p class="rev">Revise: <a href="#m8-s3">8.3</a></p></div>
+    <div class="q" data-id="m8v6" data-ans="B"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Qual destes números é sempre múltiplo de 4, para todo natural \(n\ge1\)?</p>
+      <ol class="opts"><li>\(3^n+1\)</li><li>\(5^n-1\)</li><li>\(7^n-1\)</li><li>\(4^n+1\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(5^n=(4+1)^n=\text{múltiplo de }4+1\), logo \(5^n-1\) é múltiplo de 4.</p></div><div class="st"><span class="pl">Os outros</span><p>\(3^1+1=4\) mas \(3^2+1=10\) não; \(7^1-1=6\) não; \(4^n+1\) deixa resto 1.</p></div></div><p class="rev">Revise: <a href="#m8-s2">8.2 Divisibilidade</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m8d1" data-ans="C"><p>A aproximação \((1+x)^n\approx1+nx\) funciona bem quando:</p><ol class="opts"><li>\(x\) é grande</li><li>\(n\) é negativo</li><li>\(x\) está perto de 0</li><li>sempre</li></ol><div class="why" hidden>Os termos com \(x^2, x^3\dots\) só são desprezíveis quando \(x\) é pequeno.</div></div>
+    <div class="q dq" data-id="m8d2" data-ans="A"><p>No truque do resto, por que só o último termo importa?</p><ol class="opts"><li>Todos os outros têm o divisor como fator</li><li>Porque é o maior</li><li>Porque é o primeiro</li><li>Porque \(k=0\)</li></ol><div class="why" hidden>Todos os outros termos contêm uma potência do múltiplo, logo são múltiplos do divisor.</div></div>
+    <div class="q dq" data-id="m8d3" data-ans="D"><p>Em \(P(X=k)=\binom nkp^kq^{n-k}\), o \(\binom nk\) conta:</p><ol class="opts"><li>a probabilidade de sucesso</li><li>o número de tentativas</li><li>os fracassos</li><li>em quais tentativas ocorrem os \(k\) sucessos</li></ol><div class="why" hidden>Cada escolha de posições para os sucessos é uma sequência diferente com a mesma probabilidade.</div></div>
+    <div class="q dq" data-id="m8d4" data-ans="B"><p>A soma \(\sum_{k=0}^nP(X=k)\) vale 1 porque:</p><ol class="opts"><li>é uma convenção</li><li>é \((p+q)^n=1^n\)</li><li>\(n\) é natural</li><li>\(p=q\)</li></ol><div class="why" hidden>As probabilidades são os termos de \((q+p)^n\), e \(q+p=1\).</div></div>
+  </div>
+</div>
+</section>

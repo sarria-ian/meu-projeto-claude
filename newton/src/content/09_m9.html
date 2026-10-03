@@ -1,0 +1,123 @@
+<section class="page mod" id="m9" data-num="9" data-part="Parte IV · Aplicações e tópicos avançados" data-short="Tópicos avançados" data-title="Tópicos avançados: identidades, produtos, multinômio e expoentes não naturais" data-icon="trophy" data-desc="Identidades combinatórias (Σk·C(n,k), Vandermonde), coeficientes em produtos, (a+b+c)ⁿ e o binômio generalizado de Newton.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>provar e usar \(k\binom nk=n\binom{n-1}{k-1}\) e \(\sum k\binom nk=n\,2^{n-1}\);</li>
+    <li>usar a identidade de Vandermonde e \(\sum\binom nk^2=\binom{2n}n\);</li>
+    <li>achar coeficientes em produtos de binômios, como \((1+x)^5(1-x)^3\);</li>
+    <li>calcular coeficientes de \((a+b+c)^n\);</li>
+    <li>entender o binômio generalizado de Newton para expoentes negativos e fracionários.</li></ul></div>
+
+  <div class="box tip"><div class="bl">Nível</div><p>Este módulo vai além do que costuma cair no ensino médio. Ele aparece em vestibulares mais difíceis, olimpíadas e no começo da faculdade (Cálculo, Probabilidade, Análise Combinatória).</p></div>
+
+  <h2 class="sec"><span class="n">9.1</span> Identidades com k multiplicando</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Identidade do comitê com presidente</div><div>\[k\binom nk=n\binom{n-1}{k-1}\]</div></div>
+    <details class="demo" open><summary>Prova por contagem</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Situação</span><p>De \(n\) pessoas, forme uma comissão de \(k\) e escolha um presidente dentro dela.</p></div>
+        <div class="st"><span class="pl">Jeito 1</span><p>Escolha a comissão (\(\binom nk\)) e depois o presidente entre os \(k\): \(k\binom nk\).</p></div>
+        <div class="st"><span class="pl">Jeito 2</span><p>Escolha primeiro o presidente (\(n\) opções) e depois os outros \(k-1\) membros entre os \(n-1\) restantes: \(n\binom{n-1}{k-1}\).</p></div>
+      </div></div></details>
+    <div class="box def"><div class="bl">Consequência</div><div>\[\sum_{k=0}^{n}k\binom nk=n\sum_{k=1}^{n}\binom{n-1}{k-1}=n\,2^{n-1}\]</div><p>Ex.: \(n=4\): \(0\cdot1+1\cdot4+2\cdot6+3\cdot4+4\cdot1=32=4\cdot2^3\) ✓.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">9.2</span> Identidade de Vandermonde</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Vandermonde</div><div>\[\sum_{i=0}^{k}\binom mi\binom n{k-i}=\binom{m+n}{k}\]</div><p>Contagem: escolher \(k\) pessoas de um grupo com \(m\) homens e \(n\) mulheres, separando pelo número \(i\) de homens.</p><p>Pelo binômio: compare o coeficiente de \(x^k\) dos dois lados de \((1+x)^m(1+x)^n=(1+x)^{m+n}\).</p></div>
+    <div class="box def"><div class="bl">Caso especial: soma dos quadrados de uma linha</div><div>\[\binom n0^2+\binom n1^2+\cdots+\binom nn^2=\binom{2n}{n}\]</div><p>Ex.: linha 3: \(1+9+9+1=20=\binom63\) ✓. (Use Vandermonde com \(m=n=k\) e a simetria \(\binom n{n-i}=\binom ni\).)</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">9.3</span> Coeficientes em produtos de binômios</h2>
+  <div class="prose">
+    <div class="box tip"><div class="bl">Roteiro</div><p>Para achar o coeficiente de \(x^m\) em \(P(x)\cdot Q(x)\): liste todos os pares (termo de \(P\) com \(x^i\)) × (termo de \(Q\) com \(x^{m-i}\)) e some os produtos dos coeficientes.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado 1</div><p>Coeficiente de \(x^2\) em \((1+x)^5(1-x)^3\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · coeficientes de cada fator</span><p>\((1+x)^5\): \(1,\ 5,\ 10,\dots\) (para \(x^0, x^1, x^2\)). \((1-x)^3\): \(1,\ -3,\ 3,\ -1\).</p></div>
+        <div class="st"><span class="pl">Passo 2 · pares que dão x²</span><div class="m">\[x^0\cdot x^2:\ 1\cdot3\qquad x^1\cdot x^1:\ 5\cdot(-3)\qquad x^2\cdot x^0:\ 10\cdot1\]</div></div>
+        <div class="st"><span class="pl">Passo 3 · some</span><div class="m">\[3-15+10=-2\]</div></div>
+      </div></div>
+    <div class="ex"><div class="et">Exemplo guiado 2 · com um polinômio na frente</div><p>Coeficiente de \(x^3\) em \((2+x)(1+x)^6\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>\(x^3\) sai de \(2\cdot(\text{termo }x^3)\) ou de \(x\cdot(\text{termo }x^2)\).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><div class="m">\[2\binom63+1\cdot\binom62=2\cdot20+15=55\]</div></div>
+      </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">9.4</span> Trinômio e multinômio: (a + b + c)ⁿ</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Coeficiente multinomial</div><p>O coeficiente de \(a^ib^jc^l\) (com \(i+j+l=n\)) em \((a+b+c)^n\) é</p><div>\[\frac{n!}{i!\,j!\,l!}\]</div><p>É o número de jeitos de escolher, entre os \(n\) parênteses, quais dão \(a\) (\(i\) deles), quais dão \(b\) (\(j\)) e quais dão \(c\) (\(l\)). Generaliza o binômio: com duas letras, \(\frac{n!}{k!(n-k)!}=\binom nk\).</p></div>
+    <div class="ex"><div class="et">Exemplo guiado 3</div><p>Coeficiente de \(x^2y\) em \((x+y+2)^5\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>Expoentes: \(x\to2\), \(y\to1\), o “2” \(\to5-2-1=2\).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><div class="m">\[\frac{5!}{2!\,1!\,2!}\cdot2^2=30\cdot4=120\]</div></div>
+      </div></div>
+  </div>
+  <div class="lab" data-w="multinomLab"><div class="lt">Laboratório: coeficientes de (a + b + c)ⁿ</div><p class="ld">Escolha \(n\) e os expoentes de \(a\) e \(b\) (o de \(c\) completa). Veja o coeficiente pela fórmula multinomial e por dois binomiais seguidos.</p></div>
+
+  <h2 class="sec"><span class="n">9.5</span> O binômio generalizado (expoente negativo ou fracionário)</h2>
+  <div class="prose">
+    <p>Newton percebeu que a fórmula continua funcionando para expoentes que não são naturais, desde que se aceite uma <b>soma infinita</b> e \(|x|<1\).</p>
+    <div class="box def"><div class="bl">Binômio generalizado</div><p>Para qualquer número real \(\alpha\), defina</p><div>\[\binom{\alpha}{k}=\frac{\alpha(\alpha-1)(\alpha-2)\cdots(\alpha-k+1)}{k!}\qquad\left(\binom\alpha0=1\right)\]</div><p>Então, para \(|x|<1\):</p><div>\[(1+x)^\alpha=\sum_{k=0}^{\infty}\binom\alpha kx^k=1+\alpha x+\frac{\alpha(\alpha-1)}{2!}x^2+\frac{\alpha(\alpha-1)(\alpha-2)}{3!}x^3+\cdots\]</div><p>Se \(\alpha\) é natural, a partir de \(k=\alpha+1\) aparece o fator \((\alpha-\alpha)=0\) e a soma termina: é o binômio comum.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado 4 · raiz quadrada</div><p>Aproxime \(\sqrt{1{,}1}\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · α = 1/2, x = 0,1</span><div class="m">\[(1+x)^{1/2}=1+\frac12x-\frac18x^2+\frac1{16}x^3-\cdots\]</div></div>
+        <div class="st"><span class="pl">Passo 2</span><div class="m">\[1+0{,}05-0{,}00125+0{,}0000625\approx1{,}04881\]</div><p>Valor real: \(\sqrt{1{,}1}=1{,}048808\ldots\)</p></div>
+      </div></div>
+    <div class="ex"><div class="et">Exemplo guiado 5 · expoente −1</div><p>Mostre que \(\dfrac{1}{1-x}=1+x+x^2+x^3+\cdots\) para \(|x|<1\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>\(\binom{-1}{k}=\frac{(-1)(-2)\cdots(-k)}{k!}=(-1)^k\).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><p>\((1+(-x))^{-1}=\sum(-1)^k(-x)^k=\sum x^k\): a soma da progressão geométrica infinita.</p></div>
+      </div></div>
+  </div>
+  <div class="lab" data-w="serieLab"><div class="lt">Laboratório: a série de Newton convergindo</div><p class="ld">Escolha o expoente \(\alpha\) (inclusive negativo ou fracionário), o valor de \(x\) e quantos termos somar. Os pontos mostram as somas parciais se aproximando do valor exato (linha tracejada). Teste \(x\) perto de \(\pm0{,}9\) para ver a convergência ficar lenta.</p></div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Por que a física usa \(\gamma\approx1+\frac{v^2}{2c^2}\)?</h3>
+    <p>Na relatividade, o fator de Lorentz é \(\gamma=\left(1-\frac{v^2}{c^2}\right)^{-1/2}\), em que \(c\approx300\,000\) km/s é a velocidade da luz. Para um avião a \(v=250\) m/s, quanto \(\gamma\) passa de 1?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · binômio generalizado com α = −1/2 e x = −v²/c²</span><div class="m">\[\gamma=1+\left(-\frac12\right)\left(-\frac{v^2}{c^2}\right)+\cdots\approx1+\frac{v^2}{2c^2}\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · números</span><div class="m">\[\frac{v^2}{c^2}=\left(\frac{250}{3\times10^8}\right)^2\approx6{,}9\times10^{-13}\Rightarrow\gamma-1\approx3{,}5\times10^{-13}\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · interprete</span><p>Um relógio no avião atrasa cerca de \(3{,}5\times10^{-13}\) segundo por segundo de voo (por esse efeito), ou cerca de 13 nanossegundos num voo de 10 horas. Uma calculadora comum mostraria \(\gamma=1\); a aproximação binomial revela a diferença.</p></div>
+    </div>
+    <div class="final"><b>Resposta:</b> \(\gamma\approx1+3{,}5\times10^{-13}\). A aproximação \(1+\frac{v^2}{2c^2}\) é a forma como os físicos calculam esses efeitos pequenos.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Calcule \(\sum_{k=0}^{6}k\binom6k\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(n\,2^{n-1}=6\cdot32=192\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Calcule \(\binom40^2+\binom41^2+\binom42^2+\binom43^2+\binom44^2\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(\binom84=70\). Conferência: \(1+16+36+16+1=70\) ✓.</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Quantos termos tem \((a+b+c)^{6}\) depois de juntar os semelhantes?</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>Número de soluções de \(i+j+l=6\) com naturais: \(\binom{6+2}{2}=28\).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m9v1" data-ans="C"><div class="qh"><span class="qn">Verificação 1</span><span class="tag m">médio</span></div><p>\(\sum_{k=0}^{5}k\binom5k\) vale:</p>
+      <ol class="opts"><li>32</li><li>160</li><li>80</li><li>16</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(5\cdot2^4=80\).</p></div></div><p class="rev">Revise: <a href="#m9-s1">9.1</a></p></div>
+    <div class="q" data-id="m9v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag m">médio</span></div><p>\(\binom50^2+\binom51^2+\cdots+\binom55^2\) vale:</p>
+      <ol class="opts"><li>252</li><li>32</li><li>1024</li><li>126</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\binom{10}{5}=252\).</p></div></div><p class="rev">Revise: <a href="#m9-s2">9.2 Vandermonde</a></p></div>
+    <div class="q" data-id="m9v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>O coeficiente de \(x\) em \((1+x)^4(1+2x)^3\) é:</p>
+      <ol class="opts"><li>6</li><li>24</li><li>8</li><li>10</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(x\) vem de \(x^1\cdot x^0\): \(4\cdot1\) ou \(x^0\cdot x^1\): \(1\cdot\binom31\cdot2=6\). Total \(4+6=10\).</p></div></div><p class="rev">Revise: <a href="#m9-s3">9.3 Produtos</a></p></div>
+    <div class="q" data-id="m9v4" data-ans="B"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>O coeficiente de \(abc\) em \((a+b+c)^3\) é:</p>
+      <ol class="opts"><li>3</li><li>6</li><li>1</li><li>9</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\frac{3!}{1!\,1!\,1!}=6\).</p></div></div><p class="rev">Revise: <a href="#m9-s4">9.4 Multinômio</a></p></div>
+    <div class="q" data-id="m9v5" data-ans="C"><div class="qh"><span class="qn">Verificação 5</span><span class="tag d">difícil</span></div><p>Pelo binômio generalizado, os dois primeiros termos de \((1+x)^{-2}\) são:</p>
+      <ol class="opts"><li>\(1+2x\)</li><li>\(1-x\)</li><li>\(1-2x\)</li><li>\(1+x^{-2}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(1+\alpha x\) com \(\alpha=-2\): \(1-2x\). (Seguem \(+3x^2-4x^3+\cdots\))</p></div></div><p class="rev">Revise: <a href="#m9-s5">9.5 Generalizado</a></p></div>
+    <div class="q" data-id="m9v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Usando \((1+x)^{1/2}\approx1+\frac x2\), \(\sqrt{1{,}06}\) é aproximadamente:</p>
+      <ol class="opts"><li>1,03</li><li>1,06</li><li>1,003</li><li>1,3</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(1+\frac{0{,}06}{2}=1{,}03\). (Real: 1,02956…)</p></div></div><p class="rev">Revise: <a href="#m9-s5">9.5</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m9d1" data-ans="B"><p>\(k\binom nk=n\binom{n-1}{k-1}\) conta, dos dois jeitos:</p><ol class="opts"><li>filas de \(n\) pessoas</li><li>comissões de \(k\) pessoas com um presidente</li><li>subconjuntos de \(n\) elementos</li><li>caminhos na grade</li></ol><div class="why" hidden>Escolher a comissão e depois o presidente, ou o presidente e depois o resto.</div></div>
+    <div class="q dq" data-id="m9d2" data-ans="D"><p>Para achar o coeficiente de \(x^m\) num produto \(P(x)Q(x)\), você deve:</p><ol class="opts"><li>multiplicar os coeficientes de \(x^m\) de cada um</li><li>somar os coeficientes de \(x^m\) de cada um</li><li>desenvolver só o primeiro fator</li><li>somar os produtos de todos os pares de expoentes que somam \(m\)</li></ol><div class="why" hidden>\(x^i\cdot x^{m-i}=x^m\) para cada \(i\); some todos esses produtos.</div></div>
+    <div class="q dq" data-id="m9d3" data-ans="A"><p>Quando \(\alpha\) é natural, a série \(\sum\binom\alpha kx^k\):</p><ol class="opts"><li>termina depois de \(\alpha+1\) termos</li><li>é sempre infinita</li><li>só vale para \(x>1\)</li><li>dá zero</li></ol><div class="why" hidden>A partir de \(k=\alpha+1\), o fator \((\alpha-\alpha)\) zera os coeficientes: volta o binômio comum.</div></div>
+    <div class="q dq" data-id="m9d4" data-ans="C"><p>A identidade de Vandermonde sai da comparação de coeficientes em:</p><ol class="opts"><li>\((1+x)^n=(1-x)^n\)</li><li>\((a+b)^2=a^2+2ab+b^2\)</li><li>\((1+x)^m(1+x)^n=(1+x)^{m+n}\)</li><li>\(2^n=\sum\binom nk\)</li></ol><div class="why" hidden>O coeficiente de \(x^k\) à esquerda é \(\sum\binom mi\binom n{k-i}\) e à direita é \(\binom{m+n}k\).</div></div>
+  </div>
+</div>
+</section>

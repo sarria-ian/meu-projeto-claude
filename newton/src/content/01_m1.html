@@ -1,0 +1,141 @@
+<section class="page mod" id="m1" data-num="1" data-part="Parte I · A base (do zero)" data-short="Potências e produtos notáveis" data-title="Potências, distributiva e produtos notáveis" data-icon="pow" data-desc="O que é uma potência, as propriedades, como multiplicar parênteses e por que (a+b)² e (a+b)³ têm aquela forma.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>ler e calcular potências, inclusive com expoente 0, 1, negativo e base negativa;</li>
+    <li>usar as propriedades das potências para simplificar expressões;</li>
+    <li>multiplicar expressões entre parênteses com a propriedade distributiva;</li>
+    <li>desenvolver \((a+b)^2\), \((a-b)^2\) e \((a+b)^3\), entendendo de onde vem cada termo;</li>
+    <li>perceber por que precisamos de um método para \((a+b)^{n}\) com \(n\) grande: o Binômio de Newton.</li></ul></div>
+
+  <div class="box tip"><div class="bl">Como usar esta apostila</div><p>Leia em ordem. Cada seção tem teoria, exemplos guiados e laboratórios: mexa nos controles e veja as contas mudarem. No fim do módulo, responda às verificações (valem XP) e encare a “Hora do desafio”. Se travar, cada questão tem resolução passo a passo e um link para revisar.</p></div>
+
+  <h2 class="sec"><span class="n">1.1</span> O que é uma potência</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>Para um número \(a\) e um número natural \(n\ge2\), a <b>potência</b> \(a^n\) é o produto de \(n\) fatores iguais a \(a\):</p><div>\[a^n=\underbrace{a\cdot a\cdot a\cdots a}_{n\text{ fatores}}\]</div><p>\(a\) é a <b>base</b> e \(n\) é o <b>expoente</b>. Lê-se “\(a\) elevado a \(n\)”.</p></div>
+    <div class="two">
+      <div class="box obs"><div class="bl">Exemplos</div><p>\(2^3=2\cdot2\cdot2=8\)<br>\(5^2=25\)<br>\(10^4=10\,000\)<br>\(\left(\frac12\right)^3=\frac12\cdot\frac12\cdot\frac12=\frac18\)</p></div>
+      <div class="box obs"><div class="bl">Casos especiais</div><p>\(a^1=a\)<br>\(a^0=1\) (para \(a\ne0\))<br>\(a^{-n}=\dfrac{1}{a^n}\) (para \(a\ne0\))<br>\(1^n=1\) e \(0^n=0\) (\(n\ge1\))</p></div>
+    </div>
+    <details class="demo"><summary>Por que \(a^0=1\) e \(a^{-1}=\frac1a\)?</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · olhe a sequência</span><div class="m">\[2^3=8,\quad2^2=4,\quad2^1=2\]</div><p>Cada vez que o expoente diminui 1, o resultado é <b>dividido por 2</b>.</p></div>
+        <div class="st"><span class="pl">Passo 2 · continue o padrão</span><div class="m">\[2^0=\frac22=1,\qquad2^{-1}=\frac12,\qquad2^{-2}=\frac14\]</div><p>Para manter o padrão, \(a^0\) tem que ser 1 e o expoente negativo vira “1 sobre”.</p></div>
+      </div></div></details>
+    <div class="box warn"><div class="bl">Cuidado com o sinal</div><p>\((-2)^4=(-2)(-2)(-2)(-2)=16\) (base negativa, expoente par: positivo).<br>\((-2)^3=-8\) (expoente ímpar: negativo).<br>\(-2^4=-(2^4)=-16\): sem parênteses, o expoente vale só para o 2. Isso vai aparecer muito no binômio com sinal de menos.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">1.2</span> Propriedades das potências</h2>
+  <div class="prose">
+    <div class="tbl"><table><thead><tr><th class="l">Propriedade</th><th>Fórmula</th><th class="l">Exemplo</th></tr></thead><tbody>
+      <tr><td class="l">Produto de mesma base</td><td>\(a^m\cdot a^n=a^{m+n}\)</td><td class="l">\(x^2\cdot x^5=x^7\)</td></tr>
+      <tr><td class="l">Divisão de mesma base</td><td>\(\dfrac{a^m}{a^n}=a^{m-n}\)</td><td class="l">\(\dfrac{x^6}{x^2}=x^4\)</td></tr>
+      <tr><td class="l">Potência de potência</td><td>\((a^m)^n=a^{m\cdot n}\)</td><td class="l">\((x^2)^3=x^6\)</td></tr>
+      <tr><td class="l">Potência de produto</td><td>\((ab)^n=a^n b^n\)</td><td class="l">\((2x)^3=8x^3\)</td></tr>
+      <tr><td class="l">Potência de quociente</td><td>\(\left(\dfrac ab\right)^n=\dfrac{a^n}{b^n}\)</td><td class="l">\(\left(\dfrac{x}{3}\right)^2=\dfrac{x^2}{9}\)</td></tr>
+    </tbody></table></div>
+    <div class="box tip"><div class="bl">As duas que mais usaremos</div><p><b>Potência de produto</b> e <b>potência de potência</b>. No binômio você vai calcular coisas como \((2x^3)^4=2^4\cdot(x^3)^4=16x^{12}\) e \(\left(\frac1x\right)^3=\frac{1}{x^3}=x^{-3}\) o tempo todo.</p></div>
+    <div class="box warn"><div class="bl">Erro clássico</div><p>\((a+b)^2\ne a^2+b^2\). A potência <b>não se distribui na soma</b>, só no produto. Exemplo: \((3+4)^2=49\), mas \(3^2+4^2=25\). Este módulo inteiro existe para corrigir esse erro.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">1.3</span> A propriedade distributiva</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Regra</div><p>Para multiplicar dois parênteses, multiplique <b>cada termo do primeiro por cada termo do segundo</b> e some tudo:</p><div>\[(a+b)(c+d)=ac+ad+bc+bd\]</div></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Calcule \((x+3)(x+5)\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · o x do primeiro vezes cada termo do segundo</span><div class="m">\[x\cdot x+x\cdot5=x^2+5x\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · o 3 do primeiro vezes cada termo do segundo</span><div class="m">\[3\cdot x+3\cdot5=3x+15\]</div></div>
+        <div class="st"><span class="pl">Passo 3 · some e junte os semelhantes</span><div class="m">\[x^2+5x+3x+15=x^2+8x+15\]</div><p><b>Termos semelhantes</b> têm a mesma parte com letras (aqui, \(5x\) e \(3x\)): somam-se os coeficientes.</p></div>
+      </div></div>
+    <div class="box obs"><div class="bl">Conte os produtos</div><p>Com 2 termos em cada parêntese, saem \(2\cdot2=4\) produtos. Com três parênteses \((a+b)(a+b)(a+b)\), saem \(2\cdot2\cdot2=8\) produtos. Guarde essa ideia: ela é o segredo do Binômio de Newton (Módulo 5).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">1.4</span> Quadrado da soma e da diferença</h2>
+  <div class="prose">
+    <div class="steps">
+      <div class="st"><span class="pl">Pela distributiva</span><div class="m">\[(a+b)^2=(a+b)(a+b)=a^2+ab+ba+b^2=a^2+2ab+b^2\]</div></div>
+    </div>
+    <div class="box def"><div class="bl">Produtos notáveis</div><div>\[(a+b)^2=a^2+2ab+b^2\qquad(a-b)^2=a^2-2ab+b^2\]</div><p>Em palavras: “o quadrado do primeiro, mais (ou menos) duas vezes o primeiro vezes o segundo, mais o quadrado do segundo”.</p></div>
+    <figure class="fig" data-f="quadrado"><figcaption>Prova geométrica: um quadrado de lado \(a+b\) é formado por um quadrado \(a\times a\), dois retângulos \(a\times b\) e um quadrado \(b\times b\).</figcaption></figure>
+  </div>
+  <div class="lab" data-w="areaLab"><div class="lt">Laboratório: o quadrado (a + b)² em peças</div><p class="ld">Escolha \(a\) e \(b\) e aperte “Iniciar” para afastar as peças. A área total é sempre igual à soma das quatro peças.</p></div>
+  <div class="prose">
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Desenvolva \((2x-3)^2\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · identifique</span><p>Primeiro \(=2x\), segundo \(=3\), sinal de menos.</p></div>
+        <div class="st"><span class="pl">Passo 2 · aplique</span><div class="m">\[(2x)^2-2\cdot(2x)\cdot3+3^2=4x^2-12x+9\]</div></div>
+      </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">1.5</span> O cubo da soma</h2>
+  <div class="prose">
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · use o quadrado que já sabemos</span><div class="m">\[(a+b)^3=(a+b)^2(a+b)=(a^2+2ab+b^2)(a+b)\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · distributiva</span><div class="m">\[=a^3+a^2b+2a^2b+2ab^2+ab^2+b^3\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · junte os semelhantes</span><div class="m">\[(a+b)^3=a^3+3a^2b+3ab^2+b^3\]</div></div>
+    </div>
+    <div class="box obs"><div class="bl">Repare no padrão</div><p>\((a+b)^2\to\) coeficientes 1, 2, 1. \((a+b)^3\to\) coeficientes 1, 3, 3, 1. Os expoentes de \(a\) descem (3, 2, 1, 0), os de \(b\) sobem (0, 1, 2, 3) e, em cada termo, somam 3.</p></div>
+  </div>
+  <div class="lab" data-w="cuboLab"><div class="lt">Laboratório: o cubo (a + b)³ em 8 blocos</div><p class="ld">Um cubo de aresta \(a+b\) se divide em 8 blocos: 1 cubo \(a^3\), 3 blocos \(a^2b\), 3 blocos \(ab^2\) e 1 cubo \(b^3\). Aperte “Iniciar” para separar os blocos.</p></div>
+
+  <h2 class="sec"><span class="n">1.6</span> E se o expoente for grande?</h2>
+  <div class="prose">
+    <p>Para \((a+b)^4\) multiplicamos o cubo por \((a+b)\) mais uma vez. Para \((a+b)^{10}\) seriam 9 multiplicações seguidas, com dezenas de termos para juntar. O laboratório abaixo faz isso por você e mostra os coeficientes que aparecem.</p>
+  </div>
+  <div class="lab" data-w="multLab"><div class="lt">Laboratório: expandir multiplicando por (a + b) de novo e de novo</div><p class="ld">Aumente \(n\). A parte azul vem de multiplicar por \(a\) e a rosa, de multiplicar por \(b\). Olhe os coeficientes de cada linha.</p></div>
+  <div class="prose">
+    <div class="box tip"><div class="bl">A pergunta que guia a apostila</div><p>Os coeficientes formam a tabela 1 · 1 1 · 1 2 1 · 1 3 3 1 · 1 4 6 4 1 · … Existe uma fórmula que dá cada coeficiente <b>direto</b>, sem fazer todas as multiplicações? Sim: o <b>Binômio de Newton</b>. Para chegar lá precisamos de duas ferramentas: o <b>fatorial</b> (Módulo 2) e as <b>combinações</b> (Módulo 3).</p></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Ampliar um terreno quadrado: quanto de área a mais?</h3>
+    <p>Um terreno quadrado tem 20 m de lado. O dono vai aumentar cada lado em 3 m. Um vizinho diz: “é só somar \(3^2=9\) m²”. Ele está certo?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · área nova</span><div class="m">\[(20+3)^2=20^2+2\cdot20\cdot3+3^2=400+120+9=529\ \text{m}^2\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · aumento</span><div class="m">\[529-400=129\ \text{m}^2\]</div><p>O aumento são as duas faixas \(20\times3\) (120 m²) mais o quadradinho do canto (9 m²).</p></div>
+      <div class="st"><span class="pl">Passo 3 · conta de cabeça</span><p>O mesmo truque calcula quadrados rápido: \(103^2=(100+3)^2=10\,000+600+9=10\,609\).</p></div>
+    </div>
+    <div class="final"><b>Resposta:</b> o aumento é de 129 m², não 9 m². O erro do vizinho é pensar que \((a+b)^2=a^2+b^2\).</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Simplifique \(\dfrac{(x^3)^2\cdot x}{x^4}\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1 · potência de potência</span><div class="m">\[(x^3)^2=x^6\]</div></div><div class="st"><span class="pl">Passo 2 · produto e divisão de mesma base</span><div class="m">\[\frac{x^6\cdot x^1}{x^4}=\frac{x^7}{x^4}=x^3\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Calcule \(\left(-\dfrac{2}{x}\right)^3\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1 · sinal</span><p>Expoente ímpar: o resultado é negativo.</p></div><div class="st"><span class="pl">Passo 2 · potência de quociente</span><div class="m">\[\left(-\frac2x\right)^3=-\frac{2^3}{x^3}=-\frac{8}{x^3}\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Desenvolva \((x+2)^3\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1 · fórmula com a = x, b = 2</span><div class="m">\[x^3+3\cdot x^2\cdot2+3\cdot x\cdot2^2+2^3\]</div></div><div class="st"><span class="pl">Passo 2 · calcule</span><div class="m">\[=x^3+6x^2+12x+8\]</div></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m1v1" data-ans="C"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Quanto vale \((-3)^4\)?</p>
+      <ol class="opts"><li>\(-81\)</li><li>\(-12\)</li><li>\(81\)</li><li>\(12\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Base negativa com expoente par dá resultado positivo: \((-3)(-3)(-3)(-3)=81\).</p></div></div><p class="rev">Revise: <a href="#m1-s1">1.1 Potência</a></p></div>
+    <div class="q" data-id="m1v2" data-ans="B"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\((2x^2)^3\) é igual a:</p>
+      <ol class="opts"><li>\(6x^6\)</li><li>\(8x^6\)</li><li>\(8x^5\)</li><li>\(2x^6\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[(2x^2)^3=2^3\cdot(x^2)^3=8x^6\]</div></div></div><p class="rev">Revise: <a href="#m1-s2">1.2 Propriedades</a></p></div>
+    <div class="q" data-id="m1v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag f">fácil</span></div><p>\(\left(\dfrac{1}{x}\right)^{4}\) pode ser escrito como:</p>
+      <ol class="opts"><li>\(x^4\)</li><li>\(\frac{4}{x}\)</li><li>\(x^{1/4}\)</li><li>\(x^{-4}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\left(\frac1x\right)^4=\frac{1}{x^4}=x^{-4}\]</div></div></div><p class="rev">Revise: <a href="#m1-s1">1.1 Casos especiais</a></p></div>
+    <div class="q" data-id="m1v4" data-ans="A"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>O desenvolvimento de \((x-5)^2\) é:</p>
+      <ol class="opts"><li>\(x^2-10x+25\)</li><li>\(x^2-25\)</li><li>\(x^2+25\)</li><li>\(x^2-5x+25\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[x^2-2\cdot x\cdot5+5^2=x^2-10x+25\]</div></div></div><p class="rev">Revise: <a href="#m1-s4">1.4 Quadrado da diferença</a></p></div>
+    <div class="q" data-id="m1v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>Ao multiplicar \((a+b)(a+b)(a+b)(a+b)\) pela distributiva, antes de juntar os semelhantes, quantos produtos aparecem?</p>
+      <ol class="opts"><li>8</li><li>16</li><li>4</li><li>5</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>De cada um dos 4 parênteses escolhemos \(a\) ou \(b\): \(2\cdot2\cdot2\cdot2=16\) produtos.</p></div></div><p class="rev">Revise: <a href="#m1-s3">1.3 Distributiva</a></p></div>
+    <div class="q" data-id="m1v6" data-ans="C"><div class="qh"><span class="qn">Verificação 6</span><span class="tag m">médio</span></div><p>Os coeficientes de \((a+b)^3\) são:</p>
+      <ol class="opts"><li>1, 2, 1</li><li>1, 3, 1</li><li>1, 3, 3, 1</li><li>1, 2, 2, 1</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[(a+b)^3=1a^3+3a^2b+3ab^2+1b^3\]</div></div></div><p class="rev">Revise: <a href="#m1-s5">1.5 Cubo da soma</a></p></div>
+    <div class="q" data-id="m1v7" data-ans="D"><div class="qh"><span class="qn">Verificação 7</span><span class="tag d">difícil</span></div><p>Usando \((a+b)^2\), quanto é \(1\,001^2\)?</p>
+      <ol class="opts"><li>\(1\,000\,001\)</li><li>\(1\,001\,001\)</li><li>\(1\,020\,001\)</li><li>\(1\,002\,001\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[(1000+1)^2=1\,000\,000+2\cdot1000\cdot1+1=1\,002\,001\]</div></div></div><p class="rev">Revise: <a href="#m1-s4">1.4 Quadrado da soma</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m1d1" data-ans="B"><p>\(-2^4\) vale:</p><ol class="opts"><li>16</li><li>\(-16\)</li><li>\(-8\)</li><li>8</li></ol><div class="why" hidden>Sem parênteses, o expoente vale só para o 2: \(-(2^4)=-16\).</div></div>
+    <div class="q dq" data-id="m1d2" data-ans="A"><p>\(x^3\cdot x^{-5}\) é igual a:</p><ol class="opts"><li>\(\frac{1}{x^2}\)</li><li>\(x^{15}\)</li><li>\(x^{8}\)</li><li>\(x^{-15}\)</li></ol><div class="why" hidden>Mesma base: some os expoentes, \(3+(-5)=-2\), e \(x^{-2}=\frac1{x^2}\).</div></div>
+    <div class="q dq" data-id="m1d3" data-ans="D"><p>Qual é o erro em “\((x+y)^2=x^2+y^2\)”?</p><ol class="opts"><li>Nenhum</li><li>Faltou o termo \(xy\)</li><li>Devia ser \(x^2y^2\)</li><li>Faltou o termo \(2xy\)</li></ol><div class="why" hidden>\((x+y)^2=x^2+2xy+y^2\): o termo do meio vem dos dois retângulos \(x\times y\).</div></div>
+    <div class="q dq" data-id="m1d4" data-ans="C"><p>No desenvolvimento de \((a+b)^3\), a soma dos expoentes de \(a\) e \(b\) em cada termo é:</p><ol class="opts"><li>varia</li><li>2</li><li>3</li><li>6</li></ol><div class="why" hidden>Cada termo usa um fator de cada um dos 3 parênteses: \(a^3,\ a^2b,\ ab^2,\ b^3\), sempre grau 3.</div></div>
+  </div>
+</div>
+</section>

@@ -1,0 +1,127 @@
+<section class="page mod" id="m5" data-num="5" data-part="Parte III · O Binômio de Newton" data-short="O desenvolvimento de (a+b)ⁿ" data-title="O Binômio de Newton: desenvolvendo (a + b)ⁿ" data-icon="expand" data-desc="Por que os coeficientes são binomiais, a notação Σ, a fórmula do binômio, o padrão dos expoentes e os sinais de (a − b)ⁿ.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>explicar <b>por que</b> o coeficiente de \(a^{n-k}b^k\) em \((a+b)^n\) é \(\binom nk\);</li>
+    <li>ler e escrever somas com o símbolo \(\Sigma\);</li>
+    <li>enunciar o Binômio de Newton e desenvolver qualquer \((a+b)^n\);</li>
+    <li>desenvolver binômios com coeficientes, sinais negativos, frações e potências de \(x\).</li></ul></div>
+
+  <h2 class="sec"><span class="n">5.1</span> A ideia central: escolhas em cada parêntese</h2>
+  <div class="prose">
+    <p>Escreva \((a+b)^3=(a+b)(a+b)(a+b)\). Pela distributiva (Módulo 1), cada termo do resultado se forma <b>pegando uma letra de cada parêntese</b> e multiplicando. São \(2\cdot2\cdot2=8\) escolhas:</p>
+    <figure class="fig" data-f="arvore3"><figcaption>As 8 escolhas de \((a+b)^3\). Agrupando pelo número de letras \(b\): 1 termo \(a^3\), 3 termos \(a^2b\), 3 termos \(ab^2\), 1 termo \(b^3\).</figcaption></figure>
+    <div class="box def"><div class="bl">A pergunta-chave</div><p>Quantas escolhas dão \(a^{n-k}b^k\)? Exatamente as que pegam \(b\) em <b>\(k\) dos \(n\) parênteses</b> (e \(a\) nos outros). Escolher quais \(k\) parênteses fornecem o \(b\) é uma <b>combinação</b>:</p><div>\[\text{coeficiente de }a^{n-k}b^k=\binom nk\]</div></div>
+  </div>
+  <div class="lab" data-w="escolhaLab"><div class="lt">Laboratório: todas as escolhas, agrupadas</div><p class="ld">Cada “palavra” mostra a letra escolhida em cada parêntese. Aumente \(n\) e conte: cada grupo tem \(\binom nk\) palavras.</p></div>
+
+  <h2 class="sec"><span class="n">5.2</span> Antes da fórmula: o símbolo Σ</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Notação de somatório</div><p>\(\Sigma\) (sigma maiúsculo) é um jeito curto de escrever uma soma com muitos termos parecidos.</p><figure class="fig sm" data-f="sigma"></figure><div>\[\sum_{k=0}^{3}k^2=0^2+1^2+2^2+3^2=14\]</div><p>Leia: “soma de \(k^2\), com \(k\) indo de 0 até 3”. A letra \(k\) é só um contador.</p></div>
+    <div class="ex"><div class="et">Treine a leitura</div><p>\(\displaystyle\sum_{k=1}^{4}2k=2+4+6+8=20\) &nbsp;&nbsp;·&nbsp;&nbsp; \(\displaystyle\sum_{k=0}^{2}\binom2k=1+2+1=4\)</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">5.3</span> O Binômio de Newton</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Teorema (Binômio de Newton)</div><p>Para qualquer natural \(n\):</p><div>\[(a+b)^n=\sum_{k=0}^{n}\binom nk a^{\,n-k}b^{\,k}\]</div><div>\[(a+b)^n=\binom n0a^n+\binom n1a^{n-1}b+\binom n2a^{n-2}b^2+\cdots+\binom n{n-1}ab^{n-1}+\binom nnb^n\]</div></div>
+    <div class="box obs"><div class="bl">O padrão (decore assim)</div><p><b>1.</b> Há \(n+1\) termos. <b>2.</b> Os expoentes de \(a\) descem de \(n\) até 0; os de \(b\) sobem de 0 até \(n\). <b>3.</b> Em cada termo, expoente de \(a\) + expoente de \(b\) = \(n\). <b>4.</b> Os coeficientes são a linha \(n\) do Triângulo de Pascal.</p></div>
+    <details class="demo"><summary>Demonstração por indução (usa Stifel)</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Base</span><p>Para \(n=1\): \((a+b)^1=\binom10a+\binom11b=a+b\) ✓.</p></div>
+        <div class="st"><span class="pl">Hipótese</span><p>Suponha que vale para \(n\). Então \((a+b)^{n+1}=(a+b)\cdot\sum_k\binom nk a^{n-k}b^k\).</p></div>
+        <div class="st"><span class="pl">Passo</span><p>Multiplicando por \(a\) e por \(b\) e juntando os termos com \(a^{n+1-k}b^k\), o coeficiente fica \(\binom nk+\binom n{k-1}\), que pela relação de Stifel é \(\binom{n+1}k\). Logo a fórmula vale para \(n+1\).</p></div>
+        <div class="st"><span class="pl">Conclusão</span><p>Vale para \(n=1\) e “passa” de cada \(n\) para o seguinte: vale para todo \(n\). É exatamente o que o laboratório 1.6 fazia: cada linha nasce da anterior somando vizinhos.</p></div>
+      </div></div></details>
+    <div class="ex"><div class="et">Exemplo guiado 1</div><p>Desenvolva \((a+b)^5\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · coeficientes (linha 5)</span><p>1, 5, 10, 10, 5, 1.</p></div>
+        <div class="st"><span class="pl">Passo 2 · expoentes</span><p>\(a\): 5, 4, 3, 2, 1, 0 &nbsp;·&nbsp; \(b\): 0, 1, 2, 3, 4, 5.</p></div>
+        <div class="st"><span class="pl">Passo 3 · monte</span><div class="m">\[(a+b)^5=a^5+5a^4b+10a^3b^2+10a^2b^3+5ab^4+b^5\]</div></div>
+      </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">5.4</span> Binômios com números e coeficientes</h2>
+  <div class="prose">
+    <div class="box tip"><div class="bl">Regra de ouro</div><p>Substitua \(a\) e \(b\) <b>inteiros, com parênteses</b>. Se \(a=2x\), então \(a^3=(2x)^3=8x^3\), e não \(2x^3\).</p></div>
+    <div class="ex"><div class="et">Exemplo guiado 2</div><p>Desenvolva \((2x+3)^3\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · identifique</span><p>\(a=2x\), \(b=3\), \(n=3\), coeficientes 1, 3, 3, 1.</p></div>
+        <div class="st"><span class="pl">Passo 2 · monte com parênteses</span><div class="m">\[1(2x)^3+3(2x)^2(3)+3(2x)(3)^2+1(3)^3\]</div></div>
+        <div class="st"><span class="pl">Passo 3 · calcule cada termo</span><div class="m">\[=8x^3+3\cdot4x^2\cdot3+3\cdot2x\cdot9+27=8x^3+36x^2+54x+27\]</div></div>
+        <div class="st"><span class="pl">Conferência rápida</span><p>Com \(x=1\): \((2+3)^3=125\) e \(8+36+54+27=125\) ✓. (Essa conferência é o assunto do Módulo 7.)</p></div>
+      </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">5.5</span> O binômio com sinal de menos</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Sinais alternados</div><p>Escreva \(a-b=a+(-b)\). Como \((-b)^k\) é positivo para \(k\) par e negativo para \(k\) ímpar:</p><div>\[(a-b)^n=\sum_{k=0}^n(-1)^k\binom nk a^{n-k}b^k=a^n-\binom n1a^{n-1}b+\binom n2a^{n-2}b^2-\cdots\]</div></div>
+    <div class="ex"><div class="et">Exemplo guiado 3</div><p>Desenvolva \((x-1)^5\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1</span><p>\(a=x\), \(b=-1\), coeficientes 1, 5, 10, 10, 5, 1, sinais \(+,-,+,-,+,-\).</p></div>
+        <div class="st"><span class="pl">Passo 2</span><div class="m">\[(x-1)^5=x^5-5x^4+10x^3-10x^2+5x-1\]</div></div>
+      </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">5.6</span> Binômios com frações e potências de x</h2>
+  <div class="prose">
+    <div class="ex"><div class="et">Exemplo guiado 4</div><p>Desenvolva \(\left(x+\dfrac1x\right)^4\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · reescreva</span><p>\(a=x\), \(b=\frac1x=x^{-1}\). O termo geral tem \(x^{4-k}\cdot x^{-k}=x^{4-2k}\).</p></div>
+        <div class="st"><span class="pl">Passo 2 · expoentes de x para k = 0, 1, 2, 3, 4</span><p>4, 2, 0, −2, −4.</p></div>
+        <div class="st"><span class="pl">Passo 3 · monte</span><div class="m">\[\left(x+\frac1x\right)^4=x^4+4x^2+6+\frac{4}{x^2}+\frac{1}{x^4}\]</div><p>O termo “6” não tem \(x\): é o <b>termo independente</b> (Módulo 6).</p></div>
+      </div></div>
+  </div>
+  <div class="lab" data-w="expander" data-o='{"a":"2x","b":"3","n":"3"}'><div class="lt">Laboratório: desenvolvedor de binômios passo a passo</div><p class="ld">Digite os dois termos e o expoente. Cada termo \(T_{k+1}\) aparece calculado, com o binomial, as potências e o resultado. Teste os exemplos desta página e invente os seus.</p></div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Juros compostos: de onde vem cada pedaço do rendimento?</h3>
+    <p>Você aplica R$ 1 000,00 a 10% ao ano, com juros compostos, por 3 anos. O montante é \(1000\cdot(1+0{,}1)^3\). Vamos abrir esse cubo com o binômio e entender cada parte.</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · binômio com a = 1, b = 0,1, n = 3</span><div class="m">\[(1+0{,}1)^3=1+3(0{,}1)+3(0{,}1)^2+(0{,}1)^3=1+0{,}3+0{,}03+0{,}001\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · multiplique por 1000</span><div class="m">\[1000+300+30+1=1331\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · interprete</span><p>R$ 1 000 é o capital; R$ 300 são os juros simples (3 anos × R$ 100); R$ 30 são “juros sobre juros” de pares de anos (\(\binom32=3\) pares × R$ 10); R$ 1 são juros sobre juros sobre juros (\(\binom33=1\)).</p></div>
+    </div>
+    <div class="final"><b>Resposta:</b> montante de R$ 1 331,00. O binômio separa os juros simples (R$ 300) do efeito “juros sobre juros” (R$ 31).</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Desenvolva \((x+2)^4\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1 · linha 4: 1 4 6 4 1</span><div class="m">\[x^4+4x^3(2)+6x^2(2)^2+4x(2)^3+(2)^4\]</div></div><div class="st"><span class="pl">Passo 2</span><div class="m">\[=x^4+8x^3+24x^2+32x+16\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Desenvolva \((3-x)^3\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1 · a = 3, b = −x</span><div class="m">\[3^3-3\cdot3^2x+3\cdot3x^2-x^3=27-27x+9x^2-x^3\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Quantos termos tem o desenvolvimento de \((x^2-5y)^{12}\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(n+1=13\) termos.</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m5v1" data-ans="C"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Quantos termos tem o desenvolvimento de \((a+b)^{9}\)?</p>
+      <ol class="opts"><li>9</li><li>18</li><li>10</li><li>8</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(n+1=10\) (k vai de 0 a 9).</p></div></div><p class="rev">Revise: <a href="#m5-s3">5.3 O padrão</a></p></div>
+    <div class="q" data-id="m5v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>O coeficiente de \(a^2b^3\) em \((a+b)^5\) é:</p>
+      <ol class="opts"><li>10</li><li>5</li><li>6</li><li>15</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(b\) aparece 3 vezes: \(\binom53=10\).</p></div></div><p class="rev">Revise: <a href="#m5-s1">5.1 A ideia central</a></p></div>
+    <div class="q" data-id="m5v3" data-ans="B"><div class="qh"><span class="qn">Verificação 3</span><span class="tag f">fácil</span></div><p>\(\displaystyle\sum_{k=1}^{3}(k+1)\) vale:</p>
+      <ol class="opts"><li>6</li><li>9</li><li>7</li><li>10</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((1+1)+(2+1)+(3+1)=2+3+4=9\).</p></div></div><p class="rev">Revise: <a href="#m5-s2">5.2 Somatório</a></p></div>
+    <div class="q" data-id="m5v4" data-ans="D"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>O desenvolvimento de \((x+3)^3\) é:</p>
+      <ol class="opts"><li>\(x^3+27\)</li><li>\(x^3+3x^2+3x+27\)</li><li>\(x^3+9x^2+9x+27\)</li><li>\(x^3+9x^2+27x+27\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[x^3+3x^2(3)+3x(3)^2+3^3=x^3+9x^2+27x+27\]</div></div></div><p class="rev">Revise: <a href="#m5-s4">5.4 Com números</a></p></div>
+    <div class="q" data-id="m5v5" data-ans="C"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>No desenvolvimento de \((x-2)^4\), o coeficiente de \(x^3\) é:</p>
+      <ol class="opts"><li>8</li><li>4</li><li>\(-8\)</li><li>\(-4\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(x^3\) vem de \(k=1\): \(\binom41x^3(-2)^1=-8x^3\).</p></div></div><p class="rev">Revise: <a href="#m5-s5">5.5 Sinal de menos</a></p></div>
+    <div class="q" data-id="m5v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag m">médio</span></div><p>Em \((2x+1)^4\), o primeiro termo é:</p>
+      <ol class="opts"><li>\(16x^4\)</li><li>\(2x^4\)</li><li>\(8x^4\)</li><li>\(x^4\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\binom40(2x)^4=16x^4\]</div><p>O erro comum é escrever \(2x^4\), esquecendo de elevar o 2.</p></div></div><p class="rev">Revise: <a href="#m5-s4">5.4 Regra de ouro</a></p></div>
+    <div class="q" data-id="m5v7" data-ans="B"><div class="qh"><span class="qn">Verificação 7</span><span class="tag d">difícil</span></div><p>Em \(\left(x^2+\dfrac1x\right)^3\), os expoentes de \(x\) nos termos, em ordem, são:</p>
+      <ol class="opts"><li>6, 4, 2, 0</li><li>6, 3, 0, −3</li><li>6, 5, 4, 3</li><li>2, 1, 0, −1</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Termo geral: \((x^2)^{3-k}(x^{-1})^k=x^{6-2k-k}=x^{6-3k}\). Para \(k=0,1,2,3\): 6, 3, 0, −3.</p></div></div><p class="rev">Revise: <a href="#m5-s6">5.6 Frações e potências</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m5d1" data-ans="B"><p>Por que o coeficiente de \(a^{n-k}b^k\) é \(\binom nk\)?</p><ol class="opts"><li>Por definição</li><li>Porque é o número de jeitos de escolher em quais \(k\) parênteses pegar \(b\)</li><li>Porque \(n\) e \(k\) são inteiros</li><li>Porque o triângulo é simétrico</li></ol><div class="why" hidden>Cada termo é uma escolha de \(a\) ou \(b\) em cada parêntese; os que dão \(a^{n-k}b^k\) escolhem \(b\) em \(k\) parênteses.</div></div>
+    <div class="q dq" data-id="m5d2" data-ans="D"><p>Em cada termo de \((a+b)^7\), a soma dos expoentes de \(a\) e \(b\) é:</p><ol class="opts"><li>8</li><li>varia</li><li>14</li><li>7</li></ol><div class="why" hidden>\(a^{7-k}b^k\): \((7-k)+k=7\).</div></div>
+    <div class="q dq" data-id="m5d3" data-ans="A"><p>Em \((x-y)^6\), o sinal do termo com \(y^3\) é:</p><ol class="opts"><li>negativo</li><li>positivo</li><li>depende de \(x\)</li><li>não existe esse termo</li></ol><div class="why" hidden>\((-y)^3=-y^3\): expoente ímpar, sinal negativo.</div></div>
+    <div class="q dq" data-id="m5d4" data-ans="C"><p>Qual é o erro em “\((3x)^2=3x^2\)”?</p><ol class="opts"><li>Nenhum</li><li>Devia ser \(6x^2\)</li><li>Devia ser \(9x^2\)</li><li>Devia ser \(9x\)</li></ol><div class="why" hidden>Potência de produto: \(3^2x^2=9x^2\).</div></div>
+  </div>
+</div>
+</section>

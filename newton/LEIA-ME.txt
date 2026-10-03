@@ -1,0 +1,31 @@
+APOSTILA BINOMIO DE NEWTON - CAPITULO II (LISTAS 230 A 335 RESOLVIDAS)
+======================================================================
+
+1. Descompacte o arquivo ZIP (botao direito > "Extrair tudo").
+2. Abra "apostila-binomio-cap2.html" com dois cliques no navegador
+   (Chrome, Edge, Firefox ou Safari atuais). Funciona sem internet.
+
+No celular: salve o .html no aparelho e abra com o navegador (Chrome).
+
+Como usar
+- Comece pelo Modulo 10 ("Tecnicas do capitulo"): ele tem o mapa que liga
+  cada item do capitulo do livro (itens 50 a 68) a teoria desta apostila.
+- Modulos 1 a 9: a teoria do zero ao avancado (potencias, fatorial,
+  combinacoes, Pascal, binomio, termo geral, somas, aplicacoes, multinomio).
+- Listas: 8 listas com TODOS os 106 exercicios do capitulo (230 a 335),
+  na numeracao do livro, cada um com resposta e resolucao passo a passo:
+    1 Desenvolvimento (230-237)        5 Aproximacoes e somas (281-293)
+    2 Reconhecer binomios (238-245)    6 Pascal e somas (294-321)
+    3 Termo geral I (246-264)          7 Equacoes e maximo (322-332)
+    4 Termo geral II (265-280)         8 Multinomial (333-335)
+  Tente sozinho, abra a resolucao e marque se acertou.
+- Jogar, Simulado, Formulario e Perfil (nivel, conquistas).
+
+O progresso fica salvo so neste navegador, neste aparelho.
+Resolucoes proprias; enunciados na numeracao de "Fundamentos de
+Matematica Elementar", vol. 5, Cap. II.
+
+Conteudo da pasta
+- apostila-binomio-cap2.html  -> a apostila completa (arquivo unico)
+- LEIA-ME.txt                 -> este arquivo
+- licencas/KaTeX-LICENSE.txt  -> licenca do KaTeX (formulas, MIT)

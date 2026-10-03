@@ -1,0 +1,117 @@
+<section class="page mod" id="m10" data-num="10" data-part="Parte V · O Capítulo II do livro" data-short="Técnicas do capítulo" data-title="O Capítulo II passo a passo: mapa, demonstração e técnicas das listas" data-icon="book" data-desc="Onde está cada item do capítulo nesta apostila, a demonstração por permutações, e as técnicas que as listas 230–335 exigem: reconhecer binômios, equações binomiais, termos racionais, derivar e telescopar.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>localizar cada item do Capítulo II (itens 50 a 68) na teoria desta apostila;</li>
+    <li>refazer a demonstração do teorema binomial por permutações com repetição;</li>
+    <li>reconhecer um binômio “escondido” numa soma (exercícios 238–245 e 321);</li>
+    <li>resolver equações do tipo \(\binom nA=\binom nB\) (exercícios 322–330);</li>
+    <li>contar termos racionais (279–280) e provar somas derivando ou telescopando (310–316).</li></ul></div>
+
+  <h2 class="sec"><span class="n">10.1</span> Mapa do capítulo</h2>
+  <div class="prose">
+    <p>O capítulo do livro é curto e direto; esta apostila tem a mesma teoria, explicada devagar. Use a tabela para ir e voltar.</p>
+    <div class="tbl"><table><thead><tr><th class="l">No livro</th><th class="l">Assunto</th><th class="l">Aqui</th><th class="l">Exercícios</th></tr></thead><tbody>
+      <tr><td class="l">50–53</td><td class="l">Distributiva e árvore de escolhas</td><td class="l"><a href="#m1">Mód. 1</a>, <a href="#m5">5.1</a></td><td class="l">—</td></tr>
+      <tr><td class="l">54–55</td><td class="l">Teorema binomial e demonstração</td><td class="l"><a href="#m5">Mód. 5</a>, 10.2</td><td class="l"><a href="#lista1">Lista 1</a> (230–237)</td></tr>
+      <tr><td class="l">56–57</td><td class="l">Coeficientes binomiais; \((x-a)^n\)</td><td class="l"><a href="#m3">Mód. 3</a>, <a href="#m5">5.5</a>, 10.3</td><td class="l"><a href="#lista2">Lista 2</a> (238–245)</td></tr>
+      <tr><td class="l">58</td><td class="l">Termo geral</td><td class="l"><a href="#m6">Mód. 6</a>, 10.5</td><td class="l"><a href="#lista3">Listas 3</a> e <a href="#lista4">4</a> (246–280)</td></tr>
+      <tr><td class="l">(exerc. 281–293)</td><td class="l">Aproximação e soma dos coeficientes</td><td class="l"><a href="#m8">8.1</a>, <a href="#m7">7.1</a></td><td class="l"><a href="#lista5">Lista 5</a></td></tr>
+      <tr><td class="l">59–64</td><td class="l">Triângulo de Pascal e propriedades</td><td class="l"><a href="#m4">Mód. 4</a>, <a href="#m7">Mód. 7</a>, <a href="#m9">9.1–9.2</a>, 10.6</td><td class="l"><a href="#lista6">Lista 6</a> (294–321)</td></tr>
+      <tr><td class="l">(exerc. 322–332)</td><td class="l">Equações binomiais; maior coeficiente</td><td class="l">10.4, <a href="#m7">7.4</a></td><td class="l"><a href="#lista7">Lista 7</a></td></tr>
+      <tr><td class="l">65–68</td><td class="l">Expansão multinomial</td><td class="l"><a href="#m9">9.4</a></td><td class="l"><a href="#lista8">Lista 8</a> (333–335)</td></tr>
+    </tbody></table></div>
+    <div class="box tip"><div class="bl">Como estudar</div><p>Leia a teoria indicada, faça os exemplos guiados e só então ataque a lista. Em cada exercício, tente sozinho antes de abrir a resolução, e marque se acertou.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">10.2</span> A demonstração do livro: permutações com repetição</h2>
+  <div class="prose">
+    <p>O livro prova o teorema assim: em \((x+a)^n=(x+a)(x+a)\cdots(x+a)\), cada parcela do produto nasce de <b>escolher</b> \(x\) ou \(a\) em cada um dos \(n\) parênteses. Uma escolha é uma “palavra” de \(n\) letras, como \(x\,a\,x\,x\) para \(n=4\).</p>
+    <figure class="fig" data-f="arvore3"><figcaption>Árvore de escolhas para \((x+a)^3\): cada caminho da raiz até uma folha é uma palavra de 3 letras e dá um produto.</figcaption></figure>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · que produtos aparecem</span><p>Uma palavra com \(p\) letras \(a\) e \(n-p\) letras \(x\) dá o produto \(x^{n-p}a^p\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · quantas vezes</span><p>O número de palavras com \(n-p\) letras \(x\) e \(p\) letras \(a\) é o número de permutações com repetição (anagramas):</p><div class="m">\[P_n^{\,n-p,\,p}=\frac{n!}{(n-p)!\,p!}=\binom np\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · some tudo</span><div class="m">\[(x+a)^n=\sum_{p=0}^{n}\binom np x^{n-p}a^p\]</div></div>
+    </div>
+    <div class="box obs"><div class="bl">Mesma ideia, duas leituras</div><p>Contar anagramas de “\(xx\cdots x\,aa\cdots a\)” é o mesmo que escolher <b>em quais</b> \(p\) das \(n\) posições ficam as letras \(a\): \(\binom np\). É por isso que o número binomial aparece.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">10.3</span> Reconhecendo um binômio escondido</h2>
+  <div class="prose">
+    <p>Muitos exercícios (238–245, 321) dão uma soma enorme e pedem o valor. O segredo é “fechar” a soma num \((A+B)^n\).</p>
+    <div class="box def"><div class="bl">Checklist</div><ol>
+      <li>Os coeficientes são uma linha de Pascal (1 4 6 4 1; 1 5 10 10 5 1…) ou estão escritos como \(\binom np\)?</li>
+      <li>Uma base desce de expoente e a outra sobe? Se uma delas não aparece, ela vale 1.</li>
+      <li>Os sinais alternam? Então é uma diferença \((A-B)^n\).</li>
+      <li>Identifique \(A\), \(B\) e \(n\) e feche: \(\sum\binom npA^{n-p}B^p=(A+B)^n\).</li></ol></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Calcule \(x^3-3x^2+3x-1\) para \(x=1{,}1\).</p>
+      <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>Coeficientes 1, 3, 3, 1 com sinais alternados e segunda base 1: é \((x-1)^3\).</p></div>
+      <div class="st"><span class="pl">Passo 2</span><div class="m">\[(1{,}1-1)^3=0{,}1^3=0{,}001\]</div></div></div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">10.4</span> Equações binomiais (binomiais iguais)</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Regra</div><div>\[\binom nA=\binom nB\iff A=B\ \ \text{ou}\ \ A+B=n\qquad(0\le A,B\le n)\]</div></div>
+    <p><b>Por que só esses dois casos?</b> Numa linha de Pascal, os valores crescem até o meio e depois decrescem (exercícios 317 e 318). Então cada valor aparece no máximo duas vezes, em posições simétricas: \(B=A\) ou \(B=n-A\).</p>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Resolva \(\binom{9}{x+1}=\binom9{2x}\).</p>
+      <div class="steps"><div class="st"><span class="pl">Caso iguais</span><p>\(x+1=2x\Rightarrow x=1\): \(\binom92=\binom92\) ✓</p></div>
+      <div class="st"><span class="pl">Caso complementares</span><p>\(x+1+2x=9\Rightarrow x=\frac83\), não inteiro: descarta.</p></div>
+      <div class="st"><span class="pl">Resposta</span><p>\(x=1\).</p></div></div></div>
+    <div class="box warn"><div class="bl">Cuidado</div><p>Sempre confira se as “posições” ficam entre 0 e \(n\) e se são inteiras. Equações como \(3p=p+6\) podem dar valores fora disso.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">10.5</span> Expoentes fracionários e termos racionais</h2>
+  <div class="prose">
+    <p>Com raízes, troque tudo por potências: \(\sqrt x=x^{1/2}\), \(\sqrt[4]x=x^{1/4}\), \(\frac1{x^2}=x^{-2}\). O termo geral fica \(\binom np x^{(\text{algo com }p)}\).</p>
+    <div class="ex"><div class="et">Exemplo guiado (tipo 279)</div><p>Quantos termos racionais tem \((\sqrt2+\sqrt[3]5)^{12}\)?</p>
+      <div class="steps"><div class="st"><span class="pl">Termo geral</span><div class="m">\[\binom{12}p2^{\frac{12-p}2}5^{\frac p3}\]</div></div>
+      <div class="st"><span class="pl">Condições</span><p>\(12-p\) par (\(p\) par) e \(p\) múltiplo de 3: \(p\) múltiplo de 6.</p></div>
+      <div class="st"><span class="pl">Conte</span><p>\(p\in\{0,6,12\}\): 3 termos racionais.</p></div></div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">10.6</span> Duas ferramentas para somas: derivar e telescopar</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Derivar a identidade</div><p>Partindo de \((1+x)^n=\sum\binom nkx^k\) e derivando:</p><div>\[n(1+x)^{n-1}=\sum k\binom nkx^{k-1}\ \xrightarrow{x=1}\ \sum k\binom nk=n\,2^{n-1}\]</div><p>Derivando de novo e fazendo \(x=1\): \(\sum k(k-1)\binom nk=n(n-1)2^{n-2}\) (exercícios 310 e 311).</p></div>
+    <div class="box def"><div class="bl">Telescopar</div><p>Se cada parcela é uma diferença \(f(k+1)-f(k)\), a soma “desaba”: \(\sum_{k=1}^n[f(k+1)-f(k)]=f(n+1)-f(1)\). Com \(f(k)=k^3\) e \((k+1)^3-k^3=3k^2+3k+1\) obtemos \(\sum k^2\) (exercícios 315 e 316).</p></div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Calcule \(\sum_{k=0}^{8}\binom8k(-2)^k\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>É \((1-2)^8=1\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Resolva \(\binom{20}{2p}=\binom{20}{p+2}\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>Iguais: \(p=2\). Complementares: \(3p+2=20\Rightarrow p=6\). Ambos válidos: \(\binom{20}4=\binom{20}4\) e \(\binom{20}{12}=\binom{20}8\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Calcule \(\sum_{k=1}^{6}k\binom6k\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(6\cdot2^5=192\).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m10v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Na demonstração do livro, o coeficiente de \(x^{n-p}a^p\) é o número de:</p>
+      <ol class="opts"><li>arranjos de \(n\) elementos \(p\) a \(p\)</li><li>anagramas com \(n-p\) letras \(x\) e \(p\) letras \(a\)</li><li>subconjuntos de um conjunto com \(p\) elementos</li><li>permutações simples de \(n\) letras</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Cada escolha é uma palavra; as palavras com essas quantidades de letras são \(\frac{n!}{(n-p)!p!}=\binom np\).</p></div></div><p class="rev">Revise: <a href="#m10-s2">10.2</a></p></div>
+    <div class="q" data-id="m10v2" data-ans="C"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(2^5+5\cdot2^4+10\cdot2^3+10\cdot2^2+5\cdot2+1\) vale:</p>
+      <ol class="opts"><li>\(2^6\)</li><li>\(32\)</li><li>\(3^5=243\)</li><li>\(5^3\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Linha 5 com \(A=2\), \(B=1\): \((2+1)^5=243\).</p></div></div><p class="rev">Revise: <a href="#m10-s3">10.3</a></p></div>
+    <div class="q" data-id="m10v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>As soluções de \(\binom{10}{x}=\binom{10}{3x-2}\) são:</p>
+      <ol class="opts"><li>\(x=1\) ou \(x=3\)</li><li>só \(x=1\)</li><li>só \(x=3\)</li><li>\(x=2\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Iguais: \(x=3x-2\Rightarrow x=1\). Complementares: \(4x-2=10\Rightarrow x=3\): \(\binom{10}3=\binom{10}7\) ✓.</p></div></div><p class="rev">Revise: <a href="#m10-s4">10.4</a></p></div>
+    <div class="q" data-id="m10v4" data-ans="D"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Quantos termos racionais tem \((\sqrt3+\sqrt2)^{8}\)?</p>
+      <ol class="opts"><li>9</li><li>4</li><li>0</li><li>5</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Termo \(\binom8p3^{\frac{8-p}2}2^{\frac p2}\): racional se \(p\) é par: \(p=0,2,4,6,8\): 5 termos.</p></div></div><p class="rev">Revise: <a href="#m10-s5">10.5</a></p></div>
+    <div class="q" data-id="m10v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>\(\sum_{k=0}^{5}k\binom5k\) vale:</p>
+      <ol class="opts"><li>32</li><li>80</li><li>160</li><li>40</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(n2^{n-1}=5\cdot16=80\).</p></div></div><p class="rev">Revise: <a href="#m10-s6">10.6</a></p></div>
+    <div class="q" data-id="m10v6" data-ans="C"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Se \(\binom{n}{k}=3\binom n{k-1}\), então:</p>
+      <ol class="opts"><li>\(n=3k\)</li><li>\(n=3k+1\)</li><li>\(n=4k-1\)</li><li>\(n=2k-1\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\frac{n-k+1}k=3\Rightarrow n-k+1=3k\Rightarrow n=4k-1\) (compare com o exercício 319).</p></div></div><p class="rev">Revise: <a href="#m10-s4">10.4</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    
+    <div class="q dq" data-id="m10d1" data-ans="A"><p>Para resolver \(\binom nA=\binom nB\), os casos possíveis são:</p><ol class="opts"><li>\(A=B\) ou \(A+B=n\)</li><li>só \(A=B\)</li><li>\(A-B=n\)</li><li>\(AB=n\)</li></ol><div class="why" hidden>Os valores de uma linha crescem e depois decrescem, simétricos: cada valor aparece em posições iguais ou complementares.</div></div>
+    <div class="q dq" data-id="m10d2" data-ans="C"><p>Para provar \(\sum k\binom nk=n2^{n-1}\) pelo binômio, você:</p><ol class="opts"><li>faz \(x=-1\)</li><li>eleva ao quadrado</li><li>deriva \((1+x)^n\) e faz \(x=1\)</li><li>usa a árvore</li></ol><div class="why" hidden>Derivar desce o expoente \(k\) como fator; \(x=1\) apaga as potências.</div></div>
+    <div class="q dq" data-id="m10d3" data-ans="D"><p>Uma soma “telescópica” é uma soma em que:</p><ol class="opts"><li>todas as parcelas são iguais</li><li>as parcelas formam uma PG</li><li>as parcelas são binomiais</li><li>cada parcela é uma diferença e os termos intermediários se cancelam</li></ol><div class="why" hidden>\(\sum[f(k+1)-f(k)]=f(n+1)-f(1)\).</div></div>
+    <div class="q dq" data-id="m10d4" data-ans="B"><p>Em \((x+a)^n\), quantas palavras de escolha geram \(x^{n-2}a^2\)?</p><ol class="opts"><li>\(2\)</li><li>\(\binom n2\)</li><li>\(n^2\)</li><li>\(2^n\)</li></ol><div class="why" hidden>Escolha em quais 2 dos \(n\) parênteses pegar o \(a\).</div></div>
+  </div>
+</div>
+</section>

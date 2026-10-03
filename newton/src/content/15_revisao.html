@@ -1,0 +1,53 @@
+<section class="page" id="revisao">
+<div class="mhead"><span class="mi"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 4H6l6 8-6 8h12"/></svg></span><div><div class="eyebrow">Revisão final</div><h1>Formulário</h1><p class="muted">Tudo o que você precisa na hora da prova, em uma página. Toque no nome do módulo para rever a teoria.</p></div></div>
+<div class="book">
+  <div class="grid g2">
+    <div class="card" style="display:grid;gap:8px"><h3>Potências e produtos notáveis <a class="small" href="#m1">Mód. 1</a></h3>
+      <div>\[a^ma^n=a^{m+n}\quad(a^m)^n=a^{mn}\quad(ab)^n=a^nb^n\quad a^{-n}=\tfrac1{a^n}\]</div>
+      <div>\[(a\pm b)^2=a^2\pm2ab+b^2\]</div>
+      <div>\[(a+b)^3=a^3+3a^2b+3ab^2+b^3\]</div></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Fatorial <a class="small" href="#m2">Mód. 2</a></h3>
+      <div>\[n!=n(n-1)\cdots2\cdot1\qquad0!=1\qquad n!=n\,(n-1)!\]</div>
+      <p>Simplificar: desça o fatorial maior até o menor e corte. \(\frac{(n+2)!}{n!}=(n+2)(n+1)\).</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Combinações <a class="small" href="#m3">Mód. 3</a></h3>
+      <div>\[\binom nk=\frac{n!}{k!\,(n-k)!}=\frac{n(n-1)\cdots(n-k+1)}{k!}\]</div>
+      <div>\[\binom n0=\binom nn=1\quad\binom n1=n\quad\binom nk=\binom n{n-k}\]</div>
+      <p>\(\binom na=\binom nb\Rightarrow a=b\) ou \(a+b=n\). Arranjo (ordem importa): \(A_{n,k}=\frac{n!}{(n-k)!}\).</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Triângulo de Pascal <a class="small" href="#m4">Mód. 4</a></h3>
+      <div>\[\text{Stifel: }\binom nk+\binom n{k+1}=\binom{n+1}{k+1}\]</div>
+      <div>\[\sum_{k=0}^n\binom nk=2^n\qquad\sum_{i=k}^{n}\binom ik=\binom{n+1}{k+1}\]</div>
+      <p>Linha \(n\), coluna \(k\) (a partir de 0) \(=\binom nk\).</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Binômio de Newton <a class="small" href="#m5">Mód. 5</a></h3>
+      <div>\[(a+b)^n=\sum_{k=0}^{n}\binom nka^{n-k}b^k\]</div>
+      <p>\(n+1\) termos; expoentes de \(a\) descem, de \(b\) sobem, somam \(n\). Em \((a-b)^n\) os sinais alternam.</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Termo geral <a class="small" href="#m6">Mód. 6</a></h3>
+      <div>\[T_{k+1}=\binom nka^{n-k}b^k\qquad k=\text{posição}-1\]</div>
+      <p>Termo em \(x^m\): iguale o expoente de \(x\) a \(m\) e ache \(k\) (natural, \(0\le k\le n\)). Independente: expoente 0. Médio: \(n\) par → \(T_{\frac n2+1}\); \(n\) ímpar → dois.</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Somas <a class="small" href="#m7">Mód. 7</a></h3>
+      <p>Soma dos coeficientes de \(P(x)\): \(P(1)\). Termo independente: \(P(0)\).</p>
+      <div>\[\sum(-1)^k\binom nk=0\qquad\sum_{k\text{ par}}\binom nk=\sum_{k\text{ ímpar}}\binom nk=2^{n-1}\]</div>
+      <p>Maior coeficiente de \((p+qx)^n\): cresce enquanto \(\frac{n-k}{k+1}\cdot\frac qp>1\).</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Aplicações <a class="small" href="#m8">Mód. 8</a></h3>
+      <div>\[(1+x)^n\approx1+nx+\binom n2x^2\ \ (x\approx0)\]</div>
+      <p>Resto: escreva a base como múltiplo ± pequeno; só \((\pm\text{pequeno})^n\) importa.</p>
+      <div>\[P(X=k)=\binom nkp^k(1-p)^{n-k}\]</div></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Avançado <a class="small" href="#m9">Mód. 9</a></h3>
+      <div>\[\sum k\binom nk=n2^{n-1}\qquad\sum\binom nk^2=\binom{2n}n\]</div>
+      <div>\[\sum_i\binom mi\binom n{k-i}=\binom{m+n}k\qquad\frac{n!}{i!\,j!\,l!}\ \text{em }(a+b+c)^n\]</div>
+      <div>\[(1+x)^\alpha=\sum_{k\ge0}\binom\alpha kx^k\ \ (|x|<1)\]</div></div>
+  </div>
+
+  <h2 class="sec">Erros mais comuns</h2>
+  <div class="grid g2">
+    <div class="box warn"><div class="bl">Potências</div><ul><li>\((a+b)^2=a^2+b^2\) (falta o \(2ab\)).</li><li>\((2x)^3=2x^3\) (o certo é \(8x^3\)).</li><li>\(-2^4=16\) (o certo é \(-16\)).</li></ul></div>
+    <div class="box warn"><div class="bl">Fatorial e combinações</div><ul><li>\(\frac{10!}{5!}=2!\) ou \(3!+4!=7!\).</li><li>Usar arranjo quando a ordem não importa.</li><li>Esquecer a solução “complementar” em \(\binom na=\binom nb\).</li></ul></div>
+    <div class="box warn"><div class="bl">Termo geral</div><ul><li>5º termo com \(k=5\) (o certo é \(k=4\)).</li><li>Esquecer o sinal de \(b\) negativo: \((-3)^k\).</li><li>Confundir termo, coeficiente e coeficiente binomial.</li></ul></div>
+    <div class="box warn"><div class="bl">Somas e restos</div><ul><li>Somar coeficientes trocando só uma das letras por 1.</li><li>Resto negativo: some o divisor (\(-1\) por 6 é resto 5).</li><li>Aproximar \((1+x)^n\approx1+nx\) com \(x\) grande.</li></ul></div>
+  </div>
+
+  <h2 class="sec">Sobre esta apostila</h2>
+  <div class="prose">
+    <p>Os enunciados, exemplos, estudos de caso e listas foram escritos para esta apostila. As respostas numéricas das listas e das verificações foram conferidas por computador (cálculo simbólico). As resoluções seguem a notação mais usada no Brasil: \(\binom nk\) ou \(C_{n,k}\) para combinações e \(T_{k+1}\) para o termo geral.</p>
+  </div>
+</div>
+</section>

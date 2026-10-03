@@ -1,0 +1,107 @@
+<section class="page mod" id="m3" data-num="3" data-part="Parte I · A base (do zero)" data-short="Combinações e números binomiais" data-title="Contagem, combinações e números binomiais" data-icon="combo" data-desc="Princípio multiplicativo, quando a ordem importa, a fórmula de C(n, k), a notação binomial e suas propriedades.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>contar possibilidades com o princípio multiplicativo;</li>
+    <li>distinguir arranjo (a ordem importa) de combinação (a ordem não importa);</li>
+    <li>deduzir e usar \(\binom nk=\dfrac{n!}{k!\,(n-k)!}\), com o atalho de conta rápida;</li>
+    <li>usar as propriedades: \(\binom n0=\binom nn=1\), \(\binom n1=n\), binomiais complementares e igualdade de binomiais.</li></ul></div>
+
+  <h2 class="sec"><span class="n">3.1</span> Princípio multiplicativo</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Princípio fundamental da contagem</div><p>Se uma decisão tem \(m\) opções e, para cada uma delas, uma segunda decisão tem \(p\) opções, então as duas juntas têm \(m\cdot p\) possibilidades. Vale para quantas etapas houver: multiplique.</p></div>
+    <p>Exemplo: 3 camisetas, 2 bermudas e 2 tênis dão \(3\cdot2\cdot2=12\) looks.</p>
+  </div>
+  <div class="lab" data-w="arvoreLab"><div class="lt">Laboratório: a árvore de possibilidades</div><p class="ld">Cada nível da árvore é uma decisão. O número de folhas (looks) é o produto das opções.</p></div>
+
+  <h2 class="sec"><span class="n">3.2</span> Quando a ordem importa (arranjo) e quando não importa (combinação)</h2>
+  <div class="prose">
+    <div class="two">
+      <div class="box obs"><div class="bl">A ordem importa</div><p>Escolher <b>presidente e vice</b> entre 5 pessoas: Ana-presidente e Bia-vice é diferente de Bia-presidente e Ana-vice.</p><div>\[A_{5,2}=5\cdot4=20\]</div><p>Isso é um <b>arranjo</b>: \(A_{n,k}=n(n-1)\cdots(n-k+1)=\dfrac{n!}{(n-k)!}\).</p></div>
+      <div class="box obs"><div class="bl">A ordem não importa</div><p>Escolher <b>uma dupla</b> para um trabalho entre 5 pessoas: {Ana, Bia} é a mesma dupla que {Bia, Ana}.</p><div>\[\frac{20}{2}=10\ \text{duplas}\]</div><p>Isso é uma <b>combinação</b>. Cada dupla foi contada 2 vezes no arranjo (AB e BA), por isso dividimos por \(2!=2\).</p></div>
+    </div>
+    <div class="box tip"><div class="bl">Teste rápido</div><p>Troque a ordem dos escolhidos. Mudou o resultado? Então é <b>arranjo</b>. Não mudou (é o mesmo grupo)? Então é <b>combinação</b>. No Binômio de Newton só aparecem <b>combinações</b>.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">3.3</span> A fórmula das combinações</h2>
+  <div class="prose">
+    <details class="demo" open><summary>Dedução passo a passo</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · conte como se a ordem importasse</span><p>Escolher \(k\) entre \(n\) <b>em ordem</b>: \(n\) opções para o 1º, \(n-1\) para o 2º, …, \(n-k+1\) para o \(k\)-ésimo.</p><div class="m">\[A_{n,k}=n(n-1)\cdots(n-k+1)=\frac{n!}{(n-k)!}\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · cada grupo foi contado k! vezes</span><p>Um mesmo grupo de \(k\) pessoas pode ser enfileirado de \(k!\) jeitos, e o arranjo contou todos eles.</p></div>
+        <div class="st"><span class="pl">Passo 3 · divida</span><div class="m">\[C_{n,k}=\frac{A_{n,k}}{k!}=\frac{n!}{k!\,(n-k)!}\]</div></div>
+      </div></div></details>
+    <div class="box def"><div class="bl">Número binomial</div><p>O número de combinações de \(n\) elementos tomados \(k\) a \(k\) é escrito como <b>número binomial</b> (lê-se “\(n\) escolhe \(k\)” ou “binomial de \(n\) sobre \(k\)”):</p><div>\[\binom{n}{k}=C_{n,k}=\frac{n!}{k!\,(n-k)!},\qquad0\le k\le n\]</div><p>\(n\) é o <b>numerador</b> (de cima) e \(k\) é a <b>classe</b> (de baixo). Não é uma fração: não há traço no meio.</p></div>
+    <div class="box tip"><div class="bl">Conta rápida (sem calcular fatoriais enormes)</div><p>Em cima: \(k\) fatores descendo a partir de \(n\). Embaixo: \(k!\).</p><div>\[\binom{10}{3}=\frac{10\cdot9\cdot8}{3\cdot2\cdot1}=\frac{720}{6}=120\]</div></div>
+  </div>
+  <div class="lab" data-w="comboLab"><div class="lt">Laboratório: todas as combinações, uma por uma</div><p class="ld">Escolha quantas pessoas existem (\(n\)) e quantas serão escolhidas (\(k\)). Todos os grupos possíveis aparecem listados. Compare com o número de arranjos.</p></div>
+  <div class="lab" data-w="binomCalc"><div class="lt">Laboratório: calculadora de números binomiais</div><p class="ld">A calculadora mostra a fórmula, o atalho do complementar e a conta rápida.</p></div>
+
+  <h2 class="sec"><span class="n">3.4</span> Propriedades dos números binomiais</h2>
+  <div class="prose">
+    <div class="tbl"><table><thead><tr><th class="l">Propriedade</th><th>Fórmula</th><th class="l">Por quê (em contagem)</th></tr></thead><tbody>
+      <tr><td class="l">Escolher nenhum / todos</td><td>\(\binom n0=\binom nn=1\)</td><td class="l">Só há um jeito de não escolher ninguém, e um de escolher todos.</td></tr>
+      <tr><td class="l">Escolher um</td><td>\(\binom n1=\binom n{n-1}=n\)</td><td class="l">Basta apontar quem (ou quem fica de fora).</td></tr>
+      <tr><td class="l">Complementares</td><td>\(\binom nk=\binom n{n-k}\)</td><td class="l">Escolher \(k\) para entrar é escolher \(n-k\) para ficar de fora.</td></tr>
+    </tbody></table></div>
+    <div class="box def"><div class="bl">Igualdade de binomiais</div><p>Se \(\binom na=\binom nb\), então</p><div>\[a=b\qquad\text{ou}\qquad a+b=n\]</div><p>(ou são iguais, ou são complementares).</p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Resolva \(\binom{12}{x}=\binom{12}{2x-3}\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Caso 1 · iguais</span><div class="m">\[x=2x-3\Rightarrow x=3\]</div><p>Confere: \(\binom{12}{3}=\binom{12}{3}\) ✓.</p></div>
+        <div class="st"><span class="pl">Caso 2 · complementares</span><div class="m">\[x+(2x-3)=12\Rightarrow3x=15\Rightarrow x=5\]</div><p>Confere: \(\binom{12}{5}=\binom{12}{7}\) ✓ (e \(7\le12\)).</p></div>
+        <div class="st"><span class="pl">Resposta</span><p>\(x\in\{3,5\}\). Sempre confira se as classes ficam entre 0 e \(n\).</p></div>
+      </div></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Qual é a chance de ganhar na Mega-Sena com uma aposta simples?</h3>
+    <p>Na Mega-Sena, você escolhe 6 números entre 60. A ordem dos números não importa. Quantos jogos diferentes existem? Qual é a chance de uma aposta acertar os 6?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · é combinação</span><p>{5, 12, 23, 34, 45, 56} é o mesmo jogo em qualquer ordem.</p></div>
+      <div class="st"><span class="pl">Passo 2 · conta rápida</span><div class="m">\[\binom{60}{6}=\frac{60\cdot59\cdot58\cdot57\cdot56\cdot55}{6\cdot5\cdot4\cdot3\cdot2\cdot1}=\frac{36\,045\,979\,200}{720}=50\,063\,860\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · probabilidade</span><div class="m">\[P=\frac{1}{50\,063\,860}\approx0{,}000002\%\]</div></div>
+    </div>
+    <div class="final"><b>Resposta:</b> 50 063 860 jogos possíveis; a chance de uma aposta simples é de 1 em mais de 50 milhões.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Calcule \(\binom{8}{5}\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1 · use o complementar (menos conta)</span><div class="m">\[\binom85=\binom83=\frac{8\cdot7\cdot6}{3\cdot2\cdot1}=56\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Numa sala com 20 pessoas, todos se cumprimentam uma vez com um aperto de mão. Quantos apertos de mão acontecem?</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>Cada aperto é uma dupla (ordem não importa).</p><div class="m">\[\binom{20}{2}=\frac{20\cdot19}{2}=190\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Resolva \(\binom{n}{2}=28\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\frac{n(n-1)}{2}=28\Rightarrow n(n-1)=56=8\cdot7\Rightarrow n=8\]</div></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m3v1" data-ans="C"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Um restaurante oferece 4 entradas, 5 pratos principais e 3 sobremesas. Quantas refeições diferentes (uma de cada) são possíveis?</p>
+      <ol class="opts"><li>12</li><li>20</li><li>60</li><li>15</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Princípio multiplicativo: \(4\cdot5\cdot3=60\).</p></div></div><p class="rev">Revise: <a href="#m3-s1">3.1 Princípio multiplicativo</a></p></div>
+    <div class="q" data-id="m3v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(\binom{6}{2}\) vale:</p>
+      <ol class="opts"><li>15</li><li>30</li><li>12</li><li>3</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\frac{6\cdot5}{2\cdot1}=15\]</div></div></div><p class="rev">Revise: <a href="#m3-s3">3.3 Fórmula</a></p></div>
+    <div class="q" data-id="m3v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag f">fácil</span></div><p>Escolher 3 alunos de uma turma para formar uma comissão (sem cargos) é um problema de:</p>
+      <ol class="opts"><li>arranjo, porque a ordem importa</li><li>fatorial, porque é uma fila</li><li>potência</li><li>combinação, porque a ordem não importa</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Trocar a ordem dos 3 escolhidos não muda a comissão: combinação.</p></div></div><p class="rev">Revise: <a href="#m3-s2">3.2 Ordem importa?</a></p></div>
+    <div class="q" data-id="m3v4" data-ans="B"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>\(\binom{15}{13}\) vale:</p>
+      <ol class="opts"><li>15</li><li>105</li><li>210</li><li>195</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1 · complementar</span><div class="m">\[\binom{15}{13}=\binom{15}{2}=\frac{15\cdot14}{2}=105\]</div></div></div><p class="rev">Revise: <a href="#m3-s4">3.4 Propriedades</a></p></div>
+    <div class="q" data-id="m3v5" data-ans="C"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>As soluções de \(\binom{10}{x}=\binom{10}{x+2}\) são:</p>
+      <ol class="opts"><li>\(x=2\)</li><li>não há solução</li><li>\(x=4\)</li><li>\(x=4\) ou \(x=-2\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Caso 1</span><p>\(x=x+2\) é impossível.</p></div><div class="st"><span class="pl">Caso 2</span><p>\(x+x+2=10\Rightarrow x=4\): \(\binom{10}{4}=\binom{10}{6}\) ✓.</p></div></div><p class="rev">Revise: <a href="#m3-s4">3.4 Igualdade de binomiais</a></p></div>
+    <div class="q" data-id="m3v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag m">médio</span></div><p>Quantos segmentos de reta ficam determinados por 7 pontos, sem 3 deles alinhados?</p>
+      <ol class="opts"><li>21</li><li>42</li><li>14</li><li>35</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Cada segmento é um par de pontos (ordem não importa): \(\binom72=21\).</p></div></div><p class="rev">Revise: <a href="#m3-s3">3.3 Fórmula</a></p></div>
+    <div class="q" data-id="m3v7" data-ans="D"><div class="qh"><span class="qn">Verificação 7</span><span class="tag d">difícil</span></div><p>De um grupo de 5 homens e 4 mulheres, quantas comissões de 3 pessoas têm exatamente 2 mulheres?</p>
+      <ol class="opts"><li>84</li><li>36</li><li>12</li><li>30</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Mulheres: \(\binom42=6\). Homem: \(\binom51=5\).</p></div><div class="st"><span class="pl">Passo 2 · princípio multiplicativo</span><p>\(6\cdot5=30\).</p></div></div><p class="rev">Revise: <a href="#m3-s1">3.1</a> e <a href="#m3-s3">3.3</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m3d1" data-ans="B"><p>\(\binom{n}{0}\) vale:</p><ol class="opts"><li>0</li><li>1</li><li>\(n\)</li><li>não existe</li></ol><div class="why" hidden>Só há um jeito de não escolher ninguém: \(\frac{n!}{0!\,n!}=1\).</div></div>
+    <div class="q dq" data-id="m3d2" data-ans="C"><p>Qual igualdade é verdadeira?</p><ol class="opts"><li>\(\binom{9}{2}=\binom{9}{3}\)</li><li>\(\binom{9}{2}=\frac{9}{2}\)</li><li>\(\binom{9}{2}=\binom{9}{7}\)</li><li>\(\binom92=18\)</li></ol><div class="why" hidden>Complementares: \(2+7=9\). E \(\binom92=36\).</div></div>
+    <div class="q dq" data-id="m3d3" data-ans="A"><p>Em \(A_{5,3}=60\) e \(\binom53=10\), por que dividimos 60 por 6?</p><ol class="opts"><li>Cada grupo de 3 aparece em \(3!=6\) ordens</li><li>Porque 6 = 5 + 1</li><li>Para dar um número menor</li><li>Porque há 6 pessoas</li></ol><div class="why" hidden>Um grupo {A, B, C} aparece como ABC, ACB, BAC, BCA, CAB, CBA no arranjo.</div></div>
+    <div class="q dq" data-id="m3d4" data-ans="D"><p>\(\binom{50}{48}\) é mais fácil de calcular como:</p><ol class="opts"><li>\(\frac{50!}{48!}\)</li><li>\(50\cdot48\)</li><li>\(\binom{48}{2}\)</li><li>\(\binom{50}{2}=\frac{50\cdot49}{2}=1225\)</li></ol><div class="why" hidden>Use o complementar: \(48+2=50\).</div></div>
+  </div>
+</div>
+</section>
