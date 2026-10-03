@@ -11,8 +11,23 @@ def _st_old(label, text, m=None):
     if m: h += f'<div class="m">\\[{m}\\]</div>'
     return h + "</div>"
 
+# módulo(s) de teoria de cada exercício (usado nos botões "Exercícios deste módulo")
+MODMAP = {
+ "L1-ITA": "m2", "L1-6": "m3", "L1-7": "m3", "L1-8": "m5", "L1-9": "m6 m5", "L1-10": "m3", "L1-11": "m3", "L1-12": "m5", "L1-13": "m5",
+ "L1-14": "m5", "L1-15": "m3 m4", "L1-16": "m6", "L1-17": "m6 m1", "L1-18": "m7", "L1-19": "m7",
+ "L2-11": "m2", "L2-12": "m2", "L2-13": "m2 m8", "L2-14": "m2", "L2-15": "m2 m8", "L2-16": "m2 m8", "L2-17": "m3", "L2-18": "m3", "L2-19": "m2",
+ "L2-20": "m3", "L2-21": "m3", "L2-22": "m3",
+ "L3-24": "m4 m6 m1", "L3-29": "m4 m6 m1", "L3-35": "m3 m4",
+ "L4-39": "m5 m6", "L4-43": "m5 m6 m1", "L4-44": "m5 m1", "L4-46": "m2", "L4-47": "m3",
+ "L5-49": "m7 m3", "L5-51": "m7 m8", "L5-53": "m5 m6", "L5-60": "m5", "L5-61": "m4 m3",
+}
+DEFAULT_MOD = {"L1": "m5", "L2": "m2", "L3": "m4", "L4": "m5", "L5": "m7"}
+MODNAME = {"m1": "Lógica", "m2": "Conjunto e pertinência", "m3": "Subconjuntos e partes", "m4": "União e interseção", "m5": "Diferença e complementar", "m6": "Demonstrações", "m7": "Cardinalidade", "m8": "Conjuntos numéricos"}
+
 def item(iid, num, enun, ans, steps=None, extra=""):
-    h = f'<div class="li" data-id="{iid}"><div class="lh"><span class="ln">{num}</span></div><div class="enun">{enun}</div>{extra}'
+    mods = MODMAP.get(iid, DEFAULT_MOD[iid.split("-")[0]])
+    back = " · ".join(f'<a class="small" href="#{m}">Teoria: Mód. {m[1:]} – {MODNAME[m]}</a>' for m in mods.split())
+    h = f'<div class="li" id="ex-{iid}" data-id="{iid}" data-mod="{mods}" data-num-label="{num}"><div class="lh"><span class="ln">{num}</span><span class="lmod">{back}</span></div><div class="enun">{enun}</div>{extra}'
     h += f'<div class="li-a"><b>Resposta:</b> {ans}</div>'
     if steps: h += '<div class="sol steps">' + "".join(steps) + "</div>"
     return h + "</div>"

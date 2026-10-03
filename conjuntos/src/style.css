@@ -296,3 +296,15 @@ input[type=range]{width:100%; accent-color:var(--pri); min-height:28px}
 .vreg{fill:var(--pri);fill-opacity:.38}
 .setin{font-family:var(--mono);font-size:15px}
 .tt{border-collapse:collapse;margin:6px 0;font-family:var(--mono)} .tt th,.tt td{border:1px solid var(--line);padding:4px 10px;text-align:center} .tt td.v{color:var(--ok);font-weight:700} .tt td.f{color:var(--bad);font-weight:700}
+/* exercícios por módulo */
+.exmod{border:2px solid var(--pri);border-radius:16px;padding:14px 16px;margin:18px 0;background:var(--pri-soft);display:grid;gap:10px}
+.exhead{display:flex;gap:12px;align-items:center} .exhead h3{margin:0}
+.exhead .si{width:40px;height:40px;border-radius:12px;background:var(--pri);color:var(--pri-ink);display:grid;place-items:center;flex:none}
+.exgrp{display:grid;gap:6px}
+.exchips{display:flex;flex-wrap:wrap;gap:6px}
+.exchip{display:inline-block;padding:5px 10px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-weight:700;font-size:.85rem;text-decoration:none}
+.exchip:hover{border-color:var(--pri);color:var(--pri)}
+.exchip.ok{border-color:var(--ok);color:var(--ok);background:var(--ok-soft)} .exchip.bad{border-color:var(--warn);color:var(--warn);background:var(--warn-soft)}
+.lh{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline} .lmod{display:flex;flex-wrap:wrap;gap:4px 10px}
+.li:target{outline:3px solid var(--pri);outline-offset:3px;border-radius:14px;scroll-margin-top:120px}
+.li{scroll-margin-top:120px}

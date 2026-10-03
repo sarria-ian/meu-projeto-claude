@@ -193,6 +193,7 @@
     if (id === "listas") renderListas();
     if (id === "perfil") renderPerfil();
     if (page.classList.contains("lista")) updListProg(page);
+    if (page.classList.contains("mod")) paintExBox(page);
     cur = id;
     if (anchor) { var a = document.getElementById(anchor); if (a) { a.scrollIntoView(); setTimeout(function () { a.scrollIntoView(); }, 250); return; } }
     window.scrollTo(0, 0);
@@ -433,6 +434,21 @@
     var s = modStars(m), box = $(".mstars", m);
     if (box) box.innerHTML = starsHTML(s.stars) + '<span class="small muted">' + s.ok + "/" + s.total + " verificações</span>";
   }
+  function paintExBox(m) {
+    var xb = document.getElementById(m.id + "-ex"); if (!xb) return;
+    var exs = $$(".li").filter(function (li) { return (" " + (li.dataset.mod || "") + " ").indexOf(" " + m.id + " ") >= 0; });
+    var byList = {}, ok = 0;
+    exs.forEach(function (li) { var L0 = li.closest(".lista"); (byList[L0.id] = byList[L0.id] || { L: L0, items: [] }).items.push(li); if (S.lists[li.dataset.id] === "ok") ok++; });
+    var h = '<div class="exhead"><span class="si">' + icon("list") + '</span><div style="flex:1;min-width:0"><h3>Exercícios deste módulo</h3><p class="small muted">' + exs.length + " exercícios dos livros usam esta teoria · " + ok + " marcados como certos. Toque para ir direto ao exercício.</p></div></div>";
+    Object.keys(byList).forEach(function (k) {
+      var g = byList[k];
+      h += '<div class="exgrp"><b class="small">' + g.L.dataset.kicker + " · " + g.L.dataset.short + '</b><div class="exchips">' + g.items.map(function (li) {
+        var st = S.lists[li.dataset.id], cls = st === "ok" ? " ok" : st === "bad" ? " bad" : "";
+        return '<a class="exchip' + cls + '" href="#ex-' + li.dataset.id + '">' + (st === "ok" ? "✓ " : st === "bad" ? "↻ " : "") + esc(li.dataset.numLabel || li.dataset.id) + "</a>";
+      }).join("") + "</div></div>";
+    });
+    xb.innerHTML = h;
+  }
   function initModule(m, idx, all) {
     var head = el("div", { class: "mhead" }, '<span class="mi">' + icon(m.dataset.icon) + '</span><div style="flex:1;min-width:0"><div class="eyebrow">' + m.dataset.part + " · Módulo " + m.dataset.num + " de " + all.length + "</div><h1>" + m.dataset.title + '</h1><div class="btns mstars" style="margin-top:6px"></div></div>');
     m.insertBefore(head, m.firstChild);
@@ -444,6 +460,15 @@
       toc.appendChild(el("a", { href: "#" + s.id }, s.dataset.toc || c.textContent.trim()));
     });
     var book = $(".book", m); book.insertBefore(toc, book.firstChild);
+    // exercícios das listas ligados a este módulo
+    var exs = $$(".li").filter(function (li) { return (" " + (li.dataset.mod || "") + " ").indexOf(" " + m.id + " ") >= 0; });
+    if (exs.length) {
+      var xb = el("div", { class: "exmod", id: m.id + "-ex" });
+      var tdx = $(".theory-done", m);
+      if (tdx) tdx.parentNode.insertBefore(xb, tdx.nextSibling); else book.appendChild(xb);
+      toc.appendChild(el("a", { href: "#" + m.id + "-ex" }, "Exercícios deste módulo"));
+      paintExBox(m);
+    }
     // teoria estudada
     var td = $(".theory-done", m);
     if (td) {
