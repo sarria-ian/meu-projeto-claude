@@ -1,0 +1,128 @@
+<section class="page mod" id="m8" data-num="8" data-part="Parte II · Exercícios 1B" data-short="Os 8 exercícios da seção 1B" data-title="Exercícios 1B resolvidos em diálogo (tente antes de abrir!)" data-icon="trophy" data-desc="Os oito exercícios da seção 1B com pausa para tentativa, feedback e resolução comentada: −(−v) = v, av = 0, v + 3x = w, conjunto vazio, axioma alternativo, ℝ ∪ {±∞}, V^S e complexificação.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>resolver todos os exercícios da seção 1B com rigor, citando cada axioma ou resultado;</li>
+    <li>usar as técnicas-padrão: “é o inverso porque soma 0 + 1.27”, prova de “ou”, existência e unicidade, verificação ponto a ponto;</li>
+    <li>reconhecer quando uma estrutura falha e qual requisito falha;</li>
+    <li>entender a complexificação \(V_{\mathbf C}\), que generaliza \(\mathbf C^n\) a partir de \(\mathbf R^n\).</li></ul></div>
+
+  <h2 class="sec"><span class="n">8.1</span> Mapa: que resultado cada exercício usa</h2>
+  <div class="prose">
+    <figure class="fig" data-f="dependencias"><figcaption>Esquema de dependências: as setas indicam “é usado para provar”. Os exercícios (em dourado) se apoiam nos resultados 1.26–1.32.</figcaption></figure>
+    <div class="box tip"><div class="bl">Como trabalhar aqui</div><p>Em cada exercício: leia, escreva a sua tentativa no quadro e só então peça o feedback (no claude.ai) ou abra a resolução comentada. Cada resolução segue a estrutura: <b>estratégia → execução → análise</b>.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">8.2</span> Exercícios 1 a 3: manipulação com axiomas</h2>
+  <div class="pausa" data-w="pausa" data-o='{"id":"ex1","tipo":"exercício 1"}'>
+    <div class="pq"><p><b>Exercício 1.</b> Prove que \(-(-v)=v\) para todo \(v\in V\).</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Estratégia</span><p>\(-(-v)\) é, por definição (1.28), <b>o</b> inverso aditivo de \(-v\). Basta mostrar que \(v\) também é um inverso aditivo de \(-v\) e invocar a unicidade (1.27).</p></div>
+      <div class="st"><span class="pl">Execução</span><div class="chain"><span>\((-v)+v\)</span><span class="eqk"><small>comutatividade</small>\(=\)</span><span>\(v+(-v)\)</span><span class="eqk"><small>def. de −v</small>\(=\)</span><span>\(0\)</span></div><p>Logo \(v\) é inverso aditivo de \(-v\). Como \(-(-v)\) também é, e o inverso é único (1.27), \(-(-v)=v\). \(\blacksquare\)</p></div>
+      <div class="st"><span class="pl">Análise</span><p>Prova alternativa com 1.32: \(-(-v)=(-1)((-1)v)=((-1)(-1))v=1v=v\) (1.32 duas vezes, associatividade do escalar, conta em \(\mathbf F\), identidade multiplicativa). As duas são válidas; a primeira usa menos.</p></div>
+    </div></div>
+  </div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"ex2","tipo":"exercício 2"}'>
+    <div class="pq"><p><b>Exercício 2.</b> Suponha \(a\in\mathbf F\), \(v\in V\) e \(av=0\). Prove que \(a=0\) ou \(v=0\).</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Estratégia (prova de “ou”)</span><p>Se \(a=0\), terminou. Suponha \(a\ne0\) e prove \(v=0\). Como \(a\ne0\) está num corpo, existe \(a^{-1}\in\mathbf F\): é o que permite “desfazer” a multiplicação.</p></div>
+      <div class="st"><span class="pl">Execução</span><div class="chain"><span>\(v\)</span><span class="eqk"><small>1v = v</small>\(=\)</span><span>\(1v\)</span><span class="eqk"><small>em 𝐅: \(a^{-1}a=1\)</small>\(=\)</span><span>\((a^{-1}a)v\)</span><span class="eqk"><small>assoc. do escalar</small>\(=\)</span><span>\(a^{-1}(av)\)</span><span class="eqk"><small>hipótese</small>\(=\)</span><span>\(a^{-1}0\)</span><span class="eqk"><small>1.31</small>\(=\)</span><span>\(0\)</span></div><p>\(\blacksquare\)</p></div>
+      <div class="st"><span class="pl">Análise</span><p>É a versão vetorial de “se \(ab=0\) num corpo, então \(a=0\) ou \(b=0\)”. Repare que usamos 1.31 (\(a0=0\)), não 1.30. Se os escalares não formassem um corpo (ex.: inteiros), o passo \(a^{-1}\) não existiria e o resultado poderia falhar (ver Módulo 2).</p></div>
+    </div></div>
+  </div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"ex3","tipo":"exercício 3"}'>
+    <div class="pq"><p><b>Exercício 3.</b> Sejam \(v,w\in V\). Explique por que existe um único \(x\in V\) tal que \(v+3x=w\).</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Estratégia</span><p>“Existe um único” = <b>existência</b> (exibir um \(x\) que funciona) + <b>unicidade</b> (qualquer solução é esse \(x\)). Para descobrir o candidato, resolvemos como no Módulo 7: \(3x=w-v\Rightarrow x=\tfrac13(w-v)\).</p></div>
+      <div class="st"><span class="pl">Existência</span><p>Com \(x=\tfrac13(w-v)\):</p><div class="chain"><span>\(v+3\big(\tfrac13(w-v)\big)\)</span><span class="eqk"><small>assoc. do escalar</small>\(=\)</span><span>\(v+(3\cdot\tfrac13)(w-v)\)</span><span class="eqk"><small>conta em 𝐅 + 1v = v</small>\(=\)</span><span>\(v+(w+(-v))\)</span><span class="eqk"><small>comut. + assoc.</small>\(=\)</span><span>\((v+(-v))+w\)</span><span class="eqk"><small>inverso + identidade</small>\(=\)</span><span>\(w\)</span></div></div>
+      <div class="st"><span class="pl">Unicidade</span><p>Suponha \(v+3x=w\) e \(v+3x'=w\). Então \(v+3x=v+3x'\). Somando \(-v\) aos dois lados (e usando associatividade, inverso, identidade, como na lei do cancelamento): \(3x=3x'\). Multiplicando por \(\tfrac13\): \(\tfrac13(3x)=\tfrac13(3x')\Rightarrow(\tfrac13\cdot3)x=(\tfrac13\cdot3)x'\Rightarrow1x=1x'\Rightarrow x=x'\).</p></div>
+      <div class="st"><span class="pl">Análise</span><p>O “3” poderia ser qualquer escalar não nulo \(c\): a solução de \(v+cx=w\) é \(x=c^{-1}(w-v)\). Com \(c=0\) a equação vira \(v=w\): ou não tem solução (\(v\ne w\)) ou todo \(x\) serve (\(v=w\)). Em \(\mathbf R^2\), com \(v=(1,1)\), \(w=(7,4)\): \(x=(2,1)\).</p></div>
+    </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">8.3</span> Exercícios 4 e 5: olhando a própria definição</h2>
+  <div class="pausa" data-w="pausa" data-o='{"id":"ex4","tipo":"exercício 4"}'>
+    <div class="pq"><p><b>Exercício 4.</b> O conjunto vazio não é um espaço vetorial. Ele falha em apenas um dos requisitos da definição 1.20. Qual?</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Estratégia</span><p>Leia cada requisito pelo seu quantificador. Afirmações do tipo “<b>para todo</b> \(v\in\varnothing\), …” são <b>vacuamente verdadeiras</b>: não há \(v\) para dar contraexemplo. Uma afirmação “<b>existe</b> \(0\in\varnothing\) …” é falsa: não há elemento algum.</p></div>
+      <div class="st"><span class="pl">Execução</span><p>• Operações: \(\varnothing\times\varnothing=\varnothing\) e \(\mathbf F\times\varnothing=\varnothing\); a função vazia serve como adição e como multiplicação por escalar ✓.<br>• Comutatividade, associatividades, \(1v=v\), distributivas: todas começam com “para todos \(u,v\in V\)” ✓ (vacuamente).<br>• Inverso aditivo: “para todo \(v\in V\) existe \(w\)…” também é vacuamente verdadeiro ✓.<br>• <b>Identidade aditiva</b>: “existe \(0\in V\)…” é <b>falsa</b> ✗.</p></div>
+      <div class="st"><span class="pl">Análise</span><p>Resposta: o requisito da <b>identidade aditiva</b>. É por isso que todo espaço vetorial é não vazio, e que \(\{0\}\) é o menor espaço possível. Repare como a ordem dos quantificadores (Módulo 1) decide tudo: o inverso é “\(\forall\exists\)” (passa), a identidade é “\(\exists\forall\)” (falha).</p></div>
+    </div></div>
+  </div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"ex5","tipo":"exercício 5"}'>
+    <div class="pq"><p><b>Exercício 5.</b> Mostre que, na definição 1.20, o requisito do inverso aditivo pode ser substituído por “\(0v=0\) para todo \(v\in V\)” (o 0 da esquerda é o número; o da direita, o vetor). “Pode ser substituído” significa que a classe de objetos que satisfaz a definição não muda.</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Estratégia</span><p>Duas definições: (D) original, com o inverso aditivo; (D′) igual, mas com “\(0v=0\ \forall v\)” no lugar do inverso. Precisamos mostrar: todo objeto que satisfaz (D) satisfaz (D′), e vice-versa. Os outros requisitos são comuns; só é preciso transportar o requisito trocado.</p></div>
+      <div class="st"><span class="pl">(D) ⇒ (D′)</span><p>É exatamente 1.30: num espaço vetorial (D), \(0v=0\). (A prova de 1.30 usou o inverso aditivo, que está disponível em (D).)</p></div>
+      <div class="st"><span class="pl">(D′) ⇒ (D)</span><p>Precisamos produzir, para cada \(v\), um \(w\) com \(v+w=0\), usando só (D′). Candidato: \(w=(-1)v\).</p><div class="chain"><span>\(v+(-1)v\)</span><span class="eqk"><small>1v = v</small>\(=\)</span><span>\(1v+(-1)v\)</span><span class="eqk"><small>distributiva</small>\(=\)</span><span>\((1+(-1))v\)</span><span class="eqk"><small>conta em 𝐅</small>\(=\)</span><span>\(0v\)</span><span class="eqk"><small>novo requisito</small>\(=\)</span><span>\(0\)</span></div><p>Todo \(v\) tem inverso aditivo. \(\blacksquare\)</p></div>
+      <div class="st"><span class="pl">Análise</span><p>Cuidado com um erro sutil: na direção (D′)⇒(D) <b>não</b> podemos citar 1.30 nem 1.32, porque as provas deles usaram o inverso aditivo (que é o que queremos provar): seria um argumento circular. Por isso refizemos a cadeia de 1.32 usando o novo requisito no último passo.</p></div>
+    </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">8.4</span> Exercício 6: ℝ ∪ {∞, −∞}</h2>
+  <div class="prose"><div class="box def"><div class="bl">Exercício 6 (enunciado em português)</div><p>Sejam \(\infty\) e \(-\infty\) dois objetos distintos, fora de \(\mathbf R\). Em \(\mathbf R\cup\{\infty,-\infty\}\), somas e produtos de reais são os usuais e, para \(t\in\mathbf R\):</p>
+    <div>\[t\infty=\begin{cases}-\infty,&t<0\\0,&t=0\\\infty,&t>0\end{cases}\qquad t(-\infty)=\begin{cases}\infty,&t<0\\0,&t=0\\-\infty,&t>0\end{cases}\]</div>
+    <div>\[t+\infty=\infty+t=\infty+\infty=\infty,\quad t+(-\infty)=(-\infty)+t=(-\infty)+(-\infty)=-\infty,\quad\infty+(-\infty)=(-\infty)+\infty=0\]</div>
+    <p>Com essas operações, \(\mathbf R\cup\{\infty,-\infty\}\) é espaço vetorial sobre \(\mathbf R\)? Explique.</p></div></div>
+  <div class="lab" data-w="infLab"><div class="lt">Laboratório: caçando o contraexemplo</div><p class="ld">Escolha \(u,v,w\) (incluindo \(\pm\infty\)) e os escalares \(a,b\). Os requisitos são testados com os seus valores; procure uma combinação que dê ✗.</p></div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"ex6","tipo":"exercício 6"}'>
+    <div class="pq"><p><b>Exercício 6.</b> Decida se \(\mathbf R\cup\{\infty,-\infty\}\), com as operações acima, é espaço vetorial sobre \(\mathbf R\), justificando com um argumento completo.</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Estratégia</span><p>A definição foi feita para “parecer razoável” (há zero, há inversos: \(\infty+(-\infty)=0\)). Então o defeito deve estar nos requisitos que envolvem <b>três</b> elementos ou <b>dois</b> escalares: associatividade e distributivas. Procuramos um contraexemplo.</p></div>
+      <div class="st"><span class="pl">Execução · associatividade falha</span><div class="m">\[(\infty+\infty)+(-\infty)=\infty+(-\infty)=0\qquad\infty+(\infty+(-\infty))=\infty+0=\infty\]</div><p>\(0\ne\infty\). Já basta: <b>não</b> é espaço vetorial.</p></div>
+      <div class="st"><span class="pl">Execução · a distributiva também falha</span><div class="m">\[(2+(-1))\infty=1\infty=\infty\qquad2\infty+(-1)\infty=\infty+(-\infty)=0\]</div></div>
+      <div class="st"><span class="pl">Análise</span><p>O que funciona: comutatividade, identidade (0), inverso de \(\infty\) (é \(-\infty\)), \(1v=v\). O que quebra: o “\(\infty\)” absorve as somas (\(\infty+\infty=\infty\)), mas a regra \(\infty+(-\infty)=0\) tenta cancelá-lo; as duas coisas juntas são incompatíveis com a associatividade. É a mesma razão pela qual, em Cálculo, \(\infty-\infty\) é uma indeterminação.</p></div>
+    </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">8.5</span> Exercícios 7 e 8: construindo espaços novos</h2>
+  <div class="pausa" data-w="pausa" data-o='{"id":"ex7","tipo":"exercício 7"}'>
+    <div class="pq"><p><b>Exercício 7.</b> Seja \(S\) um conjunto não vazio e \(V^S\) o conjunto das funções de \(S\) em \(V\). Defina uma adição e uma multiplicação por escalar naturais em \(V^S\) e mostre que, com elas, \(V^S\) é um espaço vetorial.</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Estratégia</span><p>Copiar a construção de \(\mathbf F^S\) (Módulo 5), trocando \(\mathbf F\) por \(V\): definir tudo ponto a ponto e, em cada requisito, avaliar num \(x\in S\) e usar o requisito correspondente <b>de \(V\)</b>.</p></div>
+      <div class="st"><span class="pl">Definições</span><p>Para \(f,g\in V^S\), \(\lambda\in\mathbf F\): \((f+g)(x)=f(x)+g(x)\) e \((\lambda f)(x)=\lambda f(x)\), onde as operações da direita são as de \(V\). Como \(f(x),g(x)\in V\), os resultados estão em \(V\): \(f+g,\ \lambda f\in V^S\) ✓.</p></div>
+      <div class="st"><span class="pl">Execução (cada requisito, fixando \(x\in S\))</span><p>• <b>Comutatividade:</b> \((f+g)(x)=f(x)+g(x)=g(x)+f(x)=(g+f)(x)\) (comut. em \(V\)).<br>• <b>Associatividades:</b> \(((f+g)+h)(x)=(f(x)+g(x))+h(x)=f(x)+(g(x)+h(x))=(f+(g+h))(x)\); \(((ab)f)(x)=(ab)f(x)=a(bf(x))=(a(bf))(x)\).<br>• <b>Identidade:</b> a função \(\mathbf 0(x)=0_V\): \((f+\mathbf 0)(x)=f(x)+0_V=f(x)\).<br>• <b>Inverso:</b> \((-f)(x)=-f(x)\) (inverso em \(V\)): \((f+(-f))(x)=f(x)+(-f(x))=0_V=\mathbf 0(x)\).<br>• <b>\(1f=f\):</b> \((1f)(x)=1f(x)=f(x)\).<br>• <b>Distributivas:</b> \((a(f+g))(x)=a(f(x)+g(x))=af(x)+ag(x)\) e \(((a+b)f)(x)=(a+b)f(x)=af(x)+bf(x)\).</p><p>Como cada igualdade vale para todo \(x\), valem como igualdades de funções. \(\blacksquare\)</p></div>
+      <div class="st"><span class="pl">Análise</span><p>Com \(V=\mathbf F\), recuperamos \(\mathbf F^S\). Exemplos: \((\mathbf R^2)^{[0,1]}\) são <b>curvas</b> no plano (cada \(f(t)\) é um ponto); somar curvas ponto a ponto é somar posições no mesmo instante, como superpor dois movimentos.</p></div>
+    </div></div>
+  </div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"ex8","tipo":"exercício 8"}'>
+    <div class="pq"><p><b>Exercício 8 · complexificação.</b> Seja \(V\) um espaço vetorial real. Defina \(V_{\mathbf C}=V\times V\), escrevendo o par \((u,v)\) como \(u+iv\). Adição: \((u_1+iv_1)+(u_2+iv_2)=(u_1+u_2)+i(v_1+v_2)\). Multiplicação por complexo: \((a+bi)(u+iv)=(au-bv)+i(av+bu)\), para \(a,b\in\mathbf R\), \(u,v\in V\). Prove que \(V_{\mathbf C}\) é um espaço vetorial complexo.</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Estratégia</span><p>A adição é a de \(V\times V\) coordenada a coordenada, então os 4 requisitos da adição herdam-se de \(V\). O trabalho de verdade está nos requisitos com escalares <b>complexos</b>; a fórmula foi escolhida para imitar \((a+bi)(u+iv)=au+aiv+biu+bi\cdot iv\) com \(i^2=-1\). Notação: \(\alpha=a+bi\), \(\beta=c+di\), \(z=u+iv\).</p></div>
+      <div class="st"><span class="pl">Operações bem definidas</span><p>\(au-bv\) e \(av+bu\) são combinações reais de vetores de \(V\), logo estão em \(V\) ✓.</p></div>
+      <div class="st"><span class="pl">Adição (herda de V)</span><p>Comutatividade e associatividade: coordenada a coordenada. Identidade: \(0+i0\). Inverso: \(-(u+iv)=(-u)+i(-v)\).</p></div>
+      <div class="st"><span class="pl">1z = z</span><p>\(1=1+0i\): \((1u-0v)+i(1v+0u)=u+iv\) (usando \(0v=0\) em \(V\)) ✓.</p></div>
+      <div class="st"><span class="pl">Associatividade (αβ)z = α(βz) · conta completa</span><p>\(\beta z=(cu-dv)+i(cv+du)\). Então</p><div class="m">\[\alpha(\beta z)=\big(a(cu-dv)-b(cv+du)\big)+i\big(a(cv+du)+b(cu-dv)\big)\]</div><div class="m">\[=\big((ac-bd)u-(ad+bc)v\big)+i\big((ac-bd)v+(ad+bc)u\big)\]</div><p>Como \(\alpha\beta=(ac-bd)+(ad+bc)i\), isso é exatamente \((\alpha\beta)z\) ✓. (Usamos distributivas e associatividade de \(V\) para reagrupar.)</p></div>
+      <div class="st"><span class="pl">Distributiva (α + β)z = αz + βz</span><p>\((\alpha+\beta)z=((a+c)u-(b+d)v)+i((a+c)v+(b+d)u)\), que é a soma de \((au-bv)+i(av+bu)\) com \((cu-dv)+i(cv+du)\) ✓.</p></div>
+      <div class="st"><span class="pl">Distributiva α(z₁ + z₂) = αz₁ + αz₂</span><p>\(\alpha\big((u_1+u_2)+i(v_1+v_2)\big)=(a(u_1+u_2)-b(v_1+v_2))+i(a(v_1+v_2)+b(u_1+u_2))\); distribuindo em \(V\) e separando, obtemos \(\alpha z_1+\alpha z_2\) ✓.</p></div>
+      <div class="st"><span class="pl">Análise</span><p>\(V\) “mora dentro” de \(V_{\mathbf C}\) como \(u+i0\). Para \(V=\mathbf R^n\), \(V_{\mathbf C}\) é \(\mathbf C^n\): \((x_1,\dots,x_n)+i(y_1,\dots,y_n)=(x_1+iy_1,\dots,x_n+iy_n)\). A complexificação é a ferramenta que, mais adiante no livro, permite usar autovalores complexos em espaços reais.</p></div>
+    </div></div>
+  </div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m8v1" data-ans="C"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>No exercício 4, o único requisito que o conjunto vazio não satisfaz é:</p>
+      <ol class="opts"><li>inverso aditivo</li><li>comutatividade</li><li>identidade aditiva</li><li>\(1v=v\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Só ele começa com “existe”.</p></div></div><p class="rev">Revise: <a href="#m8-s3">8.3</a></p></div>
+    <div class="q" data-id="m8v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag m">médio</span></div><p>No exercício 2, qual fato sobre \(\mathbf F\) é essencial?</p>
+      <ol class="opts"><li>todo \(a\ne0\) tem inverso multiplicativo</li><li>\(\mathbf F\) é infinito</li><li>\(\mathbf F\) é ordenado</li><li>\(i^2=-1\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Usamos \(a^{-1}\).</p></div></div><p class="rev">Revise: <a href="#m8-s2">8.2</a></p></div>
+    <div class="q" data-id="m8v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>No exercício 6, um contraexemplo para a associatividade é:</p>
+      <ol class="opts"><li>\(1+(2+3)\)</li><li>\(\infty+0\)</li><li>\(0\cdot\infty\)</li><li>\((\infty+\infty)+(-\infty)\ne\infty+(\infty+(-\infty))\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Dá \(0\) de um lado e \(\infty\) do outro.</p></div></div><p class="rev">Revise: <a href="#m8-s4">8.4</a></p></div>
+    <div class="q" data-id="m8v4" data-ans="B"><div class="qh"><span class="qn">Verificação 4</span><span class="tag d">difícil</span></div><p>No exercício 5, por que não podemos citar 1.32 na direção (D′) ⇒ (D)?</p>
+      <ol class="opts"><li>Porque 1.32 é falso</li><li>Porque a prova de 1.32 usou o inverso aditivo, que é o que queremos provar</li><li>Porque 1.32 só vale em \(\mathbf R\)</li><li>Podemos</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Seria raciocínio circular.</p></div></div><p class="rev">Revise: <a href="#m8-s3">8.3</a></p></div>
+    <div class="q" data-id="m8v5" data-ans="A"><div class="qh"><span class="qn">Verificação 5</span><span class="tag d">difícil</span></div><p>Em \(V_{\mathbf C}\), \(i(u+iv)\) é:</p>
+      <ol class="opts"><li>\(-v+iu\)</li><li>\(v+iu\)</li><li>\(u-iv\)</li><li>\(-u+iv\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(a=0,\ b=1\): \((0u-1v)+i(0v+1u)=-v+iu\).</p></div></div><p class="rev">Revise: <a href="#m8-s5">8.5</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida do módulo</p></div></div>
+    <div class="q dq" data-id="m8d1" data-ans="B"><p>Para mostrar que \(v\) é “o” inverso de \(-v\) (exercício 1), usamos:</p><ol class="opts"><li>1.26</li><li>\((-v)+v=0\) e 1.27</li><li>1.31</li><li>distributiva</li></ol><div class="why" hidden>Soma dá 0 → é um inverso → único por 1.27.</div></div>
+    <div class="q dq" data-id="m8d2" data-ans="C"><p>“Existe um único \(x\)” (exercício 3) exige provar:</p><ol class="opts"><li>só existência</li><li>só unicidade</li><li>existência e unicidade</li><li>que \(x=0\)</li></ol><div class="why" hidden>Duas partes.</div></div>
+    <div class="q dq" data-id="m8d3" data-ans="D"><p>Para \(V=\mathbf R^n\), a complexificação \(V_{\mathbf C}\) é, na prática:</p><ol class="opts"><li>\(\mathbf R^{2n}\) sobre \(\mathbf R\)</li><li>\(\mathbf R^n\)</li><li>\(\mathbf C\)</li><li>\(\mathbf C^n\)</li></ol><div class="why" hidden>\(x+iy\leftrightarrow(x_1+iy_1,\dots,x_n+iy_n)\).</div></div>
+  </div>
+</div>
+</section>

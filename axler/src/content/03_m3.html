@@ -1,0 +1,96 @@
+<section class="page mod" id="m3" data-num="3" data-part="Parte 0 · Pré-requisitos" data-short="Listas e o espaço 𝐅ⁿ" data-title="Pré-requisito 3 · Listas, 𝐅ⁿ e o modelo que inspira a definição" data-icon="vec" data-desc="Listas (ordem e repetição importam), 𝐅ⁿ, soma e multiplicação por escalar coordenada a coordenada, propriedades e a visão de uma lista como função.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>diferenciar lista e conjunto;</li>
+    <li>operar em \(\mathbf F^n\), inclusive em \(\mathbf C^n\);</li>
+    <li>provar as propriedades de \(\mathbf F^n\) a partir das propriedades de \(\mathbf F\) (é o que motiva a definição 1.20);</li>
+    <li>ver uma lista \((x_1,\dots,x_n)\) como uma <b>função</b> \(\{1,\dots,n\}\to\mathbf F\) (ponte para \(\mathbf F^S\)).</li></ul></div>
+
+  <h2 class="sec"><span class="n">3.1</span> Listas e 𝐅ⁿ</h2>
+  <div class="fase"><b>1</b> Intuição e conceito central</div>
+  <div class="prose">
+    <div class="box def"><div class="bl">Lista</div><p>Uma <b>lista de comprimento \(n\)</b> é uma coleção <b>ordenada</b> de \(n\) elementos, separados por vírgulas, entre parênteses: \((x_1,\dots,x_n)\). Duas listas são iguais quando têm o mesmo comprimento e os mesmos elementos <b>na mesma ordem</b>.</p></div>
+    <div class="two">
+      <div class="box obs"><div class="bl">Lista</div><p>\((3,5)\ne(5,3)\) e \((4,4,4)\ne(4,4)\). Ordem e repetições importam.</p></div>
+      <div class="box obs"><div class="bl">Conjunto</div><p>\(\{3,5\}=\{5,3\}\) e \(\{4,4,4\}=\{4\}\). Ordem e repetições não importam.</p></div>
+    </div>
+    <div class="box def"><div class="bl">𝐅ⁿ e suas operações</div><p>\(\mathbf F^n=\{(x_1,\dots,x_n):\ x_k\in\mathbf F\text{ para }k=1,\dots,n\}\). Para \(x,y\in\mathbf F^n\) e \(\lambda\in\mathbf F\):</p>
+      <div>\[x+y=(x_1+y_1,\dots,x_n+y_n),\qquad\lambda x=(\lambda x_1,\dots,\lambda x_n)\]</div>
+      <p>\(0=(0,\dots,0)\) e \(-x=(-x_1,\dots,-x_n)\). Tudo é feito <b>coordenada a coordenada</b>.</p></div>
+    <div class="box obs"><div class="bl">Visualização</div><p>\(\mathbf R^2\) é o plano e \(\mathbf R^3\) o espaço: \(x+y\) é a regra do paralelogramo e \(\lambda x\) estica a seta. \(\mathbf C^1=\mathbf C\) também “é” um plano (Módulo 2), e \(\mathbf C^2\) já tem 4 números reais escondidos (não dá para desenhar, mas as contas são as mesmas). Para \(n\ge4\) não desenhamos: confiamos na álgebra, que é idêntica.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">3.2</span> As propriedades de 𝐅ⁿ</h2>
+  <div class="prose">
+    <p>Cada propriedade de \(\mathbf F^n\) vem da propriedade correspondente de \(\mathbf F\), aplicada em cada coordenada. É essa lista de propriedades que o Axler transforma na <b>definição</b> de espaço vetorial (Módulo 4).</p>
+  </div>
+  <div class="fase"><b>2</b> Demonstração guiada</div>
+  <div class="prose">
+    <p><b>Proposição.</b> Para todos \(x,y\in\mathbf F^n\) e \(a,b\in\mathbf F\): (i) \(x+y=y+x\); (ii) \((a+b)x=ax+bx\).</p>
+    <div class="steps">
+      <div class="st"><span class="pl">(i) Passo 1 · escreva em coordenadas</span><p>\(x=(x_1,\dots,x_n)\), \(y=(y_1,\dots,y_n)\).</p></div>
+      <div class="st"><span class="pl">(i) Passo 2 · definição de soma em 𝐅ⁿ, comutatividade em 𝐅, definição de novo</span><div class="chain"><span>\(x+y\)</span><span class="eqk"><small>def. soma</small>\(=\)</span><span>\((x_1+y_1,\dots,x_n+y_n)\)</span><span class="eqk"><small>comut. em 𝐅 (cada k)</small>\(=\)</span><span>\((y_1+x_1,\dots,y_n+x_n)\)</span><span class="eqk"><small>def. soma</small>\(=\)</span><span>\(y+x\)</span></div><p>(A igualdade do meio é verdadeira porque as duas listas têm a mesma \(k\)-ésima coordenada para cada \(k\): \(x_k+y_k=y_k+x_k\) em \(\mathbf F\).)</p></div>
+      <div class="st"><span class="pl">(ii) mesma técnica, com a distributiva de 𝐅</span><div class="chain"><span>\((a+b)x\)</span><span class="eqk"><small>def. escalar</small>\(=\)</span><span>\(((a+b)x_1,\dots)\)</span><span class="eqk"><small>distrib. em 𝐅</small>\(=\)</span><span>\((ax_1+bx_1,\dots)\)</span><span class="eqk"><small>def. soma</small>\(=\)</span><span>\((ax_1,\dots)+(bx_1,\dots)\)</span><span class="eqk"><small>def. escalar</small>\(=\)</span><span>\(ax+bx\)</span></div></div>
+      <div class="st"><span class="pl">Moral</span><p>“Verificar que \(\mathbf F^n\) é espaço vetorial” (o Axler diz “as you should verify”) é repetir esse esquema para as 8 propriedades: definição → propriedade de \(\mathbf F\) em cada coordenada → definição.</p></div>
+    </div>
+  </div>
+
+  <h2 class="sec"><span class="n">3.3</span> Uma lista é uma função</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Observação (o Axler usa isso em 1.25)</div><p>Uma lista \(x=(x_1,\dots,x_n)\) carrega exatamente a mesma informação que a função \(x:\{1,\dots,n\}\to\mathbf F\), \(x(k)=x_k\). Então \(\mathbf F^n\) “é” \(\mathbf F^{\{1,\dots,n\}}\), o conjunto das funções de \(\{1,\dots,n\}\) em \(\mathbf F\).</p></div>
+    <figure class="fig" data-f="fnDiscreta"><figcaption>O vetor \((3,-1,2,4)\) desenhado como o gráfico de uma função definida em \(\{1,2,3,4\}\). Somar vetores = somar os gráficos ponto a ponto.</figcaption></figure>
+  </div>
+
+  <div class="fase"><b>3</b> Exemplo resolvido em camadas</div>
+  <div class="caso"><div class="bl">Problema</div><h3>Uma equação vetorial em ℂ²</h3>
+    <p>Em \(\mathbf C^2\), sejam \(x=(1+i,\ 2-i)\) e \(y=(i,\ 3)\). (a) Calcule \(2x-iy\). (b) Ache \(z\in\mathbf C^2\) com \((1+i)z+(2,-i)=(0,1)\).</p>
+    <div class="steps">
+      <div class="st"><span class="pl">a) Estratégia de modelagem</span><p>Tudo é coordenada a coordenada. Na equação (b), isolamos \(z\) como numa equação de 1º grau: somar \(-(2,-i)\) dos dois lados e multiplicar pelo escalar \((1+i)^{-1}\), que existe porque \(\mathbf C\) é corpo.</p></div>
+      <div class="st"><span class="pl">b) Execução · item (a)</span><div class="m">\[2x=(2+2i,\ 4-2i),\qquad iy=(i\cdot i,\ 3i)=(-1,\ 3i)\]</div><div class="m">\[2x-iy=(2+2i+1,\ 4-2i-3i)=(3+2i,\ 4-5i)\]</div></div>
+      <div class="st"><span class="pl">b) Execução · item (b)</span><div class="m">\[(1+i)z=(0,1)-(2,-i)=(-2,\ 1+i)\Rightarrow z=\frac{1}{1+i}(-2,\ 1+i)\]</div><p>Como \(\frac1{1+i}=\frac{1-i}{2}\): primeira coordenada \(\frac{-2(1-i)}{2}=-1+i\); segunda \(\frac{1+i}{1+i}=1\). Logo \(z=(-1+i,\ 1)\).</p><p>Conferência: \((1+i)(-1+i)=-1+i-i+i^2=-2\) e \((1+i)\cdot1=1+i\); somando \((2,-i)\): \((0,1)\) ✓.</p></div>
+      <div class="st"><span class="pl">c) Análise crítica</span><p>As contas em \(\mathbf C^2\) usam só as regras de corpo de \(\mathbf C\), coordenada por coordenada. A solução é única porque cada passo foi reversível (somar um vetor e multiplicar por escalar não nulo). Esse é exatamente o raciocínio do exercício 3 da seção 1B, só que lá será feito num espaço vetorial abstrato, sem coordenadas.</p></div>
+    </div>
+  </div>
+
+  <div class="fase"><b>4</b> Pausa interativa</div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"m3c","tipo":"desafio conceitual"}'>
+    <div class="pq"><p><b>Desafio conceitual.</b> \(\mathbf C^2\) e \(\mathbf R^4\) “têm” 4 números reais por elemento. Eles são o mesmo espaço vetorial? Pense no que é permitido como escalar em cada um.</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Como conjuntos</span><p>Dá para identificar \((a+bi,\ c+di)\leftrightarrow(a,b,c,d)\): os elementos se correspondem e a soma também.</p></div>
+      <div class="st"><span class="pl">Como espaços vetoriais</span><p>\(\mathbf C^2\) é espaço vetorial sobre \(\mathbf C\): podemos multiplicar por \(i\). Em \(\mathbf R^4\) só multiplicamos por reais. Multiplicar por \(i\) em \(\mathbf C^2\) corresponde, em \(\mathbf R^4\), a \((a,b,c,d)\mapsto(-b,a,-d,c)\), que não é “multiplicação por escalar real”.</p></div>
+      <div class="st"><span class="pl">Conclusão</span><p>O espaço vetorial depende do conjunto, das operações <b>e do corpo de escalares</b>. Por isso o Axler diz “espaço vetorial <b>sobre</b> \(\mathbf F\)”. (Mais à frente: \(\dim_{\mathbf C}\mathbf C^2=2\) e \(\dim_{\mathbf R}\mathbf C^2=4\).)</p></div>
+    </div></div>
+  </div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"m3t","tipo":"exercício técnico"}'>
+    <div class="pq"><p><b>Exercício técnico.</b> Prove, com coordenadas, que \(\lambda(x+y)=\lambda x+\lambda y\) em \(\mathbf F^n\), indicando em cada igualdade qual definição ou propriedade de \(\mathbf F\) foi usada. Depois calcule \(i\,(1,\ i,\ 2-i)+(0,\ 1,\ i)\) em \(\mathbf C^3\).</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Prova</span><div class="chain"><span>\(\lambda(x+y)\)</span><span class="eqk"><small>def. soma</small>\(=\)</span><span>\(\lambda(x_1+y_1,\dots)\)</span><span class="eqk"><small>def. escalar</small>\(=\)</span><span>\((\lambda(x_1+y_1),\dots)\)</span><span class="eqk"><small>distrib. em 𝐅</small>\(=\)</span><span>\((\lambda x_1+\lambda y_1,\dots)\)</span><span class="eqk"><small>def. soma</small>\(=\)</span><span>\((\lambda x_1,\dots)+(\lambda y_1,\dots)\)</span><span class="eqk"><small>def. escalar</small>\(=\)</span><span>\(\lambda x+\lambda y\)</span></div></div>
+      <div class="st"><span class="pl">Conta</span><div class="m">\[i(1,i,2-i)=(i,\ i^2,\ 2i-i^2)=(i,\ -1,\ 1+2i)\Rightarrow+(0,1,i)=(i,\ 0,\ 1+3i)\]</div></div>
+    </div></div>
+  </div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m3v1" data-ans="C"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Qual afirmação é verdadeira?</p>
+      <ol class="opts"><li>\((1,2)=(2,1)\)</li><li>\((1,1,2)=(1,2)\)</li><li>\(\{1,1,2\}=\{1,2\}\)</li><li>\((1,2)=\{1,2\}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Conjuntos ignoram repetição; listas não.</p></div></div><p class="rev">Revise: <a href="#m3-s1">3.1</a></p></div>
+    <div class="q" data-id="m3v2" data-ans="B"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>Em \(\mathbf C^2\), \(i\,(1,\ i)\) é:</p>
+      <ol class="opts"><li>\((i,\ i)\)</li><li>\((i,\ -1)\)</li><li>\((1,\ -1)\)</li><li>\((i,\ 1)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((i\cdot1,\ i\cdot i)=(i,-1)\).</p></div></div><p class="rev">Revise: <a href="#m3-s1">3.1</a></p></div>
+    <div class="q" data-id="m3v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>A comutatividade da soma em \(\mathbf F^n\) é consequência de:</p>
+      <ol class="opts"><li>um axioma de espaço vetorial</li><li>\(n\) ser finito</li><li>a ordem das coordenadas</li><li>a comutatividade da soma em \(\mathbf F\), em cada coordenada</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Prova da seção 3.2.</p></div></div><p class="rev">Revise: <a href="#m3-s2">3.2</a></p></div>
+    <div class="q" data-id="m3v4" data-ans="A"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Vista como função \(x:\{1,2,3\}\to\mathbf R\), a lista \((5,0,-2)\) satisfaz:</p>
+      <ol class="opts"><li>\(x(3)=-2\)</li><li>\(x(5)=1\)</li><li>\(x(0)=2\)</li><li>\(x(1)=0\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(x(k)\) é a \(k\)-ésima coordenada.</p></div></div><p class="rev">Revise: <a href="#m3-s3">3.3</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida do módulo</p></div></div>
+    <div class="q dq" data-id="m3d1" data-ans="A"><p>O inverso aditivo de \((2,-i)\in\mathbf C^2\) é:</p><ol class="opts"><li>\((-2,\ i)\)</li><li>\((\frac12,\ i)\)</li><li>\((2,\ i)\)</li><li>\((-2,\ -i)\)</li></ol><div class="why" hidden>Troque o sinal de cada coordenada.</div></div>
+    <div class="q dq" data-id="m3d2" data-ans="C"><p>\(\mathbf F^n\) pode ser visto como:</p><ol class="opts"><li>\(\mathbf F^{\mathbf N}\)</li><li>um conjunto de números</li><li>\(\mathbf F^{\{1,\dots,n\}}\), funções de \(\{1,\dots,n\}\) em \(\mathbf F\)</li><li>\(\mathbf F\times n\)</li></ol><div class="why" hidden>Seção 3.3.</div></div>
+    <div class="q dq" data-id="m3d3" data-ans="B"><p>“Verificar que \(\mathbf F^n\) é espaço vetorial” consiste em:</p><ol class="opts"><li>desenhar setas</li><li>provar as 8 propriedades coordenada a coordenada</li><li>achar uma base</li><li>nada; é óbvio</li></ol><div class="why" hidden>Definição → propriedade de \(\mathbf F\) → definição.</div></div>
+  </div>
+</div>
+</section>

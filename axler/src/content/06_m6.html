@@ -1,0 +1,107 @@
+<section class="page mod" id="m6" data-num="6" data-part="Parte I · Seção 1B do Axler" data-short="Unicidade do zero e do inverso (1.26–1.29)" data-title="1.26–1.29 · O zero é único, o inverso é único, e a notação −v e w − v" data-icon="target" data-desc="Demonstrações comentadas de 1.26 e 1.27, prova interativa justificando cada igualdade, a notação −v e w − v, a lei do cancelamento e a unicidade de soluções.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>reproduzir as provas de 1.26 e 1.27 justificando cada igualdade;</li>
+    <li>explicar por que a notação \(-v\) e \(w-v\) só faz sentido depois de 1.27;</li>
+    <li>provar a lei do cancelamento e a unicidade da solução de \(v+x=w\);</li>
+    <li>achar o zero e os inversos em espaços “exóticos”.</li></ul></div>
+
+  <h2 class="sec"><span class="n">6.1</span> Unicidade da identidade aditiva (1.26)</h2>
+  <div class="fase"><b>1</b> Intuição e conceito central</div>
+  <div class="prose">
+    <p>A definição 1.20 diz “<b>existe</b> um elemento 0 com \(v+0=v\) para todo \(v\)”. Poderia haver dois? Se houvesse, a expressão “o vetor nulo” seria ambígua. O resultado 1.26 elimina essa possibilidade.</p>
+    <div class="box obs"><div class="bl">Analogia</div><p>Imagine dois “botões de não fazer nada” num controle remoto: \(0\) e \(0'\). Aperte \(0'\) e depois \(0\): como \(0\) não faz nada, o efeito é \(0'\). Mas como \(0'\) também não faz nada, o mesmo efeito é \(0\). Então eles produzem o mesmo resultado: são o mesmo botão.</p></div>
+    <div class="box def"><div class="bl">1.26 · Unicidade da identidade aditiva</div><p>Um espaço vetorial tem uma única identidade aditiva.</p></div>
+  </div>
+  <div class="fase"><b>2</b> Demonstração guiada</div>
+  <div class="prose">
+    <div class="steps">
+      <div class="st"><span class="pl">Esquema (prova de unicidade)</span><p>Suponha que \(0\) e \(0'\) são identidades aditivas de \(V\). Vamos mostrar que \(0'=0\).</p></div>
+      <div class="st"><span class="pl">A cadeia</span><div class="chain"><span>\(0'\)</span><span class="eqk"><small>0 é identidade</small>\(=\)</span><span>\(0'+0\)</span><span class="eqk"><small>comutatividade</small>\(=\)</span><span>\(0+0'\)</span><span class="eqk"><small>0′ é identidade</small>\(=\)</span><span>\(0\)</span></div></div>
+      <div class="st"><span class="pl">Igualdade 1 em detalhe</span><p>“0 é identidade” significa \(v+0=v\) para <b>todo</b> \(v\). Escolhendo \(v=0'\): \(0'+0=0'\). Lida da direita para a esquerda: \(0'=0'+0\).</p></div>
+      <div class="st"><span class="pl">Igualdade 2</span><p>Comutatividade com \(u=0'\), \(v=0\).</p></div>
+      <div class="st"><span class="pl">Igualdade 3</span><p>“0′ é identidade” com \(v=0\): \(0+0'=0\).</p></div>
+      <div class="st"><span class="pl">Conclusão</span><p>\(0'=0\). Logo não existem duas identidades diferentes. \(\blacksquare\)</p></div>
+    </div>
+  </div>
+  <div class="lab" data-w="proofLab" data-o='{"id":"126","linhas":[{"tex":"0^{\\prime}=0^{\\prime}+0","ans":"id0","why":"Na definição de identidade, v + 0 = v vale para todo v; aqui v = 0′."},{"tex":"0^{\\prime}+0=0+0^{\\prime}","ans":"com","why":"Comutatividade: troca a ordem das parcelas."},{"tex":"0+0^{\\prime}=0","ans":"id0p","why":"Agora usamos que 0′ é identidade, com v = 0."}],"opcoes":[["id0","0 é identidade aditiva (aplicada a v = 0′)"],["id0p","0′ é identidade aditiva (aplicada a v = 0)"],["com","Comutatividade"],["ass","Associatividade"],["inv","Inverso aditivo"]],"fim":"Logo 0′ = 0: a identidade aditiva é única."}'><div class="lt">Prova interativa · justifique cada igualdade de 1.26</div><p class="ld">Para cada passo, escolha o motivo. Depois clique em “Conferir”.</p></div>
+
+  <h2 class="sec"><span class="n">6.2</span> Unicidade do inverso aditivo (1.27)</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">1.27 · Unicidade do inverso aditivo</div><p>Todo elemento de um espaço vetorial tem um único inverso aditivo.</p></div>
+    <div class="box obs"><div class="bl">Ideia</div><p>Se \(w\) e \(w'\) “desfazem” \(v\), então em \(w+v+w'\) podemos agrupar de dois jeitos: \((w+v)+w'=0+w'=w'\) ou \(w+(v+w')=w+0=w\). A associatividade obriga os dois resultados a coincidir.</p></div>
+  </div>
+  <div class="prose">
+    <div class="steps">
+      <div class="st"><span class="pl">Hipóteses</span><p>\(v\in V\); \(w\) e \(w'\) são inversos aditivos de \(v\): \(v+w=0\) e \(v+w'=0\).</p></div>
+      <div class="st"><span class="pl">A cadeia</span><div class="chain"><span>\(w\)</span><span class="eqk"><small>identidade</small>\(=\)</span><span>\(w+0\)</span><span class="eqk"><small>\(v+w'=0\)</small>\(=\)</span><span>\(w+(v+w')\)</span><span class="eqk"><small>associatividade</small>\(=\)</span><span>\((w+v)+w'\)</span><span class="eqk"><small>\(w+v=0\)</small>\(=\)</span><span>\(0+w'\)</span><span class="eqk"><small>comut. + identidade</small>\(=\)</span><span>\(w'\)</span></div></div>
+      <div class="st"><span class="pl">Detalhes que o texto não escreve</span><p>• Igualdade 2: trocamos o vetor 0 por \(v+w'\), que é igual a ele (substituição de iguais).<br>• Igualdade 4: a hipótese diz \(v+w=0\); para obter \(w+v=0\) usamos a comutatividade.<br>• Igualdade 5: a definição só diz \(u+0=u\); para \(0+w'\) usamos \(0+w'=w'+0=w'\) (comutatividade, depois identidade).</p></div>
+      <div class="st"><span class="pl">Conclusão</span><p>\(w=w'\). \(\blacksquare\)</p></div>
+    </div>
+  </div>
+  <div class="lab" data-w="proofLab" data-o='{"id":"127","linhas":[{"tex":"w=w+0","ans":"id","why":"Identidade aditiva com v = w (lida ao contrário)."},{"tex":"w+0=w+(v+w^{\\prime})","ans":"invp","why":"Hipótese: w′ é inverso de v, isto é, v + w′ = 0. Substituímos 0 por v + w′."},{"tex":"w+(v+w^{\\prime})=(w+v)+w^{\\prime}","ans":"ass","why":"Associatividade da soma: só muda o agrupamento."},{"tex":"(w+v)+w^{\\prime}=0+w^{\\prime}","ans":"invw","why":"w é inverso de v: v + w = 0, e por comutatividade w + v = 0."},{"tex":"0+w^{\\prime}=w^{\\prime}","ans":"idc","why":"0 + w′ = w′ + 0 (comutatividade) = w′ (identidade)."}],"opcoes":[["id","Identidade aditiva (w + 0 = w)"],["invp","w′ é inverso de v (v + w′ = 0)"],["ass","Associatividade"],["invw","w é inverso de v, com comutatividade (w + v = 0)"],["idc","Comutatividade e identidade (0 + w′ = w′)"]],"fim":"Logo w = w′: o inverso aditivo é único."}'><div class="lt">Prova interativa · justifique cada igualdade de 1.27</div><p class="ld">Escolha o motivo de cada passo e confira.</p></div>
+
+  <h2 class="sec"><span class="n">6.3</span> Notação −v e w − v (1.28 e 1.29) e a lei do cancelamento</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">1.28 · Notação</div><p>Para \(v,w\in V\): \(-v\) denota <b>o</b> inverso aditivo de \(v\); e \(w-v\) é <b>definido</b> como \(w+(-v)\).</p></div>
+    <div class="box tip"><div class="bl">Por que isso depende de 1.27</div><p>Um símbolo como “\(-v\)” precisa nomear <b>um único</b> objeto. Se \(v\) tivesse dois inversos, “\(-v\)” não saberia a qual se referir. Só depois de 1.27 a notação está bem definida. Repare também: “\(-\)” entre vetores não é uma operação nova; é abreviação de “somar o inverso”.</p></div>
+    <div class="box def"><div class="bl">1.29 · Convenção</div><p>Daqui em diante, \(V\) denota um espaço vetorial sobre \(\mathbf F\) (para não repetir isso em todo enunciado).</p></div>
+    <div class="box def"><div class="bl">Teoria extra · lei do cancelamento</div><p>Se \(u+w=v+w\), então \(u=v\). Consequência: para \(v,w\in V\), a equação \(v+x=w\) tem <b>uma única</b> solução, \(x=w-v\). (Prova na pausa técnica abaixo.)</p></div>
+  </div>
+
+  <div class="fase"><b>3</b> Exemplo resolvido em camadas</div>
+  <div class="caso"><div class="bl">Problema</div><h3>O zero e os inversos de um espaço exótico</h3>
+    <p>Seja \(V=\mathbf R_+=\{x\in\mathbf R:\ x>0\}\) com “soma” \(x\oplus y=xy\) e “multiplicação por escalar” \(\lambda\odot x=x^\lambda\) (\(\lambda\in\mathbf R\)). Esse \(V\) é espaço vetorial real (teste no laboratório do Módulo 4). Ache o vetor nulo, o inverso aditivo de \(x\) e o “vetor” \(y\ominus x\). Mostre que o nulo é único diretamente.</p>
+    <div class="steps">
+      <div class="st"><span class="pl">a) Estratégia de modelagem</span><p>Traduza cada conceito para as operações novas. “Vetor nulo” = elemento \(e\) com \(x\oplus e=x\) para todo \(x\). “Inverso de \(x\)” = \(w\) com \(x\oplus w=e\). “\(y\ominus x\)” = \(y\oplus(\text{inverso de }x)\) (definição 1.28).</p></div>
+      <div class="st"><span class="pl">b) Execução</span><p><b>Nulo:</b> \(x\oplus e=x\iff xe=x\iff e=1\) (pois \(x>0\)). Única solução: confirma 1.26 neste espaço.</p><p><b>Inverso:</b> \(x\oplus w=1\iff xw=1\iff w=\frac1x\). Único: confirma 1.27.</p><p><b>Diferença:</b> \(y\ominus x=y\oplus\frac1x=\frac yx\).</p><p><b>Bônus · 1.32:</b> \((-1)\odot x=x^{-1}=\frac1x\), exatamente o inverso, como 1.32 promete.</p></div>
+      <div class="st"><span class="pl">c) Análise crítica</span><p>O “zero” é o número 1 e a “subtração” é a divisão! Por trás disso há o logaritmo: \(\ln(x\oplus y)=\ln x+\ln y\) e \(\ln(\lambda\odot x)=\lambda\ln x\). Ou seja, \(\ln\) traduz \((\mathbf R_+,\oplus,\odot)\) em \((\mathbf R,+,\cdot)\) usual, levando 1 em 0. Esse espaço é \(\mathbf R\) “disfarçado”, e as escalas logarítmicas (decibéis, pH, Richter) usam exatamente essa ideia.</p></div>
+    </div>
+  </div>
+
+  <div class="fase"><b>4</b> Pausa interativa</div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"m6c","tipo":"desafio conceitual"}'>
+    <div class="pq"><p><b>Desafio conceitual.</b> A prova de 1.26 usou a comutatividade. Em que passo, exatamente? Se a definição só exigisse “\(v+0=v\)” (identidade à direita) e <b>não</b> exigisse comutatividade, a unicidade ainda valeria? Tente imaginar uma operação num conjunto com dois elementos em que todo elemento é “identidade à direita”.</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Onde</span><p>Na igualdade do meio, \(0'+0=0+0'\). Sem ela, teríamos \(0'=0'+0\) e \(0+0'=0\), mas nada ligando \(0'+0\) a \(0+0'\).</p></div>
+      <div class="st"><span class="pl">Contraexemplo sem comutatividade</span><p>Num conjunto \(\{p,q\}\), defina \(u\ast v=u\) (“fica o da esquerda”). Então \(v\ast e=v\) para todo \(v\) e <b>todo</b> \(e\): \(p\) e \(q\) são ambos identidades à direita. Essa operação é associativa (\((u\ast v)\ast w=u=u\ast(v\ast w)\)) mas não comutativa.</p></div>
+      <div class="st"><span class="pl">Lição</span><p>A unicidade não é “óbvia”: ela depende das propriedades usadas. Por isso o Axler a prova, e por isso vale perguntar, em cada prova, “onde usei cada hipótese?”.</p></div>
+    </div></div>
+  </div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"m6t","tipo":"exercício técnico"}'>
+    <div class="pq"><p><b>Exercício técnico.</b> Prove a lei do cancelamento: se \(u,v,w\in V\) e \(u+w=v+w\), então \(u=v\). Justifique cada igualdade. Depois use-a para provar que a equação \(v+x=w\) tem uma única solução.</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Cancelamento</span><p>Some \(-w\) aos dois lados (a soma é função): \((u+w)+(-w)=(v+w)+(-w)\).</p><div class="chain"><span>\(u\)</span><span class="eqk"><small>identidade</small>\(=\)</span><span>\(u+0\)</span><span class="eqk"><small>inverso</small>\(=\)</span><span>\(u+(w+(-w))\)</span><span class="eqk"><small>assoc.</small>\(=\)</span><span>\((u+w)+(-w)\)</span><span class="eqk"><small>hipótese</small>\(=\)</span><span>\((v+w)+(-w)\)</span><span class="eqk"><small>assoc., inverso, identidade</small>\(=\)</span><span>\(v\)</span></div></div>
+      <div class="st"><span class="pl">Existência da solução</span><p>\(x=w-v=w+(-v)\): \(v+(w+(-v))=v+((-v)+w)=(v+(-v))+w=0+w=w\) (comutatividade, associatividade, inverso, comutatividade + identidade).</p></div>
+      <div class="st"><span class="pl">Unicidade</span><p>Se \(v+x=w=v+x'\), então \(x+v=x'+v\) (comutatividade) e, pelo cancelamento, \(x=x'\).</p></div>
+    </div></div>
+  </div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m6v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Na prova de 1.26, a igualdade \(0'+0=0+0'\) usa:</p>
+      <ol class="opts"><li>identidade aditiva</li><li>comutatividade</li><li>associatividade</li><li>distributiva</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Só troca a ordem.</p></div></div><p class="rev">Revise: <a href="#m6-s1">6.1</a></p></div>
+    <div class="q" data-id="m6v2" data-ans="D"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(w-v\) é definido como:</p>
+      <ol class="opts"><li>uma nova operação</li><li>\(v+(-w)\)</li><li>\((-1)(w+v)\)</li><li>\(w+(-v)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Definição 1.28.</p></div></div><p class="rev">Revise: <a href="#m6-s3">6.3</a></p></div>
+    <div class="q" data-id="m6v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>Por que a notação \(-v\) só faz sentido depois de 1.27?</p>
+      <ol class="opts"><li>Porque um símbolo precisa nomear um único objeto</li><li>Porque o sinal de menos não existe em \(V\)</li><li>Porque \(-v=(-1)v\) só vale em \(\mathbf R\)</li><li>Não depende</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Sem unicidade, “o inverso de \(v\)” seria ambíguo.</p></div></div><p class="rev">Revise: <a href="#m6-s3">6.3</a></p></div>
+    <div class="q" data-id="m6v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Em \(\mathbf R_+\) com \(x\oplus y=xy\), o inverso aditivo de 5 é:</p>
+      <ol class="opts"><li>\(-5\)</li><li>0</li><li>\(\frac15\)</li><li>1</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Nulo = 1; \(5\oplus w=1\iff w=\frac15\).</p></div></div><p class="rev">Revise: <a href="#m6-s3">exemplo em camadas</a></p></div>
+    <div class="q" data-id="m6v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag d">difícil</span></div><p>Na prova de 1.27, o passo \(w+(v+w')=(w+v)+w'\) usa:</p>
+      <ol class="opts"><li>inverso</li><li>associatividade</li><li>comutatividade</li><li>identidade</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Mesma ordem, agrupamento diferente.</p></div></div><p class="rev">Revise: <a href="#m6-s2">6.2</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida do módulo</p></div></div>
+    <div class="q dq" data-id="m6d1" data-ans="A"><p>Para provar que algo é único, o esquema padrão é:</p><ol class="opts"><li>supor dois e mostrar que são iguais</li><li>exibir um exemplo</li><li>usar indução</li><li>calcular o determinante</li></ol><div class="why" hidden>Esquema de 1.26 e 1.27.</div></div>
+    <div class="q dq" data-id="m6d2" data-ans="C"><p>A lei do cancelamento diz:</p><ol class="opts"><li>\(u+v=0\Rightarrow u=v\)</li><li>\(av=bv\Rightarrow a=b\)</li><li>\(u+w=v+w\Rightarrow u=v\)</li><li>\(u-u=u\)</li></ol><div class="why" hidden>Some \(-w\) dos dois lados.</div></div>
+    <div class="q dq" data-id="m6d3" data-ans="D"><p>Em \((\mathbf R_+,\oplus,\odot)\), o logaritmo leva o vetor nulo 1 em:</p><ol class="opts"><li>1</li><li>e</li><li>\(-1\)</li><li>0</li></ol><div class="why" hidden>\(\ln1=0\): o zero “disfarçado” vira o zero usual.</div></div>
+  </div>
+</div>
+</section>

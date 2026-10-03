@@ -1,0 +1,38 @@
+APOSTILA "DEFINICAO DE ESPACO VETORIAL" (AXLER 1B) - COMO ABRIR
+================================================================
+
+1. Descompacte o arquivo ZIP (botao direito > "Extrair tudo").
+2. Abra "apostila-axler-1b.html" com dois cliques no navegador
+   (Chrome, Edge, Firefox ou Safari atuais). Funciona sem internet.
+
+No celular: salve o .html no aparelho e abra com o navegador (Chrome).
+
+Como usar
+- Modulos (leia em ordem):
+    1 Pre-requisito: linguagem (conjuntos, funcoes, quantificadores, provas)
+    2 Pre-requisito: numeros complexos e o corpo F
+    3 Listas e F^n
+    4 Definicao de espaco vetorial (1.19-1.22)
+    5 F^infinito e F^S (1.23-1.25)
+    6 Unicidade do zero e do inverso (1.26-1.29)
+    7 Zeros e sinais (1.30-1.32)
+    8 Exercicios 1B (os 8 exercicios com resolucao comentada)
+  Cada secao segue: Intuicao e conceito central -> Demonstracao guiada
+  -> Exemplo resolvido em camadas -> Pausa interativa (desafio
+  conceitual + exercicio tecnico). Nas pausas, escreva sua tentativa
+  antes de abrir a "resposta comentada".
+- Botao "Pedir feedback": so aparece na versao online (claude.ai).
+  No arquivo offline use "Ver resposta comentada".
+- Listas: 3 listas com resposta e resolucao passo a passo.
+- Jogar: 3 jogos rapidos (Qual axioma?, E espaco vetorial?, Complexo rapido).
+- Simulado, Formulario e Perfil (nivel, conquistas).
+
+O progresso fica salvo so neste navegador, neste aparelho.
+
+Textos e solucoes proprios, baseados no roteiro da secao 1B de
+"Linear Algebra Done Right" (S. Axler, 4a ed.).
+
+Conteudo da pasta
+- apostila-axler-1b.html      -> a apostila completa (arquivo unico)
+- LEIA-ME.txt                 -> este arquivo
+- licencas/KaTeX-LICENSE.txt  -> licenca do KaTeX (formulas, MIT)

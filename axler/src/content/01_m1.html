@@ -1,0 +1,137 @@
+<section class="page mod" id="m1" data-num="1" data-part="Parte 0 · Pré-requisitos" data-short="Linguagem: conjuntos, funções e provas" data-title="Pré-requisito 1 · A linguagem das demonstrações: conjuntos, funções, quantificadores e igualdades" data-icon="book" data-desc="Os símbolos usados no Axler (∈, ×, ∀, ∃, funções), como ler uma definição e as regras para escrever uma cadeia de igualdades justificada.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>ler fluentemente os símbolos que aparecem na seção 1B (\(\in,\ \times,\ \forall,\ \exists,\ f:A\to B\));</li>
+    <li>entender por que “operação” em álgebra é uma <b>função</b> e o que isso implica;</li>
+    <li>distinguir \(\forall\,\exists\) de \(\exists\,\forall\) (é a diferença entre “inverso” e “identidade”);</li>
+    <li>escrever cadeias de igualdades em que <b>cada</b> sinal “=” tem uma justificativa;</li>
+    <li>reconhecer a estrutura das provas de unicidade e das provas “ou”.</li></ul></div>
+
+  <div class="box tip"><div class="bl">Como esta apostila funciona</div><p>Cada assunto segue quatro etapas: <b>1 · Intuição e conceito</b> (o porquê), <b>2 · Demonstração guiada</b> (sem pular passos), <b>3 · Exemplo em camadas</b> (modelagem → cálculo → análise) e <b>4 · Pausa interativa</b>. Nas pausas, as respostas ficam escondidas: escreva sua tentativa e só então peça o <b>feedback</b> (quando a página estiver aberta no claude.ai, um professor-IA comenta a sua tentativa) ou a <b>resposta comentada</b>.</p></div>
+
+  <h2 class="sec"><span class="n">1.1</span> Conjuntos, pertinência e produto cartesiano</h2>
+  <div class="fase"><b>1</b> Intuição e conceito central</div>
+  <div class="prose">
+    <p>Um <b>conjunto</b> é uma coleção de objetos, sem ordem e sem repetição. Toda a Álgebra Linear é escrita nessa linguagem: um espaço vetorial é um conjunto \(V\) “equipado” com duas regras de combinar elementos.</p>
+    <div class="box def"><div class="bl">Tabela de símbolos (leia em voz alta)</div>
+      <div class="sym">
+        <span>\(x\in A\)</span><span>“\(x\) pertence a \(A\)”: \(x\) é um elemento de \(A\).</span>
+        <span>\(A\subset B\)</span><span>“\(A\) está contido em \(B\)”: todo elemento de \(A\) é elemento de \(B\).</span>
+        <span>\(\varnothing\)</span><span>conjunto vazio: não tem elemento nenhum.</span>
+        <span>\(\{x\in A: P(x)\}\)</span><span>“os \(x\) de \(A\) tais que \(P(x)\) é verdadeira”.</span>
+        <span>\(A\times B\)</span><span>produto cartesiano: o conjunto dos <b>pares ordenados</b> \((a,b)\) com \(a\in A\), \(b\in B\).</span>
+        <span>\(\mathbf F\)</span><span>no Axler, \(\mathbf F\) é sempre \(\mathbf R\) ou \(\mathbf C\) (Módulo 2). Seus elementos são os <b>escalares</b>.</span>
+      </div></div>
+    <div class="box obs"><div class="bl">Esquema mental do produto cartesiano</div><p>Pense em \(A\times B\) como uma <b>tabela</b>: as linhas são os elementos de \(A\), as colunas os de \(B\); cada célula é um par \((a,b)\). Se \(A=\{1,2\}\) e \(B=\{x,y,z\}\), a tabela tem \(2\times3=6\) células: \((1,x),(1,y),(1,z),(2,x),(2,y),(2,z)\). O par é <b>ordenado</b>: \((1,x)\ne(x,1)\).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">1.2</span> Funções e operações</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição · função</div><p>Uma <b>função</b> \(f:A\to B\) é uma regra que associa a <b>cada</b> elemento \(a\in A\) <b>exatamente um</b> elemento \(f(a)\in B\). \(A\) é o <b>domínio</b> e \(B\) o <b>contradomínio</b>.</p><p>Três exigências escondidas: (i) <b>todo</b> \(a\) tem imagem; (ii) a imagem é <b>única</b>; (iii) a imagem está <b>em \(B\)</b>.</p></div>
+    <div class="box def"><div class="bl">Operação = função</div><p>Uma <b>operação</b> (binária) num conjunto \(V\) é uma função \(V\times V\to V\): ela recebe um par \((u,v)\) e devolve um elemento de \(V\), que escrevemos \(u+v\). É exatamente assim que o Axler define “adição” em 1.19.</p></div>
+    <figure class="fig" data-f="operacoes"><figcaption>As duas “máquinas” de um espaço vetorial. Como são funções com contradomínio \(V\), a saída nunca escapa de \(V\).</figcaption></figure>
+    <div class="box tip"><div class="bl">Consequência que você vai usar o tempo todo</div><p>Se \(x=y\), então \(x+z=y+z\) e \(\lambda x=\lambda y\). Motivo: a operação é uma função, e uma função aplicada ao mesmo objeto dá o mesmo resultado. É isso que autoriza “<b>somar o mesmo vetor dos dois lados</b>” de uma igualdade nas provas da seção 1B.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">1.3</span> Quantificadores: ∀ e ∃ (e por que a ordem importa)</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Símbolos</div><div class="sym"><span>\(\forall\)</span><span>“para todo”, “qualquer que seja”.</span><span>\(\exists\)</span><span>“existe (pelo menos um)”.</span><span>\(\exists!\)</span><span>“existe um único”.</span></div></div>
+    <p>Compare as duas exigências da definição de espaço vetorial:</p>
+    <div class="two">
+      <div class="box obs"><div class="bl">Identidade aditiva</div><p>\(\exists\,0\in V\ \ \forall v\in V:\ v+0=v\). <b>Um mesmo</b> \(0\) funciona para todos os vetores.</p></div>
+      <div class="box obs"><div class="bl">Inverso aditivo</div><p>\(\forall v\in V\ \ \exists w\in V:\ v+w=0\). <b>Cada</b> \(v\) tem o seu \(w\); o \(w\) depende de \(v\).</p></div>
+    </div>
+    <figure class="fig" data-f="quantificadores"><figcaption>Esquema: na identidade, um único ponto liga-se a todos; no inverso, cada vetor tem o seu par.</figcaption></figure>
+    <div class="box warn"><div class="bl">Negação</div><p>A negação de “\(\forall x,\ P(x)\)” é “\(\exists x\) tal que \(P(x)\) é falsa”: para derrubar uma afirmação universal basta <b>um contraexemplo</b>. A negação de “\(\exists x,\ P(x)\)” é “\(\forall x\), \(P(x)\) é falsa”: para mostrar que algo não existe, é preciso examinar <b>todos</b> os candidatos.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">1.4</span> Como se escreve uma prova (regras do jogo)</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Cadeia de igualdades justificadas</div><p>Uma prova típica do Axler é uma linha como \(a=b=c=d\). Cada “=” precisa de um motivo: um axioma, uma definição, ou um resultado já provado. Nesta apostila, escrevemos o motivo <b>em cima</b> de cada igualdade:</p>
+      <div class="chain"><span>\(x\)</span><span class="eqk"><small>motivo 1</small>\(=\)</span><span>\(y\)</span><span class="eqk"><small>motivo 2</small>\(=\)</span><span>\(z\)</span></div></div>
+    <div class="two">
+      <div class="box obs"><div class="bl">Prova de unicidade</div><p>Para provar “existe um único objeto com a propriedade \(P\)”: suponha que <b>dois</b> objetos \(a\) e \(a'\) têm a propriedade e mostre que \(a=a'\). (É o esquema de 1.26 e 1.27.)</p></div>
+      <div class="box obs"><div class="bl">Prova de “A ou B”</div><p>Suponha que A é <b>falsa</b> e prove B. (Se A for verdadeira, não há nada a fazer.) É o esquema do exercício 2: “se \(a\ne0\), então \(v=0\)”.</p></div>
+    </div>
+  </div>
+
+  <div class="fase"><b>2</b> Demonstração guiada</div>
+  <div class="prose">
+    <p><b>Proposição.</b> Em \(\mathbf R\) (com a soma usual), se \(a+x=a\) para algum número \(a\), então \(x=0\).</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · hipótese</span><p>Temos \(a+x=a\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · somar \(-a\) dos dois lados</span><p>(Permitido porque a soma é uma função: objetos iguais somados a \(-a\) dão resultados iguais.)</p><div class="m">\[(-a)+(a+x)=(-a)+a\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · associatividade no lado esquerdo</span><p>(Reagrupamos sem mudar a ordem dos termos.)</p><div class="m">\[((-a)+a)+x=(-a)+a\]</div></div>
+      <div class="st"><span class="pl">Passo 4 · \((-a)+a=0\) (inverso aditivo)</span><div class="m">\[0+x=0\]</div></div>
+      <div class="st"><span class="pl">Passo 5 · \(0+x=x\) (identidade aditiva)</span><div class="m">\[x=0\qquad\blacksquare\]</div></div>
+    </div>
+    <div class="box tip"><div class="bl">Repare</div><p>Usamos só: função (passo 2), associatividade, inverso e identidade. Nada específico de números reais! Por isso a mesma prova vai funcionar em qualquer espaço vetorial (é a “lei do cancelamento”, Módulo 6).</p></div>
+  </div>
+
+  <div class="fase"><b>3</b> Exemplo resolvido em camadas</div>
+  <div class="caso"><div class="bl">Problema</div><h3>Uma operação “torta” em ℝ</h3>
+    <p>Em \(\mathbf R\), defina \(x\ast y=x+y+1\). (a) \(\ast\) é comutativa e associativa? (b) Existe elemento neutro \(e\) (com \(x\ast e=x\) para todo \(x\))? Ele é único? (c) Todo \(x\) tem inverso (um \(y\) com \(x\ast y=e\))?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">a) Estratégia de modelagem</span><p>Cada pergunta é uma frase com quantificadores. “Neutro” é \(\exists e\ \forall x\); “inverso” é \(\forall x\ \exists y\). Traduzimos cada uma numa equação e resolvemos.</p></div>
+      <div class="st"><span class="pl">b) Execução · comutativa e associativa</span><p>\(x\ast y=x+y+1=y+x+1=y\ast x\) (comutatividade da soma real).</p><div class="m">\[(x\ast y)\ast z=(x+y+1)+z+1=x+y+z+2,\qquad x\ast(y\ast z)=x+(y+z+1)+1=x+y+z+2\]</div><p>Iguais: associativa.</p></div>
+      <div class="st"><span class="pl">b) Execução · neutro</span><p>Queremos \(x\ast e=x\) para <b>todo</b> \(x\): \(x+e+1=x\iff e=-1\). Como \(e=-1\) não depende de \(x\), o mesmo número serve para todos: existe neutro, \(e=-1\). Único: a equação \(x+e+1=x\) tem uma só solução.</p></div>
+      <div class="st"><span class="pl">b) Execução · inverso</span><p>Para cada \(x\), queremos \(y\) com \(x\ast y=-1\): \(x+y+1=-1\iff y=-x-2\). Esse \(y\) <b>depende</b> de \(x\) (e é o que a frase \(\forall x\ \exists y\) permite).</p></div>
+      <div class="st"><span class="pl">c) Análise crítica</span><p>A operação é a soma usual “deslocada”: se \(\varphi(x)=x+1\), então \(\varphi(x\ast y)=\varphi(x)+\varphi(y)\). Ou seja, \((\mathbf R,\ast)\) é uma cópia disfarçada de \((\mathbf R,+)\): o neutro \(-1\) é a imagem disfarçada do \(0\), e o inverso \(-x-2\) é o disfarce de \(-x\). Moral: o “zero” de uma estrutura não precisa ser o número 0. O laboratório do Módulo 4 mostra um espaço vetorial cujo vetor nulo é o número 1.</p></div>
+    </div>
+  </div>
+
+  <div class="fase"><b>4</b> Pausa interativa</div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"m1c","tipo":"desafio conceitual"}'>
+    <div class="pq"><p><b>Desafio conceitual.</b> Em \(\mathbf R\), considere as frases (I) \(\forall x\ \exists y:\ y>x\) e (II) \(\exists y\ \forall x:\ y>x\). Qual é verdadeira? Explique, com as suas palavras, por que a troca da ordem dos quantificadores muda a resposta, e relacione com a diferença entre “identidade aditiva” e “inverso aditivo”.</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">(I) é verdadeira</span><p>Dado <b>qualquer</b> \(x\), escolha \(y=x+1\). O \(y\) pode depender de \(x\).</p></div>
+      <div class="st"><span class="pl">(II) é falsa</span><p>Ela pede um <b>único</b> \(y\) maior que todos os reais. Se existisse, valeria \(y>y\) (tomando \(x=y\)), absurdo. Contraexemplo para qualquer candidato \(y\): \(x=y\).</p></div>
+      <div class="st"><span class="pl">Relação com a definição</span><p>“\(\exists\forall\)” exige um objeto universal (como o vetor \(0\), que serve a todos). “\(\forall\exists\)” permite um objeto sob medida para cada caso (como \(-v\), que depende de \(v\)). Confundir as duas leituras é um dos erros mais comuns ao ler definições.</p></div>
+    </div></div>
+  </div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"m1t","tipo":"exercício técnico"}'>
+    <div class="pq"><p><b>Exercício técnico.</b> Em \(\mathbf R\), defina \(x\circ y=xy+x+y\). (a) Ache o elemento neutro. (b) Quais números têm inverso em relação a \(\circ\)? Justifique cada passo.</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">a) Neutro</span><p>Queremos \(x\circ e=x\) para todo \(x\): \(xe+x+e=x\iff e(x+1)=0\). Para valer para <b>todo</b> \(x\) (inclusive \(x\ne-1\)), precisamos \(e=0\). E de fato \(x\circ0=0+x+0=x\). Neutro: \(e=0\).</p></div>
+      <div class="st"><span class="pl">b) Inversos</span><p>Queremos \(y\) com \(x\circ y=0\): \(xy+x+y=0\iff y(x+1)=-x\). Se \(x\ne-1\): \(y=\frac{-x}{x+1}\). Se \(x=-1\): a equação fica \(0=1\), impossível.</p></div>
+      <div class="st"><span class="pl">Conclusão e análise</span><p>Todo \(x\ne-1\) tem inverso; \(-1\) não. Repare: \(x\circ y=(x+1)(y+1)-1\), então \(\circ\) é a multiplicação “deslocada” por 1, e \(-1\) faz o papel do zero da multiplicação, que também não tem inverso. Por isso \((\mathbf R,\circ)\) <b>não</b> satisfaz um axioma do tipo “todo elemento tem inverso”.</p></div>
+    </div></div>
+  </div>
+
+  <h2 class="sec">Resumo visual</h2>
+  <div class="prose"><div class="tbl"><table><thead><tr><th class="l">Ferramenta</th><th class="l">Quando aparece na seção 1B</th></tr></thead><tbody>
+    <tr><td class="l">Operação = função \(V\times V\to V\)</td><td class="l">Definição 1.19: o “fechamento” está embutido.</td></tr>
+    <tr><td class="l">\(x=y\Rightarrow x+z=y+z\)</td><td class="l">“Somar o inverso dos dois lados” em 1.30 e 1.31.</td></tr>
+    <tr><td class="l">\(\exists\forall\) vs \(\forall\exists\)</td><td class="l">Identidade aditiva vs inverso aditivo (1.20).</td></tr>
+    <tr><td class="l">Prova de unicidade</td><td class="l">1.26 (zero único), 1.27 (inverso único), exercício 3.</td></tr>
+    <tr><td class="l">Prova de “ou”</td><td class="l">Exercício 2.</td></tr>
+  </tbody></table></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m1v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>\(\{1,2\}\times\{a,b,c\}\) tem quantos elementos?</p>
+      <ol class="opts"><li>5</li><li>6</li><li>3</li><li>8</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Pares ordenados: \(2\cdot3=6\).</p></div></div><p class="rev">Revise: <a href="#m1-s1">1.1</a></p></div>
+    <div class="q" data-id="m1v2" data-ans="D"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>Dizer que a adição em \(V\) é uma função \(V\times V\to V\) garante que:</p>
+      <ol class="opts"><li>a soma é comutativa</li><li>existe vetor nulo</li><li>a soma é associativa</li><li>\(u+v\) sempre pertence a \(V\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>O contradomínio é \(V\): todo resultado está em \(V\) (fechamento). As outras propriedades são axiomas separados.</p></div></div><p class="rev">Revise: <a href="#m1-s2">1.2</a></p></div>
+    <div class="q" data-id="m1v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>Qual frase descreve a identidade aditiva?</p>
+      <ol class="opts"><li>\(\exists\,0\ \forall v:\ v+0=v\)</li><li>\(\forall v\ \exists\,0:\ v+0=v\)</li><li>\(\forall v\ \exists w:\ v+w=0\)</li><li>\(\exists v\ \forall w:\ v+w=0\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Um único zero que funciona para todos os vetores: \(\exists\forall\).</p></div></div><p class="rev">Revise: <a href="#m1-s3">1.3</a></p></div>
+    <div class="q" data-id="m1v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Para provar que “\(\forall v,\ P(v)\)” é falsa, basta:</p>
+      <ol class="opts"><li>testar 10 vetores</li><li>mostrar que \(P(0)\) é verdadeira</li><li>exibir um \(v\) com \(P(v)\) falsa</li><li>provar que nenhum \(v\) satisfaz \(P\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Negação de “para todo”: existe um contraexemplo.</p></div></div><p class="rev">Revise: <a href="#m1-s3">1.3 Negação</a></p></div>
+    <div class="q" data-id="m1v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag d">difícil</span></div><p>Para provar “\(a=0\) ou \(v=0\)”, uma estratégia válida é:</p>
+      <ol class="opts"><li>supor \(a=0\) e provar \(v=0\)</li><li>supor \(a\ne0\) e provar \(v=0\)</li><li>supor \(a=0\) e \(v=0\)</li><li>provar \(a=0\) e \(v=0\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Se \(a=0\), a frase já é verdadeira. Basta tratar o caso \(a\ne0\).</p></div></div><p class="rev">Revise: <a href="#m1-s4">1.4</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida do módulo</p></div></div>
+    <div class="q dq" data-id="m1d1" data-ans="C"><p>Por que podemos “somar o mesmo vetor dos dois lados” de uma igualdade?</p><ol class="opts"><li>É um axioma de espaço vetorial</li><li>Por comutatividade</li><li>Porque a adição é uma função: entradas iguais dão saídas iguais</li><li>Não podemos</li></ol><div class="why" hidden>Se \(x=y\), então \((x,z)=(y,z)\) e a função adição devolve o mesmo resultado.</div></div>
+    <div class="q dq" data-id="m1d2" data-ans="A"><p>Em \(x\ast y=x+y+1\), o elemento neutro é:</p><ol class="opts"><li>\(-1\)</li><li>0</li><li>1</li><li>não existe</li></ol><div class="why" hidden>\(x+e+1=x\iff e=-1\).</div></div>
+    <div class="q dq" data-id="m1d3" data-ans="D"><p>\((1,2)\) e \((2,1)\) como elementos de \(\mathbf R\times\mathbf R\) são:</p><ol class="opts"><li>iguais</li><li>iguais como conjuntos</li><li>inversos</li><li>diferentes (par ordenado)</li></ol><div class="why" hidden>Pares ordenados: a ordem importa.</div></div>
+  </div>
+</div>
+</section>

@@ -1,0 +1,117 @@
+<section class="page mod" id="m4" data-num="4" data-part="Parte I · Seção 1B do Axler" data-short="A definição (1.19–1.22)" data-title="1.19–1.22 · Adição, multiplicação por escalar e a definição de espaço vetorial" data-icon="grid" data-desc="Operações como funções, os oito requisitos da definição 1.20, vetores como pontos, espaços reais e complexos e o espaço {0}.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>enunciar a definição 1.20 explicando cada símbolo;</li>
+    <li>explicar por que o “fechamento” não aparece como axioma no Axler;</li>
+    <li>decidir se uma estrutura é espaço vetorial, achando um contraexemplo quando não for;</li>
+    <li>distinguir espaço vetorial real de complexo e entender o papel de “sobre \(\mathbf F\)”.</li></ul></div>
+
+  <h2 class="sec"><span class="n">4.1</span> O porquê da definição</h2>
+  <div class="fase"><b>1</b> Intuição e conceito central</div>
+  <div class="prose">
+    <p>No Módulo 3 vimos que \(\mathbf F^n\) tem oito propriedades. O passo genial da Álgebra Linear é inverter o caminho: <b>em vez de estudar \(\mathbf F^n\), estudar qualquer conjunto onde essas oito propriedades valem</b>. Tudo o que for provado só com elas vale ao mesmo tempo para listas, sequências, funções, polinômios, matrizes, sinais de áudio…</p>
+    <div class="box obs"><div class="bl">Analogia física</div><p>Pense nas regras do xadrez: o jogo é o mesmo com peças de madeira, de plástico ou num aplicativo. O que importa são as <b>regras de movimento</b>, não o material. Num espaço vetorial, as “peças” podem ser setas, funções ou sequências; as “regras” são os oito requisitos.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">4.2</span> As operações (1.19)</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição 1.19 (em português)</div><p>• Uma <b>adição</b> em \(V\) é uma função que associa a cada par \(u,v\in V\) um elemento \(u+v\in V\).<br>• Uma <b>multiplicação por escalar</b> em \(V\) é uma função que associa a cada \(\lambda\in\mathbf F\) e cada \(v\in V\) um elemento \(\lambda v\in V\).</p></div>
+    <figure class="fig" data-f="operacoes"><figcaption>Adição: \(V\times V\to V\). Escalar: \(\mathbf F\times V\to V\).</figcaption></figure>
+    <div class="box tip"><div class="bl">Onde está o “fechamento”?</div><p>Muitos livros listam “fechamento da soma” e “fechamento do produto” como axiomas extras. No Axler eles estão <b>dentro</b> da palavra “função … em \(V\)”: o resultado é, por definição, um elemento de \(V\). Então, para checar se algo é espaço vetorial, a <b>primeira</b> pergunta é: as operações estão bem definidas, isto é, o resultado cai em \(V\)?</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">4.3</span> A definição 1.20 símbolo por símbolo</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição 1.20 · espaço vetorial</div><p>Um <b>espaço vetorial</b> é um conjunto \(V\) com uma adição e uma multiplicação por escalar tais que:</p>
+      <div class="sym">
+        <span>comutatividade</span><span>\(u+v=v+u\) para todos \(u,v\in V\);</span>
+        <span>associatividade</span><span>\((u+v)+w=u+(v+w)\) e \((ab)v=a(bv)\) para todos \(u,v,w\in V\) e \(a,b\in\mathbf F\);</span>
+        <span>identidade aditiva</span><span>existe \(0\in V\) tal que \(v+0=v\) para todo \(v\in V\);</span>
+        <span>inverso aditivo</span><span>para todo \(v\in V\) existe \(w\in V\) tal que \(v+w=0\);</span>
+        <span>identidade multiplicativa</span><span>\(1v=v\) para todo \(v\in V\);</span>
+        <span>distributivas</span><span>\(a(u+v)=au+av\) e \((a+b)v=av+bv\) para todos \(a,b\in\mathbf F\), \(u,v\in V\).</span>
+      </div></div>
+    <figure class="fig" data-f="mapaAxiomas"><figcaption>Mapa mental: quatro requisitos só falam de \(+\), dois só de multiplicação por escalar, e as duas distributivas fazem a ponte.</figcaption></figure>
+    <div class="box warn"><div class="bl">Leitura cuidadosa (detalhes que o texto não enfatiza)</div><ul>
+      <li>Em \((ab)v=a(bv)\), o produto \(ab\) é de <b>números</b> (em \(\mathbf F\)), e \(bv\) é escalar vezes vetor. São duas multiplicações diferentes com o mesmo símbolo.</li>
+      <li>Em \((a+b)v=av+bv\), o “+” da esquerda é soma de <b>números</b>; o da direita é soma de <b>vetores</b>.</li>
+      <li>A definição diz que existe <b>um</b> zero; não diz que é único. A unicidade é um teorema (1.26).</li>
+      <li>Não existe “produto de vetores” na definição. Nunca multiplique dois vetores numa prova.</li>
+    </ul></div>
+    <div class="box def"><div class="bl">1.21 e 1.22 · nomes</div><p>Elementos de \(V\) chamam-se <b>vetores</b> ou <b>pontos</b>. Se \(\mathbf F=\mathbf R\), \(V\) é um <b>espaço vetorial real</b>; se \(\mathbf F=\mathbf C\), um <b>espaço vetorial complexo</b>. Dizemos “\(V\) é espaço vetorial <b>sobre</b> \(\mathbf F\)” quando é preciso deixar claro quem são os escalares.</p></div>
+  </div>
+
+  <div class="fase"><b>2</b> Demonstração guiada</div>
+  <div class="prose">
+    <p><b>Proposição.</b> O conjunto \(\{0\}\) (um único elemento, chamado 0), com \(0+0=0\) e \(\lambda0=0\) para todo \(\lambda\in\mathbf F\), é um espaço vetorial sobre \(\mathbf F\). (O Axler chama-o de “o espaço vetorial mais simples”.)</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 0 · as operações estão bem definidas</span><p>Só existe um par \((0,0)\), e a soma dá \(0\in\{0\}\). Para cada \(\lambda\), \(\lambda0=0\in\{0\}\). São funções com valores em \(V\) ✓.</p></div>
+      <div class="st"><span class="pl">Passo 1 · requisitos de igualdade (comutatividade, associatividades, distributivas, \(1v=v\))</span><p>Cada um é uma igualdade entre dois elementos de \(V\). Como \(V\) tem um só elemento, <b>os dois lados são necessariamente iguais</b> (ambos valem 0). Ex.: \((a+b)0=0\) e \(a0+b0=0+0=0\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · identidade aditiva</span><p>Tome o próprio 0: \(0+0=0\) ✓ (vale para todo \(v\in V\), que só pode ser 0).</p></div>
+      <div class="st"><span class="pl">Passo 3 · inverso aditivo</span><p>Para \(v=0\), tome \(w=0\): \(0+0=0\) ✓.</p></div>
+      <div class="st"><span class="pl">Conclusão</span><p>Todos os requisitos valem. \(\blacksquare\) Atenção: o conjunto <b>vazio</b> não é espaço vetorial (exercício 4 do Módulo 8): a diferença entre “um elemento” e “nenhum” é exatamente a identidade aditiva.</p></div>
+    </div>
+  </div>
+
+  <div class="fase"><b>3</b> Exemplo resolvido em camadas</div>
+  <div class="caso"><div class="bl">Problema</div><h3>Um “quase espaço vetorial”: só um requisito falha</h3>
+    <p>Em \(\mathbf R^2\), use a adição usual e a multiplicação \(\lambda\odot(x,y)=(\lambda x,\ 0)\). É espaço vetorial sobre \(\mathbf R\)?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">a) Estratégia de modelagem</span><p>(1) Ver se as operações caem em \(\mathbf R^2\). (2) Como a adição é a usual, os 4 requisitos que só falam de \(+\) já valem. (3) Testar, um por um, os 4 requisitos que envolvem \(\odot\). Se algum falhar, um contraexemplo concreto encerra.</p></div>
+      <div class="st"><span class="pl">b) Execução</span><p><b>Bem definida:</b> \((\lambda x,0)\in\mathbf R^2\) ✓.</p>
+        <p><b>\((ab)\odot v=a\odot(b\odot v)\):</b> esquerda \(((ab)x,0)\); direita \(a\odot(bx,0)=(a(bx),0)\). Iguais (associatividade em \(\mathbf R\)) ✓.</p>
+        <p><b>\(a\odot(u+v)=a\odot u+a\odot v\):</b> \((a(x_1+x_2),0)\) e \((ax_1,0)+(ax_2,0)=(ax_1+ax_2,0)\) ✓.</p>
+        <p><b>\((a+b)\odot v=a\odot v+b\odot v\):</b> \(((a+b)x,0)=(ax+bx,0)\) ✓.</p>
+        <p><b>\(1\odot v=v\):</b> \(1\odot(x,y)=(x,0)\). Com \(v=(0,1)\): \(1\odot(0,1)=(0,0)\ne(0,1)\) ✗.</p></div>
+      <div class="st"><span class="pl">c) Análise crítica</span><p>Não é espaço vetorial, e o <b>único</b> culpado é \(1v=v\). Geometricamente, \(\odot\) “achata” o plano no eixo \(x\): multiplicar por qualquer escalar, inclusive 1, destrói a segunda coordenada. O exemplo mostra que \(1v=v\) não é consequência dos outros requisitos; precisa estar na definição. (Teste no laboratório abaixo estruturas parecidas.)</p></div>
+    </div>
+  </div>
+  <div class="lab" data-w="axiomaLab"><div class="lt">Laboratório: testador de requisitos</div><p class="ld">Escolha uma estrutura. O laboratório testa fechamento e os requisitos com muitos números sorteados e mostra um contraexemplo quando algo falha. O último exemplo (ℝ₊ com “soma” = produto) <b>é</b> espaço vetorial, e o vetor nulo dele é o número 1.</p></div>
+
+  <div class="fase"><b>4</b> Pausa interativa</div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"m4c","tipo":"desafio conceitual"}'>
+    <div class="pq"><p><b>Desafio conceitual.</b> (a) \(\mathbf C\), com as operações usuais, é espaço vetorial sobre \(\mathbf R\)? E sobre \(\mathbf C\)? (b) \(\mathbf R\) é espaço vetorial sobre \(\mathbf C\) (com o produto usual de complexo por real)? Em cada caso, indique o que decide a resposta.</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">(a) ℂ sobre ℝ: sim</span><p>Real vezes complexo é complexo; os requisitos valem porque são casos particulares das propriedades de corpo de \(\mathbf C\). ℂ sobre ℂ: também sim, pelo mesmo motivo (é \(\mathbf C^1\)).</p></div>
+      <div class="st"><span class="pl">(b) ℝ sobre ℂ: não</span><p>A multiplicação por escalar não está bem definida como função \(\mathbf C\times\mathbf R\to\mathbf R\): \(i\cdot1=i\notin\mathbf R\). Falha antes de qualquer axioma.</p></div>
+      <div class="st"><span class="pl">O que decide</span><p>O corpo de escalares é parte da estrutura. O mesmo conjunto pode ser espaço sobre um corpo e não sobre outro.</p></div>
+    </div></div>
+  </div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"m4t","tipo":"exercício técnico"}'>
+    <div class="pq"><p><b>Exercício técnico.</b> Em \(\mathbf R^2\), defina \((a,b)\oplus(c,d)=(a+c-1,\ b+d)\) e \(\lambda\odot(a,b)=(\lambda(a-1)+1,\ \lambda b)\). Mostre que é espaço vetorial sobre \(\mathbf R\), achando o vetor nulo e o inverso aditivo de \((a,b)\). (Dica: considere \(\varphi(a,b)=(a-1,\ b)\).)</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Ideia</span><p>\(\varphi\) é bijetora (inversa \(\varphi^{-1}(x,y)=(x+1,y)\)) e “transforma” as operações novas nas usuais:</p><div class="m">\[\varphi(u\oplus v)=(a+c-2,\ b+d)=\varphi(u)+\varphi(v),\qquad\varphi(\lambda\odot u)=(\lambda(a-1),\ \lambda b)=\lambda\varphi(u)\]</div></div>
+      <div class="st"><span class="pl">Transferência dos requisitos</span><p>Ex.: comutatividade: \(\varphi(u\oplus v)=\varphi(u)+\varphi(v)=\varphi(v)+\varphi(u)=\varphi(v\oplus u)\); como \(\varphi\) é injetora, \(u\oplus v=v\oplus u\). Todos os outros seguem igual, porque valem em \(\mathbf R^2\) usual.</p></div>
+      <div class="st"><span class="pl">Vetor nulo e inverso</span><p>Nulo: \(\varphi^{-1}(0,0)=(1,0)\). Confira: \((a,b)\oplus(1,0)=(a,b)\) ✓. Inverso: \(\varphi^{-1}(-\varphi(a,b))=(2-a,\ -b)\). Confira: \((a,b)\oplus(2-a,-b)=(1,0)\) ✓.</p></div>
+      <div class="st"><span class="pl">Análise</span><p>É \(\mathbf R^2\) com a origem “mudada” para \((1,0)\). Mostra de novo que o vetor nulo não precisa ser \((0,0)\).</p></div>
+    </div></div>
+  </div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m4v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Em \((a+b)v=av+bv\), o “+” do lado esquerdo é:</p>
+      <ol class="opts"><li>soma de vetores</li><li>soma de escalares em \(\mathbf F\)</li><li>produto</li><li>indefinido</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(a,b\in\mathbf F\); \(a+b\) é soma de números.</p></div></div><p class="rev">Revise: <a href="#m4-s3">4.3</a></p></div>
+    <div class="q" data-id="m4v2" data-ans="D"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>Quantos requisitos da definição 1.20 ligam a adição à multiplicação por escalar?</p>
+      <ol class="opts"><li>nenhum</li><li>um</li><li>quatro</li><li>dois (as distributivas)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Só as distributivas misturam as duas operações.</p></div></div><p class="rev">Revise: <a href="#m4-s3">mapa 4.3</a></p></div>
+    <div class="q" data-id="m4v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>\(\mathbf R\) é espaço vetorial sobre \(\mathbf C\) (produto usual)?</p>
+      <ol class="opts"><li>Não: \(i\cdot1\notin\mathbf R\)</li><li>Sim</li><li>Só se for complexificado</li><li>Não: falta o zero</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>A multiplicação por escalar sai de \(\mathbf R\).</p></div></div><p class="rev">Revise: <a href="#m4-s2">4.2</a></p></div>
+    <div class="q" data-id="m4v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Em \(\mathbf R^2\) com soma usual e \(\lambda\odot(x,y)=(\lambda x,0)\), qual requisito falha?</p>
+      <ol class="opts"><li>comutatividade</li><li>distributiva</li><li>\(1v=v\)</li><li>associatividade</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(1\odot(0,1)=(0,0)\).</p></div></div><p class="rev">Revise: <a href="#m4-s3">exemplo em camadas</a></p></div>
+    <div class="q" data-id="m4v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag d">difícil</span></div><p>Por que o Axler não lista “fechamento” como axioma?</p>
+      <ol class="opts"><li>Porque é falso em geral</li><li>Porque as operações são definidas como funções com valores em \(V\)</li><li>Porque decorre da comutatividade</li><li>Porque só vale em \(\mathbf F^n\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Função “em \(V\)” já significa que o resultado está em \(V\).</p></div></div><p class="rev">Revise: <a href="#m4-s2">4.2</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida do módulo</p></div></div>
+    <div class="q dq" data-id="m4d1" data-ans="D"><p>A definição 1.20 garante que o vetor nulo é:</p><ol class="opts"><li>único</li><li>o número 0</li><li>\((0,\dots,0)\)</li><li>existente (a unicidade é provada depois)</li></ol><div class="why" hidden>A definição só exige existência; 1.26 prova a unicidade.</div></div>
+    <div class="q dq" data-id="m4d2" data-ans="A"><p>\(\{0\}\) é espaço vetorial porque:</p><ol class="opts"><li>todos os requisitos viram igualdades entre o único elemento</li><li>é vazio</li><li>é igual a \(\mathbf F\)</li><li>não é</li></ol><div class="why" hidden>Com um só elemento, os dois lados de cada igualdade coincidem.</div></div>
+    <div class="q dq" data-id="m4d3" data-ans="C"><p>Numa prova sobre espaços vetoriais, é proibido:</p><ol class="opts"><li>somar vetores</li><li>multiplicar escalares</li><li>multiplicar dois vetores entre si</li><li>usar distributivas</li></ol><div class="why" hidden>Não existe produto de vetores na definição.</div></div>
+  </div>
+</div>
+</section>

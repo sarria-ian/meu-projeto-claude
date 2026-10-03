@@ -1,0 +1,106 @@
+<section class="page mod" id="m5" data-num="5" data-part="Parte I · Seção 1B do Axler" data-short="Exemplos: 𝐅^∞ e 𝐅^S (1.23–1.25)" data-title="1.23–1.25 · Sequências e funções como vetores: 𝐅^∞ e 𝐅^S" data-icon="wave" data-desc="O espaço das sequências, a notação 𝐅^S para funções, a prova de que 𝐅^S é espaço vetorial e por que 𝐅ⁿ e 𝐅^∞ são casos particulares.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>operar com sequências e funções como vetores;</li>
+    <li>provar, com todos os detalhes, que \(\mathbf F^S\) é espaço vetorial;</li>
+    <li>identificar o vetor nulo e o inverso aditivo de \(\mathbf F^S\) (funções, não números);</li>
+    <li>reconhecer \(\mathbf F^n=\mathbf F^{\{1,\dots,n\}}\) e \(\mathbf F^\infty=\mathbf F^{\{1,2,\dots\}}\).</li></ul></div>
+
+  <h2 class="sec"><span class="n">5.1</span> 𝐅^∞: vetores com infinitas coordenadas</h2>
+  <div class="fase"><b>1</b> Intuição e conceito central</div>
+  <div class="prose">
+    <div class="box def"><div class="bl">Exemplo 1.23 · 𝐅^∞</div><p>\(\mathbf F^\infty=\{(x_1,x_2,\dots):\ x_k\in\mathbf F\text{ para }k=1,2,\dots\}\) é o conjunto das <b>sequências</b> de elementos de \(\mathbf F\), com</p><div>\[(x_1,x_2,\dots)+(y_1,y_2,\dots)=(x_1+y_1,\ x_2+y_2,\dots),\qquad\lambda(x_1,x_2,\dots)=(\lambda x_1,\ \lambda x_2,\dots)\]</div><p>O vetor nulo é a sequência \((0,0,0,\dots)\).</p></div>
+    <div class="box obs"><div class="bl">Visualize</div><p>Desenhe uma sequência como “pirulitos” em cima dos números \(1,2,3,\dots\) (gráfico de hastes). Somar duas sequências é empilhar as hastes posição por posição. É \(\mathbf F^n\) com \(n\) “infinito”.</p></div>
+  </div>
+  <div class="lab" data-w="seqLab"><div class="lt">Laboratório: sequências como vetores</div><p class="ld">Escolha \(x\) e \(y\) e veja \(x+y\) ou \(\lambda x\) termo a termo (12 primeiros termos).</p></div>
+
+  <h2 class="sec"><span class="n">5.2</span> 𝐅^S: funções como vetores</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Notação 1.24</div><p>Se \(S\) é um conjunto, \(\mathbf F^S\) denota o conjunto das funções de \(S\) em \(\mathbf F\). Para \(f,g\in\mathbf F^S\) e \(\lambda\in\mathbf F\), definimos as funções \(f+g\) e \(\lambda f\) <b>ponto a ponto</b>:</p><div>\[(f+g)(x)=f(x)+g(x),\qquad(\lambda f)(x)=\lambda f(x)\qquad\text{para todo }x\in S\]</div></div>
+    <div class="box warn"><div class="bl">Leia o símbolo com cuidado</div><p>Em \((f+g)(x)=f(x)+g(x)\), o “+” da esquerda é a <b>nova</b> soma (de funções, que estamos definindo); o da direita é a soma <b>de números</b> em \(\mathbf F\), que já conhecemos. A definição usa a soma de \(\mathbf F\) para construir a soma de \(\mathbf F^S\).</p></div>
+    <div class="box obs"><div class="bl">Exemplo do texto</div><p>Com \(S=[0,1]\) e \(\mathbf F=\mathbf R\): \(\mathbf R^{[0,1]}\) é o conjunto de todas as funções reais definidas em \([0,1]\). Cada função inteira (o gráfico todo) é <b>um único vetor</b>.</p></div>
+  </div>
+  <div class="lab" data-w="funcLab"><div class="lt">Laboratório: somando funções ponto a ponto</div><p class="ld">Escolha \(f\) e \(g\) em \([0,1]\). Mova o ponto \(x_0\): as barras empilhadas mostram \(f(x_0)+g(x_0)\), que é o valor da função soma nesse ponto. Experimente também \(\lambda f\) e \(f+(-f)\).</p></div>
+
+  <h2 class="sec"><span class="n">5.3</span> 𝐅^S é um espaço vetorial (1.25)</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Exemplo 1.25 (enunciado)</div><p>Se \(S\ne\varnothing\): (i) \(\mathbf F^S\) é espaço vetorial sobre \(\mathbf F\); (ii) a identidade aditiva é a função \(0:S\to\mathbf F\), \(0(x)=0\) para todo \(x\); (iii) o inverso aditivo de \(f\) é \(-f:S\to\mathbf F\), \((-f)(x)=-f(x)\).</p></div>
+    <div class="box tip"><div class="bl">A ferramenta-chave: igualdade de funções</div><p>Duas funções \(f,g:S\to\mathbf F\) são iguais quando \(f(x)=g(x)\) para <b>todo</b> \(x\in S\). Então, para provar uma igualdade entre funções, fixamos um \(x\) arbitrário e provamos a igualdade entre números.</p></div>
+  </div>
+
+  <div class="fase"><b>2</b> Demonstração guiada</div>
+  <div class="prose">
+    <p><b>Teorema.</b> \(\mathbf F^S\) (\(S\ne\varnothing\)) é espaço vetorial, com zero e inversos como em 1.25.</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 0 · operações bem definidas</span><p>Para cada \(x\in S\), \(f(x)+g(x)\in\mathbf F\) e \(\lambda f(x)\in\mathbf F\). Logo \(f+g\) e \(\lambda f\) são funções de \(S\) em \(\mathbf F\), isto é, elementos de \(\mathbf F^S\) ✓.</p></div>
+      <div class="st"><span class="pl">Passo 1 · comutatividade</span><p>Fixe \(x\in S\) arbitrário:</p><div class="chain"><span>\((f+g)(x)\)</span><span class="eqk"><small>def. soma em 𝐅^S</small>\(=\)</span><span>\(f(x)+g(x)\)</span><span class="eqk"><small>comut. em 𝐅</small>\(=\)</span><span>\(g(x)+f(x)\)</span><span class="eqk"><small>def. soma em 𝐅^S</small>\(=\)</span><span>\((g+f)(x)\)</span></div><p>Como \(x\) era qualquer, \(f+g=g+f\) (igualdade de funções).</p></div>
+      <div class="st"><span class="pl">Passo 2 · associatividade da soma</span><div class="chain"><span>\(((f+g)+h)(x)\)</span><span class="eqk"><small>def.</small>\(=\)</span><span>\((f+g)(x)+h(x)\)</span><span class="eqk"><small>def.</small>\(=\)</span><span>\((f(x)+g(x))+h(x)\)</span><span class="eqk"><small>assoc. em 𝐅</small>\(=\)</span><span>\(f(x)+(g(x)+h(x))\)</span><span class="eqk"><small>def. (2×)</small>\(=\)</span><span>\((f+(g+h))(x)\)</span></div></div>
+      <div class="st"><span class="pl">Passo 3 · associatividade do escalar</span><div class="chain"><span>\(((ab)f)(x)\)</span><span class="eqk"><small>def.</small>\(=\)</span><span>\((ab)f(x)\)</span><span class="eqk"><small>assoc. em 𝐅</small>\(=\)</span><span>\(a(bf(x))\)</span><span class="eqk"><small>def.</small>\(=\)</span><span>\(a((bf)(x))\)</span><span class="eqk"><small>def.</small>\(=\)</span><span>\((a(bf))(x)\)</span></div></div>
+      <div class="st"><span class="pl">Passo 4 · identidade aditiva (a função zero)</span><div class="chain"><span>\((f+0)(x)\)</span><span class="eqk"><small>def. soma</small>\(=\)</span><span>\(f(x)+0(x)\)</span><span class="eqk"><small>def. da função 0</small>\(=\)</span><span>\(f(x)+0\)</span><span class="eqk"><small>identidade em 𝐅</small>\(=\)</span><span>\(f(x)\)</span></div><p>Atenção: \(0(x)\) é a função zero avaliada em \(x\); o resultado é o <b>número</b> 0.</p></div>
+      <div class="st"><span class="pl">Passo 5 · inverso aditivo</span><div class="chain"><span>\((f+(-f))(x)\)</span><span class="eqk"><small>def. soma</small>\(=\)</span><span>\(f(x)+(-f)(x)\)</span><span class="eqk"><small>def. de −f</small>\(=\)</span><span>\(f(x)+(-f(x))\)</span><span class="eqk"><small>inverso em 𝐅</small>\(=\)</span><span>\(0\)</span><span class="eqk"><small>def. função 0</small>\(=\)</span><span>\(0(x)\)</span></div><p>Logo \(f+(-f)=0\) (a função nula).</p></div>
+      <div class="st"><span class="pl">Passo 6 · identidade multiplicativa e distributivas</span><p>\((1f)(x)=1f(x)=f(x)\). \((a(f+g))(x)=a(f(x)+g(x))=af(x)+ag(x)=(af+ag)(x)\). \(((a+b)f)(x)=(a+b)f(x)=af(x)+bf(x)=(af+bf)(x)\). Cada igualdade do meio é uma propriedade de \(\mathbf F\).</p></div>
+      <div class="st"><span class="pl">Conclusão</span><p>Os oito requisitos valem. \(\blacksquare\) O padrão é sempre: <b>avalie em \(x\)</b> → use a propriedade em \(\mathbf F\) → volte para funções.</p></div>
+    </div>
+  </div>
+
+  <h2 class="sec"><span class="n">5.4</span> 𝐅ⁿ e 𝐅^∞ como casos de 𝐅^S</h2>
+  <div class="prose">
+    <figure class="fig" data-f="fnDiscreta"><figcaption>\(\mathbf F^n=\mathbf F^{\{1,\dots,n\}}\): a lista é a função \(k\mapsto x_k\).</figcaption></figure>
+    <p>Com \(S=\{1,\dots,n\}\), uma função \(x:S\to\mathbf F\) é uma lista \((x(1),\dots,x(n))\), e a soma ponto a ponto é a soma coordenada a coordenada. Com \(S=\{1,2,3,\dots\}\), obtemos \(\mathbf F^\infty\). Então o teorema da seção 5.3 prova, <b>de uma vez</b>, que \(\mathbf F^n\), \(\mathbf F^\infty\) e \(\mathbf R^{[0,1]}\) são espaços vetoriais. Esse é o poder da abstração.</p>
+    <div class="box obs"><div class="bl">Teoria extra · e se S = ∅?</div><p>Existe exatamente <b>uma</b> função de \(\varnothing\) em \(\mathbf F\) (a função vazia: não há nada a associar). Então \(\mathbf F^{\varnothing}\) tem um único elemento e é o espaço \(\{0\}\): também é espaço vetorial. O Axler exige \(S\ne\varnothing\) só para não se preocupar com esse caso degenerado.</p></div>
+  </div>
+
+  <div class="fase"><b>3</b> Exemplo resolvido em camadas</div>
+  <div class="caso"><div class="bl">Problema</div><h3>Uma equação vetorial em ℝ^ℝ</h3>
+    <p>Em \(\mathbf R^{\mathbf R}\), sejam \(f(x)=x^2\) e \(g(x)=\operatorname{sen}x\). (a) Calcule \(3f-2g\) e o seu valor em \(\pi\). (b) Ache o vetor \(h\in\mathbf R^{\mathbf R}\) com \(f+h=g\) e explique por que ele é único.</p>
+    <div class="steps">
+      <div class="st"><span class="pl">a) Estratégia de modelagem</span><p>Cada “vetor” é uma função inteira. As contas se fazem ponto a ponto (definição 1.24). A equação \(f+h=g\) é resolvida como em qualquer espaço vetorial: somando \(-f\) dos dois lados.</p></div>
+      <div class="st"><span class="pl">b) Execução</span><p>\((3f-2g)(x)=3f(x)-2g(x)=3x^2-2\operatorname{sen}x\). Em \(\pi\): \(3\pi^2-0=3\pi^2\approx29{,}61\).</p><p>Somando \(-f\) dos dois lados de \(f+h=g\):</p><div class="m">\[(-f)+(f+h)=(-f)+g\ \Rightarrow\ ((-f)+f)+h=g+(-f)\ \Rightarrow\ 0+h=g-f\ \Rightarrow\ h=g-f\]</div><p>(associatividade, inverso, identidade; comutatividade no lado direito). Ou seja, \(h(x)=\operatorname{sen}x-x^2\).</p></div>
+      <div class="st"><span class="pl">c) Análise crítica</span><p>A “incógnita” \(h\) é uma função inteira, não um número. A unicidade decorre de cada passo ser uma consequência obrigatória da hipótese: qualquer \(h\) que satisfaça \(f+h=g\) <b>tem</b> que ser \(g-f\). Graficamente, \(h\) é a distância vertical (com sinal) do gráfico de \(f\) ao de \(g\) em cada ponto: onde \(h(x)>0\), a senoide está acima da parábola.</p></div>
+    </div>
+  </div>
+
+  <div class="fase"><b>4</b> Pausa interativa</div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"m5c","tipo":"desafio conceitual"}'>
+    <div class="pq"><p><b>Desafio conceitual.</b> Em \(\mathbf R^{[0,1]}\), o vetor nulo é o número 0? Explique a diferença entre “o número 0” e “o vetor 0 de \(\mathbf R^{[0,1]}\)”. Depois responda: a função \(f(x)=x-\tfrac12\) se anula em \(x=\tfrac12\); ela é o vetor nulo?</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Não é o número</span><p>O vetor nulo de \(\mathbf R^{[0,1]}\) é a <b>função</b> \(0:[0,1]\to\mathbf R\) com \(0(x)=0\) para todo \(x\). É um elemento de \(\mathbf R^{[0,1]}\); o número 0 é um elemento de \(\mathbf R\). Objetos de tipos diferentes.</p></div>
+      <div class="st"><span class="pl">f não é o vetor nulo</span><p>Ser o vetor nulo exige \(f(x)=0\) para <b>todo</b> \(x\in[0,1]\). Mas \(f(0)=-\tfrac12\ne0\). Anular-se em um ponto não basta.</p></div>
+    </div></div>
+  </div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"m5t","tipo":"exercício técnico"}'>
+    <div class="pq"><p><b>Exercício técnico.</b> Em \(\mathbf R^\infty\), sejam \(x=(1,1,1,\dots)\) e \(z=(1,2,3,\dots)\) (isto é, \(z_k=k\)). Ache \(y\in\mathbf R^\infty\) com \(x+2y=z\), justificando os passos, e escreva os 4 primeiros termos de \(y\).</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Isolar y</span><p>Somando \(-x\): \(2y=z-x\). Multiplicando pelo escalar \(\tfrac12\) (e usando \((\tfrac12\cdot2)y=\tfrac12(2y)\) e \(1y=y\)): \(y=\tfrac12(z-x)\).</p></div>
+      <div class="st"><span class="pl">Termo a termo</span><p>\(y_k=\frac{k-1}{2}\): \(y=(0,\ \tfrac12,\ 1,\ \tfrac32,\dots)\). Conferência: \(x_k+2y_k=1+(k-1)=k\) ✓.</p></div>
+    </div></div>
+  </div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m5v1" data-ans="A"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Se \(f(x)=2x\) e \(g(x)=1-x\) em \(\mathbf R^{\mathbf R}\), então \((f+g)(3)\) vale:</p>
+      <ol class="opts"><li>4</li><li>7</li><li>\(-2\)</li><li>10</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(f(3)+g(3)=6+(-2)=4\).</p></div></div><p class="rev">Revise: <a href="#m5-s2">5.2</a></p></div>
+    <div class="q" data-id="m5v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>O vetor nulo de \(\mathbf F^\infty\) é:</p>
+      <ol class="opts"><li>\((0,0,0,\dots)\)</li><li>o número 0</li><li>\((1,1,1,\dots)\)</li><li>não existe</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>A sequência de zeros.</p></div></div><p class="rev">Revise: <a href="#m5-s1">5.1</a></p></div>
+    <div class="q" data-id="m5v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>Para provar \(f+g=g+f\) em \(\mathbf F^S\), o passo essencial é:</p>
+      <ol class="opts"><li>derivar \(f\) e \(g\)</li><li>escolher \(S\) finito</li><li>usar a unicidade do zero</li><li>avaliar em um \(x\) arbitrário e usar a comutatividade de \(\mathbf F\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Igualdade de funções = igualdade em todo ponto.</p></div></div><p class="rev">Revise: <a href="#m5-s3">5.3</a></p></div>
+    <div class="q" data-id="m5v4" data-ans="B"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>O inverso aditivo de \(f(x)=e^x\) em \(\mathbf R^{\mathbf R}\) é:</p>
+      <ol class="opts"><li>\(e^{-x}\)</li><li>\(-e^x\)</li><li>\(\ln x\)</li><li>\(\frac{1}{e^x}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((-f)(x)=-f(x)=-e^x\). (\(e^{-x}\) seria um inverso “multiplicativo”, que não tem papel aqui.)</p></div></div><p class="rev">Revise: <a href="#m5-s3">5.3</a></p></div>
+    <div class="q" data-id="m5v5" data-ans="C"><div class="qh"><span class="qn">Verificação 5</span><span class="tag d">difícil</span></div><p>\(\mathbf F^{\{1,2,3\}}\) é, na prática:</p>
+      <ol class="opts"><li>\(\mathbf F\)</li><li>\(\mathbf F^\infty\)</li><li>\(\mathbf F^3\)</li><li>vazio</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Uma função de \(\{1,2,3\}\) em \(\mathbf F\) é uma lista de 3 números.</p></div></div><p class="rev">Revise: <a href="#m5-s4">5.4</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida do módulo</p></div></div>
+    <div class="q dq" data-id="m5d1" data-ans="B"><p>Em \((f+g)(x)=f(x)+g(x)\), o “+” do lado direito é:</p><ol class="opts"><li>soma de funções</li><li>soma de números em \(\mathbf F\)</li><li>composição</li><li>produto</li></ol><div class="why" hidden>A soma de funções é definida usando a soma de \(\mathbf F\).</div></div>
+    <div class="q dq" data-id="m5d2" data-ans="D"><p>\(\mathbf F^{\varnothing}\) é:</p><ol class="opts"><li>vazio</li><li>\(\mathbf F\)</li><li>\(\mathbf F^\infty\)</li><li>o espaço \(\{0\}\) (só a função vazia)</li></ol><div class="why" hidden>Há exatamente uma função de \(\varnothing\) em \(\mathbf F\).</div></div>
+    <div class="q dq" data-id="m5d3" data-ans="A"><p>O teorema “\(\mathbf F^S\) é espaço vetorial” prova de uma vez que:</p><ol class="opts"><li>\(\mathbf F^n\), \(\mathbf F^\infty\) e \(\mathbf R^{[0,1]}\) são espaços vetoriais</li><li>só \(\mathbf R^{[0,1]}\) é</li><li>toda função é linear</li><li>\(S\) é finito</li></ol><div class="why" hidden>Escolhendo \(S=\{1,\dots,n\}\), \(\{1,2,\dots\}\) ou \([0,1]\).</div></div>
+  </div>
+</div>
+</section>

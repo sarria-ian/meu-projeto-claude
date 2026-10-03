@@ -1,0 +1,119 @@
+<section class="page mod" id="m7" data-num="7" data-part="Parte I · Seção 1B do Axler" data-short="0v = 0, a0 = 0 e (−1)v = −v (1.30–1.32)" data-title="1.30–1.32 · O número 0 vezes um vetor, um número vezes o vetor 0 e (−1)v = −v" data-icon="mirror" data-desc="Os dois zeros, por que a distributiva é obrigatória, provas interativas de 1.30 e 1.32, regras de sinal derivadas e como resolver equações vetoriais justificando cada passo.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>distinguir o escalar 0 do vetor 0 em cada fórmula;</li>
+    <li>provar 1.30, 1.31 e 1.32, explicando o papel das distributivas e de 1.27;</li>
+    <li>derivar as regras de sinal \(-(av)=(-a)v=a(-v)\), \((a-b)v=av-bv\) e semelhantes;</li>
+    <li>resolver equações vetoriais citando o axioma usado em cada passo.</li></ul></div>
+
+  <h2 class="sec"><span class="n">7.1</span> Dois zeros diferentes</h2>
+  <div class="fase"><b>1</b> Intuição e conceito central</div>
+  <div class="prose">
+    <div class="two">
+      <div class="box obs"><div class="bl">1.30 · \(0v=0\)</div><p>À esquerda: o <b>número</b> \(0\in\mathbf F\). À direita: o <b>vetor</b> \(0\in V\). “Esticar qualquer vetor por um fator zero dá o vetor nulo.”</p></div>
+      <div class="box obs"><div class="bl">1.31 · \(a0=0\)</div><p>Dos dois lados: o <b>vetor</b> \(0\in V\). “Esticar o vetor nulo por qualquer fator continua dando o vetor nulo.”</p></div>
+    </div>
+    <div class="box tip"><div class="bl">Por que não é óbvio</div><p>Nenhum dos oito requisitos menciona \(0v\). A palavra “zero” aparece em dois mundos diferentes (o corpo \(\mathbf F\) e o espaço \(V\)) e a definição não diz como eles se relacionam. Como 1.30 mistura multiplicação por escalar com a identidade aditiva, e <b>só as distributivas</b> ligam as duas operações (mapa do Módulo 4), a prova é obrigada a usar uma distributiva.</p></div>
+    <div class="box obs"><div class="bl">Imagem física</div><p>Pense em vetores como forças. \(0v\): aplicar “zero vezes” a força \(v\) não empurra nada. \(a0\): multiplicar “nenhuma força” por qualquer número continua sem empurrar. Fisicamente óbvio; matematicamente, precisa ser deduzido dos axiomas, porque os axiomas são tudo o que sabemos sobre um \(V\) abstrato (que pode ser \(\mathbf R_+\) com o zero igual a 1!).</p></div>
+  </div>
+
+  <div class="fase"><b>2</b> Demonstração guiada</div>
+  <div class="prose">
+    <p><b>1.30.</b> Para todo \(v\in V\), \(0v=0\).</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · o truque: 0 = 0 + 0 em 𝐅</span><div class="m">\[0v=(0+0)v\]</div><p>(Substituímos o <b>escalar</b> 0 por \(0+0\), que é igual a ele no corpo.)</p></div>
+      <div class="st"><span class="pl">Passo 2 · distributiva \((a+b)v=av+bv\) com \(a=b=0\)</span><div class="m">\[(0+0)v=0v+0v\]</div><p>Juntando: \(0v=0v+0v\). Chame \(u=0v\): temos \(u=u+u\). Um vetor que é igual a si mesmo mais si mesmo… só pode ser o zero. Vamos provar.</p></div>
+      <div class="st"><span class="pl">Passo 3 · somar \(-u\) dos dois lados (o que o texto resume em uma frase)</span><div class="m">\[u+(-u)=(u+u)+(-u)\]</div></div>
+      <div class="st"><span class="pl">Passo 4 · simplificar cada lado</span><p>Esquerda: \(u+(-u)=0\) (inverso). Direita: \((u+u)+(-u)=u+(u+(-u))=u+0=u\) (associatividade, inverso, identidade). Logo \(0=u=0v\). \(\blacksquare\)</p></div>
+    </div>
+  </div>
+  <div class="lab" data-w="proofLab" data-o='{"id":"130","linhas":[{"tex":"0v=(0+0)v","ans":"num0","why":"No corpo 𝐅, 0 + 0 = 0; trocamos o escalar 0 por 0 + 0."},{"tex":"(0+0)v=0v+0v","ans":"dis2","why":"Distributiva (a + b)v = av + bv, com a = b = 0."},{"tex":"0v+(-(0v))=(0v+0v)+(-(0v))","ans":"func","why":"De 0v = 0v + 0v, somamos o mesmo vetor −(0v) aos dois lados."},{"tex":"0=(0v+0v)+(-(0v))","ans":"inv","why":"À esquerda, um vetor mais o seu inverso dá o vetor 0."},{"tex":"(0v+0v)+(-(0v))=0v+(0v+(-(0v)))","ans":"ass","why":"Associatividade: reagrupa sem mudar a ordem."},{"tex":"0v+(0v+(-(0v)))=0v+0","ans":"inv","why":"0v + (−0v) = 0 (inverso)."},{"tex":"0v+0=0v","ans":"id","why":"Identidade aditiva."}],"opcoes":[["num0","Conta em 𝐅: 0 + 0 = 0"],["dis2","Distributiva (a + b)v = av + bv"],["dis1","Distributiva a(u + v) = au + av"],["func","Somar o mesmo vetor dos dois lados"],["inv","Inverso aditivo"],["ass","Associatividade"],["id","Identidade aditiva"],["com","Comutatividade"]],"fim":"Lendo a cadeia: 0 = 0v. A distributiva foi indispensável."}'><div class="lt">Prova interativa · 1.30 (todos os passos, inclusive o “some o inverso”)</div><p class="ld">Escolha o motivo de cada igualdade e confira.</p></div>
+  <div class="prose">
+    <p><b>1.31.</b> Para todo \(a\in\mathbf F\), \(a0=0\). A prova é “gêmea”, trocando os papéis:</p>
+    <div class="chain"><span>\(a0\)</span><span class="eqk"><small>identidade (0 + 0 = 0 em V)</small>\(=\)</span><span>\(a(0+0)\)</span><span class="eqk"><small>distributiva a(u+v)</small>\(=\)</span><span>\(a0+a0\)</span></div>
+    <p>e somar \(-(a0)\) aos dois lados dá \(0=a0\). Note a diferença: aqui o “\(0+0\)” é soma de <b>vetores</b> (\(0+0=0\) por ser identidade aditiva), e a distributiva usada é a <b>outra</b>.</p>
+    <p><b>1.32.</b> Para todo \(v\in V\), \((-1)v=-v\).</p>
+    <div class="chain"><span>\(v+(-1)v\)</span><span class="eqk"><small>1v = v</small>\(=\)</span><span>\(1v+(-1)v\)</span><span class="eqk"><small>distributiva</small>\(=\)</span><span>\((1+(-1))v\)</span><span class="eqk"><small>conta em 𝐅</small>\(=\)</span><span>\(0v\)</span><span class="eqk"><small>1.30</small>\(=\)</span><span>\(0\)</span></div>
+    <p>Então \((-1)v\) somado a \(v\) dá 0: é <b>um</b> inverso aditivo de \(v\). Por 1.27 só existe um, chamado \(-v\). Logo \((-1)v=-v\). \(\blacksquare\)</p>
+  </div>
+  <div class="lab" data-w="proofLab" data-o='{"id":"132","linhas":[{"tex":"v+(-1)v=1v+(-1)v","ans":"um","why":"Identidade multiplicativa: v = 1v."},{"tex":"1v+(-1)v=(1+(-1))v","ans":"dis2","why":"Distributiva (a + b)v = av + bv, lida da direita para a esquerda."},{"tex":"(1+(-1))v=0v","ans":"num","why":"No corpo: 1 + (−1) = 0."},{"tex":"0v=0","ans":"r130","why":"Resultado 1.30."}],"opcoes":[["um","Identidade multiplicativa (1v = v)"],["dis2","Distributiva (a + b)v = av + bv"],["num","Conta em 𝐅: 1 + (−1) = 0"],["r130","Resultado 1.30 (0v = 0)"],["inv","Inverso aditivo"],["ass","Associatividade"]],"fim":"(−1)v é um inverso aditivo de v; por 1.27 é O inverso: (−1)v = −v."}'><div class="lt">Prova interativa · 1.32</div><p class="ld">Justifique cada igualdade. Repare onde 1.30 e 1.27 entram.</p></div>
+
+  <h2 class="sec"><span class="n">7.2</span> Teoria extra: regras de sinal</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Proposição (não está no texto, mas é usada sempre)</div><p>Para \(a,b\in\mathbf F\) e \(v,w\in V\):</p>
+      <div class="sym">
+        <span>(i)</span><span>\(-(av)=(-a)v=a(-v)\)</span>
+        <span>(ii)</span><span>\((a-b)v=av-bv\)</span>
+        <span>(iii)</span><span>\(a(v-w)=av-aw\)</span>
+        <span>(iv)</span><span>\(-(v+w)=(-v)+(-w)\) e \(-(-v)=v\)</span>
+        <span>(v)</span><span>\(-0=0\)</span>
+      </div></div>
+    <details class="demo" open><summary>Prova de (i) e (ii)</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">(i) primeira igualdade</span><p>\(av+(-a)v=(a+(-a))v=0v=0\) (distributiva, conta em \(\mathbf F\), 1.30). Então \((-a)v\) é inverso de \(av\); por 1.27, \((-a)v=-(av)\).</p></div>
+        <div class="st"><span class="pl">(i) segunda igualdade</span><p>\(av+a(-v)=a(v+(-v))=a0=0\) (distributiva, inverso, 1.31). Então \(a(-v)=-(av)\) por 1.27.</p></div>
+        <div class="st"><span class="pl">(ii)</span><p>\((a-b)v=(a+(-b))v=av+(-b)v=av+(-(bv))=av-bv\) (definição de subtração em \(\mathbf F\), distributiva, item (i), definição 1.28).</p></div>
+        <div class="st"><span class="pl">Esquema que se repete</span><p>Para mostrar que algo é “o inverso de X”, some-o a X, mostre que dá 0 e invoque 1.27. É a técnica de 1.32 e do exercício 1.</p></div>
+      </div></div></details>
+  </div>
+
+  <div class="fase"><b>3</b> Exemplo resolvido em camadas</div>
+  <div class="caso"><div class="bl">Problema</div><h3>Resolver uma equação vetorial com todas as justificativas</h3>
+    <p>Em \(V\), sejam \(v,w\in V\). Resolva \(3x+2v=5w-x\), isto é, ache todos os \(x\in V\) que a satisfazem.</p>
+    <div class="steps">
+      <div class="st"><span class="pl">a) Estratégia de modelagem</span><p>Faremos o que faríamos com números: juntar os \(x\) de um lado, passar \(2v\) para o outro e dividir por 4. Mas em \(V\) não existe “passar para o outro lado” nem “dividir um vetor”: cada movimento precisa ser traduzido em somar vetores aos dois lados ou multiplicar pelo escalar \(\tfrac14\), sempre com um axioma.</p></div>
+      <div class="st"><span class="pl">b) Execução</span>
+        <p><b>1. Somar \(x\) dos dois lados.</b> Direita: \((5w-x)+x=5w+((-x)+x)=5w+0=5w\) (def. de subtração, associatividade, inverso com comutatividade, identidade). Esquerda: \((3x+2v)+x=3x+(2v+x)=3x+(x+2v)=(3x+x)+2v\) (associatividade, comutatividade, associatividade).</p>
+        <p><b>2. Juntar os \(x\).</b> \(3x+x=3x+1x=(3+1)x=4x\) (\(1x=x\), distributiva). Temos \(4x+2v=5w\).</p>
+        <p><b>3. Somar \(-(2v)\).</b> \((4x+2v)+(-(2v))=4x+(2v+(-(2v)))=4x+0=4x\). Logo \(4x=5w-2v\).</p>
+        <p><b>4. Multiplicar pelo escalar \(\tfrac14\).</b> \(\tfrac14(4x)=(\tfrac14\cdot4)x=1x=x\) (associatividade do escalar, conta em \(\mathbf F\), identidade multiplicativa). Do outro lado: \(\tfrac14(5w-2v)=\tfrac14(5w)+\tfrac14(-(2v))=\tfrac54w-\tfrac12v\) (distributiva, associatividade do escalar e a regra (i)).</p>
+        <div class="m">\[x=\tfrac54\,w-\tfrac12\,v\]</div></div>
+      <div class="st"><span class="pl">c) Análise crítica</span><p><b>Única:</b> cada passo foi reversível (somar vetores e multiplicar por escalar não nulo), então toda solução tem que ser essa, e ela de fato funciona. <b>O que se usou de \(\mathbf F\):</b> a existência de \(\tfrac14\), que exige um corpo (com escalares inteiros não daria). <b>O que nunca se fez:</b> multiplicar vetores entre si. Com \(V=\mathbf R^2\), \(v=(2,0)\), \(w=(0,4)\): \(x=(-1,5)\); confira: \(3(-1,5)+(4,0)=(1,15)\) e \(5(0,4)-(-1,5)=(1,15)\) ✓.</p></div>
+    </div>
+  </div>
+
+  <div class="fase"><b>4</b> Pausa interativa</div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"m7c","tipo":"desafio conceitual"}'>
+    <div class="pq"><p><b>Desafio conceitual.</b> 1.30 (\(0v=0\)) e 1.31 (\(a0=0\)) têm provas quase iguais. Explique com precisão o que muda: qual “zero” aparece em cada lugar, qual igualdade “\(0=0+0\)” é usada (em que conjunto) e qual distributiva entra em cada uma. Por que uma não é caso particular da outra?</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">1.30</span><p>Varia o vetor \(v\), o escalar é o <b>número</b> 0. Usa \(0=0+0\) <b>em \(\mathbf F\)</b> e a distributiva \((a+b)v=av+bv\) (soma de escalares).</p></div>
+      <div class="st"><span class="pl">1.31</span><p>Varia o escalar \(a\), o vetor é o <b>vetor</b> 0. Usa \(0=0+0\) <b>em \(V\)</b> (identidade aditiva com \(v=0\)) e a distributiva \(a(u+v)=au+av\) (soma de vetores).</p></div>
+      <div class="st"><span class="pl">Por que são independentes</span><p>Os objetos multiplicados são de tipos diferentes e as distributivas usadas são axiomas distintos. Conhecer \(0v\) para todo \(v\) não diz nada sobre \(a0\) para \(a\ne0\), e vice-versa.</p></div>
+    </div></div>
+  </div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"m7t","tipo":"exercício técnico"}'>
+    <div class="pq"><p><b>Exercício técnico.</b> Prove que \(a(-v)=-(av)\) para todo \(a\in\mathbf F\) e \(v\in V\), citando cada axioma ou resultado usado. Depois resolva em \(V\) a equação \(2(x-v)=x+w\).</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Prova</span><div class="chain"><span>\(av+a(-v)\)</span><span class="eqk"><small>distributiva</small>\(=\)</span><span>\(a(v+(-v))\)</span><span class="eqk"><small>inverso</small>\(=\)</span><span>\(a0\)</span><span class="eqk"><small>1.31</small>\(=\)</span><span>\(0\)</span></div><p>Então \(a(-v)\) é um inverso aditivo de \(av\); por 1.27, \(a(-v)=-(av)\).</p></div>
+      <div class="st"><span class="pl">Equação</span><p>\(2(x-v)=2x-2v\) (regra (iii)). Então \(2x-2v=x+w\). Somando \(-x+2v\) aos dois lados (com associatividade/comutatividade): \(2x-x=w+2v\), e \(2x-x=(2-1)x=x\). Logo \(x=w+2v\).</p><p>Conferência: \(2((w+2v)-v)=2(w+v)=2w+2v\) e \((w+2v)+w=2w+2v\) ✓.</p></div>
+    </div></div>
+  </div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m7v1" data-ans="A"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Em \(0v=0\), o zero da esquerda é:</p>
+      <ol class="opts"><li>um escalar (elemento de \(\mathbf F\))</li><li>o vetor nulo</li><li>uma função</li><li>o conjunto vazio</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Multiplica \(v\): é escalar.</p></div></div><p class="rev">Revise: <a href="#m7-s1">7.1</a></p></div>
+    <div class="q" data-id="m7v2" data-ans="C"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>Qual requisito <b>tem</b> que aparecer na prova de \(0v=0\)?</p>
+      <ol class="opts"><li>comutatividade</li><li>\(1v=v\)</li><li>uma distributiva</li><li>associatividade do escalar</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Só as distributivas ligam escalar e soma de vetores.</p></div></div><p class="rev">Revise: <a href="#m7-s1">7.1</a></p></div>
+    <div class="q" data-id="m7v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>Na prova de \((-1)v=-v\), qual resultado garante que “um” inverso é “o” inverso?</p>
+      <ol class="opts"><li>1.26</li><li>1.30</li><li>1.31</li><li>1.27</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Unicidade do inverso aditivo.</p></div></div><p class="rev">Revise: <a href="#m7-s1">7.1</a></p></div>
+    <div class="q" data-id="m7v4" data-ans="B"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>A solução de \(3x+2v=5w-x\) é:</p>
+      <ol class="opts"><li>\(x=5w-2v\)</li><li>\(x=\frac54w-\frac12v\)</li><li>\(x=\frac53w-\frac23v\)</li><li>não existe</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(4x=5w-2v\) e multiplicar por \(\frac14\).</p></div></div><p class="rev">Revise: <a href="#m7-s2">exemplo em camadas</a></p></div>
+    <div class="q" data-id="m7v5" data-ans="A"><div class="qh"><span class="qn">Verificação 5</span><span class="tag d">difícil</span></div><p>\((a-b)v=av-bv\) usa, além da distributiva:</p>
+      <ol class="opts"><li>\((-b)v=-(bv)\)</li><li>comutatividade da soma de vetores, apenas</li><li>1.26</li><li>nada mais</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((a+(-b))v=av+(-b)v\) e \((-b)v=-(bv)\) pela regra (i).</p></div></div><p class="rev">Revise: <a href="#m7-s2">7.2</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida do módulo</p></div></div>
+    <div class="q dq" data-id="m7d1" data-ans="B"><p>Em \(a0=0\), o “\(0=0+0\)” usado na prova acontece:</p><ol class="opts"><li>em \(\mathbf F\)</li><li>em \(V\) (identidade aditiva)</li><li>em ℕ</li><li>não é usado</li></ol><div class="why" hidden>É soma de vetores: \(0+0=0\) em \(V\).</div></div>
+    <div class="q dq" data-id="m7d2" data-ans="D"><p>Para mostrar que X é o inverso de Y, a técnica padrão é:</p><ol class="opts"><li>multiplicar X por Y</li><li>usar o determinante</li><li>mostrar X = Y</li><li>mostrar X + Y = 0 e aplicar 1.27</li></ol><div class="why" hidden>Técnica de 1.32 e do exercício 1.</div></div>
+    <div class="q dq" data-id="m7d3" data-ans="A"><p>Resolver \(4x=u\) em \(V\) exige:</p><ol class="opts"><li>o escalar \(\frac14\) existir em \(\mathbf F\)</li><li>dividir vetores</li><li>que \(u=0\)</li><li>comutatividade do escalar</li></ol><div class="why" hidden>\(x=\frac14u\); precisa de inverso em \(\mathbf F\).</div></div>
+  </div>
+</div>
+</section>

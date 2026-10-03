@@ -1,0 +1,25 @@
+"""Confere com sympy as respostas numéricas das listas e de contas dos módulos."""
+from sympy import *
+R=[]
+def ok(n,c): R.append((n,bool(c)))
+z=symbols('z'); x=symbols('x')
+ok('L1-1', expand((2-3*I)+(-5+I))==-3-2*I and expand((2-3*I)*(-5+I))==-7+17*I)
+ok('L1-2', I**7==-I and I**100==1 and 1/I==-I)
+ok('L1-3', simplify((2+I)/(1-I)-(Rational(1,2)+Rational(3,2)*I))==0)
+ok('L1-4', solve((2+I)*z+3-4*I,z)==[Rational(-2,5)+Rational(11,5)*I])
+ok('L1-5', set(solve(z**2+9,z))=={3*I,-3*I} and set(solve(z**2-2*I,z))=={1+I,-1-I})
+a,b,c,d=symbols('a b c d',real=True)
+ok('L1-6', simplify(conjugate((a+b*I)*(c+d*I))-conjugate(a+b*I)*conjugate(c+d*I))==0)
+al=1+2*I; ok('L1-7', expand(al*conjugate(al))==5 and simplify(1/al-(Rational(1,5)-Rational(2,5)*I))==0)
+v=Matrix([2,0,0])-I*Matrix([I,1,1+I])+Matrix([0,2*I,0]); ok('L2-1', v.expand()==Matrix([3,I,1-I]))
+ok('L2-2', (Matrix([4,-1,0])-Matrix([1,2,3]))/3==Matrix([1,-1,-1]))
+ok('L2-5', (a+2-2, b-3+3)==(a,b) and (a+4-a-2, b-6-b+3)==(2,-3))
+ok('L2-7', (2*x**2-3*cos(x)).subs(x,0)==-3 and simplify((2*x**2-3*cos(x)).subs(x,pi)-(2*pi**2+3))==0)
+ok('L3-5', (Matrix([7,-4])-Matrix([1,2]))/3==Matrix([2,-2]))
+ok('L3-7', Rational(3**2,6)==Rational(3,2))
+# módulos
+ok('m2 ex', solve((1+I)*z-(3-I),z)==[1-2*I])
+ok('m2 pausa', I**2026==-1 and expand((1+I)**4)==-4 and simplify(1/(3+4*I)-(Rational(3,25)-Rational(4,25)*I))==0)
+x3=Matrix([1+I,2-I]);y3=Matrix([I,3]);ok('m3 ex',(2*x3-I*y3).expand()==Matrix([3+2*I,4-5*I]) and ((1+I)*Matrix([-1+I,1])+Matrix([2,-I])).expand()==Matrix([0,1]))
+for n,r in R: print(('OK ' if r else 'FALHOU ')+n)
+print(sum(r for _,r in R),'/',len(R))

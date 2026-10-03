@@ -1,0 +1,111 @@
+<section class="page mod" id="m2" data-num="2" data-part="Parte 0 · Pré-requisitos" data-short="Números complexos e o corpo 𝐅" data-title="Pré-requisito 2 · Números complexos e o que significa 𝐅" data-icon="circle" data-desc="Definição de ℂ, operações, propriedades aritméticas (corpo), inversos, conjugado, módulo, plano complexo e por que os escalares precisam formar um corpo.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>operar com números complexos (soma, produto, inverso, divisão, potências de \(i\));</li>
+    <li>interpretar essas operações no plano complexo (soma = setas; produto = girar e esticar);</li>
+    <li>enunciar e provar as propriedades aritméticas de \(\mathbf C\) que fazem dele um <b>corpo</b>;</li>
+    <li>entender a convenção do Axler: \(\mathbf F\) denota \(\mathbf R\) ou \(\mathbf C\), e por que os escalares precisam ter inversos.</li></ul></div>
+
+  <h2 class="sec"><span class="n">2.1</span> Definição e operações</h2>
+  <div class="fase"><b>1</b> Intuição e conceito central</div>
+  <div class="prose">
+    <p>A equação \(x^2=-1\) não tem solução real. Os complexos nascem de uma decisão: <b>inventar</b> um número \(i\) com \(i^2=-1\) e exigir que as regras usuais de conta (comutar, associar, distribuir) continuem valendo. Geometricamente, isso transforma a reta real num <b>plano</b>.</p>
+    <div class="box def"><div class="bl">Definição</div><p>Um <b>número complexo</b> é uma expressão \(a+bi\) com \(a,b\in\mathbf R\). O conjunto deles é \(\mathbf C=\{a+bi:\ a,b\in\mathbf R\}\). \(a\) é a <b>parte real</b> (\(\operatorname{Re}z\)) e \(b\) a <b>parte imaginária</b> (\(\operatorname{Im}z\)). Dois complexos são iguais quando têm partes reais iguais e partes imaginárias iguais.</p>
+      <div>\[(a+bi)+(c+di)=(a+c)+(b+d)i\]</div>
+      <div>\[(a+bi)(c+di)=(ac-bd)+(ad+bc)i\]</div></div>
+    <details class="demo" open><summary>De onde vem a fórmula do produto (todos os passos)</summary><div>
+      <div class="steps">
+        <div class="st"><span class="pl">Passo 1 · distributiva (cada termo vezes cada termo)</span><div class="m">\[(a+bi)(c+di)=ac+a(di)+(bi)c+(bi)(di)\]</div></div>
+        <div class="st"><span class="pl">Passo 2 · reordenar fatores (comutatividade e associatividade)</span><div class="m">\[=ac+(ad)i+(bc)i+(bd)i^2\]</div></div>
+        <div class="st"><span class="pl">Passo 3 · usar \(i^2=-1\)</span><div class="m">\[=ac+(ad)i+(bc)i-bd\]</div></div>
+        <div class="st"><span class="pl">Passo 4 · agrupar parte real e parte imaginária</span><div class="m">\[=(ac-bd)+(ad+bc)i\]</div><p>A definição do produto é exatamente o que as regras usuais obrigam. Nada foi “inventado” além de \(i^2=-1\).</p></div>
+      </div></div></details>
+    <figure class="fig" data-f="cplano"><figcaption>Plano complexo (de Argand-Gauss): \(a+bi\) é o ponto \((a,b)\). Eixo horizontal: parte real; vertical: parte imaginária.</figcaption></figure>
+    <div class="box def"><div class="bl">Conjugado e módulo</div><p>\(\overline{a+bi}=a-bi\) (reflexão no eixo real) e \(|a+bi|=\sqrt{a^2+b^2}\) (distância à origem). Fato-chave: \(z\bar z=a^2+b^2=|z|^2\), um número real \(\ge0\), que só é 0 quando \(z=0\).</p></div>
+    <div class="box obs"><div class="bl">Potências de i (ciclo de 4)</div><p>\(i^1=i,\ i^2=-1,\ i^3=-i,\ i^4=1\), e depois repete. Para \(i^n\), use o resto de \(n\) por 4: \(i^{2026}=i^{2}=-1\) (pois \(2026=4\cdot506+2\)).</p></div>
+  </div>
+  <div class="lab" data-w="complexLab"><div class="lt">Laboratório: o plano complexo em movimento</div><p class="ld">Escolha \(z\) e \(w\). Veja a soma como soma de setas e o produto como “multiplica os comprimentos e soma os ângulos”. O modo “i · z” mostra por que \(i^2=-1\): girar 90° duas vezes é virar para o lado oposto.</p></div>
+
+  <h2 class="sec"><span class="n">2.2</span> Propriedades aritméticas: ℂ é um corpo</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Propriedades (valem para todos \(\alpha,\beta,\lambda\in\mathbf C\))</div>
+      <div class="sym">
+        <span>comutatividade</span><span>\(\alpha+\beta=\beta+\alpha\) e \(\alpha\beta=\beta\alpha\)</span>
+        <span>associatividade</span><span>\((\alpha+\beta)+\lambda=\alpha+(\beta+\lambda)\) e \((\alpha\beta)\lambda=\alpha(\beta\lambda)\)</span>
+        <span>identidades</span><span>\(\lambda+0=\lambda\) e \(\lambda1=\lambda\)</span>
+        <span>inverso aditivo</span><span>para cada \(\alpha\) existe um único \(\beta\) com \(\alpha+\beta=0\)</span>
+        <span>inverso multiplicativo</span><span>para cada \(\alpha\ne0\) existe um único \(\beta\) com \(\alpha\beta=1\)</span>
+        <span>distributiva</span><span>\(\lambda(\alpha+\beta)=\lambda\alpha+\lambda\beta\)</span>
+      </div>
+      <p>Com isso definimos \(-\alpha\), \(\frac1\alpha=\alpha^{-1}\), \(\beta-\alpha=\beta+(-\alpha)\) e \(\frac\beta\alpha=\beta\cdot\frac1\alpha\).</p></div>
+    <div class="box def"><div class="bl">Corpo (o que \(\mathbf F\) precisa ser)</div><p>Um <b>corpo</b> é um conjunto com soma e produto satisfazendo a lista acima. \(\mathbf R\) e \(\mathbf C\) são corpos; \(\mathbf Z\) (inteiros) <b>não</b> é (2 não tem inverso multiplicativo inteiro). No Axler, \(\mathbf F\) sempre denota \(\mathbf R\) ou \(\mathbf C\); seus elementos são os <b>escalares</b>. Tudo o que provarmos “sobre \(\mathbf F\)” vale nos dois casos ao mesmo tempo.</p></div>
+  </div>
+
+  <div class="fase"><b>2</b> Demonstração guiada</div>
+  <div class="prose">
+    <p><b>Teorema.</b> Todo \(\alpha=a+bi\ne0\) tem inverso multiplicativo, dado por \(\displaystyle\alpha^{-1}=\frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}\,i\). Além disso, ele é único.</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · o denominador não é zero</span><p>\(\alpha\ne0\) significa \((a,b)\ne(0,0)\), logo \(a^2+b^2>0\) (soma de quadrados reais, nem todos nulos). Então as frações fazem sentido.</p></div>
+      <div class="st"><span class="pl">Passo 2 · de onde vem o candidato (intuição)</span><p>Queremos \(\frac1{a+bi}\). Multiplicando em cima e embaixo por \(\bar\alpha=a-bi\): \(\frac{a-bi}{(a+bi)(a-bi)}=\frac{a-bi}{a^2+b^2}\). Isso é só a motivação; a prova é verificar.</p></div>
+      <div class="st"><span class="pl">Passo 3 · verificação (fórmula do produto com \(c=\frac a{a^2+b^2}\), \(d=\frac{-b}{a^2+b^2}\))</span><div class="m">\[\alpha\cdot\alpha^{-1}=\Big(a\cdot\tfrac{a}{a^2+b^2}-b\cdot\tfrac{-b}{a^2+b^2}\Big)+\Big(a\cdot\tfrac{-b}{a^2+b^2}+b\cdot\tfrac{a}{a^2+b^2}\Big)i=\frac{a^2+b^2}{a^2+b^2}+0i=1\]</div></div>
+      <div class="st"><span class="pl">Passo 4 · unicidade</span><p>Se \(\alpha\beta=1\) e \(\alpha\beta'=1\), então</p><div class="chain"><span>\(\beta\)</span><span class="eqk"><small>identidade 1</small>\(=\)</span><span>\(\beta\cdot1\)</span><span class="eqk"><small>\(\alpha\beta'=1\)</small>\(=\)</span><span>\(\beta(\alpha\beta')\)</span><span class="eqk"><small>associat.</small>\(=\)</span><span>\((\beta\alpha)\beta'\)</span><span class="eqk"><small>comut. + \(\alpha\beta=1\)</small>\(=\)</span><span>\(1\cdot\beta'\)</span><span class="eqk"><small>identidade 1</small>\(=\)</span><span>\(\beta'\)</span></div><p>Guarde esse esquema: ele reaparece, com a soma no lugar do produto, na prova de 1.27 (inverso aditivo único).</p></div>
+    </div>
+  </div>
+
+  <div class="fase"><b>3</b> Exemplo resolvido em camadas</div>
+  <div class="caso"><div class="bl">Problema</div><h3>Resolver uma equação linear em ℂ</h3>
+    <p>Ache \(z\in\mathbf C\) com \((1+i)\,z=3-i\). Interprete geometricamente.</p>
+    <div class="steps">
+      <div class="st"><span class="pl">a) Estratégia de modelagem</span><p>É uma equação do 1º grau: “multiplicar por \(1+i\)” deve ser desfeito multiplicando por \((1+i)^{-1}\), que existe porque \(1+i\ne0\) (ℂ é corpo). Então \(z=\frac{3-i}{1+i}\).</p></div>
+      <div class="st"><span class="pl">b) Execução</span><div class="m">\[z=\frac{3-i}{1+i}\cdot\frac{1-i}{1-i}=\frac{(3-i)(1-i)}{1^2+1^2}=\frac{3-3i-i+i^2}{2}=\frac{2-4i}{2}=1-2i\]</div><p>Conferência: \((1+i)(1-2i)=1-2i+i-2i^2=1-i+2=3-i\) ✓.</p></div>
+      <div class="st"><span class="pl">c) Análise crítica</span><p>\(1+i\) tem módulo \(\sqrt2\) e ângulo 45°. Multiplicar por ele estica por \(\sqrt2\) e gira 45°. Então \(z\) é obtido de \(3-i\) desfazendo isso: dividindo o comprimento por \(\sqrt2\) (\(|3-i|=\sqrt{10}\to|z|=\sqrt5\) ✓) e girando −45°. Solução única porque o “coeficiente” é não nulo: exatamente o argumento do exercício 3 da seção 1B (\(v+3x=w\) tem solução única porque 3 é inversível).</p></div>
+    </div>
+  </div>
+
+  <div class="fase"><b>4</b> Pausa interativa</div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"m2c","tipo":"desafio conceitual"}'>
+    <div class="pq"><p><b>Desafio conceitual.</b> Por que \(\mathbf Z\) não é um corpo? Imagine que “escalares” fossem só inteiros: qual passo da prova de “se \(av=0\) e \(a\ne0\), então \(v=0\)” (exercício 2 da seção 1B) deixaria de funcionar?</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">Por que ℤ não é corpo</span><p>Falha o inverso multiplicativo: não existe inteiro \(\beta\) com \(2\beta=1\).</p></div>
+      <div class="st"><span class="pl">Onde a prova quebra</span><p>A prova faz \(v=1v=(a^{-1}a)v=a^{-1}(av)=a^{-1}0=0\). O passo-chave usa \(a^{-1}\), que precisa ser um <b>escalar</b>. Com escalares inteiros e \(a=2\), não há \(a^{-1}\).</p></div>
+      <div class="st"><span class="pl">Consequência real</span><p>Em estruturas “sobre ℤ” (como \(\mathbf Z/2\mathbf Z\) visto com escalares inteiros) pode acontecer \(2v=0\) com \(v\ne0\). Por isso a definição de espaço vetorial exige escalares num corpo.</p></div>
+    </div></div>
+  </div>
+  <div class="pausa" data-w="pausa" data-o='{"id":"m2t","tipo":"exercício técnico"}'>
+    <div class="pq"><p><b>Exercício técnico.</b> Calcule (a) \(i^{2026}\); (b) \((1+i)^4\); (c) \(\dfrac{1}{3+4i}\); (d) o módulo de \((1+i)^4\) e confira com \(|1+i|^4\).</p></div>
+    <div class="psol"><div class="steps">
+      <div class="st"><span class="pl">a)</span><p>\(2026=4\cdot506+2\Rightarrow i^{2026}=i^2=-1\).</p></div>
+      <div class="st"><span class="pl">b)</span><div class="m">\[(1+i)^2=1+2i+i^2=2i\Rightarrow(1+i)^4=(2i)^2=4i^2=-4\]</div></div>
+      <div class="st"><span class="pl">c)</span><div class="m">\[\frac{1}{3+4i}=\frac{3-4i}{9+16}=\frac{3}{25}-\frac{4}{25}i\]</div></div>
+      <div class="st"><span class="pl">d)</span><p>\(|-4|=4\) e \(|1+i|^4=(\sqrt2)^4=4\) ✓ (módulos se multiplicam).</p></div>
+    </div></div>
+  </div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m2v1" data-ans="A"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>\((2+3i)(1-i)\) é:</p>
+      <ol class="opts"><li>\(5+i\)</li><li>\(-1+i\)</li><li>\(2-3i\)</li><li>\(5-i\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[2-2i+3i-3i^2=2+i+3=5+i\]</div></div></div><p class="rev">Revise: <a href="#m2-s1">2.1</a></p></div>
+    <div class="q" data-id="m2v2" data-ans="C"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(i^{7}\) vale:</p>
+      <ol class="opts"><li>\(i\)</li><li>1</li><li>\(-i\)</li><li>\(-1\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(7=4+3\Rightarrow i^7=i^3=-i\).</p></div></div><p class="rev">Revise: <a href="#m2-s1">2.1 Potências</a></p></div>
+    <div class="q" data-id="m2v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>O inverso de \(1-i\) é:</p>
+      <ol class="opts"><li>\(1+i\)</li><li>\(-1+i\)</li><li>\(\frac12-\frac12i\)</li><li>\(\frac12+\frac12i\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><div class="m">\[\frac{1}{1-i}=\frac{1+i}{1+1}=\frac12+\frac12i\]</div></div></div><p class="rev">Revise: <a href="#m2-s2">2.2</a></p></div>
+    <div class="q" data-id="m2v4" data-ans="B"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Multiplicar um complexo por \(i\) corresponde, no plano, a:</p>
+      <ol class="opts"><li>refletir no eixo real</li><li>girar 90° no sentido anti-horário</li><li>dobrar o comprimento</li><li>somar 1 à parte imaginária</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(i(a+bi)=-b+ai\): o ponto \((a,b)\) vai para \((-b,a)\), rotação de 90°.</p></div></div><p class="rev">Revise: <a href="#m2-s1">laboratório 2.1</a></p></div>
+    <div class="q" data-id="m2v5" data-ans="C"><div class="qh"><span class="qn">Verificação 5</span><span class="tag d">difícil</span></div><p>Qual destes conjuntos (com soma e produto usuais) é um corpo?</p>
+      <ol class="opts"><li>\(\mathbf Z\)</li><li>\(\mathbf N\)</li><li>\(\mathbf Q\) (racionais)</li><li>números reais positivos</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\mathbf Q\) tem todos os inversos aditivos e multiplicativos (não nulos). \(\mathbf Z\) e \(\mathbf N\) falham inversos; os positivos não têm 0 nem opostos.</p></div></div><p class="rev">Revise: <a href="#m2-s2">2.2 Corpo</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida do módulo</p></div></div>
+    <div class="q dq" data-id="m2d1" data-ans="B"><p>\(z\bar z\) é sempre:</p><ol class="opts"><li>imaginário puro</li><li>real e \(\ge0\)</li><li>igual a \(z^2\)</li><li>1</li></ol><div class="why" hidden>\((a+bi)(a-bi)=a^2+b^2\).</div></div>
+    <div class="q dq" data-id="m2d2" data-ans="A"><p>No Axler, \(\mathbf F\) denota:</p><ol class="opts"><li>\(\mathbf R\) ou \(\mathbf C\)</li><li>só \(\mathbf C\)</li><li>qualquer conjunto</li><li>as funções</li></ol><div class="why" hidden>Convenção do livro: resultados “sobre \(\mathbf F\)” valem para reais e complexos.</div></div>
+    <div class="q dq" data-id="m2d3" data-ans="D"><p>No produto de complexos, os ângulos:</p><ol class="opts"><li>se multiplicam</li><li>se subtraem</li><li>não mudam</li><li>se somam</li></ol><div class="why" hidden>Comprimentos se multiplicam e ângulos se somam.</div></div>
+  </div>
+</div>
+</section>
