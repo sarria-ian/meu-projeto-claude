@@ -1,0 +1,111 @@
+<section class="page mod" id="m1" data-num="1" data-part="Parte I · Vetores (Anton 3.1)" data-short="Vetores geométricos" data-title="Vetores geométricos: setas, pontos e componentes" data-icon="vec" data-desc="Escalar × vetor, vetores equivalentes, soma pela regra do paralelogramo e do triângulo, diferença, múltiplos, coordenadas no plano e no espaço e o vetor entre dois pontos.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>distinguir grandezas escalares de vetoriais e dizer quando dois vetores são equivalentes;</li>
+    <li>somar, subtrair e multiplicar vetores por escalares no desenho (paralelogramo e triângulo);</li>
+    <li>marcar pontos no espaço tridimensional e reconhecer octantes, planos e eixos coordenados;</li>
+    <li>calcular os componentes do vetor que vai de \(P_1\) a \(P_2\): \(\overrightarrow{P_1P_2}=P_2-P_1\).</li></ul></div>
+
+  <div class="box tip"><div class="bl">Como usar esta apostila</div><p>Ela junta três fontes: a Seção 3.1 do Anton (vetores), a Seção 1 do Elon Lages Lima (espaços vetoriais) e as Seções 2.2 e 2.3 do Anton (determinantes). Os módulos 1–2 tratam dos vetores, 3–4 dos espaços vetoriais e 5–8 dos determinantes. As <a href="#listas">Listas</a> trazem <b>todos</b> os exercícios dessas seções resolvidos passo a passo.</p></div>
+
+  <h2 class="sec"><span class="n">1.1</span> Escalares e vetores</h2>
+  <div class="prose">
+    <p>Algumas grandezas ficam totalmente descritas por <b>um número</b>: temperatura, massa, tempo, área. São os <b>escalares</b>. Outras precisam de um número <b>e</b> de uma orientação: um deslocamento de 5 km <i>para o norte</i>, uma força de 10 N <i>para baixo</i>, uma velocidade de 80 km/h <i>rumo a leste</i>. São os <b>vetores</b>.</p>
+    <div class="box def"><div class="bl">Vetor geométrico</div><p>É uma <b>seta</b> (segmento orientado). Ela tem <b>comprimento</b> (o “tamanho”), <b>direção</b> (a reta em que está apoiada) e <b>sentido</b> (para que lado da reta aponta). O começo é o <b>ponto inicial</b>; a ponta, o <b>ponto final</b>. Notação: \(\mathbf v=\overrightarrow{AB}\) (de \(A\) para \(B\)).</p></div>
+    <div class="box def"><div class="bl">Vetores equivalentes</div><p>Duas setas com mesmo comprimento, mesma direção e mesmo sentido representam o <b>mesmo vetor</b>, mesmo que comecem em lugares diferentes. Escrevemos \(\mathbf v=\mathbf w\). Pense no vetor como uma “instrução de movimento”: “ande 3 para a direita e 1 para cima” é a mesma instrução, de onde quer que você parta.</p></div>
+    <div class="box obs"><div class="bl">Vetor nulo</div><p>O vetor \(\mathbf 0\) tem comprimento zero (início = fim). Ele não tem direção nem sentido definidos; por convenção, é considerado <b>paralelo a todos</b> os vetores. Isso explica respostas como “\(t=0\)” no Exercício 22 da Lista 2.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">1.2</span> Soma: paralelogramo e triângulo</h2>
+  <div class="prose">
+    <div class="two">
+      <div class="box def"><div class="bl">Regra do paralelogramo</div><p>Coloque \(\mathbf v\) e \(\mathbf w\) com o mesmo ponto inicial. \(\mathbf v+\mathbf w\) é a diagonal do paralelogramo que eles formam, saindo desse ponto.</p></div>
+      <div class="box def"><div class="bl">Regra do triângulo</div><p>Coloque o início de \(\mathbf w\) na ponta de \(\mathbf v\). \(\mathbf v+\mathbf w\) vai do início de \(\mathbf v\) até a ponta de \(\mathbf w\). (“Ande \(\mathbf v\), depois ande \(\mathbf w\).”)</p></div>
+    </div>
+    <figure class="fig" data-f="paralelogramo"><figcaption>As duas regras dão o mesmo vetor: \((4,1)+(1,3)=(5,4)\). O paralelogramo também mostra que \(\mathbf v+\mathbf w=\mathbf w+\mathbf v\): os dois caminhos pela borda chegam ao mesmo ponto.</figcaption></figure>
+    <p><b>Somando vários:</b> encadeie as setas “ponta com início”; a soma vai do primeiro início até a última ponta. A ordem e o agrupamento não importam (associatividade): \((\mathbf u+\mathbf v)+\mathbf w=\mathbf u+(\mathbf v+\mathbf w)\).</p>
+  </div>
+
+  <h2 class="sec"><span class="n">1.3</span> Múltiplos, opostos e diferença</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Multiplicação por escalar</div><p>Para um número \(k\), \(k\mathbf v\) tem comprimento \(|k|\) vezes o de \(\mathbf v\); mesmo sentido se \(k\gt0\), sentido oposto se \(k\lt0\); e \(0\mathbf v=\mathbf 0\).</p></div>
+    <div class="two">
+      <div class="box def"><div class="bl">Oposto</div><p>\(-\mathbf v=(-1)\mathbf v\): mesmo comprimento e direção, sentido contrário. \(\mathbf v+(-\mathbf v)=\mathbf 0\).</p></div>
+      <div class="box def"><div class="bl">Diferença</div><p>\(\mathbf w-\mathbf v=\mathbf w+(-\mathbf v)\). Com o mesmo início, é a seta que vai da <b>ponta de \(\mathbf v\)</b> à <b>ponta de \(\mathbf w\)</b> (pois \(\mathbf v+(\mathbf w-\mathbf v)=\mathbf w\)).</p></div>
+    </div>
+    <div class="box def"><div class="bl">Colineares (paralelos)</div><p>\(\mathbf v\) e \(\mathbf w\) são <b>colineares</b> ou <b>paralelos</b> se um é múltiplo escalar do outro, isto é, se apoiados no mesmo ponto inicial ficam sobre a mesma reta. Atenção: paralelos podem ter sentidos opostos.</p></div>
+  </div>
+  <div class="lab" data-w="vetorLab"><div class="lt">Laboratório: soma, escalar, diferença e combinação no plano</div><p class="ld">Mude as coordenadas de \(u\), \(v\) e o escalar. Veja a regra do paralelogramo, o efeito de \(k\lt0\) e a diferença ligando as pontas.</p></div>
+
+  <h2 class="sec"><span class="n">1.4</span> Coordenadas: do desenho aos números</h2>
+  <div class="prose">
+    <p>Num sistema de coordenadas, desenhe \(\mathbf v\) com início na origem. As coordenadas \((v_1,v_2)\) da ponta são os <b>componentes</b> de \(\mathbf v\), e escrevemos \(\mathbf v=(v_1,v_2)\). Dois vetores são equivalentes se, e só se, seus componentes são iguais.</p>
+    <div class="box def"><div class="bl">Operações nos componentes</div><div>\[\mathbf v+\mathbf w=(v_1+w_1,\ v_2+w_2),\qquad k\mathbf v=(kv_1,\ kv_2),\qquad \mathbf v-\mathbf w=(v_1-w_1,\ v_2-w_2)\]</div><p>A regra do paralelogramo vira simplesmente “some as coordenadas”: o desenho e a conta contam a mesma história.</p></div>
+    <h3>O espaço tridimensional</h3>
+    <p>Três eixos perpendiculares \(x,y,z\) (sistema <b>destro</b>: girando o eixo \(x\) para o eixo \(y\) com os dedos da mão direita, o polegar aponta para o \(z\) positivo). Os três <b>planos coordenados</b> (\(xy\), \(xz\), \(yz\)) dividem o espaço em 8 <b>octantes</b>. Um ponto \(P=(a,b,c)\) é alcançado andando \(a\) no eixo \(x\), \(b\) paralelamente ao eixo \(y\) e \(c\) na vertical.</p>
+    {{FIG:octantes}}
+    <div class="box obs"><div class="bl">Leitura rápida de um ponto</div><p>Uma coordenada zero: o ponto está num plano coordenado (\((3,0,3)\) está no plano \(xz\)). Duas coordenadas zero: está num eixo (\((0,0,-3)\) está no eixo \(z\), abaixo da origem). Os sinais dizem o octante: \((3,4,5)\) está no 1º octante (tudo positivo).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">1.5</span> O vetor entre dois pontos</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Fórmula</div><p>O vetor com ponto inicial \(P_1(x_1,y_1,z_1)\) e ponto final \(P_2(x_2,y_2,z_2)\) é</p><div>\[\overrightarrow{P_1P_2}=\overrightarrow{OP_2}-\overrightarrow{OP_1}=(x_2-x_1,\ y_2-y_1,\ z_2-z_1)\]</div><p><b>“Fim menos início.”</b> Justificativa: pela regra do triângulo, \(\overrightarrow{OP_1}+\overrightarrow{P_1P_2}=\overrightarrow{OP_2}\).</p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Componentes de \(\overrightarrow{P_1P_2}\) com \(P_1(2,-1,4)\) e \(P_2(7,5,-8)\).</p>
+      <div class="steps"><div class="st"><span class="pl">Fim − início</span><div class="m">\[(7-2,\ 5-(-1),\ -8-4)=(5,6,-12)\]</div></div>
+      <div class="st"><span class="pl">Leitura</span><p>Para ir de \(P_1\) a \(P_2\): 5 no sentido de \(x\), 6 no de \(y\) e 12 para baixo.</p></div></div></div>
+    <div class="box tip"><div class="bl">Três problemas do mesmo tipo</div><p>Sabendo dois dos três — ponto inicial \(A\), ponto final \(B\), vetor \(\mathbf u\) — o terceiro sai de \(B=A+\mathbf u\) ou \(A=B-\mathbf u\) (Exercícios 9–12 da Lista 2).</p></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Um drone entre dois pontos</h3>
+    <p>Um drone sai de \(P_1=(2,1,0)\) (em km, \(z\) é a altitude) e deve chegar a \(P_2=(8,9,1)\). Ele voa sempre na mesma direção, em velocidade constante, e leva 2 horas. Qual o vetor deslocamento, qual o vetor velocidade e onde ele está após 30 minutos?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · deslocamento</span><div class="m">\[\overrightarrow{P_1P_2}=(8-2,\ 9-1,\ 1-0)=(6,8,1)\ \text{km}\]</div></div>
+      <div class="st"><span class="pl">Passo 2 · velocidade = deslocamento ÷ tempo</span><div class="m">\[\mathbf v=\tfrac12(6,8,1)=(3,4,\tfrac12)\ \text{km/h}\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · posição após ½ h</span><div class="m">\[P_1+\tfrac12\mathbf v=(2,1,0)+(1{,}5;\ 2;\ 0{,}25)=(3{,}5;\ 3;\ 0{,}25)\]</div></div>
+    </div>
+    <div class="final"><b>Resposta:</b> deslocamento \((6,8,1)\) km, velocidade \((3;4;0{,}5)\) km/h, posição \((3{,}5;\ 3;\ 0{,}25)\) após meia hora. Note que é \(\frac14\) do caminho: \(P_1+\frac14\overrightarrow{P_1P_2}\).</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Ache o ponto final do vetor equivalente a \(\mathbf u=(2,-3)\) que começa em \(A(-1,4)\).</p>
+    <div class="steps"><div class="st"><span class="pl">B = A + u</span><div class="m">\[B=(-1+2,\ 4-3)=(1,1)\]</div></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Os vetores \((2,-1,4)\) e \((-6,3,-12)\) são colineares? Têm o mesmo sentido?</p>
+    <div class="steps"><div class="st"><span class="pl">Procure k</span><p>\((-6,3,-12)=-3(2,-1,4)\): colineares, com sentidos opostos (\(k\lt0\)).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Em que parte do espaço está \((0,-2,5)\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Leitura</span><p>\(x=0\): está no plano \(yz\), do lado \(y\) negativo, acima do plano \(xy\).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m1v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Duas setas são o mesmo vetor quando têm:</p>
+      <ol class="opts"><li>o mesmo ponto inicial</li><li>mesmo comprimento, direção e sentido</li><li>o mesmo ponto final</li><li>a mesma direção, só</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Vetores equivalentes: comprimento, direção e sentido iguais; a posição não importa.</p></div></div><p class="rev">Revise: <a href="#m1-s1">1.1</a></p></div>
+    <div class="q" data-id="m1v2" data-ans="D"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(\overrightarrow{P_1P_2}\) com \(P_1(4,-1)\) e \(P_2(1,3)\) é:</p>
+      <ol class="opts"><li>\((5,2)\)</li><li>\((3,-4)\)</li><li>\((5,-4)\)</li><li>\((-3,4)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Fim − início</span><p>\((1-4,\ 3+1)=(-3,4)\).</p></div></div><p class="rev">Revise: <a href="#m1-s5">1.5</a></p></div>
+    <div class="q" data-id="m1v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag f">fácil</span></div><p>Com \(\mathbf v\) e \(\mathbf w\) saindo do mesmo ponto, \(\mathbf w-\mathbf v\) é a seta:</p>
+      <ol class="opts"><li>da ponta de \(\mathbf v\) até a ponta de \(\mathbf w\)</li><li>da ponta de \(\mathbf w\) até a ponta de \(\mathbf v\)</li><li>a diagonal do paralelogramo</li><li>perpendicular a \(\mathbf v\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\mathbf v+(\mathbf w-\mathbf v)=\mathbf w\): partindo da ponta de \(\mathbf v\), chega-se à de \(\mathbf w\).</p></div></div><p class="rev">Revise: <a href="#m1-s3">1.3</a></p></div>
+    <div class="q" data-id="m1v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>O ponto \((3,0,-2)\) está:</p>
+      <ol class="opts"><li>no eixo \(x\)</li><li>no plano \(xy\)</li><li>no plano \(xz\)</li><li>no 1º octante</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(y=0\) ⇒ plano \(xz\).</p></div></div><p class="rev">Revise: <a href="#m1-s4">1.4</a></p></div>
+    <div class="q" data-id="m1v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>O ponto inicial do vetor equivalente a \(\mathbf u=(1,2,-1)\) com ponto final \(B(0,0,0)\) é:</p>
+      <ol class="opts"><li>\((1,2,-1)\)</li><li>\((-1,-2,1)\)</li><li>\((0,0,0)\)</li><li>\((2,4,-2)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">A = B − u</span><p>\((0,0,0)-(1,2,-1)=(-1,-2,1)\).</p></div></div><p class="rev">Revise: <a href="#m1-s5">1.5</a></p></div>
+    <div class="q" data-id="m1v6" data-ans="D"><div class="qh"><span class="qn">Verificação 6</span><span class="tag m">médio</span></div><p>Qual vetor é colinear a \((4,-2)\) com sentido <b>oposto</b>?</p>
+      <ol class="opts"><li>\((8,-4)\)</li><li>\((2,1)\)</li><li>\((-4,-2)\)</li><li>\((-2,1)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((-2,1)=-\frac12(4,-2)\), com \(k\lt0\).</p></div></div><p class="rev">Revise: <a href="#m1-s3">1.3</a></p></div>
+    <div class="q" data-id="m1v7" data-ans="A"><div class="qh"><span class="qn">Verificação 7</span><span class="tag d">difícil</span></div><p>O ponto a \(\frac13\) do caminho de \(P(1,1)\) para \(Q(7,4)\) é:</p>
+      <ol class="opts"><li>\((3,2)\)</li><li>\((5,3)\)</li><li>\((\frac73,\frac43)\)</li><li>\((4,\frac52)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">P + t(Q − P)</span><p>\((1,1)+\frac13(6,3)=(3,2)\).</p></div></div><p class="rev">Revise: <a href="#m1-s5">1.5</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m1d1" data-ans="C"><p>O vetor nulo é paralelo a:</p><ol class="opts"><li>nenhum vetor</li><li>só a ele mesmo</li><li>todos os vetores (por convenção)</li><li>só aos eixos</li></ol><div class="why" hidden>Como não tem direção definida, convenciona-se que é paralelo a todos.</div></div>
+    <div class="q dq" data-id="m1d2" data-ans="A"><p>“Fim menos início” calcula:</p><ol class="opts"><li>os componentes de \(\overrightarrow{P_1P_2}\)</li><li>o ponto médio</li><li>o comprimento</li><li>a soma de dois vetores</li></ol><div class="why" hidden>\(\overrightarrow{P_1P_2}=P_2-P_1\).</div></div>
+    <div class="q dq" data-id="m1d3" data-ans="D"><p>Pela regra do triângulo, \(\mathbf v+\mathbf w\) vai:</p><ol class="opts"><li>da ponta de \(\mathbf w\) à de \(\mathbf v\)</li><li>da origem ao meio do paralelogramo</li><li>sempre ao longo de \(\mathbf v\)</li><li>do início de \(\mathbf v\) à ponta de \(\mathbf w\) (com \(\mathbf w\) começando na ponta de \(\mathbf v\))</li></ol><div class="why" hidden>“Ande \(\mathbf v\), depois \(\mathbf w\).”</div></div>
+    <div class="q dq" data-id="m1d4" data-ans="B"><p>Quantos octantes há no espaço?</p><ol class="opts"><li>4</li><li>8</li><li>6</li><li>3</li></ol><div class="why" hidden>Cada coordenada pode ser positiva ou negativa: \(2^3=8\).</div></div>
+  </div>
+</div>
+</section>

@@ -1,0 +1,30 @@
+APOSTILA DE ESPACOS VETORIAIS - COMO ABRIR
+==========================================
+
+1. Descompacte o arquivo ZIP (botao direito > "Extrair tudo").
+2. Abra "apostila-espacos-vetoriais.html" com dois cliques no navegador
+   (Chrome, Edge, Firefox ou Safari atuais). Funciona sem internet.
+
+No celular: salve o .html no aparelho e abra com o navegador (Chrome).
+
+Como usar
+- Modulos: leia em ordem (1 a 10), do zero ao avancado:
+    1 Vetores no plano e no espaco     2 Sistemas e escalonamento
+    3 Espacos vetoriais                4 Subespacos
+    5 Combinacao linear e geradores    6 Dependencia e independencia (LI/LD)
+    7 Base e dimensao                  8 Coordenadas e mudanca de base
+    9 Transformacoes lineares         10 Produto interno e Gram-Schmidt
+  Cada modulo tem objetivos, teoria, exemplos guiados, laboratorios
+  interativos (com contas em fracoes exatas), estudo de caso,
+  verificacoes (valem XP) e a "Hora do desafio".
+- Listas: 7 listas com resposta e resolucao passo a passo.
+- Jogar: 4 jogos rapidos (LI ou LD?, E subespaco?, Qual a dimensao?,
+  Combinacao certa).
+- Simulado, Formulario e Perfil (nivel, conquistas).
+
+O progresso fica salvo so neste navegador, neste aparelho.
+
+Conteudo da pasta
+- apostila-espacos-vetoriais.html -> a apostila completa (arquivo unico)
+- LEIA-ME.txt                     -> este arquivo
+- licencas/KaTeX-LICENSE.txt      -> licenca do KaTeX (formulas, MIT)

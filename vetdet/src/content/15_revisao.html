@@ -1,0 +1,52 @@
+<section class="page" id="revisao">
+<div class="mhead"><span class="mi"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 4H6l6 8-6 8h12"/></svg></span><div><div class="eyebrow">Revisão final</div><h1>Formulário</h1><p class="muted">Definições, testes e roteiros do curso inteiro numa página. Toque no nome do módulo para rever a teoria.</p></div></div>
+<div class="book">
+  <div class="grid g2">
+    <div class="card" style="display:grid;gap:8px"><h3>Vetores <a class="small" href="#m1">Mód. 1</a></h3>
+      <div>\[(u_1,u_2)+(v_1,v_2)=(u_1+v_1,u_2+v_2)\quad\alpha(u_1,u_2)=(\alpha u_1,\alpha u_2)\]</div>
+      <p>Paralelos: \(v=\alpha u\). Igualdade: todas as coordenadas iguais.</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Escalonamento <a class="small" href="#m2">Mód. 2</a></h3>
+      <p>Operações: \(L_i\leftrightarrow L_j\), \(L_i\leftarrow kL_i\ (k\ne0)\), \(L_i\leftarrow L_i+kL_j\).</p>
+      <p>Posto = nº de pivôs. Linha \([0\cdots0|c\ne0]\): SI. Posto = nº incógnitas: SPD. Menor: SPI com (incógnitas − posto) livres. Homogêneo nunca é SI.</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Espaço vetorial <a class="small" href="#m3">Mód. 3</a></h3>
+      <p>Fechamento da soma e do escalar + A1 comutativa, A2 associativa, A3 nulo, A4 oposto, M1 \(\alpha(\beta u)=(\alpha\beta)u\), M2 e M3 distributivas, M4 \(1u=u\).</p>
+      <p>Exemplos: \(\mathbb R^n\), \(M_{m\times n}\), \(P_n\), funções. Para negar: um contraexemplo.</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Subespaço <a class="small" href="#m4">Mód. 4</a></h3>
+      <p>(i) \(0\in W\); (ii) \(u+v\in W\); (iii) \(\alpha u\in W\). Soluções de \(AX=0\) são subespaço; de \(AX=B\ne0\), não.</p>
+      <p>\(U\cap W\) é subespaço; \(U\cup W\) em geral não. \(U\oplus W\): soma com \(U\cap W=\{0\}\).</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Combinação e geradores <a class="small" href="#m5">Mód. 5</a></h3>
+      <div>\[[S]=\{a_1v_1+\cdots+a_kv_k\}\]</div>
+      <p>“\(w\in[S]\)?” → sistema com os \(v_i\) nas colunas. Equações de \([S]\): escalone com \((x,y,z)\) na última coluna.</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>LI e LD <a class="small" href="#m6">Mód. 6</a></h3>
+      <div>\[a_1v_1+\cdots+a_kv_k=0\Rightarrow a_i=0\ \ \forall i\quad(\text{LI})\]</div>
+      <p>Colunas + escalonar: pivô em todas → LI. \(n\) vetores em \(\mathbb R^n\): LI ⇔ det ≠ 0. Com o nulo → LD. Mais de \(n\) vetores em \(\mathbb R^n\) → LD.</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Base e dimensão <a class="small" href="#m7">Mód. 7</a></h3>
+      <p>Base = LI + gera. \(\dim\mathbb R^n=n\), \(\dim M_{m\times n}=mn\), \(\dim P_n=n+1\).</p>
+      <div>\[\dim(U+W)=\dim U+\dim W-\dim(U\cap W)\]</div>
+      <p>Em dimensão \(n\): \(n\) vetores LI ⇔ geram ⇔ base. dim de \(\{AX=0\}\) = nº de livres.</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Coordenadas <a class="small" href="#m8">Mód. 8</a></h3>
+      <div>\[[v]_C=M_{B\to C}[v]_B,\quad M_{B\to C}=[\,[b_1]_C\cdots[b_n]_C\,],\quad M_{C\to B}=M_{B\to C}^{-1}\]</div>
+      <p>Para \(C\) canônica, as colunas são os vetores de \(B\).</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Transformações <a class="small" href="#m9">Mód. 9</a></h3>
+      <p>\(T(u+v)=T(u)+T(v)\), \(T(\alpha u)=\alpha T(u)\). Matriz: colunas \(T(e_i)\).</p>
+      <div>\[\dim N(T)+\dim\text{Im}(T)=\dim V\]</div>
+      <p>Injetora ⇔ \(N(T)=\{0\}\).</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Produto interno <a class="small" href="#m10">Mód. 10</a></h3>
+      <div>\[\langle u,v\rangle=\sum u_iv_i\quad\|v\|=\sqrt{\langle v,v\rangle}\quad\cos\theta=\tfrac{\langle u,v\rangle}{\|u\|\|v\|}\]</div>
+      <div>\[\text{proj}_uv=\tfrac{\langle v,u\rangle}{\langle u,u\rangle}u\qquad w_k=v_k-\sum_{j\lt k}\tfrac{\langle v_k,w_j\rangle}{\langle w_j,w_j\rangle}w_j\]</div></div>
+  </div>
+
+  <h2 class="sec">Erros mais comuns</h2>
+  <div class="grid g2">
+    <div class="box warn"><div class="bl">Subespaços</div><ul><li>Achar que toda reta/plano é subespaço (precisa passar pela origem).</li><li>Testar só com exemplos e concluir “é subespaço” (precisa provar em geral).</li><li>Achar que a união de subespaços é subespaço.</li></ul></div>
+    <div class="box warn"><div class="bl">LI, LD e bases</div><ul><li>Colocar os vetores nas linhas e depois usar as colunas de pivô da matriz errada.</li><li>Dizer que vetores “diferentes” são LI.</li><li>Achar que 2 vetores LI geram \(\mathbb R^3\).</li></ul></div>
+    <div class="box warn"><div class="bl">Escalonamento</div><ul><li>Multiplicar uma linha por 0.</li><li>Esquecer de aplicar a operação à última coluna.</li><li>Confundir posto com número de equações.</li></ul></div>
+    <div class="box warn"><div class="bl">Coordenadas e transformações</div><ul><li>Usar \(M\) quando era \(M^{-1}\).</li><li>Achar que \(T(x)=Ax+b\) com \(b\ne0\) é linear.</li><li>Esquecer que o produto interno dá um número.</li></ul></div>
+  </div>
+
+  <h2 class="sec">Sobre esta apostila</h2>
+  <div class="prose">
+    <p>Os textos, exemplos, estudos de caso e listas foram escritos para esta apostila, seguindo a sequência usual de um curso de Álgebra Linear no Brasil. As respostas das listas e as contas dos módulos foram conferidas por computador (cálculo simbólico exato). Os laboratórios fazem todas as contas com frações exatas.</p>
+  </div>
+</div>
+</section>
