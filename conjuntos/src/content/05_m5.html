@@ -1,0 +1,94 @@
+<section class="page mod" id="m5" data-num="5" data-part="Parte III · Operações" data-short="Diferença e complementar" data-title="Diferença, complementar, De Morgan e diferença simétrica" data-icon="mirror" data-desc="A − B, o complementar em relação a U e em relação a A, as propriedades da complementação, as leis de De Morgan, A − B = A ∩ B̄ e a diferença simétrica.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>calcular diferenças e complementares, inclusive em expressões encadeadas;</li>
+    <li>usar \(A-B=A\cap\overline B\) para transformar diferença em interseção;</li>
+    <li>aplicar as leis de De Morgan e as propriedades do complementar;</li>
+    <li>calcular e provar propriedades da diferença simétrica \(A\Delta B\).</li></ul></div>
+
+  <h2 class="sec"><span class="n">5.1</span> Diferença</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><div>\[A-B=A\setminus B=\{x\mid x\in A\ \text{e}\ x\notin B\}\]</div><p>Os elementos de \(A\) que <b>não</b> estão em \(B\): “tire de \(A\) o que é de \(B\)”. Não é comutativa: \(\{1,2,3\}-\{2,3,4\}=\{1\}\), mas \(\{2,3,4\}-\{1,2,3\}=\{4\}\).</p></div>
+    <div class="tbl"><table><thead><tr><th class="l">Situação</th><th class="l">\(A-B\)</th></tr></thead><tbody>
+      <tr><td class="l">\(B\subset A\)</td><td class="l">tira-se todo o \(B\): é o complementar de \(B\) em \(A\)</td></tr>
+      <tr><td class="l">\(A\subset B\)</td><td class="l">\(\varnothing\)</td></tr>
+      <tr><td class="l">disjuntos</td><td class="l">\(A\) (nada a tirar)</td></tr>
+      <tr><td class="l">caso geral</td><td class="l">\(A\) sem a lente \(A\cap B\)</td></tr>
+    </tbody></table></div>
+  </div>
+
+  <h2 class="sec"><span class="n">5.2</span> Complementar</h2>
+  <div class="prose">
+    <div class="two">
+      <div class="box def"><div class="bl">Em relação ao universo</div><div>\[\overline A=A^C=A'=U-A\]</div><p>Tudo do universo que não está em \(A\).</p></div>
+      <div class="box def"><div class="bl">Em relação a A (Iezzi)</div><div>\[\complement_A^B=A-B\quad(\text{só se }B\subset A)\]</div><p>O que falta a \(B\) para “completar” \(A\).</p></div>
+    </div>
+    {{FIG:dif}}
+    <div class="box def"><div class="bl">A fórmula-chave</div><div>\[A-B=A\cap\overline B\]</div><p>“Estar em \(A\) e não estar em \(B\)” = “estar em \(A\) e no complementar de \(B\)”. Com ela, toda diferença vira interseção, e podemos usar as propriedades da interseção nas demonstrações.</p></div>
+    <div class="box obs"><div class="bl">Propriedades do complementar</div><p>\(A\cap\overline A=\varnothing\); \(A\cup\overline A=U\); \(\overline{\overline A}=A\); \(\overline U=\varnothing\); \(\overline\varnothing=U\); \(A\subset B\iff\overline B\subset\overline A\) (contrapositiva!).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">5.3</span> Leis de De Morgan</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Enunciado</div><div>\[\overline{A\cup B}=\overline A\cap\overline B\qquad\qquad\overline{A\cap B}=\overline A\cup\overline B\]</div><p>O complementar “atravessa” o parêntese, complementando cada parte e <b>trocando</b> \(\cup\leftrightarrow\cap\). É a versão em conjuntos de \(\neg(p\vee q)\equiv\neg p\wedge\neg q\).</p></div>
+    {{FIG:demorgan}}
+    <details class="demo"><summary>Prova da 1ª lei (elemento genérico)</summary><div><div class="steps">
+      <div class="st"><span class="pl">Cadeia de equivalências</span><div class="m">\[x\in\overline{A\cup B}\iff x\notin A\cup B\iff\neg(x\in A\vee x\in B)\iff x\notin A\wedge x\notin B\iff x\in\overline A\cap\overline B\]</div></div>
+      <div class="st"><span class="pl">Conclusão</span><p>Os dois conjuntos têm exatamente os mesmos elementos.</p></div></div></div></details>
+    <p>No Iezzi, a versão “relativa” (com \(B,C\subset A\)): \(\complement_A^{(B\cap C)}=\complement_A^B\cup\complement_A^C\) e \(\complement_A^{(B\cup C)}=\complement_A^B\cap\complement_A^C\).</p>
+  </div>
+
+  <h2 class="sec"><span class="n">5.4</span> Diferença simétrica</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><div>\[A\Delta B=(A-B)\cup(B-A)=(A\cup B)-(A\cap B)\]</div><p>Elementos que estão em <b>exatamente um</b> dos dois (o “ou exclusivo”).</p></div>
+    {{FIG:difsim}}
+    <details class="demo"><summary>Prova de que as duas fórmulas coincidem</summary><div><div class="steps">
+      <div class="st"><span class="pl">Diferença → interseção</span><div class="m">\[(A\cup B)-(A\cap B)=(A\cup B)\cap\overline{A\cap B}\]</div></div>
+      <div class="st"><span class="pl">De Morgan</span><div class="m">\[=(A\cup B)\cap(\overline A\cup\overline B)\]</div></div>
+      <div class="st"><span class="pl">Distributiva (duas vezes)</span><div class="m">\[=(A\cap\overline A)\cup(B\cap\overline A)\cup(A\cap\overline B)\cup(B\cap\overline B)\]</div></div>
+      <div class="st"><span class="pl">\(X\cap\overline X=\varnothing\)</span><div class="m">\[=(B\cap\overline A)\cup(A\cap\overline B)=(B-A)\cup(A-B)=A\Delta B\]</div></div></div></div></details>
+    <div class="box obs"><div class="bl">Propriedades</div><p>\(A\Delta\varnothing=A\); \(A\Delta A=\varnothing\); \(A\Delta B=B\Delta A\); \(\overline A\Delta\overline B=A\Delta B\); \(X\cap(Y\Delta Z)=(X\cap Y)\Delta(X\cap Z)\) (IME 1987, Lista 1).</p></div>
+  </div>
+  <div class="lab" data-w="setLab" data-o='{"U":"1, 2, 3, 4, 5, 6, 7","A":"1, 2, 3, 4, 5","B":"1, 3, 5, 7","C":"2, 5, 6, 7","e":"(A − C)′"}'><div class="lt">Laboratório: diferença, complementar e De Morgan</div><p class="ld">Estes são os conjuntos da Questão 8 da Aula 00. Teste \((A-C)'\), \(B'\cup C\), \((A\cup B)'\) e \(A'\cap B'\). Use ' (apóstrofo) para o complementar.</p></div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>\(U=\{1,\dots,7\}\), \(A=\{1,2,3,4,5\}\), \(B=\{1,3,5,7\}\): ache \(\overline{A-\overline B}\).</p>
+    <div class="steps"><div class="st"><span class="pl">De dentro para fora</span><p>\(\overline B=\{2,4,6\}\); \(A-\overline B=\{1,3,5\}\); complementar: \(\{2,4,6,7\}\).</p></div>
+    <div class="st"><span class="pl">Atalho</span><p>\(A-\overline B=A\cap B\) e \(\overline{A\cap B}=\overline A\cup\overline B=\{6,7\}\cup\{2,4,6\}\) ✓</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>\(\{a,b,c,d\}\Delta\{c,d,e,f,g\}\).</p>
+    <div class="steps"><div class="st"><span class="pl">Exatamente um</span><p>\(\{a,b,e,f,g\}\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Simplifique \(\overline{(A-B)}\cup A\).</p>
+    <div class="steps"><div class="st"><span class="pl">Passos</span><p>\(\overline{A\cap\overline B}\cup A=(\overline A\cup B)\cup A=(\overline A\cup A)\cup B=U\).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m5v1" data-ans="A"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>\(\{1,2,3,4,5\}-\{2,3,4\}\) é:</p>
+      <ol class="opts"><li>\(\{1,5\}\)</li><li>\(\{2,3,4\}\)</li><li>\(\{1,2,3,4,5\}\)</li><li>\(\varnothing\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Tira 2, 3, 4.</p></div></div><p class="rev">Revise: <a href="#m5-s1">5.1</a></p></div>
+    <div class="q" data-id="m5v2" data-ans="C"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(A-B\) é igual a:</p>
+      <ol class="opts"><li>\(B-A\)</li><li>\(A\cup\overline B\)</li><li>\(A\cap\overline B\)</li><li>\(\overline A\cap B\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Em \(A\) e fora de \(B\).</p></div></div><p class="rev">Revise: <a href="#m5-s2">5.2</a></p></div>
+    <div class="q" data-id="m5v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>\(\overline{A\cap B}\) é igual a:</p>
+      <ol class="opts"><li>\(\overline A\cap\overline B\)</li><li>\(A\cup B\)</li><li>\(\overline A\cap B\)</li><li>\(\overline A\cup\overline B\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">De Morgan</span><p>Complementa cada um e troca \(\cap\) por \(\cup\).</p></div></div><p class="rev">Revise: <a href="#m5-s3">5.3</a></p></div>
+    <div class="q" data-id="m5v4" data-ans="B"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Se \(A\subset B\), então:</p>
+      <ol class="opts"><li>\(\overline A\subset\overline B\)</li><li>\(\overline B\subset\overline A\)</li><li>\(\overline A=\overline B\)</li><li>\(A-B=A\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Contrapositiva</span><p>Quem está fora de \(B\) está fora de \(A\).</p></div></div><p class="rev">Revise: <a href="#m5-s2">5.2</a></p></div>
+    <div class="q" data-id="m5v5" data-ans="A"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>\(A\Delta A\) e \(A\Delta\varnothing\) valem:</p>
+      <ol class="opts"><li>\(\varnothing\) e \(A\)</li><li>\(A\) e \(\varnothing\)</li><li>\(A\) e \(A\)</li><li>\(U\) e \(A\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Nada está em exatamente um de \(A,A\); com \(\varnothing\), sobra \(A\).</p></div></div><p class="rev">Revise: <a href="#m5-s4">5.4</a></p></div>
+    <div class="q" data-id="m5v6" data-ans="C"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>\(A-(A-B)\) é igual a:</p>
+      <ol class="opts"><li>\(B\)</li><li>\(A-B\)</li><li>\(A\cap B\)</li><li>\(\varnothing\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passos</span><p>\(A\cap\overline{A\cap\overline B}=A\cap(\overline A\cup B)=(A\cap\overline A)\cup(A\cap B)=A\cap B\).</p></div></div><p class="rev">Revise: <a href="#m5-s3">5.3</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m5d1" data-ans="B"><p>De Morgan em conjuntos corresponde, na lógica, a:</p><ol class="opts"><li>\(p\to q\equiv\neg q\to\neg p\)</li><li>\(\neg(p\vee q)\equiv\neg p\wedge\neg q\)</li><li>\(p\wedge q\equiv q\wedge p\)</li><li>\(\neg\neg p\equiv p\)</li></ol><div class="why" hidden>Complementar da união = interseção dos complementares.</div></div>
+    <div class="q dq" data-id="m5d2" data-ans="D"><p>\(\complement_A^B\) só é definido quando:</p><ol class="opts"><li>\(A\subset B\)</li><li>\(A\cap B=\varnothing\)</li><li>\(A=U\)</li><li>\(B\subset A\)</li></ol><div class="why" hidden>Complementar de B em relação a A exige B ⊂ A.</div></div>
+    <div class="q dq" data-id="m5d3" data-ans="A"><p>\(A\Delta B=(A\cup B)-(A\cap B)\) porque:</p><ol class="opts"><li>tira-se a lente da união</li><li>tira-se A de B</li><li>é a união de A e B</li><li>é a interseção dos complementares</li></ol><div class="why" hidden>Sobra o que está em exatamente um.</div></div>
+    <div class="q dq" data-id="m5d4" data-ans="C"><p>\(A\cup\overline A\) é:</p><ol class="opts"><li>\(\varnothing\)</li><li>\(A\)</li><li>\(U\)</li><li>depende</li></ol><div class="why" hidden>Todo elemento de U está em A ou fora de A.</div></div>
+  </div>
+</div>
+</section>

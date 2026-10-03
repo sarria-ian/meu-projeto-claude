@@ -1,0 +1,89 @@
+<section class="page mod" id="m7" data-num="7" data-part="Parte IV · Raciocínio" data-short="Cardinalidade" data-title="Contando elementos: o princípio da inclusão e exclusão" data-icon="sigma" data-desc="n(A ∪ B) = n(A) + n(B) − n(A ∩ B), a fórmula para 3 conjuntos e para n conjuntos, n(A − B), n(𝒫(A)) e o método de preencher o Venn de dentro para fora.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>usar e provar \(n(A\cup B)=n(A)+n(B)-n(A\cap B)\);</li>
+    <li>aplicar a fórmula de 3 conjuntos e o preenchimento do Venn “de dentro para fora”;</li>
+    <li>calcular \(n(A-B)\) e quantidades “só”, “ao menos dois”, “nenhum”;</li>
+    <li>resolver problemas de pesquisa (EN, Fuvest, Iezzi) sem se perder.</li></ul></div>
+
+  <h2 class="sec"><span class="n">7.1</span> Dois conjuntos</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Princípio da inclusão e exclusão</div><div>\[n(A\cup B)=n(A)+n(B)-n(A\cap B)\]</div><p>Somando \(n(A)+n(B)\), quem está na lente foi contado <b>duas vezes</b>; subtraímos uma vez. Se forem disjuntos, \(n(A\cup B)=n(A)+n(B)\).</p></div>
+    <details class="demo" open><summary>Prova pelas três regiões</summary><div><div class="steps">
+      <div class="st"><span class="pl">Regiões</span><p>\(x=n(A-B)\), \(y=n(A\cap B)\), \(z=n(B-A)\). Então \(n(A)=x+y\), \(n(B)=y+z\), \(n(A\cup B)=x+y+z\).</p></div>
+      <div class="st"><span class="pl">Conta</span><div class="m">\[n(A)+n(B)=x+2y+z=n(A\cup B)+n(A\cap B)\]</div></div></div></div></details>
+    <div class="box obs"><div class="bl">Diferença</div><p>\(n(A-B)=n(A)-n(A\cap B)\). Casos: \(B\subset A\Rightarrow n(A)-n(B)\); \(A\subset B\Rightarrow0\); disjuntos \(\Rightarrow n(A)\). E \(n(\overline A)=n(U)-n(A)\).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">7.2</span> Três conjuntos</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Fórmula</div><div>\[n(A\cup B\cup C)=n(A)+n(B)+n(C)-n(A\cap B)-n(A\cap C)-n(B\cap C)+n(A\cap B\cap C)\]</div><p><b>Inclui</b> os singulares, <b>exclui</b> os pares, <b>inclui</b> de novo o triplo. Conferência: um elemento do centro é contado \(3-3+1=1\) vez.</p></div>
+    {{FIG:regioes3}}
+    <div class="box tip"><div class="bl">Método do diagrama (mais seguro em prova)</div><ol><li>Escreva o <b>centro</b> \(n(A\cap B\cap C)\).</li><li>Para cada par: “só os dois” = \(n(\text{par})-\)centro.</li><li>Para cada conjunto: “só ele” = \(n(\text{conjunto})-\)(as três regiões dele já preenchidas).</li><li>Fora = total \(-\) soma de tudo dentro.</li></ol><p>Se aparecer número negativo, os dados são inconsistentes (ou você leu algo errado).</p></div>
+    <div class="box obs"><div class="bl">Para \(n\) conjuntos (curiosidade)</div><p>\(n(A_1\cup\dots\cup A_n)=S_1-S_2+S_3-\dots+(-1)^{n-1}S_n\), em que \(S_k\) é a soma das cardinalidades de todas as interseções de \(k\) conjuntos.</p></div>
+  </div>
+  <div class="lab" data-w="ieLab"><div class="lt">Laboratório: preenchendo o Venn de dentro para fora</div><p class="ld">Digite os dados (ou escolha um problema) e aperte ▶. Cada região é preenchida com a conta que a gerou; no fim aparece a fórmula da inclusão-exclusão.</p></div>
+
+  <h2 class="sec"><span class="n">7.3</span> Partes e vocabulário de problemas</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Cardinalidade das partes</div><div>\[n(\mathcal P(A))=2^{n(A)}\]</div><p>Ex. (Iezzi 49): \(n(A)=4\), \(n(B)=5\), \(n(A\cap B)=3\Rightarrow n(A\cup B)=6\Rightarrow\) \(2^6=64\) subconjuntos.</p></div>
+    <div class="tbl"><table><thead><tr><th class="l">No enunciado</th><th class="l">Na linguagem de conjuntos</th></tr></thead><tbody>
+      <tr><td class="l">“só A”, “apenas A”</td><td class="l">\(A-(B\cup C)\)</td></tr>
+      <tr><td class="l">“A e B” (sem dizer “só”)</td><td class="l">\(A\cap B\) — <b>inclui</b> quem também está em C</td></tr>
+      <tr><td class="l">“pelo menos um”</td><td class="l">\(A\cup B\cup C\)</td></tr>
+      <tr><td class="l">“nenhum”</td><td class="l">\(\overline{A\cup B\cup C}\)</td></tr>
+      <tr><td class="l">“ao menos dois”</td><td class="l">soma das três regiões “só dois” + centro</td></tr>
+      <tr><td class="l">“não é A” (ex.: “não negros”)</td><td class="l">\(\overline A\) — use a complementação</td></tr>
+    </tbody></table></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Fuvest 2018: contando pelos reprovados</h3>
+    <p>20 candidatos passaram nas três provas; 14 não passaram em matemática, 16 em português, 12 em inglês; 5 em mat. e port., 3 em mat. e ingl., 7 em port. e ingl.; 2 nas três. Quantos candidatos havia?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · escolha os conjuntos certos</span><p>Os dados falam de quem <b>não</b> atingiu a nota: \(M,P,I\) = reprovados em cada matéria. Os 20 aprovados ficam fora de \(M\cup P\cup I\).</p></div>
+      <div class="st"><span class="pl">Passo 2 · inclusão-exclusão</span><div class="m">\[n(M\cup P\cup I)=14+16+12-5-3-7+2=29\]</div></div>
+      <div class="st"><span class="pl">Passo 3 · total</span><div class="m">\[29+20=49\]</div></div>
+    </div>
+    <div class="final"><b>Resposta:</b> 49 candidatos (alternativa e). No diagrama: centro 2; pares 3, 1, 5; só M 8, só P 6, só I 4; fora 20.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>415 alunos; 221 inglês, 163 francês, 52 os dois. Nenhum dos dois?</p>
+    <div class="steps"><div class="st"><span class="pl">Conta</span><p>\(n(I\cup F)=221+163-52=332\); nenhum: \(415-332=83\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>\(n(A)=12\), \(n(A\cap B)=4\). Quanto é \(n(A-B)\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Conta</span><p>\(12-4=8\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Brancos 70, não negros 350, amarelos são 50% do total. Total?</p>
+    <div class="steps"><div class="st"><span class="pl">Complementar</span><p>Não negros = brancos + amarelos ⇒ amarelos 280 ⇒ total 560.</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m7v1" data-ans="C"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>\(n(A)=10\), \(n(B)=8\), \(n(A\cap B)=3\). \(n(A\cup B)\) vale:</p>
+      <ol class="opts"><li>18</li><li>21</li><li>15</li><li>13</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(10+8-3=15\).</p></div></div><p class="rev">Revise: <a href="#m7-s1">7.1</a></p></div>
+    <div class="q" data-id="m7v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>Se \(A\) e \(B\) são disjuntos, \(n(A\cup B)\) é:</p>
+      <ol class="opts"><li>\(n(A)+n(B)\)</li><li>\(n(A)\cdot n(B)\)</li><li>\(0\)</li><li>\(n(A)-n(B)\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Não há o que descontar.</p></div></div><p class="rev">Revise: <a href="#m7-s1">7.1</a></p></div>
+    <div class="q" data-id="m7v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>EN 2008: 36 alunos, 18/16/18 acertos, pares 9/10/7, 4 erraram tudo. Acertaram as três:</p>
+      <ol class="opts"><li>8</li><li>26</li><li>4</li><li>6</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(32=52-26+x\Rightarrow x=6\).</p></div></div><p class="rev">Revise: <a href="#m7-s2">7.2</a></p></div>
+    <div class="q" data-id="m7v4" data-ans="B"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Com A 109, A∩B 25, A∩C 28, A∩B∩C 5, “só A” vale:</p>
+      <ol class="opts"><li>51</li><li>61</li><li>56</li><li>81</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">De dentro para fora</span><p>Só A e B: 20; só A e C: 23; só A: \(109-5-20-23=61\).</p></div></div><p class="rev">Revise: <a href="#m7-s2">7.2</a></p></div>
+    <div class="q" data-id="m7v5" data-ans="C"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>Se \(n(A\cup B)=6\), quantos subconjuntos tem \(A\cup B\)?</p>
+      <ol class="opts"><li>12</li><li>36</li><li>64</li><li>32</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(2^6=64\).</p></div></div><p class="rev">Revise: <a href="#m7-s3">7.3</a></p></div>
+    <div class="q" data-id="m7v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Na pesquisa do sabão (pares 25, 41, 28; triplo 5), quantos consomem ao menos duas marcas?</p>
+      <ol class="opts"><li>84</li><li>94</li><li>99</li><li>89</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>“Só dois”: 20 + 36 + 23 = 79; mais o centro 5: 84. (Atalho: \(25+41+28-2\cdot5\).)</p></div></div><p class="rev">Revise: <a href="#m7-s3">7.3</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m7d1" data-ans="B"><p>Por que subtraímos \(n(A\cap B)\)?</p><ol class="opts"><li>porque a lente não pertence a A</li><li>porque ela foi contada duas vezes</li><li>porque é vazia</li><li>por convenção</li></ol><div class="why" hidden>Está em n(A) e em n(B).</div></div>
+    <div class="q dq" data-id="m7d2" data-ans="D"><p>No Venn de 3 conjuntos, começamos a preencher pelo:</p><ol class="opts"><li>“fora”</li><li>maior conjunto</li><li>“só A”</li><li>centro \(A\cap B\cap C\)</li></ol><div class="why" hidden>Ele está contido em todos os outros dados.</div></div>
+    <div class="q dq" data-id="m7d3" data-ans="A"><p>“A e B”, sem a palavra “só”, inclui quem também está em C?</p><ol class="opts"><li>sim</li><li>não</li><li>só se C ⊂ A</li><li>depende do total</li></ol><div class="why" hidden>n(A ∩ B) conta todos que estão em A e em B.</div></div>
+    <div class="q dq" data-id="m7d4" data-ans="C"><p>Na fórmula de 3 conjuntos, o termo triplo entra com sinal:</p><ol class="opts"><li>−</li><li>×2</li><li>+</li><li>não entra</li></ol><div class="why" hidden>Inclui, exclui, inclui.</div></div>
+  </div>
+</div>
+</section>

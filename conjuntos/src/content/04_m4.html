@@ -1,0 +1,80 @@
+<section class="page mod" id="m4" data-num="4" data-part="Parte III · Operações" data-short="União e interseção" data-title="União e interseção: “ou” e “e” em forma de conjunto" data-icon="combo" data-desc="Definições pela lógica, os três casos de posição, propriedades (idempotente, neutro, comutativa, associativa), absorção e as distributivas, com diagramas.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>calcular \(A\cup B\) e \(A\cap B\) e reconhecer conjuntos disjuntos;</li>
+    <li>usar as propriedades da união e da interseção, inclusive absorção e distributivas;</li>
+    <li>pintar no diagrama de Venn qualquer combinação de \(\cup\) e \(\cap\) com 2 ou 3 conjuntos.</li></ul></div>
+
+  <h2 class="sec"><span class="n">4.1</span> Definições</h2>
+  <div class="prose">
+    <div class="two">
+      <div class="box def"><div class="bl">União (reunião)</div><div>\[A\cup B=\{x\mid x\in A\ \text{ou}\ x\in B\}\]</div><p>Os elementos que estão em <b>pelo menos um</b> dos dois. Na lista: junte tudo e não repita.</p></div>
+      <div class="box def"><div class="bl">Interseção</div><div>\[A\cap B=\{x\mid x\in A\ \text{e}\ x\in B\}\]</div><p>Os elementos que estão <b>nos dois ao mesmo tempo</b>. Se \(A\cap B=\varnothing\), \(A\) e \(B\) são <b>disjuntos</b>.</p></div>
+    </div>
+    {{FIG:ops2}}
+    <div class="box obs"><div class="bl">Ligação com a tabela-verdade</div><p>Com \(p:\ x\in A\) e \(q:\ x\in B\), as quatro regiões do Venn são as quatro linhas da tabela (VV = lente, VF = só A, FV = só B, FF = fora). \(A\cup B\) pinta as linhas em que \(p\vee q\) é V; \(A\cap B\), a linha em que \(p\wedge q\) é V.</p></div>
+    {{FIG:casos}}
+    <div class="ex"><div class="et">Exemplo guiado</div><p>\(A=\{1,2,3,4\}\), \(B=\{2,3,5,6,7\}\).</p>
+      <div class="steps"><div class="st"><span class="pl">União</span><div class="m">\[A\cup B=\{1,2,3,4,5,6,7\}\]</div></div><div class="st"><span class="pl">Interseção</span><div class="m">\[A\cap B=\{2,3\}\]</div></div></div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">4.2</span> Propriedades</h2>
+  <div class="prose">
+    <div class="tbl"><table><thead><tr><th class="l">Nome</th><th>União</th><th>Interseção</th></tr></thead><tbody>
+      <tr><td class="l">Idempotente</td><td>\(A\cup A=A\)</td><td>\(A\cap A=A\)</td></tr>
+      <tr><td class="l">Neutro</td><td>\(A\cup\varnothing=A\)</td><td>\(A\cap U=A\)</td></tr>
+      <tr><td class="l">“Absorvente”</td><td>\(A\cup U=U\)</td><td>\(A\cap\varnothing=\varnothing\)</td></tr>
+      <tr><td class="l">Comutativa</td><td>\(A\cup B=B\cup A\)</td><td>\(A\cap B=B\cap A\)</td></tr>
+      <tr><td class="l">Associativa</td><td>\((A\cup B)\cup C=A\cup(B\cup C)\)</td><td>\((A\cap B)\cap C=A\cap(B\cap C)\)</td></tr>
+      <tr><td class="l">Com inclusão</td><td>\(A\cup B=A\iff B\subset A\)</td><td>\(A\cap B=A\iff A\subset B\)</td></tr>
+    </tbody></table></div>
+    <p>Todas vêm da lógica: \(A\cup A=\{x\mid p(x)\vee p(x)\}=\{x\mid p(x)\}=A\), e assim por diante.</p>
+    <div class="two">
+      <div class="box def"><div class="bl">Absorção</div><div>\[A\cap(A\cup B)=A\qquad A\cup(A\cap B)=A\]</div><p>\(A\subset A\cup B\), então intersectar com \(A\) devolve \(A\); \(A\cap B\subset A\), então unir a \(A\) devolve \(A\).</p></div>
+      <div class="box def"><div class="bl">Distributivas</div><div>\[A\cap(B\cup C)=(A\cap B)\cup(A\cap C)\]\[A\cup(B\cap C)=(A\cup B)\cap(A\cup C)\]</div></div>
+    </div>
+    {{FIG:distrib}}
+    <div class="box tip"><div class="bl">Como lembrar a distributiva</div><p>“Distribua” o operador de fora para cada termo de dentro e troque o operador do meio pelo de dentro: \(A\cup(B\cap C)\to(A\cup B)\ \cap\ (A\cup C)\). Funciona como \(a\cdot(b+c)=ab+ac\), mas nos conjuntos vale <b>nos dois sentidos</b> (com números, \(a+bc\ne(a+b)(a+c)\)).</p></div>
+  </div>
+  <div class="lab" data-w="setLab" data-o='{"U":"1, 2, 3, 4, 5, 6, 7, 8","A":"1, 2, 3, 4","B":"3, 4, 5, 6","C":"2, 4, 6, 8","e":"A ∩ (B ∪ C)"}'><div class="lt">Laboratório: calculadora de conjuntos com Venn</div><p class="ld">Monte qualquer expressão com \(\cup\) e \(\cap\). Compare \(A\cap(B\cup C)\) com \((A\cap B)\cup(A\cap C)\): mesma região, mesmo resultado.</p></div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Se \(A\subset B\), quanto vale \(A\cup B\) e \(A\cap B\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Inclusão</span><p>\(A\cup B=B\) e \(A\cap B=A\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>\(X\cup\{3,4\}=\{1,2,3,4\}\) e \(X\cap\{3,4\}=\varnothing\). Ache \(X\).</p>
+    <div class="steps"><div class="st"><span class="pl">Raciocínio</span><p>1 e 2 precisam vir de \(X\); 3 e 4 não podem estar em \(X\): \(X=\{1,2\}\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Simplifique \((A\cup B)\cap(A\cup\overline B)\).</p>
+    <div class="steps"><div class="st"><span class="pl">Distributiva ao contrário</span><p>\(A\cup(B\cap\overline B)=A\cup\varnothing=A\).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m4v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>\(\{a,b,c\}\cap\{b,c,d,e\}\) é:</p>
+      <ol class="opts"><li>\(\{a,b,c,d,e\}\)</li><li>\(\{b,c\}\)</li><li>\(\{a\}\)</li><li>\(\varnothing\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Comuns: \(b,c\).</p></div></div><p class="rev">Revise: <a href="#m4-s1">4.1</a></p></div>
+    <div class="q" data-id="m4v2" data-ans="D"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(A\cup\varnothing\) e \(A\cap\varnothing\) são:</p>
+      <ol class="opts"><li>\(\varnothing\) e \(A\)</li><li>\(A\) e \(A\)</li><li>\(U\) e \(\varnothing\)</li><li>\(A\) e \(\varnothing\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Juntar nada não muda; o que é comum com o vazio é nada.</p></div></div><p class="rev">Revise: <a href="#m4-s2">4.2</a></p></div>
+    <div class="q" data-id="m4v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>\(A\cap B=A\) equivale a:</p>
+      <ol class="opts"><li>\(A\subset B\)</li><li>\(B\subset A\)</li><li>\(A\cap B=\varnothing\)</li><li>\(A=B\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Todo elemento de \(A\) está nos dois, logo em \(B\).</p></div></div><p class="rev">Revise: <a href="#m4-s2">4.2</a></p></div>
+    <div class="q" data-id="m4v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>\(A\cup(A\cap B)\) é igual a:</p>
+      <ol class="opts"><li>\(A\cap B\)</li><li>\(A\cup B\)</li><li>\(A\)</li><li>\(B\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Absorção</span><p>\(A\cap B\subset A\).</p></div></div><p class="rev">Revise: <a href="#m4-s2">4.2</a></p></div>
+    <div class="q" data-id="m4v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>\(A\cup(B\cap C)\) é igual a:</p>
+      <ol class="opts"><li>\((A\cup B)\cup(A\cup C)\)</li><li>\((A\cup B)\cap(A\cup C)\)</li><li>\((A\cap B)\cup C\)</li><li>\(A\cap B\cap C\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Distributiva</span><p>Da união em relação à interseção.</p></div></div><p class="rev">Revise: <a href="#m4-s2">4.2</a></p></div>
+    <div class="q" data-id="m4v6" data-ans="D"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Com \(n(A)=2\), \(n(B)=3\), \(n(C)=4\), o máximo de \(n((A\cap B)\cap C)\) é:</p>
+      <ol class="opts"><li>4</li><li>3</li><li>9</li><li>2</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Está contido em \(A\), que tem 2 elementos.</p></div></div><p class="rev">Revise: <a href="#m4-s1">4.1</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m4d1" data-ans="C"><p>Conjuntos disjuntos são aqueles em que:</p><ol class="opts"><li>\(A\cup B=\varnothing\)</li><li>\(A\subset B\)</li><li>\(A\cap B=\varnothing\)</li><li>\(A=\overline B\)</li></ol><div class="why" hidden>Sem elementos em comum.</div></div>
+    <div class="q dq" data-id="m4d2" data-ans="A"><p>O elemento neutro da interseção é:</p><ol class="opts"><li>\(U\)</li><li>\(\varnothing\)</li><li>\(A\)</li><li>não existe</li></ol><div class="why" hidden>\(A\cap U=A\).</div></div>
+    <div class="q dq" data-id="m4d3" data-ans="D"><p>Qual igualdade com números NÃO tem análoga falsa em conjuntos?</p><ol class="opts"><li>nenhuma</li><li>\(a+bc=(a+b)(a+c)\) é falsa nos conjuntos</li><li>\(a(b+c)=ab+ac\) é falsa nos conjuntos</li><li>a distributiva vale “nos dois sentidos” nos conjuntos, mas nos números só num</li></ol><div class="why" hidden>\(A\cup(B\cap C)=(A\cup B)\cap(A\cup C)\) vale; \(a+bc=(a+b)(a+c)\) não.</div></div>
+    <div class="q dq" data-id="m4d4" data-ans="B"><p>A região “lente” do Venn corresponde à linha da tabela:</p><ol class="opts"><li>FF</li><li>VV</li><li>VF</li><li>FV</li></ol><div class="why" hidden>Está em A e em B.</div></div>
+  </div>
+</div>
+</section>

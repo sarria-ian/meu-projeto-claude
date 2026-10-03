@@ -1,0 +1,86 @@
+<section class="page mod" id="m2" data-num="2" data-part="Parte I · A linguagem" data-short="Conjunto e pertinência" data-title="Conjunto, elemento, pertinência e representação" data-icon="circle" data-desc="As noções primitivas, ∈ e ∉, as três formas de representar um conjunto (enumeração, propriedade e Venn), conjuntos unitário, vazio e universo, e a igualdade de conjuntos.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>usar corretamente \(\in\) e \(\notin\) entre elemento e conjunto;</li>
+    <li>descrever um conjunto por enumeração, por propriedade (compreensão) e por diagrama de Venn;</li>
+    <li>reconhecer conjuntos unitários, vazios e o papel do conjunto universo;</li>
+    <li>decidir se dois conjuntos são iguais (ordem e repetição não importam).</li></ul></div>
+
+  <h2 class="sec"><span class="n">2.1</span> Noções primitivas</h2>
+  <div class="prose">
+    <p>Na teoria dos conjuntos, três noções são aceitas <b>sem definição</b> (são “primitivas”, como ponto e reta na geometria): <b>conjunto</b>, <b>elemento</b> e <b>pertinência</b>. Intuitivamente, conjunto é uma coleção, agrupamento ou classe; cada membro é um elemento.</p>
+    <div class="box def"><div class="bl">Pertinência</div><p>\(x\in A\): “\(x\) <b>pertence</b> a \(A\)” ou “\(x\) é elemento de \(A\)”. \(x\notin A\): “\(x\) não pertence a \(A\)”. Conjuntos costumam ser letras maiúsculas e elementos, minúsculas.</p></div>
+    <div class="box warn"><div class="bl">Conjunto pode ser elemento</div><p>Um conjunto pode ser elemento de outro: o conjunto das seleções de uma Copa é formado por equipes, que são conjuntos de jogadores. Por isso \(\{1\}\) e \(1\) são objetos diferentes: \(\{1\}\) é “uma caixa contendo o 1”.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">2.2</span> Três formas de representar</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">1. Enumeração (listagem)</div><p>Os elementos entre chaves: \(\{a,e,i,o,u\}\). Para infinitos ou muitos, use reticências mostrando a lei de formação: \(\{1,3,5,7,\dots\}\), \(\{0,1,2,\dots,500\}\).</p></div>
+    <div class="box def"><div class="bl">2. Propriedade (compreensão)</div><p>\(A=\{x\mid P(x)\}\): “\(A\) é o conjunto dos \(x\) <b>tal que</b> \(P(x)\)”. O “tal que” também aparece como “:” (ITA) — \(\{xy:\ x\in A,\ y\in B\}\). Ex.: \(\{x\mid x\text{ é divisor inteiro de }3\}=\{-3,-1,1,3\}\).</p></div>
+    <div class="box def"><div class="bl">3. Diagrama de Venn-Euler</div><p>Pontos dentro de uma curva fechada pertencem ao conjunto; os de fora, não. O retângulo em volta representa o universo \(U\). É a forma mais útil para operações e contagem.</p></div>
+    <div class="box obs"><div class="bl">Igualdade: ordem e repetição não importam</div><div>\[\{1,2,3,4\}=\{1,3,4,2\}=\{1,1,2,3,3,4,4,4\}\]</div><p>Definição: \(A=B\iff(\forall x)(x\in A\iff x\in B)\). Só importa <b>quem</b> está dentro. Mas atenção: \(\{1,\{1\}\}\ne\{1\}\), pois \(\{1\}\) é outro objeto.</p></div>
+  </div>
+  <div class="lab" data-w="setLab" data-o='{"U":"1, 2, 3, 4, 5, 6, 7, 8, 9","A":"2, 4, 6, 8","B":"3, 6, 9","C":"","e":"A ∪ B"}'><div class="lt">Laboratório: o diagrama de Venn de verdade</div><p class="ld">Digite os elementos de \(U\), \(A\), \(B\) (e \(C\), se quiser). O diagrama coloca cada elemento na região certa e pinta a expressão. Comece observando onde mora cada número.</p></div>
+
+  <h2 class="sec"><span class="n">2.3</span> Unitário, vazio e universo</h2>
+  <div class="prose">
+    <div class="two">
+      <div class="box def"><div class="bl">Unitário</div><p>Tem um único elemento. Soluções de \(3x+1=10\): \(\{3\}\).</p></div>
+      <div class="box def"><div class="bl">Vazio</div><p>Não tem elementos: \(\varnothing\) ou \(\{\ \}\). Surge de uma propriedade contraditória: \(\{x\mid x\ne x\}\), \(\{x\mid x\text{ é ímpar e múltiplo de }2\}\).</p></div>
+    </div>
+    <div class="box warn"><div class="bl">Cuidado: \(\{\varnothing\}\ne\varnothing\)</div><p>\(\varnothing\) é uma caixa vazia; \(\{\varnothing\}\) é uma caixa que contém uma caixa vazia: tem 1 elemento.</p></div>
+    <div class="box def"><div class="bl">Conjunto universo \(U\)</div><p>É o conjunto de todos os objetos permitidos no problema. A resposta depende dele! Pontos equidistantes de \(A\) e \(B\): na reta \(AB\) é <b>um ponto</b>; no plano, uma <b>reta</b> (mediatriz); no espaço, um <b>plano</b> (plano mediador). Por isso escrevemos \(A=\{x\in U\mid P(x)\}\).</p></div>
+    <div class="ex"><div class="et">Exemplo guiado (o universo muda a resposta)</div><p>\(\{x\mid1{,}2\lt x\lt2{,}25\}\) é unitário?</p>
+      <div class="steps"><div class="st"><span class="pl">Em \(\mathbb R\)</span><p>Infinitos elementos (todos os reais do intervalo).</p></div>
+      <div class="st"><span class="pl">Em \(\mathbb Z\)</span><p>Só \(x=2\): unitário \(\{2\}\).</p></div></div></div>
+  </div>
+
+  <div class="caso"><div class="bl">Exemplo prático · estudo de caso</div><h3>Uma questão do ITA lida com calma</h3>
+    <p>\(A=\{1,2,3,4,5\}\), \(B=\{-1,-2,-3,-4,-5\}\) e \(C=\{xy:\ x\in A\text{ e }y\in B\}\). Quantos elementos tem \(C\)?</p>
+    <div class="steps">
+      <div class="st"><span class="pl">Passo 1 · ler a notação</span><p>\(C\) reúne todos os produtos \(xy\), com \(x\) de \(A\) e \(y\) de \(B\): são 25 contas, mas resultados <b>repetidos contam uma vez só</b>.</p></div>
+      <div class="st"><span class="pl">Passo 2 · listar sem repetir</span><p>Todos negativos; os valores absolutos são os produtos de dois números de 1 a 5: \(1,2,3,4,5,6,8,9,10,12,15,16,20,25\).</p></div>
+    </div>
+    <div class="final"><b>Resposta:</b> 14 elementos. A armadilha é responder 25.</div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Enumere \(\{x\mid x\text{ é letra de “arara”}\}\).</p>
+    <div class="steps"><div class="st"><span class="pl">Sem repetir</span><p>\(\{a,r\}\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Descreva \(\{0,5,10,15,\dots\}\) por propriedade.</p>
+    <div class="steps"><div class="st"><span class="pl">Propriedade</span><p>\(\{x\mid x=5k,\ k\in\mathbb N\}\) (múltiplos naturais de 5).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>\(\{x\mid x^2=-1\}\) em \(\mathbb R\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Sem solução real</span><p>É \(\varnothing\).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m2v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>\(\{3,1,1,2,3\}\) é igual a:</p>
+      <ol class="opts"><li>\(\{3,1,2,3\}\) apenas</li><li>\(\{1,2,3\}\)</li><li>um conjunto de 5 elementos</li><li>\(\{1,\{2\},3\}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Repetição e ordem não importam: 3 elementos.</p></div></div><p class="rev">Revise: <a href="#m2-s2">2.2</a></p></div>
+    <div class="q" data-id="m2v2" data-ans="D"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>Qual é unitário (em \(\mathbb R\))?</p>
+      <ol class="opts"><li>\(\{x\mid x^2=4\}\)</li><li>\(\{x\mid0x=5\}\)</li><li>\(\{x\mid x\gt1\}\)</li><li>\(\{x\mid2x-1=5\}\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(2x=6\Rightarrow\{3\}\). (A: \(\{-2,2\}\); B: vazio; C: infinito.)</p></div></div><p class="rev">Revise: <a href="#m2-s3">2.3</a></p></div>
+    <div class="q" data-id="m2v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>Quantos elementos tem \(\{\varnothing\}\)?</p>
+      <ol class="opts"><li>1</li><li>0</li><li>2</li><li>depende de \(U\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Uma caixa contendo uma caixa vazia: 1 elemento.</p></div></div><p class="rev">Revise: <a href="#m2-s3">2.3</a></p></div>
+    <div class="q" data-id="m2v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>\(\{x\in\mathbb Z\mid-2\lt x\le2\}\) é:</p>
+      <ol class="opts"><li>\(\{-2,-1,0,1,2\}\)</li><li>\(\{-1,0,1\}\)</li><li>\(\{-1,0,1,2\}\)</li><li>infinito</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(-2\) fica de fora (\(\lt\)), 2 entra (\(\le\)).</p></div></div><p class="rev">Revise: <a href="#m2-s2">2.2</a></p></div>
+    <div class="q" data-id="m2v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>Os pontos do plano equidistantes de \(A\) e \(B\) formam:</p>
+      <ol class="opts"><li>um ponto</li><li>a mediatriz de \(AB\)</li><li>um plano</li><li>o vazio</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>No universo “plano”, é a reta mediatriz.</p></div></div><p class="rev">Revise: <a href="#m2-s3">2.3</a></p></div>
+    <div class="q" data-id="m2v6" data-ans="D"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Quantos elementos tem \(\{x+y:\ x,y\in\{1,2,3\}\}\)?</p>
+      <ol class="opts"><li>9</li><li>6</li><li>3</li><li>5</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Somas possíveis: 2, 3, 4, 5, 6.</p></div></div><p class="rev">Revise: <a href="#m2-s2">2.2</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m2d1" data-ans="C"><p>São noções primitivas:</p><ol class="opts"><li>união e interseção</li><li>subconjunto e partes</li><li>conjunto, elemento e pertinência</li><li>universo e vazio</li></ol><div class="why" hidden>As três são aceitas sem definição.</div></div>
+    <div class="q dq" data-id="m2d2" data-ans="A"><p>\(\{1,\{1\}\}\) tem:</p><ol class="opts"><li>2 elementos</li><li>1 elemento</li><li>3 elementos</li><li>0 elementos</li></ol><div class="why" hidden>\(1\) e \(\{1\}\) são objetos diferentes.</div></div>
+    <div class="q dq" data-id="m2d3" data-ans="B"><p>Uma propriedade contraditória define:</p><ol class="opts"><li>o universo</li><li>o vazio</li><li>um unitário</li><li>um infinito</li></ol><div class="why" hidden>Nenhum elemento a satisfaz.</div></div>
+    <div class="q dq" data-id="m2d4" data-ans="D"><p>No ITA, “\(\{xy:\ x\in A\}\)” — o “:” significa:</p><ol class="opts"><li>dividido por</li><li>razão</li><li>pertence</li><li>tal que</li></ol><div class="why" hidden>“:” e “|” significam “tal que”.</div></div>
+  </div>
+</div>
+</section>

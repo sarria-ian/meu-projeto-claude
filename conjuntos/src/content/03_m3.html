@@ -1,0 +1,86 @@
+<section class="page mod" id="m3" data-num="3" data-part="Parte II · Relações entre conjuntos" data-short="Subconjuntos e partes" data-title="Subconjuntos, a diferença entre ∈ e ⊂, e o conjunto das partes" data-icon="tri" data-desc="Inclusão e suas propriedades (com a prova de ∅ ⊂ A), conjuntos cujos elementos são conjuntos, o conjunto das partes 𝒫(A) e por que ele tem 2ⁿ elementos.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>decidir se \(A\subset B\) e justificar quando \(A\not\subset B\) com um elemento;</li>
+    <li>provar as propriedades da inclusão, inclusive \(\varnothing\subset A\);</li>
+    <li>não confundir mais \(\in\) (elemento) com \(\subset\) (subconjunto), mesmo com conjuntos dentro de conjuntos;</li>
+    <li>construir \(\mathcal P(A)\) e saber que \(n(\mathcal P(A))=2^{n(A)}\).</li></ul></div>
+
+  <h2 class="sec"><span class="n">3.1</span> Inclusão</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><div>\[A\subset B\iff(\forall x)(x\in A\Rightarrow x\in B)\]</div><p>“\(A\) está contido em \(B\)”, “\(A\) é subconjunto (ou parte) de \(B\)”, “\(B\) contém \(A\)” (\(B\supset A\)). No Venn: \(A\) desenhado <b>dentro</b> de \(B\). Truque de memória: a “boca” de \(\subset\) abre para o conjunto maior.</p></div>
+    <div class="box def"><div class="bl">Negação</div><p>\(A\not\subset B\iff\) <b>existe</b> \(x\in A\) com \(x\notin B\). Basta <b>um</b> elemento “de fora” para derrubar a inclusão. Ex.: \(\{a,b,c\}\not\subset\{b,c,d,e\}\) por causa do \(a\).</p></div>
+    <div class="box obs"><div class="bl">Subconjunto próprio</div><p>Se \(A\subset B\) e \(A\ne B\), \(A\) é subconjunto <b>próprio</b> de \(B\). Todo conjunto é subconjunto (não próprio) de si mesmo.</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">3.2</span> Propriedades (com provas)</h2>
+  <div class="prose">
+    <div class="tbl"><table><thead><tr><th class="l">Propriedade</th><th class="l">Enunciado</th><th class="l">Por quê</th></tr></thead><tbody>
+      <tr><td class="l">Vazio</td><td class="l">\(\varnothing\subset A\)</td><td class="l">“\(x\in\varnothing\Rightarrow x\in A\)” tem hipótese sempre falsa, logo é sempre V</td></tr>
+      <tr><td class="l">Reflexiva</td><td class="l">\(A\subset A\)</td><td class="l">“\(x\in A\Rightarrow x\in A\)” é óbvia</td></tr>
+      <tr><td class="l">Antissimétrica</td><td class="l">\(A\subset B\) e \(B\subset A\Rightarrow A=B\)</td><td class="l">cada elemento de um está no outro</td></tr>
+      <tr><td class="l">Transitiva</td><td class="l">\(A\subset B\) e \(B\subset C\Rightarrow A\subset C\)</td><td class="l">\(x\in A\Rightarrow x\in B\Rightarrow x\in C\)</td></tr>
+    </tbody></table></div>
+    <div class="box tip"><div class="bl">Técnica da dupla inclusão</div><p>A antissimétrica é o método padrão para <b>provar igualdade</b> de conjuntos: mostre \(A\subset B\) e depois \(B\subset A\).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">3.3</span> ∈ ou ⊂? (conjuntos dentro de conjuntos)</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Regra de ouro</div><p><b>\(\in\)</b> liga um <b>elemento</b> ao conjunto: procure o objeto, exatamente como está escrito, na lista do conjunto.<br><b>\(\subset\)</b> liga dois <b>conjuntos</b>: tire as chaves de fora e confira se cada coisa de dentro está na lista.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>\(A=\{1,\{1\},2,\{1,2\},\varnothing\}\). A lista de elementos é: \(1\), \(\{1\}\), \(2\), \(\{1,2\}\), \(\varnothing\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">\(\{1\}\in A\)?</span><p>Sim: \(\{1\}\) está na lista. E \(\{1\}\subset A\)? Também, pois \(1\) está na lista. <b>As duas valem!</b></p></div>
+        <div class="st"><span class="pl">\(\{1,2\}\)</span><p>É elemento (está na lista) e é subconjunto (1 e 2 estão na lista).</p></div>
+        <div class="st"><span class="pl">\(\{\{1,2\}\}\subset A\)?</span><p>Tirando as chaves de fora sobra \(\{1,2\}\), que está na lista: sim.</p></div>
+        <div class="st"><span class="pl">\(\varnothing\)</span><p>Aqui é elemento (está listado) <b>e</b> subconjunto (sempre).</p></div>
+        <div class="st"><span class="pl">\(\{2\}\in A\)?</span><p>Não: \(\{2\}\) não está na lista (\(2\) está, mas \(\{2\}\ne2\)).</p></div>
+      </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">3.4</span> O conjunto das partes</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><div>\[\mathcal P(A)=\{X\mid X\subset A\}\]</div><p>Os <b>elementos</b> de \(\mathcal P(A)\) são os <b>subconjuntos</b> de \(A\). Assim \(X\in\mathcal P(A)\iff X\subset A\). Sempre \(\varnothing\in\mathcal P(A)\) e \(A\in\mathcal P(A)\).</p></div>
+    <div class="box def"><div class="bl">Quantos são</div><div>\[n(A)=k\ \Rightarrow\ n(\mathcal P(A))=2^k\]</div><p>Monte um subconjunto decidindo, elemento por elemento, “entra” ou “não entra”: \(2\times2\times\dots\times2=2^k\) maneiras. Separando por tamanho, as quantidades formam uma linha do Triângulo de Pascal: para \(k=3\), \(1,3,3,1\).</p></div>
+  </div>
+  <div class="lab" data-w="partesLab"><div class="lt">Laboratório: gerador do conjunto das partes</div><p class="ld">Digite os elementos (pode usar ∅ ou {1} como elementos!). O laboratório lista todos os subconjuntos, por tamanho, com o “código” entra/não entra.</p></div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>\(\mathcal P(\{\varnothing,1\})\).</p>
+    <div class="steps"><div class="st"><span class="pl">Por tamanho</span><p>\(\varnothing\); \(\{\varnothing\}\), \(\{1\}\); \(\{\varnothing,1\}\). Total 4.</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Quantos \(X\) satisfazem \(\{1,2\}\subset X\subset\{1,2,3,4,5\}\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Livres</span><p>3, 4 e 5 são opcionais: \(2^3=8\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Se \(n(\mathcal P(A))=64\), quantos elementos tem \(A\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Passo 1</span><p>\(2^k=64\Rightarrow k=6\).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m3v1" data-ans="C"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Com \(A=\{1,2,3\}\), qual é verdadeira?</p>
+      <ol class="opts"><li>\(1\subset A\)</li><li>\(\{1\}\in A\)</li><li>\(\{1,3\}\subset A\)</li><li>\(\varnothing\in A\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>1 e 3 estão em \(A\). (1 é elemento, não subconjunto; \(\{1\}\) e \(\varnothing\) não estão listados.)</p></div></div><p class="rev">Revise: <a href="#m3-s3">3.3</a></p></div>
+    <div class="q" data-id="m3v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(n(\mathcal P(\{a,b,c,d,e\}))\) vale:</p>
+      <ol class="opts"><li>32</li><li>25</li><li>10</li><li>16</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(2^5=32\).</p></div></div><p class="rev">Revise: <a href="#m3-s4">3.4</a></p></div>
+    <div class="q" data-id="m3v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>Com \(E=\{a,\{a\}\}\), qual é FALSA?</p>
+      <ol class="opts"><li>\(\{a\}\in E\)</li><li>\(\{a\}\subset E\)</li><li>\(\varnothing\subset E\)</li><li>\(\varnothing\in E\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\varnothing\) não está listado em \(E\).</p></div></div><p class="rev">Revise: <a href="#m3-s3">3.3</a></p></div>
+    <div class="q" data-id="m3v4" data-ans="B"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Para mostrar que \(A\not\subset B\), basta:</p>
+      <ol class="opts"><li>mostrar que \(B\not\subset A\)</li><li>achar um \(x\in A\) com \(x\notin B\)</li><li>mostrar que \(n(A)\gt n(B)\) não vale</li><li>achar \(x\in B\) com \(x\notin A\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>A negação de “todo elemento de \(A\) está em \(B\)” é “existe um que não está”.</p></div></div><p class="rev">Revise: <a href="#m3-s1">3.1</a></p></div>
+    <div class="q" data-id="m3v5" data-ans="C"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>Quantos subconjuntos de \(\{1,2,3,4\}\) têm exatamente 2 elementos?</p>
+      <ol class="opts"><li>4</li><li>8</li><li>6</li><li>16</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\{1,2\},\{1,3\},\{1,4\},\{2,3\},\{2,4\},\{3,4\}\): 6 (linha 4 de Pascal: 1,4,6,4,1).</p></div></div><p class="rev">Revise: <a href="#m3-s4">3.4</a></p></div>
+    <div class="q" data-id="m3v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>Com \(B=\{a,b,\{a,b\}\}\), \(B\cap\mathcal P(B)\) é:</p>
+      <ol class="opts"><li>\(\{\{a,b\}\}\)</li><li>\(\{a,b\}\)</li><li>\(\varnothing\)</li><li>\(B\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>O único elemento de \(B\) que também é subconjunto de \(B\) é \(\{a,b\}\).</p></div></div><p class="rev">Revise: <a href="#m3-s4">3.4</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m3d1" data-ans="B"><p>Para provar \(A=B\), o método padrão é:</p><ol class="opts"><li>contar elementos</li><li>provar \(A\subset B\) e \(B\subset A\)</li><li>desenhar um Venn</li><li>achar um elemento comum</li></ol><div class="why" hidden>Antissimetria: dupla inclusão.</div></div>
+    <div class="q dq" data-id="m3d2" data-ans="D"><p>\(X\in\mathcal P(A)\) significa:</p><ol class="opts"><li>\(X\in A\)</li><li>\(A\subset X\)</li><li>\(X=A\)</li><li>\(X\subset A\)</li></ol><div class="why" hidden>Os elementos de 𝒫(A) são os subconjuntos de A.</div></div>
+    <div class="q dq" data-id="m3d3" data-ans="A"><p>\(n(\mathcal P(\varnothing))\) vale:</p><ol class="opts"><li>1</li><li>0</li><li>2</li><li>indefinido</li></ol><div class="why" hidden>\(2^0=1\): o único subconjunto de ∅ é ∅.</div></div>
+    <div class="q dq" data-id="m3d4" data-ans="C"><p>Um mesmo objeto pode ser elemento e subconjunto de \(A\)?</p><ol class="opts"><li>nunca</li><li>só se for ∅</li><li>sim, ex.: \(\{1\}\) em \(A=\{1,\{1\}\}\)</li><li>só em conjuntos infinitos</li></ol><div class="why" hidden>\(\{1\}\in A\) (listado) e \(\{1\}\subset A\) (pois \(1\in A\)).</div></div>
+  </div>
+</div>
+</section>

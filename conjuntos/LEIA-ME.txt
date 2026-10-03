@@ -1,0 +1,30 @@
+APOSTILA DE TEORIA DOS CONJUNTOS - COMO ABRIR
+=============================================
+
+1. Descompacte o arquivo ZIP (botao direito > "Extrair tudo").
+2. Abra "apostila-conjuntos.html" com dois cliques no navegador
+   (Chrome, Edge, Firefox ou Safari atuais). Funciona sem internet.
+
+No celular: salve o .html no aparelho e abra com o navegador (Chrome).
+
+Como usar
+- Modulos (leia em ordem):
+    1 Logica para conjuntos (pre-requisito)   5 Diferenca, complementar, De Morgan
+    2 Conjunto, elemento e pertinencia         6 Demonstracoes
+    3 Subconjuntos e conjunto das partes       7 Cardinalidade (inclusao-exclusao)
+    4 Uniao e intersecao                       8 Conjuntos numericos
+  Cada modulo tem teoria, exemplos guiados, laboratorios (calculadora de
+  Venn, gerador de partes, inclusao-exclusao animada, tabelas-verdade,
+  verificador de identidades), verificacoes (valem XP) e a Hora do desafio.
+- Listas: 5 listas com TODOS os exercicios dos dois materiais:
+    1 Questoes da Aula 00 (ITA 2017 e questoes 6 a 19)
+    2 Iezzi 11-22   3 Iezzi 23-37   4 Iezzi 38-47   5 Iezzi 48-61
+  cada um com resposta, resolucao passo a passo e diagramas.
+- Jogar (4 jogos), Simulado, Formulario e Perfil.
+
+O progresso fica salvo so neste navegador, neste aparelho.
+
+Conteudo da pasta
+- apostila-conjuntos.html     -> a apostila completa (arquivo unico)
+- LEIA-ME.txt                 -> este arquivo
+- licencas/KaTeX-LICENSE.txt  -> licenca do KaTeX (formulas, MIT)

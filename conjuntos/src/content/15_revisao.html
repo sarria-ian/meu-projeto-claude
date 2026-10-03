@@ -1,0 +1,43 @@
+<section class="page" id="revisao">
+<div class="mhead"><span class="mi"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 4H6l6 8-6 8h12"/></svg></span><div><div class="eyebrow">Revisão final</div><h1>Formulário de Conjuntos</h1><p class="muted">Tudo numa página. Toque no nome do módulo para rever a teoria.</p></div></div>
+<div class="book">
+  <div class="grid g2">
+    <div class="card" style="display:grid;gap:8px"><h3>Lógica <a class="small" href="#m1">Mód. 1</a></h3>
+      <p>\(\neg\) ↔ complementar; \(\wedge\) ↔ \(\cap\); \(\vee\) ↔ \(\cup\); \(\to\) ↔ \(\subset\); \(\leftrightarrow\) ↔ \(=\).</p>
+      <p>\(p\to q\) só é F com \(p\) V e \(q\) F. \(\neg(p\vee q)\equiv\neg p\wedge\neg q\). \(\neg\forall\equiv\exists\neg\).</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Pertinência e representação <a class="small" href="#m2">Mód. 2</a></h3>
+      <p>\(x\in A\) (elemento); enumeração \(\{\dots\}\); compreensão \(\{x\mid P(x)\}\); Venn. Ordem e repetição não importam. \(\varnothing=\{\ \}\ne\{\varnothing\}\). O universo muda a resposta.</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Subconjuntos e partes <a class="small" href="#m3">Mód. 3</a></h3>
+      <div>\[A\subset B\iff(\forall x)(x\in A\Rightarrow x\in B)\]</div>
+      <p>\(\varnothing\subset A\); \(A\subset A\); \(A\subset B\wedge B\subset A\Rightarrow A=B\); transitiva. \(\mathcal P(A)=\{X\mid X\subset A\}\), \(n(\mathcal P(A))=2^{n(A)}\).</p>
+      <p><b>∈:</b> procure o objeto na lista. <b>⊂:</b> tire as chaves e confira cada um.</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>União e interseção <a class="small" href="#m4">Mód. 4</a></h3>
+      <p>\(A\cup B\): “ou”; \(A\cap B\): “e”; disjuntos: \(A\cap B=\varnothing\).</p>
+      <p>\(A\cup\varnothing=A\), \(A\cap U=A\), \(A\cup U=U\), \(A\cap\varnothing=\varnothing\). Absorção: \(A\cup(A\cap B)=A=A\cap(A\cup B)\).</p>
+      <div>\[A\cap(B\cup C)=(A\cap B)\cup(A\cap C)\quad A\cup(B\cap C)=(A\cup B)\cap(A\cup C)\]</div></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Diferença e complementar <a class="small" href="#m5">Mód. 5</a></h3>
+      <div>\[A-B=A\cap\overline B,\qquad\overline A=U-A\]</div>
+      <div>\[\overline{A\cup B}=\overline A\cap\overline B,\qquad\overline{A\cap B}=\overline A\cup\overline B\]</div>
+      <p>\(A\Delta B=(A-B)\cup(B-A)=(A\cup B)-(A\cap B)\). \(A\subset B\iff\overline B\subset\overline A\).</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Demonstrações <a class="small" href="#m6">Mód. 6</a></h3>
+      <p>Elemento genérico (“seja \(x\in X\)…”); dupla inclusão; álgebra (diferença → \(\cap\overline{\ }\), De Morgan, distributiva, \(X\cap\overline X=\varnothing\)); tabela de pertinência (4 ou 8 linhas). Identidade falsa: um contraexemplo.</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Cardinalidade <a class="small" href="#m7">Mód. 7</a></h3>
+      <div>\[n(A\cup B)=n(A)+n(B)-n(A\cap B)\]</div>
+      <div>\[n(A\cup B\cup C)=\textstyle\sum n(A)-\sum n(A\cap B)+n(A\cap B\cap C)\]</div>
+      <p>\(n(A-B)=n(A)-n(A\cap B)\). Venn: centro → pares → “só” → fora.</p></div>
+    <div class="card" style="display:grid;gap:8px"><h3>Conjuntos numéricos <a class="small" href="#m8">Mód. 8</a></h3>
+      <div>\[\mathbb N\subset\mathbb Z\subset\mathbb Q\subset\mathbb R,\quad\mathbb R=\mathbb Q\cup\mathbb I\]</div>
+      <p>\(\mathbb Q=\{\frac ab\mid a\in\mathbb Z,\ b\in\mathbb Z^*\}\): decimais finitos ou periódicos. \(^*\) tira o 0; \(_+\)/\(_-\) sinal.</p></div>
+  </div>
+  <div class="card warn" style="margin-top:14px;display:grid;gap:8px"><h3>Erros clássicos</h3>
+    <ul style="margin:0;padding-left:20px">
+      <li>Usar \(\in\) entre conjuntos e \(\subset\) entre elemento e conjunto (\(1\subset\{1,2\}\) está errado; o certo é \(\{1\}\subset\{1,2\}\)).</li>
+      <li>Achar que \(\{1\}=1\), ou que \(\{\varnothing\}=\varnothing\).</li>
+      <li>Contar elementos repetidos (ITA 2017: 25 produtos, mas só 14 distintos).</li>
+      <li>Ler “A e B” como “só A e B” num problema de contagem.</li>
+      <li>Achar que \(A-B=B-A\), ou que \(\overline{A\cup B}=\overline A\cup\overline B\).</li>
+      <li>Esquecer o universo ao calcular complementares.</li>
+    </ul></div>
+  <p class="small muted" style="margin-top:14px">Sobre: textos, exemplos e soluções próprios, a partir da Aula 00 – Teoria Elementar dos Conjuntos (Prof. Victor So, EFOMM) e do Capítulo II de Fundamentos de Matemática Elementar, vol. 1 (Iezzi e Murakami).</p>
+</div>
+</section>

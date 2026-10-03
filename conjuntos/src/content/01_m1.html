@@ -1,0 +1,101 @@
+<section class="page mod" id="m1" data-num="1" data-part="Parte I · A linguagem" data-short="Lógica para conjuntos" data-title="Pré-requisito: a lógica que está por trás dos conjuntos" data-icon="link" data-desc="Proposições, os conectivos não, e, ou, se…então e se e somente se, tabelas-verdade, quantificadores e as leis de De Morgan. Cada operação com conjuntos é um conectivo disfarçado.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>reconhecer proposições e calcular o valor lógico de \(\neg p\), \(p\wedge q\), \(p\vee q\), \(p\to q\) e \(p\leftrightarrow q\);</li>
+    <li>montar tabelas-verdade e decidir se duas proposições são equivalentes;</li>
+    <li>ler os quantificadores \(\forall\) (“para todo”) e \(\exists\) (“existe”);</li>
+    <li>entender por que uma implicação com hipótese falsa é verdadeira — a chave para \(\varnothing\subset A\).</li></ul></div>
+
+  <div class="box tip"><div class="bl">Por que começar pela lógica?</div><p>A aula do Victor So parte das “Noções de Lógica” e o Iezzi define as operações com “ou” e “e”. Toda a teoria dos conjuntos é lógica disfarçada: \(x\in A\cup B\) significa “\(x\in A\) <b>ou</b> \(x\in B\)”. Dominando 5 conectivos, você entende todas as operações e consegue <b>provar</b> as propriedades.</p></div>
+
+  <h2 class="sec"><span class="n">1.1</span> Proposições</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Definição</div><p>Uma <b>proposição</b> é uma frase declarativa que é <b>ou verdadeira (V) ou falsa (F)</b>, nunca as duas. Ex.: “7 é primo” (V); “\(2+2=5\)” (F). Não são proposições: “Que horas são?”, “Feche a porta!”, “\(x+1=3\)” (depende de \(x\): é uma <b>sentença aberta</b>).</p></div>
+    <p>Sentenças abertas como \(P(x):\ x+1=3\) viram proposições quando trocamos \(x\) por um valor. Elas são exatamente o que usamos para descrever conjuntos por compreensão: \(\{x\mid P(x)\}\) é o conjunto dos valores que tornam \(P(x)\) verdadeira.</p>
+  </div>
+
+  <h2 class="sec"><span class="n">1.2</span> Os cinco conectivos</h2>
+  <div class="prose">
+    <div class="tbl"><table><thead><tr><th class="l">Conectivo</th><th>Símbolo</th><th class="l">Quando é V</th><th class="l">Vira, nos conjuntos…</th></tr></thead><tbody>
+      <tr><td class="l">não</td><td>\(\neg p\)</td><td class="l">quando \(p\) é F</td><td class="l">complementar \(\overline A\)</td></tr>
+      <tr><td class="l">e</td><td>\(p\wedge q\)</td><td class="l">só quando <b>as duas</b> são V</td><td class="l">interseção \(A\cap B\)</td></tr>
+      <tr><td class="l">ou</td><td>\(p\vee q\)</td><td class="l">quando <b>pelo menos uma</b> é V</td><td class="l">união \(A\cup B\)</td></tr>
+      <tr><td class="l">se… então</td><td>\(p\to q\)</td><td class="l">sempre, <b>exceto</b> \(p\) V e \(q\) F</td><td class="l">inclusão \(A\subset B\)</td></tr>
+      <tr><td class="l">se e somente se</td><td>\(p\leftrightarrow q\)</td><td class="l">quando têm o mesmo valor</td><td class="l">igualdade \(A=B\)</td></tr>
+    </tbody></table></div>
+    <div class="box warn"><div class="bl">O “ou” da matemática é inclusivo</div><p>“\(p\) ou \(q\)” é V também quando as duas são V. Na fala, “café ou chá?” costuma ser exclusivo; na matemática, não. O “ou exclusivo” corresponde à <b>diferença simétrica</b> \(A\Delta B\).</p></div>
+  </div>
+  <div class="lab" data-w="truthLab"><div class="lt">Laboratório: tabelas-verdade</div><p class="ld">Escolha um conectivo ou uma comparação. A tabela mostra todas as combinações de V e F; nas comparações, colunas iguais significam proposições equivalentes.</p></div>
+
+  <h2 class="sec"><span class="n">1.3</span> A implicação com hipótese falsa</h2>
+  <div class="prose">
+    <p>A linha mais estranha da tabela de \(p\to q\) é: <b>se \(p\) é falsa, \(p\to q\) é verdadeira</b>, seja \(q\) o que for. Pense numa promessa: “Se chover, eu levo o guarda-chuva”. Se não chover, você não quebrou a promessa, leve ou não o guarda-chuva. A promessa só é quebrada se chover <b>e</b> você não levar.</p>
+    <div class="box def"><div class="bl">Consequência importante</div><p>“\(x\in\varnothing\Rightarrow x\in A\)” é verdadeira para todo \(x\), porque “\(x\in\varnothing\)” é sempre falsa. Por isso <b>\(\varnothing\subset A\) para todo conjunto \(A\)</b> (Módulo 3).</p></div>
+    <div class="two">
+      <div class="box obs"><div class="bl">Contrapositiva (equivalente)</div><p>\(p\to q\ \equiv\ \neg q\to\neg p\). “Se é carioca, é brasileiro” ≡ “se não é brasileiro, não é carioca”.</p></div>
+      <div class="box warn"><div class="bl">Recíproca (NÃO equivalente)</div><p>\(q\to p\) é outra afirmação: “se é brasileiro, é carioca” é falsa.</p></div>
+    </div>
+  </div>
+
+  <h2 class="sec"><span class="n">1.4</span> Negações e De Morgan</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Leis de De Morgan (lógica)</div><div>\[\neg(p\vee q)\equiv\neg p\wedge\neg q\qquad\qquad\neg(p\wedge q)\equiv\neg p\vee\neg q\]</div><p>Negar um “ou” vira “e” de negações; negar um “e” vira “ou”. “Não é verdade que (estudo ou trabalho)” = “não estudo <b>e</b> não trabalho”.</p></div>
+    <div class="box obs"><div class="bl">Outras equivalências úteis</div><p>\(\neg(\neg p)\equiv p\); \(p\wedge(q\vee r)\equiv(p\wedge q)\vee(p\wedge r)\) (distributiva); \(p\to q\equiv\neg p\vee q\); \(\neg(p\to q)\equiv p\wedge\neg q\).</p></div>
+    <div class="ex"><div class="et">Exemplo guiado (o começo da Aula 00)</div><p>Simplifique \((p\to q)\wedge(p\to\neg q)\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Troque → por ∨</span><div class="m">\[(\neg p\vee q)\wedge(\neg p\vee\neg q)\]</div></div>
+        <div class="st"><span class="pl">Distributiva “ao contrário” (põe \(\neg p\) em evidência)</span><div class="m">\[\neg p\vee(q\wedge\neg q)\]</div></div>
+        <div class="st"><span class="pl">\(q\wedge\neg q\) é sempre F (contradição)</span><div class="m">\[\neg p\vee F\equiv\neg p\]</div></div>
+        <div class="st"><span class="pl">Leitura</span><p>Se \(p\) implicasse ao mesmo tempo \(q\) e \(\neg q\), \(p\) teria de ser falsa.</p></div>
+      </div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">1.5</span> Quantificadores</h2>
+  <div class="prose">
+    <div class="two">
+      <div class="box def"><div class="bl">Universal ∀</div><p>\(\forall x,\ P(x)\): “para todo \(x\), \(P(x)\)”. Para mostrar que é <b>falsa</b>, basta <b>um contraexemplo</b>.</p></div>
+      <div class="box def"><div class="bl">Existencial ∃</div><p>\(\exists x,\ P(x)\): “existe (pelo menos um) \(x\) com \(P(x)\)”. Para mostrar que é <b>verdadeira</b>, basta <b>um exemplo</b>.</p></div>
+    </div>
+    <div class="box obs"><div class="bl">Negação</div><div>\[\neg(\forall x,\ P(x))\equiv\exists x,\ \neg P(x)\qquad\neg(\exists x,\ P(x))\equiv\forall x,\ \neg P(x)\]</div><p>É assim que se nega a inclusão: \(A\not\subset B\) significa “<b>existe</b> \(x\in A\) com \(x\notin B\)”.</p></div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Valor lógico de “\(2\gt3\to5\) é par”.</p>
+    <div class="steps"><div class="st"><span class="pl">Hipótese falsa</span><p>“\(2\gt3\)” é F, então a implicação é V (independente da conclusão).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Negue: “todo aluno gosta de matemática ou de física”.</p>
+    <div class="steps"><div class="st"><span class="pl">∀ vira ∃ e De Morgan</span><p>“Existe aluno que não gosta de matemática <b>e</b> não gosta de física.”</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>\(p\to q\) e \(\neg p\vee q\) são equivalentes?</p>
+    <div class="steps"><div class="st"><span class="pl">Tabela</span><p>As duas só são F na linha \(p=V,\ q=F\). Sim, equivalentes.</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m1v1" data-ans="C"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>\(p\vee q\) é falsa quando:</p>
+      <ol class="opts"><li>\(p\) e \(q\) são V</li><li>só uma é V</li><li>\(p\) e \(q\) são F</li><li>nunca</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>O “ou” só falha quando nenhuma das duas acontece.</p></div></div><p class="rev">Revise: <a href="#m1-s2">1.2</a></p></div>
+    <div class="q" data-id="m1v2" data-ans="A"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(p\to q\) é falsa exatamente quando:</p>
+      <ol class="opts"><li>\(p\) é V e \(q\) é F</li><li>\(p\) é F e \(q\) é V</li><li>ambas F</li><li>ambas V</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>A “promessa” só é quebrada se a hipótese acontece e a conclusão não.</p></div></div><p class="rev">Revise: <a href="#m1-s3">1.3</a></p></div>
+    <div class="q" data-id="m1v3" data-ans="D"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>A negação de \(p\wedge q\) é:</p>
+      <ol class="opts"><li>\(\neg p\wedge\neg q\)</li><li>\(p\vee q\)</li><li>\(\neg p\wedge q\)</li><li>\(\neg p\vee\neg q\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">De Morgan</span><p>Negar “e” dá “ou” das negações.</p></div></div><p class="rev">Revise: <a href="#m1-s4">1.4</a></p></div>
+    <div class="q" data-id="m1v4" data-ans="B"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>A contrapositiva de “se \(x\in A\), então \(x\in B\)” é:</p>
+      <ol class="opts"><li>se \(x\in B\), então \(x\in A\)</li><li>se \(x\notin B\), então \(x\notin A\)</li><li>se \(x\notin A\), então \(x\notin B\)</li><li>\(x\in A\) e \(x\notin B\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(p\to q\equiv\neg q\to\neg p\).</p></div></div><p class="rev">Revise: <a href="#m1-s3">1.3</a></p></div>
+    <div class="q" data-id="m1v5" data-ans="C"><div class="qh"><span class="qn">Verificação 5</span><span class="tag m">médio</span></div><p>Para provar que “\(\forall x\in\mathbb N,\ x^2\ge x+1\)” é falsa, basta:</p>
+      <ol class="opts"><li>testar 10 valores</li><li>provar para todos</li><li>um contraexemplo, como \(x=1\)</li><li>mostrar que vale para \(x=5\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(x=1\): \(1\ge2\) é falso. Um contraexemplo derruba um “para todo”.</p></div></div><p class="rev">Revise: <a href="#m1-s5">1.5</a></p></div>
+    <div class="q" data-id="m1v6" data-ans="A"><div class="qh"><span class="qn">Verificação 6</span><span class="tag d">difícil</span></div><p>\((p\to q)\wedge(p\to\neg q)\) é equivalente a:</p>
+      <ol class="opts"><li>\(\neg p\)</li><li>\(p\)</li><li>\(q\)</li><li>sempre V</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\((\neg p\vee q)\wedge(\neg p\vee\neg q)\equiv\neg p\vee(q\wedge\neg q)\equiv\neg p\).</p></div></div><p class="rev">Revise: <a href="#m1-s4">1.4</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m1d1" data-ans="B"><p>“\(x\in A\cup B\)” corresponde a:</p><ol class="opts"><li>\(x\in A\wedge x\in B\)</li><li>\(x\in A\vee x\in B\)</li><li>\(x\in A\to x\in B\)</li><li>\(\neg(x\in A)\)</li></ol><div class="why" hidden>União = “ou”.</div></div>
+    <div class="q dq" data-id="m1d2" data-ans="D"><p>Por que \(\varnothing\subset A\) sempre?</p><ol class="opts"><li>porque \(\varnothing\) é elemento de tudo</li><li>por definição arbitrária</li><li>porque \(A\) tem elementos</li><li>porque “\(x\in\varnothing\Rightarrow x\in A\)” tem hipótese sempre falsa, logo é sempre V</li></ol><div class="why" hidden>Implicação com hipótese falsa é verdadeira.</div></div>
+    <div class="q dq" data-id="m1d3" data-ans="A"><p>A negação de “\(\forall x,\ x\in B\)” é:</p><ol class="opts"><li>\(\exists x,\ x\notin B\)</li><li>\(\forall x,\ x\notin B\)</li><li>\(\exists x,\ x\in B\)</li><li>\(B=\varnothing\)</li></ol><div class="why" hidden>Negar “todo” dá “existe um que não”.</div></div>
+    <div class="q dq" data-id="m1d4" data-ans="C"><p>O “ou” exclusivo corresponde, nos conjuntos, a:</p><ol class="opts"><li>\(A\cup B\)</li><li>\(A\cap B\)</li><li>\(A\Delta B\)</li><li>\(\overline A\)</li></ol><div class="why" hidden>Está em exatamente um dos dois: diferença simétrica.</div></div>
+  </div>
+</div>
+</section>

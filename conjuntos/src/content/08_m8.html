@@ -1,0 +1,81 @@
+<section class="page mod" id="m8" data-num="8" data-part="Parte V · Aplicação" data-short="Conjuntos numéricos" data-title="Os conjuntos numéricos: ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ" data-icon="ruler" data-desc="Naturais, inteiros, racionais (com o cuidado b ≠ 0), irracionais e reais; notações com * + −; dízimas; a cadeia de inclusões e os intervalos como conjuntos.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>descrever \(\mathbb N\), \(\mathbb Z\), \(\mathbb Q\), \(\mathbb I\) e \(\mathbb R\) e a cadeia de inclusões;</li>
+    <li>usar as notações \(\mathbb Z^*\), \(\mathbb Z_+\), \(\mathbb R_-^*\) etc.;</li>
+    <li>classificar números (racional ou irracional) e transformar dízima em fração;</li>
+    <li>operar com intervalos usando união, interseção e diferença.</li></ul></div>
+
+  <h2 class="sec"><span class="n">8.1</span> ℕ e ℤ</h2>
+  <div class="prose">
+    <div class="two">
+      <div class="box def"><div class="bl">Naturais</div><div>\[\mathbb N=\{0,1,2,3,\dots\}\]</div><p>Servem para contar e ordenar. \(\mathbb N^*=\mathbb N-\{0\}\).</p></div>
+      <div class="box def"><div class="bl">Inteiros</div><div>\[\mathbb Z=\{\dots,-2,-1,0,1,2,\dots\}\]</div><p>Os naturais e seus opostos. \(\mathbb N\subset\mathbb Z\). Em \(\mathbb Z\) a subtração sempre é possível.</p></div>
+    </div>
+    <div class="box obs"><div class="bl">Notações</div><p>\(^*\) tira o zero; \(_+\) fica com os não negativos; \(_-\) com os não positivos. Ex.: \(\mathbb Z_+=\mathbb N\), \(\mathbb Z_-^*=\{-1,-2,\dots\}\), \(\mathbb R_+^*=\{x\in\mathbb R\mid x\gt0\}\).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">8.2</span> ℚ, irracionais e ℝ</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Racionais</div><div>\[\mathbb Q=\left\{\frac ab\ \middle|\ a\in\mathbb Z,\ b\in\mathbb Z^*\right\}\]</div><p>Atenção ao \(b\ne0\) (a Aula 00 escreve só \(a,b\in\mathbb Z\); a divisão por zero não existe). Todo racional tem forma decimal <b>finita</b> (\(\frac34=0{,}75\)) ou <b>dízima periódica</b> (\(\frac13=0{,}333\dots\)). \(\mathbb Z\subset\mathbb Q\) (\(n=\frac n1\)).</p></div>
+    <div class="ex"><div class="et">Exemplo guiado: dízima em fração</div><p>Escreva \(x=0{,}\overline{27}=0{,}272727\dots\) como fração.</p>
+      <div class="steps"><div class="st"><span class="pl">Multiplique pelo período</span><div class="m">\[100x=27{,}2727\dots\]</div></div>
+      <div class="st"><span class="pl">Subtraia</span><div class="m">\[100x-x=27\Rightarrow x=\frac{27}{99}=\frac3{11}\]</div></div></div></div>
+    <div class="two">
+      <div class="box def"><div class="bl">Irracionais \(\mathbb I\)</div><p>Decimais infinitos <b>não periódicos</b>: \(\sqrt2\), \(\pi\), \(e\), \(\sqrt3+1\). Não se escrevem como \(\frac ab\).</p></div>
+      <div class="box def"><div class="bl">Reais</div><div>\[\mathbb R=\mathbb Q\cup\mathbb I,\qquad\mathbb Q\cap\mathbb I=\varnothing\]</div><p>Correspondem aos pontos da reta.</p></div>
+    </div>
+    <div class="box tip"><div class="bl">A cadeia</div><div>\[\mathbb N\subset\mathbb Z\subset\mathbb Q\subset\mathbb R,\qquad\mathbb I=\mathbb R-\mathbb Q\]</div><p>No Venn: círculos encaixados \(\mathbb N\) dentro de \(\mathbb Z\) dentro de \(\mathbb Q\), e \(\mathbb Q\) e \(\mathbb I\) dividindo o retângulo \(\mathbb R\).</p></div>
+    <div class="box warn"><div class="bl">Cuidados</div><p>\(\sqrt4=2\in\mathbb N\) (não é irracional!). \(0{,}999\dots=1\). Soma de irracionais pode ser racional: \(\sqrt2+(-\sqrt2)=0\).</p></div>
+  </div>
+
+  <h2 class="sec"><span class="n">8.3</span> Intervalos (extra)</h2>
+  <div class="prose">
+    <div class="tbl"><table><thead><tr><th class="l">Notação</th><th class="l">Conjunto</th><th class="l">Na reta</th></tr></thead><tbody>
+      <tr><td class="l">\([a,b]\)</td><td class="l">\(\{x\in\mathbb R\mid a\le x\le b\}\)</td><td class="l">bolinhas cheias nas pontas</td></tr>
+      <tr><td class="l">\(]a,b[\) ou \((a,b)\)</td><td class="l">\(\{x\mid a\lt x\lt b\}\)</td><td class="l">bolinhas vazias</td></tr>
+      <tr><td class="l">\([a,b[\)</td><td class="l">\(\{x\mid a\le x\lt b\}\)</td><td class="l">cheia em \(a\), vazia em \(b\)</td></tr>
+      <tr><td class="l">\([a,+\infty[\)</td><td class="l">\(\{x\mid x\ge a\}\)</td><td class="l">semirreta (∞ sempre aberto)</td></tr>
+    </tbody></table></div>
+    <div class="ex"><div class="et">Exemplo guiado</div><p>Com \(A=[1,5[\) e \(B=]3,7]\), calcule \(A\cap B\), \(A\cup B\) e \(A-B\).</p>
+      <div class="steps"><div class="st"><span class="pl">Desenhe as duas faixas na reta</span><p>\(A\) vai de 1 (fechado) a 5 (aberto); \(B\) de 3 (aberto) a 7 (fechado).</p></div>
+      <div class="st"><span class="pl">Leia</span><div class="m">\[A\cap B=]3,5[,\qquad A\cup B=[1,7],\qquad A-B=[1,3]\]</div><p>Em \(A-B\), o 3 fica (não está em \(B\), que é aberto em 3).</p></div></div></div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Classifique: \(-3\), \(\frac{12}4\), \(0{,}1\overline6\), \(\sqrt{12}\), \(\pi\).</p>
+    <div class="steps"><div class="st"><span class="pl">Respostas</span><p>\(-3\in\mathbb Z\); \(\frac{12}4=3\in\mathbb N\); \(0{,}1\overline6=\frac16\in\mathbb Q\); \(\sqrt{12}=2\sqrt3\in\mathbb I\); \(\pi\in\mathbb I\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>\(\mathbb Z-\mathbb N\) é:</p>
+    <div class="steps"><div class="st"><span class="pl">Diferença</span><p>Os inteiros negativos: \(\mathbb Z_-^*\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>\(\mathbb Q\cap\mathbb I\) e \(\mathbb Q\cup\mathbb I\)?</p>
+    <div class="steps"><div class="st"><span class="pl">Complementares em ℝ</span><p>\(\varnothing\) e \(\mathbb R\).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m8v1" data-ans="D"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Qual é verdadeira?</p>
+      <ol class="opts"><li>\(\mathbb Q\subset\mathbb Z\)</li><li>\(\mathbb R\subset\mathbb Q\)</li><li>\(\mathbb I\subset\mathbb Q\)</li><li>\(\mathbb Z\subset\mathbb Q\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Todo inteiro \(n\) é \(\frac n1\).</p></div></div><p class="rev">Revise: <a href="#m8-s2">8.2</a></p></div>
+    <div class="q" data-id="m8v2" data-ans="B"><div class="qh"><span class="qn">Verificação 2</span><span class="tag f">fácil</span></div><p>\(\sqrt{9}\) pertence a:</p>
+      <ol class="opts"><li>\(\mathbb I\)</li><li>\(\mathbb N\)</li><li>só \(\mathbb R\)</li><li>nenhum</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(\sqrt9=3\).</p></div></div><p class="rev">Revise: <a href="#m8-s2">8.2</a></p></div>
+    <div class="q" data-id="m8v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>\(0{,}\overline{4}\) em fração:</p>
+      <ol class="opts"><li>\(\frac49\)</li><li>\(\frac4{10}\)</li><li>\(\frac{4}{99}\)</li><li>\(\frac25\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(10x-x=4\Rightarrow x=\frac49\).</p></div></div><p class="rev">Revise: <a href="#m8-s2">8.2</a></p></div>
+    <div class="q" data-id="m8v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>\(\mathbb Z_+^*\) é:</p>
+      <ol class="opts"><li>\(\{0,1,2,\dots\}\)</li><li>\(\{\dots,-1,0\}\)</li><li>\(\{1,2,3,\dots\}\)</li><li>\(\mathbb Z\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Não negativos, sem o zero.</p></div></div><p class="rev">Revise: <a href="#m8-s1">8.1</a></p></div>
+    <div class="q" data-id="m8v5" data-ans="D"><div class="qh"><span class="qn">Verificação 5</span><span class="tag d">difícil</span></div><p>\([1,5[\cap]3,7]\) é:</p>
+      <ol class="opts"><li>\([3,5]\)</li><li>\([1,7]\)</li><li>\(]3,5]\)</li><li>\(]3,5[\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Comum: de 3 (aberto, por causa de B) a 5 (aberto, por causa de A).</p></div></div><p class="rev">Revise: <a href="#m8-s3">8.3</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m8d1" data-ans="B"><p>Na definição de \(\mathbb Q\), o denominador deve ser:</p><ol class="opts"><li>natural</li><li>inteiro não nulo</li><li>positivo e par</li><li>qualquer real</li></ol><div class="why" hidden>Não existe divisão por zero.</div></div>
+    <div class="q dq" data-id="m8d2" data-ans="A"><p>Um decimal infinito e não periódico é:</p><ol class="opts"><li>irracional</li><li>racional</li><li>inteiro</li><li>impossível</li></ol><div class="why" hidden>Os racionais são finitos ou periódicos.</div></div>
+    <div class="q dq" data-id="m8d3" data-ans="C"><p>\(\mathbb I\) é igual a:</p><ol class="opts"><li>\(\mathbb Q-\mathbb R\)</li><li>\(\mathbb R\cap\mathbb Q\)</li><li>\(\mathbb R-\mathbb Q\)</li><li>\(\mathbb Z-\mathbb N\)</li></ol><div class="why" hidden>Os reais que não são racionais.</div></div>
+    <div class="q dq" data-id="m8d4" data-ans="D"><p>O símbolo ∞ num intervalo é sempre:</p><ol class="opts"><li>fechado</li><li>um número</li><li>incluído</li><li>aberto</li></ol><div class="why" hidden>∞ não é um número real, não pode ser incluído.</div></div>
+  </div>
+</div>
+</section>

@@ -1,0 +1,90 @@
+<section class="page mod" id="m6" data-num="6" data-part="Parte IV · Raciocínio" data-short="Demonstrações" data-title="Como demonstrar e simplificar identidades com conjuntos" data-icon="check" data-desc="Os três métodos: elemento genérico, álgebra de conjuntos (as leis) e tabela de pertinência; dupla inclusão; contraexemplos para identidades falsas; simplificações de concurso.">
+<div class="book">
+  <div class="obj"><div class="bl">Objetivos de aprendizagem</div><p>Ao final deste módulo você será capaz de:</p>
+    <ul><li>provar inclusões e igualdades pelo método do elemento genérico;</li>
+    <li>simplificar expressões usando a “álgebra de conjuntos” (De Morgan, distributiva, absorção);</li>
+    <li>conferir qualquer identidade com uma tabela de pertinência;</li>
+    <li>derrubar uma identidade falsa com um contraexemplo concreto.</li></ul></div>
+
+  <h2 class="sec"><span class="n">6.1</span> Método 1: elemento genérico</h2>
+  <div class="prose">
+    <div class="box def"><div class="bl">Para provar \(X\subset Y\)</div><p>Comece com “Seja \(x\in X\)”, traduza com as definições (“e”, “ou”, “não”) e chegue em “logo \(x\in Y\)”. Como \(x\) era <b>qualquer</b>, vale para todos.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado (Iezzi 24 e 29)</div><p>Prove \(A\subset A\cup B\) e \(A\cap B\subset A\).</p>
+      <div class="steps"><div class="st"><span class="pl">1ª</span><p>Seja \(x\in A\). Então “\(x\in A\) ou \(x\in B\)” é V. Logo \(x\in A\cup B\).</p></div>
+      <div class="st"><span class="pl">2ª</span><p>Seja \(x\in A\cap B\). Então \(x\in A\) e \(x\in B\); em particular \(x\in A\).</p></div></div></div>
+    <div class="box def"><div class="bl">Para provar \(X=Y\)</div><p>Dupla inclusão (\(X\subset Y\) e \(Y\subset X\)) <b>ou</b> uma cadeia de “\(\iff\)”: \(x\in X\iff\dots\iff x\in Y\).</p></div>
+    <div class="ex"><div class="et">Exemplo guiado (Iezzi 43)</div><p>Prove \(A-\overline B=A\cap B\).</p>
+      <div class="steps"><div class="st"><span class="pl">Cadeia</span><div class="m">\[x\in A-\overline B\iff x\in A\wedge x\notin\overline B\iff x\in A\wedge x\in B\iff x\in A\cap B\]</div></div></div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">6.2</span> Método 2: álgebra de conjuntos</h2>
+  <div class="prose">
+    <div class="tbl"><table><thead><tr><th class="l">Ferramenta</th><th class="l">Lei</th></tr></thead><tbody>
+      <tr><td class="l">Tirar a diferença</td><td class="l">\(X-Y=X\cap\overline Y\)</td></tr>
+      <tr><td class="l">De Morgan</td><td class="l">\(\overline{X\cup Y}=\overline X\cap\overline Y\), \(\overline{X\cap Y}=\overline X\cup\overline Y\)</td></tr>
+      <tr><td class="l">Distributivas</td><td class="l">\(X\cap(Y\cup Z)=(X\cap Y)\cup(X\cap Z)\) e a “dual”</td></tr>
+      <tr><td class="l">Complementares</td><td class="l">\(X\cap\overline X=\varnothing\), \(X\cup\overline X=U\), \(\overline{\overline X}=X\)</td></tr>
+      <tr><td class="l">Absorção</td><td class="l">\(X\cap(X\cup Y)=X\), \(X\cup(X\cap Y)=X\)</td></tr>
+      <tr><td class="l">Neutros</td><td class="l">\(X\cup\varnothing=X\), \(X\cap U=X\)</td></tr>
+    </tbody></table></div>
+    <div class="box tip"><div class="bl">Estratégia do Victor So (IME/ITA)</div><p>Parta do lado <b>mais complicado</b> e simplifique até o outro. Roteiro: (1) troque toda diferença por interseção com complementar; (2) aplique De Morgan até os traços ficarem só sobre letras; (3) distribua; (4) apague os \(X\cap\overline X\); (5) reagrupe.</p></div>
+    <div class="ex"><div class="et">Exemplo guiado (Aula 00, questão 16a)</div><p>Simplifique \(\overline{(A\cap\overline B)\cup\overline{(A\cap B)}}\).</p>
+      <div class="steps">
+        <div class="st"><span class="pl">De Morgan no traço grande</span><div class="m">\[\overline{A\cap\overline B}\cap\overline{\overline{A\cap B}}=(\overline A\cup B)\cap(A\cap B)\]</div></div>
+        <div class="st"><span class="pl">Associativa</span><div class="m">\[=[(\overline A\cup B)\cap B]\cap A\]</div></div>
+        <div class="st"><span class="pl">Absorção: \(B\subset\overline A\cup B\)</span><div class="m">\[=B\cap A\]</div></div></div></div>
+  </div>
+
+  <h2 class="sec"><span class="n">6.3</span> Método 3: tabela de pertinência</h2>
+  <div class="prose">
+    <p>Cada elemento do universo está numa das regiões do Venn, isto é, tem uma “assinatura” de pertinência (1 = está, 0 = não está) em \(A\), \(B\), \(C\). Com 2 conjuntos há 4 assinaturas; com 3, há 8. <b>Uma identidade é verdadeira se, e só se, os dois lados dão o mesmo resultado nas 4 (ou 8) linhas.</b> É a tabela-verdade do Módulo 1 com outro nome.</p>
+    <div class="box obs"><div class="bl">Regras da tabela</div><p>\(X\cap Y\): 1 só se os dois são 1. \(X\cup Y\): 1 se algum é 1. \(\overline X\): troca 0 e 1. \(X-Y\): 1 se \(X=1\) e \(Y=0\). \(X\Delta Y\): 1 se forem diferentes.</p></div>
+  </div>
+  <div class="lab" data-w="idLab"><div class="lt">Laboratório: verificador de identidades</div><p class="ld">Digite os dois lados. Você vê os dois diagramas e a tabela de pertinência; se a identidade for falsa, aparece um contraexemplo (a região onde os lados diferem). Experimente o botão “Falsa!”.</p></div>
+
+  <h2 class="sec"><span class="n">6.4</span> Identidades falsas: contraexemplo</h2>
+  <div class="prose">
+    <div class="ex"><div class="et">Exemplo guiado</div><p>É verdade que \(A-(B-C)=(A-B)-C\)?</p>
+      <div class="steps">
+        <div class="st"><span class="pl">Desconfie</span><p>A diferença não é associativa. Procure um elemento em \(A\), \(B\) e \(C\).</p></div>
+        <div class="st"><span class="pl">Contraexemplo</span><p>\(A=B=C=\{1\}\): \(B-C=\varnothing\Rightarrow A-(B-C)=\{1\}\); mas \((A-B)-C=\varnothing-\{1\}=\varnothing\).</p></div>
+        <div class="st"><span class="pl">Conclusão</span><p>Falsa. Um único contraexemplo derruba uma identidade “para todos os conjuntos”.</p></div></div></div>
+  </div>
+
+  <h2 class="sec">Exemplos resolvidos</h2>
+  <div class="ex"><div class="et">Exemplo 1</div><p>Prove \((A\cap B)\cup(A\cap\overline B)=A\).</p>
+    <div class="steps"><div class="st"><span class="pl">Distributiva</span><p>\(A\cap(B\cup\overline B)=A\cap U=A\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 2</div><p>Prove \(A-B=(A\cup B)-B\).</p>
+    <div class="steps"><div class="st"><span class="pl">Álgebra</span><p>\((A\cup B)\cap\overline B=(A\cap\overline B)\cup(B\cap\overline B)=A\cap\overline B=A-B\).</p></div></div></div>
+  <div class="ex"><div class="et">Exemplo 3</div><p>Prove \(\overline A\Delta\overline B=A\Delta B\).</p>
+    <div class="steps"><div class="st"><span class="pl">Definição</span><p>\((\overline A\cap B)\cup(\overline B\cap A)=(B-A)\cup(A-B)\).</p></div></div></div>
+
+  <div class="theory-done"></div>
+  <h2 class="sec">Questões de verificação</h2>
+  <p class="small muted">De primeira vale 10 XP; na segunda tentativa, 5 XP. Abrir a resolução antes de acertar vale 2 XP.</p>
+  <div class="verif qs">
+    <div class="q" data-id="m6v1" data-ans="B"><div class="qh"><span class="qn">Verificação 1</span><span class="tag f">fácil</span></div><p>Para provar \(X\subset Y\) pelo elemento genérico, começamos com:</p>
+      <ol class="opts"><li>“seja \(x\in Y\)”</li><li>“seja \(x\in X\)”</li><li>“suponha \(X=Y\)”</li><li>um exemplo numérico</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>Pegamos um elemento qualquer de \(X\) e mostramos que está em \(Y\).</p></div></div><p class="rev">Revise: <a href="#m6-s1">6.1</a></p></div>
+    <div class="q" data-id="m6v2" data-ans="D"><div class="qh"><span class="qn">Verificação 2</span><span class="tag m">médio</span></div><p>Com 3 conjuntos, a tabela de pertinência tem:</p>
+      <ol class="opts"><li>3 linhas</li><li>6 linhas</li><li>9 linhas</li><li>8 linhas</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passo 1</span><p>\(2^3=8\) assinaturas (as 8 regiões do Venn).</p></div></div><p class="rev">Revise: <a href="#m6-s3">6.3</a></p></div>
+    <div class="q" data-id="m6v3" data-ans="A"><div class="qh"><span class="qn">Verificação 3</span><span class="tag m">médio</span></div><p>\((A\cup B)\cap\overline A\) simplifica para:</p>
+      <ol class="opts"><li>\(B-A\)</li><li>\(B\)</li><li>\(A\cap B\)</li><li>\(\varnothing\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Distributiva</span><p>\((A\cap\overline A)\cup(B\cap\overline A)=B\cap\overline A=B-A\).</p></div></div><p class="rev">Revise: <a href="#m6-s2">6.2</a></p></div>
+    <div class="q" data-id="m6v4" data-ans="C"><div class="qh"><span class="qn">Verificação 4</span><span class="tag m">médio</span></div><p>Qual identidade é FALSA?</p>
+      <ol class="opts"><li>\(A\cap(B\cup C)=(A\cap B)\cup(A\cap C)\)</li><li>\(\overline{A\cup B}=\overline A\cap\overline B\)</li><li>\(A-(B-C)=(A-B)-C\)</li><li>\(A\cup(A\cap B)=A\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Contraexemplo</span><p>\(A=B=C=\{1\}\).</p></div></div><p class="rev">Revise: <a href="#m6-s4">6.4</a></p></div>
+    <div class="q" data-id="m6v5" data-ans="B"><div class="qh"><span class="qn">Verificação 5</span><span class="tag d">difícil</span></div><p>\(\overline{(A-B)}\cup A\) é:</p>
+      <ol class="opts"><li>\(A\)</li><li>\(U\)</li><li>\(B\)</li><li>\(\overline B\)</li></ol>
+      <div class="sol steps"><div class="st"><span class="pl">Passos</span><p>\((\overline A\cup B)\cup A=U\cup B=U\).</p></div></div><p class="rev">Revise: <a href="#m6-s2">6.2</a></p></div>
+  </div>
+
+  <div class="desafio"><div class="dh"><span class="si"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div style="flex:1"><h3>Hora do desafio</h3><p class="small muted">Verificação rápida de tudo o que foi visto no módulo</p></div></div>
+    <div class="q dq" data-id="m6d1" data-ans="A"><p>Uma identidade entre expressões de conjuntos é verdadeira se:</p><ol class="opts"><li>os dois lados coincidem em todas as linhas da tabela de pertinência</li><li>vale para um exemplo</li><li>os Venns são parecidos</li><li>vale para \(A=B\)</li></ol><div class="why" hidden>Cada linha é uma região; todas precisam coincidir.</div></div>
+    <div class="q dq" data-id="m6d2" data-ans="C"><p>Para derrubar uma identidade, basta:</p><ol class="opts"><li>muitos testes</li><li>uma prova longa</li><li>um contraexemplo</li><li>o desenho</li></ol><div class="why" hidden>Negação de “para todos” é “existe um que não”.</div></div>
+    <div class="q dq" data-id="m6d3" data-ans="D"><p>O 1º passo do roteiro algébrico é:</p><ol class="opts"><li>distribuir</li><li>absorver</li><li>usar a associativa</li><li>trocar diferenças por \(\cap\overline{\ \cdot\ }\)</li></ol><div class="why" hidden>\(X-Y=X\cap\overline Y\).</div></div>
+    <div class="q dq" data-id="m6d4" data-ans="B"><p>“Dupla inclusão” prova:</p><ol class="opts"><li>disjunção</li><li>igualdade</li><li>vazio</li><li>cardinalidade</li></ol><div class="why" hidden>\(X\subset Y\) e \(Y\subset X\) ⇒ \(X=Y\).</div></div>
+  </div>
+</div>
+</section>
