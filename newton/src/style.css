@@ -286,3 +286,16 @@ input[type=range]{width:100%; accent-color:var(--pri); min-height:28px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
 .cb{display:inline-block;padding:3px 9px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:.86rem;font-weight:600;margin:2px 0}
 .cb.mono{font-family:var(--mono);letter-spacing:.06em}
+
+/* exercícios por módulo */
+.exmod{border:2px solid var(--pri);border-radius:16px;padding:14px 16px;margin:18px 0;background:var(--pri-soft);display:grid;gap:10px}
+.exhead{display:flex;gap:12px;align-items:center} .exhead h3{margin:0}
+.exhead .si{width:40px;height:40px;border-radius:12px;background:var(--pri);color:var(--pri-ink);display:grid;place-items:center;flex:none}
+.exgrp{display:grid;gap:6px}
+.exchips{display:flex;flex-wrap:wrap;gap:6px}
+.exchip{display:inline-block;padding:5px 10px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-weight:700;font-size:.85rem;text-decoration:none}
+.exchip:hover{border-color:var(--pri);color:var(--pri)}
+.exchip.ok{border-color:var(--ok);color:var(--ok);background:var(--ok-soft)} .exchip.bad{border-color:var(--warn);color:var(--warn);background:var(--warn-soft)}
+.lh{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline} .lmod{display:flex;flex-wrap:wrap;gap:4px 10px}
+.li:target{outline:3px solid var(--pri);outline-offset:3px;border-radius:14px;scroll-margin-top:120px}
+.li{scroll-margin-top:120px}

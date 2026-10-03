@@ -10,8 +10,22 @@ def st(label, text, m=None):
     if m: h += f'<div class="m">\\[{m}\\]</div>'
     return h + "</div>"
 
+# módulo(s) de teoria de cada exercício (botões "Exercícios deste módulo")
+def _r(a, b, mods): return {n: mods for n in range(a, b + 1)}
+MODN = {}
+for d in (_r(230, 232, "m5 m1"), _r(233, 234, "m5"), _r(235, 237, "m5 m6"), _r(238, 240, "m10 m5"), {241: "m10 m7", 242: "m10 m5", 243: "m10 m7", 244: "m10 m5", 245: "m10 m7"},
+          _r(246, 264, "m6"), _r(265, 275, "m6"), _r(276, 278, "m6 m9"), _r(279, 280, "m6 m10"),
+          _r(281, 283, "m8"), _r(284, 292, "m7"), {293: "m7 m2"},
+          {294: "m4 m3", 295: "m7", 296: "m7", 297: "m3", 298: "m7", 299: "m7", 300: "m7", 301: "m7", 302: "m7", 303: "m7", 304: "m7 m3", 305: "m7 m3", 306: "m7", 307: "m7", 308: "m7 m8", 309: "m7",
+           310: "m9 m10", 311: "m9 m10", 312: "m9", 313: "m9", 314: "m4 m3", 315: "m10", 316: "m10", 317: "m7", 318: "m7", 319: "m7 m10", 320: "m6", 321: "m10 m5"},
+          _r(322, 328, "m10 m3"), {329: "m10 m4", 330: "m4"}, _r(331, 332, "m7"), _r(333, 335, "m9")):
+    MODN.update(d)
+MODNAME = {"m1": "Potências", "m2": "Fatorial", "m3": "Combinações", "m4": "Pascal", "m5": "Desenvolvimento", "m6": "Termo geral", "m7": "Somas e maior termo", "m8": "Aplicações", "m9": "Avançado", "m10": "Técnicas do capítulo"}
+
 def item(iid, num, enun, ans, steps=None, extra=""):
-    h = f'<div class="li" data-id="{iid}"><div class="lh"><span class="ln">{num}</span></div><div class="enun">{enun}</div>{extra}'
+    mods = MODN[int(iid.split("-")[1])]
+    back = " · ".join(f'<a class="small" href="#{m}">Teoria: Mód. {m[1:]} – {MODNAME[m]}</a>' for m in mods.split())
+    h = f'<div class="li" id="ex-{iid}" data-id="{iid}" data-mod="{mods}" data-num-label="{num}"><div class="lh"><span class="ln">{num}</span><span class="lmod">{back}</span></div><div class="enun">{enun}</div>{extra}'
     h += f'<div class="li-a"><b>Resposta:</b> {ans}</div>'
     if steps: h += '<div class="sol steps">' + "".join(steps) + "</div>"
     return h + "</div>"
